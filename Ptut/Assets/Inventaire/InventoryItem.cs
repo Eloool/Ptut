@@ -5,56 +5,27 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
 
 public class InventoryItem : MonoBehaviour,IDropHandler
 {
     public Item item;
-
-    private RectTransform Position;
+    public RectTransform Position;
     private RectTransform RectParent;
 
     private void Start()
     {
         Position = GetComponent<RectTransform>();
+        Position.sizeDelta = new Vector2(125, 125);
         RectParent = transform.parent.GetComponent<RectTransform>();
-        //item = null;
     }
     public void AddItemtoSlot(Item iteme)
     {
         item = iteme;
     }
-    public void OnDrop(PointerEventData eventData)
+    virtual public void OnDrop(PointerEventData eventData)
     {
-        if (item == null || item == eventData.pointerDrag.GetComponent<Item>())
-        {
-            eventData.pointerDrag.gameObject.transform.parent = Position;
-            AddItemtoSlot(eventData.pointerDrag.GetComponent<Item>());
-            item.parent = gameObject;
-        }
-        else
-        {
-            if(item.id == eventData.pointerDrag.GetComponent<Item>().id)
-            {
-                AddtwoItem(item, eventData.pointerDrag.GetComponent<Item>());
-                //int numberofiteminexcess = 0;
-                //item.amount += eventData.pointerDrag.GetComponent<Item>().amount;
-                //if(item.amount > item.amountStockableMax)
-                //{
-                //   numberofiteminexcess =item.amount- item.amountStockableMax ;
-                //    item.amount-= numberofiteminexcess;
-                //    item.ResetTextAmount();
-                //}
-                //if (numberofiteminexcess == 0)
-                //{
-                //    Destroy(eventData.pointerDrag.gameObject);
-                //}
-                //else
-                //{
-                //    eventData.pointerDrag.GetComponent<Item>().amount = numberofiteminexcess;
-                //    eventData.pointerDrag.GetComponent<Item>().ResetTextAmount();
-                //}
-            }
-        }
+        DropItem(eventData);
     }
     public void AddtwoItem(Item item1, Item item2)
     {
@@ -87,5 +58,35 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     public void releaseItem()
     {
         item = null;
+    }
+    public void SwapTwoItem(Item item1, Item item2)
+    {
+        Transform parent = item2.transform.parent;
+        item2.transform.SetParent(item1.transform.parent);
+        item1.transform.SetParent(parent);
+        item1.parent = parent.gameObject;
+        parent.gameObject.GetComponent<InventoryItem>().item = item1;
+        item1.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+    }
+    public void DropItem(PointerEventData eventData)
+    {
+        if (item == null)
+        {
+            eventData.pointerDrag.gameObject.transform.SetParent(Position);
+            AddItemtoSlot(eventData.pointerDrag.GetComponent<Item>());
+            item.parent = gameObject;
+        }
+        else
+        {
+
+            if (item.id == eventData.pointerDrag.GetComponent<Item>().id)
+            {
+                AddtwoItem(item, eventData.pointerDrag.GetComponent<Item>());
+            }
+            else
+            {
+                SwapTwoItem(item, eventData.pointerDrag.GetComponent<Item>());
+            }
+        }
     }
 }

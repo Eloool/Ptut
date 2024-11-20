@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 125, y: 125}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3993250580982011079
 CanvasRenderer:
@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711b7e4cbd61d849beee50bc50d886d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  TypedelItem: 4
+  id: 1
   ItemName: Torche
   description: C'est une torche
   amount: 0

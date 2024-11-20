@@ -6,8 +6,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
+    public enum TypeItem
+    {
+        Casque,
+        Torse,
+        Pantalon,
+        Bottes,
+        Autre
+    }
+    public TypeItem TypedelItem;
     public int id;
     public string ItemName;
     public string description;
@@ -25,6 +35,7 @@ public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     {
         //GetComponent<Image>().sprite = iconImage;
         rectTransform = GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(110, 110);
         //zCreateTextAmount();
         //parent = null;
     }
@@ -44,6 +55,7 @@ public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
         {
             parent.transform.SetAsLastSibling();
             parent.transform.parent.transform.SetAsLastSibling();
+            parent.transform.parent.transform.parent.transform.SetAsLastSibling();
             parent.GetComponent<InventoryItem>().releaseItem();
             UpdateTextAmount();
         }
@@ -59,7 +71,8 @@ public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     {
         if (transform.parent != parent)
         {
-            rectTransform.anchoredPosition = new Vector2(0, 0);
+            rectTransform.anchoredPosition3D = Vector3.zero;
+            rectTransform.localScale = Vector3.one;
             transform.parent.GetComponent<InventoryItem>().item = this;
             GetComponent<Image>().raycastTarget = true;
             parent = transform.parent.gameObject;

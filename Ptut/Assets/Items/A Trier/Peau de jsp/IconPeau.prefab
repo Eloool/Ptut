@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3993250580982011079}
   - component: {fileID: 2121953556569269582}
   - component: {fileID: 88763915083275907}
-  - component: {fileID: -5320558645556491850}
+  - component: {fileID: -4160080692359870118}
   m_Layer: 5
-  m_Name: IconCouteau
+  m_Name: IconPeau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85a44330983a8094ba2527f50e202010, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,7 +89,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-5320558645556491850
+--- !u!114 &-4160080692359870118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,15 +98,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4484003225892084542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96134c5c589b80a498a0d0697a7a0d7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4711b7e4cbd61d849beee50bc50d886d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypedelItem: 4
-  id: 0
-  ItemName: Couteau
-  description: C'est un couteau
+  TypedelItem: 0
+  id: 4
+  ItemName: Peau
+  description: C'est une peau
   amount: 0
   amountStockableMax: 1
-  iconImage: {fileID: 21300000, guid: 85a44330983a8094ba2527f50e202010, type: 3}
-  parent: {fileID: 4484003225892084542}
+  iconImage: {fileID: 21300000, guid: c61209bf0bfce624a9e418cec33b243a, type: 3}
+  parent: {fileID: 0}
   myText: {fileID: 0}

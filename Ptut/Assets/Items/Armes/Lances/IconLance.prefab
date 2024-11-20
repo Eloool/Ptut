@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 125, y: 125}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3552537604633866046
 CanvasRenderer:
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb2cb8fbbf494f4f8196f1f9acfcae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TypedelItem: 1
   id: 2
   ItemName: Lance
   description: C'est une lance
