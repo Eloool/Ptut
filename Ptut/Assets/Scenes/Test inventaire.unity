@@ -2839,6 +2839,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2ab30767ee821489b84a88e5b2b614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listeallItems:
+  - Icon: {fileID: 4484003225892084542, guid: cddc7fe5f1ff7e545aea22c58c6f8b89, type: 3}
+    Objet3d: {fileID: 3562818600411440789, guid: 8cc2ec347b8a7044889b90f1599fc119, type: 3}
+  - Icon: {fileID: 4484003225892084542, guid: 55b4cdb7170b7d349b94b00c0b9292f9, type: 3}
+    Objet3d: {fileID: 3627358087042987815, guid: 003866d2cb9d70f429e6b0137f7eb48a, type: 3}
+  - Icon: {fileID: 5073535221756712873, guid: 694ec2511759dfe4a84db6d637f3146a, type: 3}
+    Objet3d: {fileID: 3524945178087176323, guid: 17c2301c8e2c2304a95b9bef0b55c6d0, type: 3}
+  - Icon: {fileID: 4484003225892084542, guid: 628901175d72ab544a3c7b0c631c3c3f, type: 3}
+    Objet3d: {fileID: 7475242424506814901, guid: d191f41cb5b8dc34780c165545ca9593, type: 3}
+  - Icon: {fileID: 4484003225892084542, guid: 86f0b2fba55158847be4b3fbadc00bfd, type: 3}
+    Objet3d: {fileID: 3277824801262417257, guid: 3e4ecba93fdee9643bb7452d68be73af, type: 3}
   listeItems:
   - {fileID: 4484003225892084542, guid: cddc7fe5f1ff7e545aea22c58c6f8b89, type: 3}
   - {fileID: 4484003225892084542, guid: 55b4cdb7170b7d349b94b00c0b9292f9, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3993250580982011079}
   - component: {fileID: 2121953556569269582}
   - component: {fileID: 88763915083275907}
-  - component: {fileID: -5320558645556491850}
+  - component: {fileID: 4592949932158969562}
   m_Layer: 5
   m_Name: IconCouteau
   m_TagString: Untagged
@@ -89,7 +89,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-5320558645556491850
+--- !u!114 &4592949932158969562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4484003225892084542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96134c5c589b80a498a0d0697a7a0d7a, type: 3}
+  m_Script: {fileID: 11500000, guid: e7d4c0021bdbb2c48b3fe6bafde243f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TypedelItem: 4
@@ -108,5 +108,6 @@ MonoBehaviour:
   amount: 0
   amountStockableMax: 1
   iconImage: {fileID: 21300000, guid: 85a44330983a8094ba2527f50e202010, type: 3}
-  parent: {fileID: 4484003225892084542}
+  candragitem: 1
+  parent: {fileID: 0}
   myText: {fileID: 0}

@@ -8,21 +8,21 @@ using static UnityEditor.Progress;
 public class InventoryBase : MonoBehaviour
 {
     public List<InventoryItem> ListeObjets;
-
-    virtual public void Start()
+    virtual public void StartInventaire()
     {
         ListeObjets = GetComponentsInChildren<InventoryItem>().ToList();
         foreach (InventoryItem item in ListeObjets)
         {
             item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().Background;
         }
+        ListeObjets.RemoveRange(ListeObjets.Count - 4, 4);
     }
     public void AddIconIventaire(int id, int amount)
     {
-        if (id < transform.parent.GetComponent<ListeItems>().listeItems.Count() && id >= 0)
+        if (id < transform.parent.GetComponent<ListeItems>().listeallItems.Count() && id >= 0)
         {
-            int numbericons = 1 + amount / transform.parent.GetComponent<ListeItems>().listeItems[id].GetComponent<Item>().amountStockableMax;
-            if (transform.parent.GetComponent<ListeItems>().listeItems[id].GetComponent<Item>().amountStockableMax == 1)
+            int numbericons = 1 + amount / transform.parent.GetComponent<ListeItems>().listeallItems[id].Icon.GetComponent<Item>().amountStockableMax;
+            if (transform.parent.GetComponent<ListeItems>().listeallItems[id].Icon.GetComponent<Item>().amountStockableMax == 1)
             {
                 --numbericons;
             }
@@ -30,7 +30,7 @@ public class InventoryBase : MonoBehaviour
             while (numberdone < numbericons)
             {
                 bool asadded = false;
-                GameObject icon = Instantiate(transform.parent.GetComponent<ListeItems>().listeItems[id]);
+                GameObject icon = Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[id].Icon);
                 if (numberdone == numbericons - 1)
                 {
                     icon.GetComponent<Item>().amount = amount;
@@ -48,7 +48,7 @@ public class InventoryBase : MonoBehaviour
                         ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
                         ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                         icon.GetComponent<Item>().parent = ListeObjets[i].gameObject;
-                        ListeObjets[i].item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().listeItems[id].GetComponent<Item>().iconImage;
+                        ListeObjets[i].item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().listeallItems[id].Icon.GetComponent<Item>().iconImage;
                         icon.GetComponent<Item>().CreateTextAmount();
                         asadded = true;
 
@@ -94,6 +94,18 @@ public class InventoryBase : MonoBehaviour
             }
         }
         return true;
+    }
+    virtual public void ToogleCanDragitem()
+    {
+
+        foreach(var item in ListeObjets)
+        {
+            item.candragItem = !item.candragItem;
+            if(item.item != null)
+            {
+                item.item.candragitem = !item.item.candragitem;
+            }
+        }
     }
 }
 

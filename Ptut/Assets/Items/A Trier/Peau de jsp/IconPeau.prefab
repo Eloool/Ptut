@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3993250580982011079}
   - component: {fileID: 2121953556569269582}
   - component: {fileID: 88763915083275907}
-  - component: {fileID: -4160080692359870118}
+  - component: {fileID: 7830979896496018805}
   m_Layer: 5
   m_Name: IconPeau
   m_TagString: Untagged
@@ -89,7 +89,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-4160080692359870118
+--- !u!114 &7830979896496018805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4484003225892084542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4711b7e4cbd61d849beee50bc50d886d, type: 3}
+  m_Script: {fileID: 11500000, guid: e7d4c0021bdbb2c48b3fe6bafde243f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TypedelItem: 0

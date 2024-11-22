@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     public enum TypeItem
     {
@@ -24,7 +24,7 @@ public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     public int amount;
     public int amountStockableMax;
     public Sprite iconImage;
-
+    public bool candragitem =true;
     private RectTransform rectTransform;
     private Canvas canvas;
     private GameObject textObject;
@@ -50,32 +50,41 @@ public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     #region IDragHandler implementation
     public void OnBeginDrag(PointerEventData eventData)
     {
-        GetComponent<Image>().raycastTarget = false;
-        if (parent != null)
+        if (candragitem)
         {
-            parent.transform.SetAsLastSibling();
-            parent.transform.parent.transform.SetAsLastSibling();
-            parent.transform.parent.transform.parent.transform.SetAsLastSibling();
-            parent.GetComponent<InventoryItem>().releaseItem();
-            UpdateTextAmount();
-        }
-        transform.SetAsLastSibling();
+            GetComponent<Image>().raycastTarget = false;
+            if (parent != null)
+            {
+                parent.transform.SetAsLastSibling();
+                parent.transform.parent.transform.SetAsLastSibling();
+                parent.transform.parent.transform.parent.transform.SetAsLastSibling();
+                parent.GetComponent<InventoryItem>().releaseItem();
+                UpdateTextAmount();
+            }
+            transform.SetAsLastSibling();
 
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;  // Déplace l'image en fonction de la position de la souris
+        if (candragitem)
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;  // Déplace l'image en fonction de la position de la souris
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (transform.parent != parent)
+        if (candragitem)
         {
-            rectTransform.anchoredPosition3D = Vector3.zero;
-            rectTransform.localScale = Vector3.one;
-            transform.parent.GetComponent<InventoryItem>().item = this;
-            GetComponent<Image>().raycastTarget = true;
-            parent = transform.parent.gameObject;
+            if (transform.parent != parent)
+            {
+                rectTransform.anchoredPosition3D = Vector3.zero;
+                rectTransform.localScale = Vector3.one;
+                transform.parent.GetComponent<InventoryItem>().item = this;
+                GetComponent<Image>().raycastTarget = true;
+                parent = transform.parent.gameObject;
+            }
         }
 
     }
@@ -83,15 +92,14 @@ public abstract class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     public void CreateTextAmount()
     {
             canvas = GetComponentInParent<Canvas>();
-            //oldposition = rectTransform.localPosition;
             textObject = new("Nombre Item");
             textObject.transform.SetParent(this.transform);
             // le texte
             myText = textObject.AddComponent<TextMeshProUGUI>();
             myText.text = amount.ToString();
             myText.rectTransform.localScale = new Vector3(1, 1, 1);
-            myText.rectTransform.sizeDelta = new Vector2(125, 125);
-            myText.rectTransform.localPosition = new Vector3(0, (float)(-myText.rectTransform.sizeDelta.x / 1.5), 0);
+            myText.rectTransform.sizeDelta = new Vector2(20,20);
+            myText.rectTransform.localPosition = new Vector3(-45, (float)(-myText.rectTransform.sizeDelta.x / 2), 0);
        
     }
 }

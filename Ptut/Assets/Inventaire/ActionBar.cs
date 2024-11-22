@@ -7,21 +7,13 @@ using UnityEngine.UI;
 public class ActionBar : InventoryBase
 {
     public GameObject Cadre;
+    public bool canscroll= false;
     private int SlotActuel = 0;
     private GameObject[] Objects3d;
 
-    override public void Start()
-    {
-        Objects3d = new GameObject[ListeObjets.Count];
-        ListeObjets = GetComponentsInChildren<InventoryItem>().ToList();
-        foreach (InventoryItem item in ListeObjets)
-        {
-            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().Background;
-        }
-    }
     private void Update()
     {
-        if (Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y != 0 && canscroll)
         {
             if (ListeObjets[SlotActuel].item != null)
             {
@@ -56,10 +48,15 @@ public class ActionBar : InventoryBase
         {
             if (ListeObjets[i].item != null)
             {
-                Objects3d[i]=Instantiate(transform.parent.GetComponent<ListeItems>().listeItems3D[ListeObjets[i].item.id]);
+                Objects3d[i]=Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[ListeObjets[i].item.id].Objet3d);
 
                 Objects3d[i].SetActive(i==SlotActuel);
             }
         }
+    }
+    public override void ToogleCanDragitem()
+    {
+        base.ToogleCanDragitem();
+        canscroll = !canscroll;
     }
 }

@@ -11,6 +11,7 @@ public class InventoryItem : MonoBehaviour,IDropHandler
 {
     public Item item;
     public RectTransform Position;
+    public bool candragItem=true;
     private RectTransform RectParent;
 
     private void Start()
@@ -25,7 +26,10 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     }
     virtual public void OnDrop(PointerEventData eventData)
     {
-        DropItem(eventData);
+        if (candragItem)
+        {
+            DropItem(eventData);
+        }
     }
     public void AddtwoItem(Item item1, Item item2)
     {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3993250580982011079}
   - component: {fileID: 2121953556569269582}
   - component: {fileID: 88763915083275907}
-  - component: {fileID: 3442971986564025795}
+  - component: {fileID: -8864685426577602177}
   m_Layer: 5
   m_Name: IconArc
   m_TagString: Untagged
@@ -89,7 +89,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &3442971986564025795
+--- !u!114 &-8864685426577602177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4484003225892084542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b36d828adcfb2145a119e1ea56efc5b, type: 3}
+  m_Script: {fileID: 11500000, guid: e7d4c0021bdbb2c48b3fe6bafde243f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TypedelItem: 4
@@ -106,7 +106,7 @@ MonoBehaviour:
   ItemName: Arc
   description: C'est un arc
   amount: 0
-  amountStockableMax: 2
+  amountStockableMax: 1
   iconImage: {fileID: 21300000, guid: bde63e982b1219f46978a9c2d905ee7b, type: 3}
   parent: {fileID: 0}
   myText: {fileID: 0}
