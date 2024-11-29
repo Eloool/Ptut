@@ -12,8 +12,10 @@ public class DropSpot : MonoBehaviour ,IDropHandler
         ObjectDroped.GetComponent<Item3d>().IconItem = itemdrag;
         itemdrag.GetComponent<Item>().parent.GetComponent<InventoryItem>().item = null;
         itemdrag.GetComponent<Item>().parent = null;
-        GameObject canvas = new();
-        canvas.name = "canvasImage";
+        GameObject canvas = new()
+        {
+            name = "canvasImage"
+        };
         canvas.transform.parent = ObjectDroped.transform;
         canvas.AddComponent<Canvas>();
         ObjectDroped.AddComponent<MeshCollider>();
