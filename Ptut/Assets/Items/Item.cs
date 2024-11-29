@@ -33,11 +33,8 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
 
     private void Awake()
     {
-        //GetComponent<Image>().sprite = iconImage;
         rectTransform = GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(110, 110);
-        //zCreateTextAmount();
-        //parent = null;
     }
 
     public void UpdateTextAmount()
@@ -101,5 +98,14 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
             myText.rectTransform.sizeDelta = new Vector2(20,20);
             myText.rectTransform.localPosition = new Vector3(-45, (float)(-myText.rectTransform.sizeDelta.x / 2), 0);
        
+    }
+    public void CopyItem(Item copy) 
+    {
+        TypedelItem = copy.TypedelItem;
+        id = copy.id;
+        ItemName = copy.ItemName;
+        description = copy.description;
+        iconImage = copy.iconImage;
+        amountStockableMax = copy.amountStockableMax;
     }
 }

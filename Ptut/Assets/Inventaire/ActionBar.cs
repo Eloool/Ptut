@@ -59,4 +59,14 @@ public class ActionBar : InventoryBase
         base.ToogleCanDragitem();
         canscroll = !canscroll;
     }
+    public override void StartInventaire()
+    {
+        
+        ListeObjets = GetComponentsInChildren<InventoryItem>().ToList();
+        foreach (InventoryItem item in ListeObjets)
+        {
+            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().Background;
+        }
+        Objects3d = new GameObject[ListeObjets.Count]; 
+    }
 }
