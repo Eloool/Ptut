@@ -6,8 +6,8 @@ using UnityEngine;
 public class InteractionPromptUI : MonoBehaviour
 {
     private Camera _maincamera;
-    [SerializeField] private GameObject _uiPanel;
-    [SerializeField] private TextMeshProUGUI _promptText;
+    public GameObject _uiPanel;
+    public TextMeshProUGUI _promptText;
 
     private void Start()
     {
@@ -18,7 +18,8 @@ public class InteractionPromptUI : MonoBehaviour
     private void LateUpdate()
     {
         var rotation = _maincamera.transform.rotation;
-        _uiPanel.transform.LookAt(transform.position + rotation * Vector3.forward, rotation * Vector3.up);
+        _uiPanel.transform.LookAt(_maincamera.transform);
+        //_uiPanel.transform.LookAt(transform.position + rotation * Vector3.forward, rotation * Vector3.up);
     }
 
     public bool IsDisplayed = false;

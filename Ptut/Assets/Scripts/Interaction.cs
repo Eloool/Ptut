@@ -19,17 +19,13 @@ public class Interaction : MonoBehaviour
     private void Update()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius,_colliders,_interactibleMask);
-
         if (_numFound > 0)
         {
             _interactable = _colliders[0].GetComponent<InteractibleGameObject>();
-
             if (_interactable != null)
             {
                 _interactionPromptUI = _interactable.GetComponent<InteractionPromptUI>();
-                Debug.Log(_interactable.InteractionPrompt);
-                if (!_interactionPromptUI.IsDisplayed)
-                    _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
+                if (!_interactionPromptUI.IsDisplayed)_interactionPromptUI.SetUp(_interactable.InteractionPrompt);
                 if (Keyboard.current.eKey.wasPressedThisFrame) _interactable.Interact(this);
             }
         }
@@ -42,5 +38,10 @@ public class Interaction : MonoBehaviour
                 _interactionPromptUI = null;
             }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_interactionPoint.position,_interactionPointRadius);
     }
 }

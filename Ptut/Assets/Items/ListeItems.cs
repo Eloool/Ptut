@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -9,13 +10,14 @@ public class ListeItems : MonoBehaviour
     [System.Serializable]
     public class iconand3d
     {
-        public GameObject Icon;      // probabilité d'avoir cet objet quand il faut ajouter un obstacle
+        public GameObject Icon;
         public GameObject Objet3d;
     }
     private Inventaire inventaire;
     private ActionBar ActionBar;
     public List<iconand3d> listeallItems;
     public Sprite Background;
+    public GameObject CanvasPickup;
 
     private void Awake()
     {
@@ -77,6 +79,16 @@ public class ListeItems : MonoBehaviour
             {
                 GameObject ObjectDroped = Instantiate(listeallItems[item.GetComponent<Item>().id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
                 GameObject canvas = new();
+                GameObject CanvasForPickup = Instantiate(CanvasPickup);
+                ObjectDroped.layer = 7;
+                ObjectDroped.AddComponent<ItemPickup>();
+                ObjectDroped.GetComponent<ItemPickup>()._prompt = "Ramasser";
+                ObjectDroped.AddComponent<InteractionPromptUI>();
+                ObjectDroped.GetComponent<InteractionPromptUI>()._uiPanel = CanvasForPickup;
+                ObjectDroped.GetComponent<InteractionPromptUI>()._promptText = CanvasForPickup.GetComponentInChildren<TextMeshProUGUI>();
+                CanvasForPickup.AddComponent<CanvasAboveObject>();
+                CanvasForPickup.transform.SetParent(ObjectDroped.transform);
+                CanvasForPickup.transform.position = new Vector3(0, 0.1f, 0);
                 canvas.name = "Canvasimage";
                 canvas.transform.SetParent(ObjectDroped.transform);
                 canvas.AddComponent<Canvas>();
