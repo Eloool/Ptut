@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour,InteractibleObject
+public class Chest : InteractibleGameObject
 {
-    [SerializeField] private string _prompt;
-    public string InteractionPrompt => _prompt;
-
-    public bool Interact(Interaction interaction)
+    public new bool Interact(Interaction interaction)
     {
         Debug.Log("Opening Chest");
         return true;
