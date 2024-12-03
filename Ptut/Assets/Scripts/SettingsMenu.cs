@@ -5,41 +5,71 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    [Header("Toggles liés à la difficulté")]
     public Toggle easyToggle; 
-    /*public Toggle mediumToggle; 
+    public Toggle mediumToggle; 
     public Toggle hardToggle;
-    public Toggle personalizedToggle;*/
+    public ToggleGroup toggleGroup; // Nouveau : groupe de toggles
+    /*public Toggle personalizedToggle;*/
 
-    private void Start()
+    [Header("Dégâts")]
+    public float baseDamage = 1f; // Dégâts de base pour les calculs
+    private float finalDamage;
+
+    void Start()
     {
-        // Initialiser l'état des toggles
+        // Associer les toggles au groupe
+        easyToggle.group = toggleGroup;
+        mediumToggle.group = toggleGroup;
+        hardToggle.group = toggleGroup;
+
+        // Initialiser les toggles en fonction de la difficulté actuelle
+        InitializeToggles();
+
+        // Associer les événements
+        easyToggle.onValueChanged.AddListener(isOn => OnDifficultyChanged(isOn, DifficultyManager.DifficultyLevel.Easy));
+        mediumToggle.onValueChanged.AddListener(isOn => OnDifficultyChanged(isOn, DifficultyManager.DifficultyLevel.Medium));
+        hardToggle.onValueChanged.AddListener(isOn => OnDifficultyChanged(isOn, DifficultyManager.DifficultyLevel.Hard));
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Calculer les dégâts ajustés en fonction de la difficulté
+        float difficultyMultiplier = DifficultyManager.Instance.GetDamageMultiplier();
+        finalDamage = baseDamage * difficultyMultiplier;
+
+        // Afficher les informations sur pression de la touche E
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log($"Attack Damage: {finalDamage}");
+            Debug.Log($"Current Difficulty: {DifficultyManager.Instance.CurrentDifficulty}");
+        }
+    }
+
+    private void InitializeToggles()
+    {
         var difficulty = DifficultyManager.Instance.CurrentDifficulty;
         easyToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Easy);
-        /*mediumToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Medium);
-        hardToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Hard);*/
+        mediumToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Medium);
+        hardToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Hard);
     }
 
-    public void OnEasyToggleChanged(bool isOn)
+    private void OnDifficultyChanged(bool isOn, DifficultyManager.DifficultyLevel difficulty)
     {
-        if (isOn) DifficultyManager.Instance.SetDifficulty(DifficultyManager.DifficultyLevel.Easy);
-        Debug.Log("Facile");
+        if (isOn)
+        {
+            DifficultyManager.Instance.SetDifficulty(difficulty);
+            Debug.Log($"Difficulté changée : {difficulty}");
+        }
     }
 
-    /*public void OnMediumToggleChanged(bool isOn)
+    private void OnDestroy()
     {
-        if (isOn) DifficultyManager.Instance.SetDifficulty(DifficultyManager.DifficultyLevel.Medium);
-        Debug.Log("Moyen");
+        // Nettoyer les événements pour éviter les erreurs
+        easyToggle.onValueChanged.RemoveAllListeners();
+        mediumToggle.onValueChanged.RemoveAllListeners();
+        hardToggle.onValueChanged.RemoveAllListeners();
     }
-
-    public void OnHardToggleChanged(bool isOn)
-    {
-        if (isOn) DifficultyManager.Instance.SetDifficulty(DifficultyManager.DifficultyLevel.Hard);
-        Debug.Log("Difficile");
-    }
-
-    public void OnPersonalizedToggleChanged(bool isOn)
-    {
-        if (isOn) DifficultyManager.Instance.SetDifficulty(DifficultyManager.DifficultyLevel.Personalized);
-        Debug.Log("Personnalisé");
-    }*/
 }

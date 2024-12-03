@@ -7,7 +7,7 @@ public class DifficultyManager : MonoBehaviour
     public enum DifficultyLevel { Easy, Medium, Hard, Personalized }
     public static DifficultyManager Instance { get; private set; }
 
-    public DifficultyLevel CurrentDifficulty { get; private set; } = DifficultyLevel.Medium;
+    public DifficultyLevel CurrentDifficulty { get; private set; } = DifficultyLevel.Easy;
 
     private void Awake()
     {
@@ -25,5 +25,21 @@ public class DifficultyManager : MonoBehaviour
     public void SetDifficulty(DifficultyLevel difficulty)
     {
         CurrentDifficulty = difficulty;
+    }
+
+    public DifficultyManager.DifficultyLevel GetDifficulty()
+    {
+        return DifficultyManager.Instance.CurrentDifficulty;
+    }
+
+    public float GetDamageMultiplier()
+    {
+        return CurrentDifficulty switch
+        {
+            DifficultyLevel.Easy => 0.5f,
+            DifficultyLevel.Medium => 1.0f,
+            DifficultyLevel.Hard => 1.5f,
+            _ => 1.0f,
+        };
     }
 }
