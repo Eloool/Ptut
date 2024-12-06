@@ -19,8 +19,19 @@ public class ListeItems : MonoBehaviour
     public Sprite Background;
     public GameObject CanvasPickup;
 
+    public static ListeItems instance; // Propriété statique
+
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this; // Initialisation si instance n'existe pas
+            Debug.Log("ListeItems.instance a été initialisé.");
+        }
+        else
+        {
+            Debug.LogWarning("Une autre instance de ListeItems a été trouvée et détruite.");
+        }
         listeallItems.Sort(delegate (iconand3d x, iconand3d y)
         {
             return x.Icon.GetComponent<Item>().id.CompareTo(y.Icon.GetComponent<Item>().id);
