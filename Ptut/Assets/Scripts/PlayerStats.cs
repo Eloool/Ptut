@@ -2,114 +2,94 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    private int maxHealth;
-    public int currHealth;
 
-    private int maxHunger;
-    public int currHunger;
+    [Header("Health")]
+    public float maxHealth;
+    private float currHealth;
+    public float healthLossPerSecond;
+    public Image healthBarFill;
 
-    private int maxThirst;
-    public int currThirst;
+    [Header("Hunger")]
+    public float maxHunger;
+    private float currHunger;
+    public float hungerLossPerSecond;
+    public Image hungerBarFill;
 
-    public float hungerTimer;
-    public float loseHungerTimer;
+    [Header("Thirst")]
+    public float maxThirst;
+    private float currThirst;
+    public float thirstLossPerSecond;
+    public Image thirstBarFill;
 
-    public float thirstTimer;
-    public float loseThirst;
+    [Header("Armor Settings")]
+    public float armorResistance; // 0 <= armorResistance <= 100
+    private float damageMultiplicator;
+    
+    
 
     void Start()
     {
-        maxHealth = 100;
         currHealth = maxHealth;
-
-        maxHunger = 100;
         currHunger = maxHunger;
-
-        maxThirst = 100;
         currThirst = maxThirst;
 
-        hungerTimer = 10;
-        loseHungerTimer = 5;
+        damageMultiplicator = (100 - 0.75f * armorResistance) / 100;
     }
+
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Heal(10);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            TakeDamage(25);
-        }
+        UpdateHungerThirstBarsFill();
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            currHunger = 3;
-            currThirst = 3;
-        }
-
-        if (currHealth < 0)
-        {
-            Die();
-        }
-
-        if (hungerTimer > 0)
-        {
-            hungerTimer -= Time.deltaTime;
-        }
-        else
-        {
-            if (currHunger - 1 < 0)
-            {
-                Hungry();
-            }
-            
-            hungerTimer = 10;
-        }
-
-    }
-
-    public void TakeDamage(int damage)
-    {
-        if (currHealth - damage < 0)
-        {
-            currHealth = 0;
-            return;
-        }
-        currHealth -= damage;
-    }
-
-    public void Heal(int health)
-    {
-        if (currHealth + health > maxHealth)
-        {
-            currHealth = 100;
-            return;
-        }
-        currHealth += health;
-    }
-
-    public void Hungry()
-    {
-        if (loseHungerTimer > 0)
-        {
-            loseHungerTimer -= Time.deltaTime;
-        }
-        else
-        {
-            currHealth -= 1;
-            loseHungerTimer = 5;
-        }
+        if (currHealth <= 0) { Die(); }
     }
 
 
-
-    public void Die()
+    void UpdateHealthBarFill()
     {
-        // game over
+        healthBarFill.fillAmount = currHealth / maxHealth;
+    }
+
+    void UpdateHungerThirstBarsFill()
+    {
+        // decrease every second
+        currHunger -= hungerLossPerSecond * Time.deltaTime;
+        currThirst -= thirstLossPerSecond * Time.deltaTime;
+
+        // hunger and thirst can't be negative
+        if (currHunger < 0) { currHunger = 0; }
+        if (currThirst < 0) { currThirst = 0; }
+
+        // bars filling
+        hungerBarFill.fillAmount = currHunger / maxHunger;
+        thirstBarFill.fillAmount = currThirst / maxThirst;
+
+        // if hunger or thirst = 0
+        if (currHunger <= 0 || currThirst <= 0)
+        {
+            float healthDamage = healthLossPerSecond;
+            if (currHunger <= 0 && currThirst <= 0) { healthDamage *= 2; }
+            TakeDamage(healthDamage, true, true);
+        }
+    }
+
+    public void TakeDamage(float damage, bool overTime = false, bool trueDamage = false)
+    {
+        if (!trueDamage) { damage *= damageMultiplicator; }
+        if (overTime) { currHealth -= damage * Time.deltaTime; }
+        else { currHealth -= damage; }
+
+        UpdateHealthBarFill();
+    }
+
+    public void Die() // game over
+    {
+        // TODO
+
+        UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
 }
