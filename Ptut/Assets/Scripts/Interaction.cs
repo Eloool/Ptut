@@ -9,36 +9,66 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactibleMask;
-    [SerializeField] private InteractionPromptUI _interactionPromptUI;
+    [SerializeField] private List<InteractionPromptUI> _interactionPromptUIList = new List<InteractionPromptUI>();
 
-    private readonly Collider[] _colliders = new Collider[3];
+    private Collider[] _colliders = new Collider[60];
     [SerializeField] private int _numFound;
 
-    private InteractibleGameObject _interactable; 
+    private List<InteractibleGameObject> _interactableList = new List<InteractibleGameObject>();
 
     private void Update()
     {
-        _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius,_colliders,_interactibleMask);
-        if (_numFound > 0)
+        _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactibleMask);
+
+        // Gérer les nouveaux objets dans la sphère
+        for (int i = 0; i < _numFound; i++)
         {
-            _interactable = _colliders[0].GetComponent<InteractibleGameObject>();
-            if (_interactable != null)
+            InteractibleGameObject _interactable = _colliders[i].GetComponent<InteractibleGameObject>();
+            if (_interactable != null && !_interactableList.Contains(_interactable))
             {
-                _interactionPromptUI = _interactable.GetComponent<InteractionPromptUI>();
-                if (!_interactionPromptUI.IsDisplayed)_interactionPromptUI.SetUp(_interactable.InteractionPrompt);
-                if (Keyboard.current.eKey.wasPressedThisFrame) _interactable.Interact(this);
+                _interactableList.Add(_interactable);
+
+                InteractionPromptUI _interactionPromptUI = _interactable.GetComponent<InteractionPromptUI>();
+                if (_interactionPromptUI != null && !_interactionPromptUI.IsDisplayed)
+                {
+                    _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
+                    _interactionPromptUIList.Add(_interactionPromptUI);
+                }
             }
         }
-        else
+
+        // Gérer les objets qui ne sont plus dans la sphère
+        for (int i = _interactableList.Count - 1; i >= 0; i--)
         {
-            if (_interactable != null) _interactable = null;
-            if (_interactionPromptUI != null)
+            var interactable = _interactableList[i];
+            if (interactable == null || !IsInColliderArray(interactable))
             {
-                if (_interactionPromptUI.IsDisplayed) _interactionPromptUI.Close();
-                _interactionPromptUI = null;
+                if (_interactionPromptUIList[i].IsDisplayed)
+                {
+                    _interactionPromptUIList[i].Close();
+                }
+
+                _interactionPromptUIList.RemoveAt(i);
+                _interactableList.RemoveAt(i);
             }
         }
+
+        Debug.Log($"{_numFound} {_interactableList.Count}");
     }
+
+    // Vérifie si un objet est encore dans la liste des colliders détectés
+    private bool IsInColliderArray(InteractibleGameObject interactable)
+    {
+        for (int i = 0; i < _numFound; i++)
+        {
+            if (_colliders[i] != null && _colliders[i].GetComponent<InteractibleGameObject>() == interactable)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
