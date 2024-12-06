@@ -7,5 +7,5 @@ public class RecipeData : ScriptableObject
 {
     public ItemData craftableItem;
     public ItemData[] requiredItems;
-
+    public int amount;
 }

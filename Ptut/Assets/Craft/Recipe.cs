@@ -25,12 +25,18 @@ public class Recipe : MonoBehaviour
     [SerializeField]
     private Sprite cantBuildIcon;
 
+    private RecipeData recipe;
+
+    private int RecipeAmount;
 
     public void Configure(RecipeData recipe)
     {
         currentRecipe = recipe;
+        //Item = currentRecipe.craftableItem.prefab;
 
         craftableItemImage.sprite = recipe.craftableItem.visual;
+
+        RecipeAmount = recipe.amount;
 
         for (int i = 0; i < recipe.requiredItems.Length; i++)
         {
@@ -49,8 +55,24 @@ public class Recipe : MonoBehaviour
         elementsRequiredPrefab.GetComponent<ContentSizeFitter>().enabled = true;
     }
 
-    private void CraftItem()
+    public void CraftItem()
     {
-        
+        if (ListeItems.instance == null)
+        {
+            Debug.LogError("ListeItems.instance est null.");
+            return;
+        }
+
+        GameObject prefab = currentRecipe.craftableItem.prefab;
+        if (prefab == null)
+        {
+            Debug.LogError("Prefab du craftableItem est null.");
+            return;
+        }
+
+        // Instanciation de l'objet à partir du prefab
+        GameObject instance = Instantiate(prefab);
+        instance.GetComponent<Item>().amount = RecipeAmount;
+        ListeItems.instance.AddtoInventory(instance); 
     }
 }
