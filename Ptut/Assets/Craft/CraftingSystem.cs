@@ -19,12 +19,14 @@ public class CraftingSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateDisplayedRecipes();
         craftingTable.SetActive(false);
+        Debug.Log("recette disponible " + availableRecipes.Length);
     }
 
-    private void Update()
+    void Update()
     {
+        UpdateDisplayedRecipes();
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             ToggleCraftTable(); 
@@ -33,6 +35,12 @@ public class CraftingSystem : MonoBehaviour
 
     private void UpdateDisplayedRecipes()
     {
+
+        foreach(Transform child in recipesParent)
+        {
+            Destroy(child.gameObject);
+        }
+
         for (int i = 0; i < availableRecipes.Length; i++)
         {
             GameObject recipe = Instantiate(recipeUiPrefab, recipesParent);

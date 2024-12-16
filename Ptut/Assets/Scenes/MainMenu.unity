@@ -7521,6 +7521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableRecipes:
   - {fileID: 11400000, guid: 829c36a2440a24940b52dd389272316e, type: 2}
+  - {fileID: 11400000, guid: fb55f38b11f83b7469f04f9c68fd7718, type: 2}
   recipeUiPrefab: {fileID: 8706152485398437461, guid: 8ae3a495a58ad2641aa19219b46e8970, type: 3}
   recipesParent: {fileID: 1823254679}
   craftingTable: {fileID: 1740478148}
