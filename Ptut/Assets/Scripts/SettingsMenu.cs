@@ -37,20 +37,20 @@ public class SettingsMenu : MonoBehaviour
     void Update()
     {
         // Calculer les dégâts ajustés en fonction de la difficulté
-        float difficultyMultiplier = DifficultyManager.Instance.GetDamageMultiplier();
+        float difficultyMultiplier = DifficultyManager.InstanceDM.GetDamageMultiplier();
         finalDamage = baseDamage * difficultyMultiplier;
 
         // Afficher les informations sur pression de la touche E
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log($"Attack Damage: {finalDamage}");
-            Debug.Log($"Current Difficulty: {DifficultyManager.Instance.CurrentDifficulty}");
+            Debug.Log($"Current Difficulty: {DifficultyManager.InstanceDM.CurrentDifficulty}");
         }
     }
 
     private void InitializeToggles()
     {
-        var difficulty = DifficultyManager.Instance.CurrentDifficulty;
+        var difficulty = DifficultyManager.InstanceDM.CurrentDifficulty;
         easyToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Easy);
         mediumToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Medium);
         hardToggle.isOn = (difficulty == DifficultyManager.DifficultyLevel.Hard);
@@ -60,7 +60,7 @@ public class SettingsMenu : MonoBehaviour
     {
         if (isOn)
         {
-            DifficultyManager.Instance.SetDifficulty(difficulty);
+            DifficultyManager.InstanceDM.SetDifficulty(difficulty);
             Debug.Log($"Difficulté changée : {difficulty}");
         }
     }
