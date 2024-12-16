@@ -13,10 +13,22 @@ public class CraftingSystem : MonoBehaviour
     [SerializeField]
     private Transform recipesParent;
 
+    [SerializeField]
+    private GameObject craftingTable; 
+
     // Start is called before the first frame update
     void Start()
     {
         UpdateDisplayedRecipes();
+        craftingTable.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ToggleCraftTable(); 
+        }
     }
 
     private void UpdateDisplayedRecipes()
@@ -26,6 +38,11 @@ public class CraftingSystem : MonoBehaviour
             GameObject recipe = Instantiate(recipeUiPrefab, recipesParent);
             recipe.GetComponent<Recipe>().Configure(availableRecipes[i]);
         }
+    }
+
+    public void ToggleCraftTable()
+    {
+        craftingTable.SetActive(!craftingTable.activeSelf);
     }
 
 }
