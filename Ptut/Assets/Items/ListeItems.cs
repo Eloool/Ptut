@@ -19,18 +19,18 @@ public class ListeItems : MonoBehaviour
     public Sprite Background;
     public GameObject CanvasPickup;
 
-    public static ListeItems instance; // Propriété statique
+    public static ListeItems instance; // Propriï¿½tï¿½ statique
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this; // Initialisation si instance n'existe pas
-            Debug.Log("ListeItems.instance a été initialisé.");
+            Debug.Log("ListeItems.instance a ï¿½tï¿½ initialisï¿½.");
         }
         else
         {
-            Debug.LogWarning("Une autre instance de ListeItems a été trouvée et détruite.");
+            Debug.LogWarning("Une autre instance de ListeItems a ï¿½tï¿½ trouvï¿½e et dï¿½truite.");
         }
         listeallItems.Sort(delegate (iconand3d x, iconand3d y)
         {
@@ -130,4 +130,33 @@ public class ListeItems : MonoBehaviour
         item3d.GetComponent<Item3d>().IconItem = null;
         AddtoInventory(icon);
     }
+
+    public bool HasItem(GameObject item)
+    {
+        if (item == null || item.GetComponent<Item>() == null)
+        {
+            Debug.LogError("L'objet passï¿½ en paramï¿½tre est nul ou ne possï¿½de pas de composant Item.");
+            return false;
+        }
+
+        int id = item.GetComponent<Item>().id;
+        foreach (var invItem in inventaire.ListeObjets) 
+        {
+            if (invItem.item != null && invItem.item.id == id)
+            {
+                return true;
+            }
+        }
+
+        foreach (var actionBarItem in ActionBar.ListeObjets)
+        {
+            if (actionBarItem.item != null && actionBarItem.item.id == id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

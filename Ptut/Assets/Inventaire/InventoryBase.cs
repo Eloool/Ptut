@@ -8,6 +8,7 @@ using static UnityEditor.Progress;
 public class InventoryBase : MonoBehaviour
 {
     public List<InventoryItem> ListeObjets;
+    public static InventoryBase instanceIB; // Propriété statique
     virtual public void StartInventaire()
     {
         ListeObjets = GetComponentsInChildren<InventoryItem>().ToList();
