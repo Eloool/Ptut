@@ -38,14 +38,27 @@ public class Recipe : MonoBehaviour
 
         RecipeAmount = recipe.amount;
 
+        bool canCraft = true; 
+
         for (int i = 0; i < recipe.requiredItems.Length; i++)
         {
-            GameObject requiredItem = Instantiate(elementRequiredPrefab, elementsRequiredPrefab);
-            requiredItem.transform.GetChild(0).GetComponent<Image>().sprite = recipe.requiredItems[i].visual;
+            GameObject requiredItem = recipe.requiredItems[i].prefab; // Récupère le prefab GameObject pour cet item requis
+
+            if (!ListeItems.instance.HasItem(requiredItem))
+            {
+                Debug.Log("Pas de " + requiredItem.name);
+                canCraft = false;
+            }
+
+            GameObject requiredItemGO = Instantiate(elementRequiredPrefab, elementsRequiredPrefab);
+            requiredItemGO.transform.GetChild(0).GetComponent<Image>().sprite = recipe.requiredItems[i].visual;
         }
 
-        ResizeElementsRequiredParent();
+        craftButton.image.sprite = canCraft ? canBuildIcon : cantBuildIcon;
+        craftButton.enabled = canCraft;
+        Debug.Log("Etat de canCraft = " + canCraft);
 
+        ResizeElementsRequiredParent();
     }
 
     private void ResizeElementsRequiredParent()

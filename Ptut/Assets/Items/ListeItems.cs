@@ -113,4 +113,33 @@ public class ListeItems : MonoBehaviour
             }
         }
     }
+
+    public bool HasItem(GameObject item)
+    {
+        if (item == null || item.GetComponent<Item>() == null)
+        {
+            Debug.LogError("L'objet passé en paramètre est nul ou ne possède pas de composant Item.");
+            return false;
+        }
+
+        int id = item.GetComponent<Item>().id;
+        foreach (var invItem in inventaire.ListeObjets) 
+        {
+            if (invItem.item != null && invItem.item.id == id)
+            {
+                return true;
+            }
+        }
+
+        foreach (var actionBarItem in ActionBar.ListeObjets)
+        {
+            if (actionBarItem.item != null && actionBarItem.item.id == id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
