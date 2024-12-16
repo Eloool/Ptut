@@ -34,6 +34,6 @@ public class InteractionPromptUI : MonoBehaviour
     public void Close()
     {
         IsDisplayed = false;
-        _uiPanel.SetActive(false);
+        if (_uiPanel) _uiPanel.SetActive(false);
     }
 }

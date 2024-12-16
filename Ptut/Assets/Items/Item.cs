@@ -24,7 +24,7 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
     public int amount;
     public int amountStockableMax;
     public Sprite iconImage;
-    public bool candragitem =true;
+    public bool candragitem =false;
     private RectTransform rectTransform;
     private Canvas canvas;
     private GameObject textObject;

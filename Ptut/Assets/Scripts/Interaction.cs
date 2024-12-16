@@ -52,8 +52,10 @@ public class Interaction : MonoBehaviour
                 _interactableList.RemoveAt(i);
             }
         }
-
-        Debug.Log($"{_numFound} {_interactableList.Count}");
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PickupItem(_numFound);
+        }
     }
 
     // Vérifie si un objet est encore dans la liste des colliders détectés
@@ -67,6 +69,14 @@ public class Interaction : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void PickupItem(int numfound)
+    {
+        if (numfound > 0)
+        {
+            _interactableList[0].Interact();
+        }
     }
 
     private void OnDrawGizmos()

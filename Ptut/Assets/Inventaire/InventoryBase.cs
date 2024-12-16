@@ -88,8 +88,8 @@ public class InventoryBase : MonoBehaviour
             Debug.LogError("Mauvais id");
         }
     }
-    public bool AddIconIventaire(GameObject item) {
-
+    public bool AddIconIventaire(GameObject item) 
+    {
         if (item.GetComponent<Item>().amount == 0)
         {
             return false;
@@ -150,7 +150,6 @@ public class InventoryBase : MonoBehaviour
     }
     virtual public void ToogleCanDragitem()
     {
-
         foreach(var item in ListeObjets)
         {
             item.candragItem = !item.candragItem;

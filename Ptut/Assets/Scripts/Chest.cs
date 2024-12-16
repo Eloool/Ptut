@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chest : InteractibleGameObject
 {
-    public new bool Interact(Interaction interaction)
+    public new bool Interact()
     {
         Debug.Log("Opening Chest");
         return true;

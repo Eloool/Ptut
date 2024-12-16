@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ItemPickup : InteractibleGameObject
 {
-    public new bool Interact(Interaction interaction)
+    public new bool Interact()
     {
-        interaction.GetComponent<ListeItems>().AddtoInventory(GetComponent<Item3d>().IconItem);
+        ListeItems.instance.AddtoInventorybyItem3d(this.gameObject);
         Destroy(gameObject);
         return true;
     }

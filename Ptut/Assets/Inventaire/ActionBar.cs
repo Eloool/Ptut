@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ActionBar : InventoryBase
 {
     public GameObject Cadre;
-    public bool canscroll= false;
+    public bool canscroll= true;
     private int SlotActuel = 0;
     private GameObject[] Objects3d;
 

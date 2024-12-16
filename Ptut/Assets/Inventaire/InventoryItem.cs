@@ -11,7 +11,7 @@ public class InventoryItem : MonoBehaviour,IDropHandler
 {
     public Item item;
     public RectTransform Position;
-    public bool candragItem=true;
+    public bool candragItem=false;
     private RectTransform RectParent;
 
     private void Start()

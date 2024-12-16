@@ -13,8 +13,8 @@ public class ListeItems : MonoBehaviour
         public GameObject Icon;
         public GameObject Objet3d;
     }
-    private Inventaire inventaire;
-    private ActionBar ActionBar;
+    public Inventaire inventaire;
+    public ActionBar ActionBar;
     public List<iconand3d> listeallItems;
     public Sprite Background;
     public GameObject CanvasPickup;
@@ -36,9 +36,7 @@ public class ListeItems : MonoBehaviour
         {
             return x.Icon.GetComponent<Item>().id.CompareTo(y.Icon.GetComponent<Item>().id);
         });
-        inventaire = GetComponentInChildren<Inventaire>();
         inventaire.StartInventaire();
-        ActionBar = GetComponentInChildren<ActionBar>();
         ActionBar.StartInventaire();
         int countingid = 0;
         for (int i = 0; i < listeallItems.Count; countingid++)
@@ -124,5 +122,12 @@ public class ListeItems : MonoBehaviour
                 canvas.SetActive(false);
             }
         }
+    }
+    public void AddtoInventorybyItem3d(GameObject item3d)
+    {
+        GameObject icon = item3d.GetComponent<Item3d>().IconItem;
+        icon.transform.SetParent(null);
+        item3d.GetComponent<Item3d>().IconItem = null;
+        AddtoInventory(icon);
     }
 }
