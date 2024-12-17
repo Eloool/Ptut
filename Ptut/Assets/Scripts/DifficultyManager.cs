@@ -5,19 +5,19 @@ using UnityEngine;
 public class DifficultyManager : MonoBehaviour
 {
     public enum DifficultyLevel { Easy, Medium, Hard, Personalized }
-    public static DifficultyManager Instance { get; private set; }
+    public static DifficultyManager InstanceDM { get; private set; }
 
     public DifficultyLevel CurrentDifficulty { get; private set; } = DifficultyLevel.Easy;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (InstanceDM != null && InstanceDM != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            Instance = this;
+            InstanceDM = this;
             DontDestroyOnLoad(gameObject); // Persiste à travers les scènes
         }
     }
@@ -29,10 +29,21 @@ public class DifficultyManager : MonoBehaviour
 
     public DifficultyManager.DifficultyLevel GetDifficulty()
     {
-        return DifficultyManager.Instance.CurrentDifficulty;
+        return DifficultyManager.InstanceDM.CurrentDifficulty;
     }
 
     public float GetDamageMultiplier()
+    {
+        return CurrentDifficulty switch
+        {
+            DifficultyLevel.Easy => 0.5f,
+            DifficultyLevel.Medium => 1.0f,
+            DifficultyLevel.Hard => 1.5f,
+            _ => 1.0f,
+        };
+    }
+
+    public float GetHungerLossPerSecond()
     {
         return CurrentDifficulty switch
         {

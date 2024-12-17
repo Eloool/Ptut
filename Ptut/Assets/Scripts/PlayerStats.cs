@@ -54,6 +54,12 @@ public class PlayerStats : MonoBehaviour
         UpdateStaminaBarFill();
 
         if (currHealth <= 0) { Die(); }
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            TakeDamage(10, false, true);
+            Debug.Log("damage");
+        }
     }
 
 
@@ -65,7 +71,7 @@ public class PlayerStats : MonoBehaviour
     void UpdateHungerThirstBarsFill()
     {
         // decrease every second
-        currHunger -= hungerLossPerSecond * Time.deltaTime;
+        currHunger -= DifficultyManager.InstanceDM.GetHungerLossPerSecond() * Time.deltaTime;
         currThirst -= thirstLossPerSecond * Time.deltaTime;
 
         // hunger and thirst can't be negative
