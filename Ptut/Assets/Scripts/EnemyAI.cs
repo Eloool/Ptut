@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private PlayerStats playerStats;
 
-    [SerializeField] 
+    [SerializeField]
     private NavMeshAgent agent;
 
     [SerializeField]
@@ -51,52 +51,93 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float wanderingDistanceMax;
 
+    [Header("Behavior")]
+    [SerializeField]
+    private bool isEnemy = true; // Determines if the AI is an enemy or afraid
+
+    [SerializeField]
+    private float fleeDistance = 10f; // Distance to flee when afraid
+
     private bool hasDestination;
     private bool isAttacking;
-
 
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(player.position,transform.position) < detectionRadius)
+        if (isEnemy)
+        {
+            HandleEnemyBehavior();
+        }
+        else
+        {
+            HandleFearfulBehavior();
+        }
+
+        animator.SetFloat("Speed", agent.velocity.magnitude);
+    }
+
+    private void HandleEnemyBehavior()
+    {
+        if (Vector3.Distance(player.position, transform.position) < detectionRadius)
         {
             agent.speed = chaseSpeed;
 
             Quaternion rot = Quaternion.LookRotation(player.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation,rot,rotationSpeed*Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, rotationSpeed * Time.deltaTime);
 
             if (!isAttacking)
             {
                 if (Vector3.Distance(player.position, transform.position) < attackRadius)
                 {
-                    StartCoroutine(attackPlayer());
+                    StartCoroutine(AttackPlayer());
                 }
                 else
                 {
                     agent.SetDestination(player.position);
                 }
             }
-            
-            
-
         }
         else
         {
-            agent.speed = walkSpeed;
+            Wander();
+        }
+    }
 
-            if (agent.remainingDistance < 0.75f && !hasDestination)
+    private void HandleFearfulBehavior()
+    {
+        if (Vector3.Distance(player.position, transform.position) < detectionRadius)
+        {
+            agent.speed = chaseSpeed;
+
+            Vector3 fleeDirection = (transform.position - player.position).normalized;//Direction opposé au joueur 
+            Vector3 fleePosition = transform.position + fleeDirection * fleeDistance;//hit une autre position opposé au joueur
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(fleePosition, out hit, fleeDistance, NavMesh.AllAreas))
             {
-                StartCoroutine(GetNewDestination());
+                agent.SetDestination(hit.position);
             }
         }
+        else
+        {
+            Wander();
+        }
+    }
 
-        animator.SetFloat("Speed", agent.velocity.magnitude);
+    private void Wander()
+    {
+        agent.speed = walkSpeed;
+
+        if (agent.remainingDistance < 0.75f && !hasDestination)
+        {
+            StartCoroutine(GetNewDestination());
+        }
     }
 
     IEnumerator GetNewDestination()
     {
         hasDestination = true;
-        yield return new WaitForSeconds(Random.Range(wanderingWaitTimeMin,wanderingWaitTimeMax));
+        yield return new WaitForSeconds(Random.Range(wanderingWaitTimeMin, wanderingWaitTimeMax));
 
         Vector3 nextDestination = transform.position;
         nextDestination += Random.Range(wanderingDistanceMin, wanderingDistanceMax) * new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
@@ -109,16 +150,14 @@ public class EnemyAI : MonoBehaviour
         hasDestination = false;
     }
 
-
-
-    IEnumerator attackPlayer()
+    IEnumerator AttackPlayer()
     {
         isAttacking = true;
         agent.isStopped = true;
 
         animator.SetTrigger("Attack");
 
-        //playerStats.TakeDamage(damageDealt);//NE PAS OUBLIER DE GLISSER DEPOSER LE PLAYER DANS UNITY (corentin)
+        //playerStats.TakeDamage(damageDealt);//Ne pas oublier de mettre les stats dans le serialized playerStats
 
         yield return new WaitForSeconds(attackDelay);
 
@@ -130,8 +169,7 @@ public class EnemyAI : MonoBehaviour
         isAttacking = false;
     }
 
-
-    private void OnDrawGizmos()
+    private void OnDrawGizmos()//affiche dans la scène les différents les rayons d'actions de l'IA
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
