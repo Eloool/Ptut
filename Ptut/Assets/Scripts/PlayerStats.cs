@@ -71,7 +71,7 @@ public class PlayerStats : MonoBehaviour
     void UpdateHungerThirstBarsFill()
     {
         // decrease every second
-        currHunger -= DifficultyManager.InstanceDM.GetHungerLossPerSecond() * Time.deltaTime;
+        currHunger -= hungerLossPerSecond * Time.deltaTime;
         currThirst -= thirstLossPerSecond * Time.deltaTime;
 
         // hunger and thirst can't be negative

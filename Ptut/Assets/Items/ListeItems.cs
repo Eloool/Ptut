@@ -156,5 +156,19 @@ public class ListeItems : MonoBehaviour
 
         return false;
     }
-
+    public void DeleteItems(int[] ids, int[] amounts)
+    {
+        if (ids.Length != amounts.Length)
+        {
+            Debug.LogWarning("Les ids et les montants n'ont pas la même longueur de tableau");
+            return;
+        }
+        for (int i = 0; i < ids.Length; i++)
+        {
+            if (!ActionBar.DeleteItem(ids[i], amounts[i]))
+            {
+                inventaire.DeleteItem(ids[i], amounts[i]);
+            }
+        }
+    }
 }

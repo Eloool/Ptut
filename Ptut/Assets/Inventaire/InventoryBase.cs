@@ -69,7 +69,7 @@ public abstract class InventoryBase : MonoBehaviour
                 }
                 if (!asadded)
                 {
-                    GameObject ObjectDroped =Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[id].Objet3d,new Vector3(0,10,0),Quaternion.identity);
+                    GameObject ObjectDroped = Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
                     ObjectDroped.AddComponent<MeshCollider>();
                     ObjectDroped.GetComponent<MeshCollider>().convex = true;
                     ObjectDroped.AddComponent<Rigidbody>();
@@ -88,7 +88,7 @@ public abstract class InventoryBase : MonoBehaviour
             Debug.LogError("Mauvais id");
         }
     }
-    public bool AddIconIventaire(GameObject item) 
+    public bool AddIconIventaire(GameObject item)
     {
         if (item.GetComponent<Item>().amount == 0)
         {
@@ -96,7 +96,7 @@ public abstract class InventoryBase : MonoBehaviour
         }
         for (int i = 0; i < ListeObjets.Count; i++)
         {
-            if (ListeObjets[i].item == null && item.GetComponent<Item>().amount<=item.GetComponent<Item>().ItemData.amountStockableMax && item.GetComponent<Item>().amount>0)
+            if (ListeObjets[i].item == null && item.GetComponent<Item>().amount <= item.GetComponent<Item>().ItemData.amountStockableMax && item.GetComponent<Item>().amount > 0)
             {
                 ListeObjets[i].AddItemtoSlot(item.GetComponent<Item>());
                 item.GetComponent<Item>().gameObject.transform.SetParent(ListeObjets[i].transform);
@@ -114,8 +114,8 @@ public abstract class InventoryBase : MonoBehaviour
                 {
                     break;
                 }
-                itemnew.GetComponent<Item>().amount = itemnew.GetComponent <Item>().ItemData.amountStockableMax;
-                item.GetComponent<Item>().amount -=item.GetComponent<Item>().ItemData.amountStockableMax;
+                itemnew.GetComponent<Item>().amount = itemnew.GetComponent<Item>().ItemData.amountStockableMax;
+                item.GetComponent<Item>().amount -= item.GetComponent<Item>().ItemData.amountStockableMax;
                 ListeObjets[i].AddItemtoSlot(itemnew.GetComponent<Item>());
                 itemnew.GetComponent<Item>().gameObject.transform.SetParent(ListeObjets[i].transform);
                 ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
@@ -150,14 +150,42 @@ public abstract class InventoryBase : MonoBehaviour
     }
     virtual public void ToogleCanDragitem()
     {
-        foreach(var item in ListeObjets)
+        foreach (var item in ListeObjets)
         {
             item.candragItem = !item.candragItem;
-            if(item.item != null)
+            if (item.item != null)
             {
                 item.item.candragitem = !item.item.candragitem;
             }
         }
+    }
+    public bool DeleteItem(int id, int amount)
+    {
+        foreach (var item in ListeObjets)
+        {
+            if (item.item != null)
+            {
+                if (item.item.ItemData.id == id && item.item.amount == amount)
+                {
+                    Destroy(item.item);
+                    item.item = null;
+                    return true;
+                }
+                else if (item.item.ItemData.id == id && item.item.amount < amount)
+                {
+                    Destroy(item.item);
+                    item.item = null;
+                    amount -= item.item.amount;
+
+                }
+                else if (item.item.ItemData.id == id && item.item.amount > amount)
+                {
+                    item.item.amount -= amount;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
 
