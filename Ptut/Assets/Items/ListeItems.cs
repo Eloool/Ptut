@@ -19,7 +19,7 @@ public class ListeItems : MonoBehaviour
     public Sprite Background;
     public GameObject CanvasPickup;
 
-    public static ListeItems instance; // Propri�t� statique
+    public static ListeItems instance;
 
     private void Awake()
     {
@@ -34,14 +34,14 @@ public class ListeItems : MonoBehaviour
         }
         listeallItems.Sort(delegate (iconand3d x, iconand3d y)
         {
-            return x.Icon.GetComponent<Item>().id.CompareTo(y.Icon.GetComponent<Item>().id);
+            return x.Icon.GetComponent<Item>().ItemData.id.CompareTo(y.Icon.GetComponent<Item>().ItemData.id);
         });
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
         int countingid = 0;
         for (int i = 0; i < listeallItems.Count; countingid++)
         {
-            if (listeallItems[i].Icon.GetComponent<Item>().id != countingid)
+            if (listeallItems[i].Icon.GetComponent<Item>().ItemData.id != countingid)
             {
                 Debug.LogError("Pas d'items avec l'id" + countingid);
             }
@@ -86,7 +86,7 @@ public class ListeItems : MonoBehaviour
         {
             while (!wasaddedfully)
             {
-                GameObject ObjectDroped = Instantiate(listeallItems[item.GetComponent<Item>().id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
+                GameObject ObjectDroped = Instantiate(listeallItems[item.GetComponent<Item>().ItemData.id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
                 GameObject canvas = new();
                 GameObject CanvasForPickup = Instantiate(CanvasPickup);
                 ObjectDroped.layer = 7;
@@ -101,7 +101,7 @@ public class ListeItems : MonoBehaviour
                 canvas.name = "Canvasimage";
                 canvas.transform.SetParent(ObjectDroped.transform);
                 canvas.AddComponent<Canvas>();
-                if (item.GetComponent<Item>().amount <= item.GetComponent<Item>().amountStockableMax)
+                if (item.GetComponent<Item>().amount <= item.GetComponent<Item>().ItemData.amountStockableMax)
                 {
                     ObjectDroped.GetComponent<Item3d>().IconItem = item;
                     //ObjectDroped.GetComponent<Item3d>().IconItem.SetActive(false);
@@ -109,13 +109,13 @@ public class ListeItems : MonoBehaviour
                 }
                 else {
                     GameObject ItemCopy = Instantiate(item);
-                    ItemCopy.GetComponent<Item>().amount = item.GetComponent<Item>().amountStockableMax;
-                    item.GetComponent<Item>().amount -= item.GetComponent<Item>().amountStockableMax;
+                    ItemCopy.GetComponent<Item>().amount = item.GetComponent<Item>().ItemData.amountStockableMax;
+                    item.GetComponent<Item>().amount -= item.GetComponent<Item>().ItemData.amountStockableMax;
                     ObjectDroped.GetComponent<Item3d>().IconItem = ItemCopy;
                     //ItemCopy.SetActive(false);
                 }
                 ObjectDroped.GetComponent<Item3d>().IconItem.transform.SetParent(canvas.transform);
-                ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Image>().sprite = ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Item>().iconImage;
+                ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Image>().sprite = ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Item>().ItemData.iconImage;
                 ObjectDroped.AddComponent<MeshCollider>();
                 ObjectDroped.GetComponent<MeshCollider>().convex = true;
                 ObjectDroped.AddComponent<Rigidbody>();
@@ -131,18 +131,16 @@ public class ListeItems : MonoBehaviour
         AddtoInventory(icon);
     }
 
-    public bool HasItem(GameObject item)
+    public bool HasItem(int id)
     {
-        if (item == null || item.GetComponent<Item>() == null)
+        if (id  < 0 || id >listeallItems.Count)
         {
-            Debug.LogError("L'objet pass� en param�tre est nul ou ne poss�de pas de composant Item.");
+            Debug.LogError("L'indice pass� en param�tre est inferieur à 0 ou superieur à la longeur du tableau.");
             return false;
         }
-
-        int id = item.GetComponent<Item>().id;
         foreach (var invItem in inventaire.ListeObjets) 
         {
-            if (invItem.item != null && invItem.item.id == id)
+            if (invItem.item != null && invItem.item.ItemData.id == id)
             {
                 return true;
             }
@@ -150,7 +148,7 @@ public class ListeItems : MonoBehaviour
 
         foreach (var actionBarItem in ActionBar.ListeObjets)
         {
-            if (actionBarItem.item != null && actionBarItem.item.id == id)
+            if (actionBarItem.item != null && actionBarItem.item.ItemData.id == id)
             {
                 return true;
             }

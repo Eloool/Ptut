@@ -527,7 +527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &78137615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2ab30767ee821489b84a88e5b2b614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventaire: {fileID: 1969288922}
+  ActionBar: {fileID: 1678665623}
   listeallItems:
   - Icon: {fileID: 4484003225892084542, guid: cddc7fe5f1ff7e545aea22c58c6f8b89, type: 3}
     Objet3d: {fileID: 3562818600411440789, guid: 8cc2ec347b8a7044889b90f1599fc119, type: 3}
@@ -602,7 +604,7 @@ Canvas:
   m_GameObject: {fileID: 78137614}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1059325657}
   m_PlaneDistance: 0.21
   m_PixelPerfect: 0
@@ -630,7 +632,7 @@ RectTransform:
   m_Children:
   - {fileID: 1969288921}
   - {fileID: 1678665622}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 679954677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2291,10 +2293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4250,6 +4252,7 @@ Transform:
   - {fileID: 607307999}
   - {fileID: 149747075}
   - {fileID: 203404099}
+  - {fileID: 78137619}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &679954678
@@ -4425,11 +4428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909d917d73a63f940ac158d02e936645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  canPush: 0
-  strength: 1.1
 --- !u!143 &679954682
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4494,7 +4492,7 @@ MonoBehaviour:
   _interactibleMask:
     serializedVersion: 2
     m_Bits: 128
-  _interactionPromptUI: {fileID: 0}
+  _interactionPromptUIList: []
   _numFound: 0
 --- !u!1 &682380974
 GameObject:
@@ -6426,6 +6424,34 @@ Transform:
   - {fileID: 2146432310}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163094846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163094840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e484a0baafad664a8effe63ec64e036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiPanel: {fileID: 2146432309}
+  _promptText: {fileID: 2101416584}
+  IsDisplayed: 0
+--- !u!114 &1163094847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163094840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a749d7941e6b7847bb81ccde28af94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: 
 --- !u!1 &1170391661
 GameObject:
   m_ObjectHideFlags: 0
@@ -6503,34 +6529,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170391661}
   m_CullTransparentMesh: 1
---- !u!114 &1163094846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163094840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e484a0baafad664a8effe63ec64e036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uiPanel: {fileID: 2146432309}
-  _promptText: {fileID: 2101416584}
-  IsDisplayed: 0
---- !u!114 &1163094847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163094840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a749d7941e6b7847bb81ccde28af94a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prompt: 
 --- !u!1 &1179301687
 GameObject:
   m_ObjectHideFlags: 0
@@ -11105,7 +11103,6 @@ SceneRoots:
   - {fileID: 1609449429}
   - {fileID: 580622910}
   - {fileID: 658337924}
-  - {fileID: 78137619}
   - {fileID: 1163094844}
   - {fileID: 2109536819}
   - {fileID: 858371930}

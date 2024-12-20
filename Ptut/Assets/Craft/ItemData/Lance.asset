@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: Skin
+  m_Name: Lance
   m_EditorClassIdentifier: 
-  TypedelItem: 0
-  id: 2
-  ItemName: Skin
+  TypeOfItem: 4
+  id: 3
+  ItemName: Lance
   ItemDescription: 
-  amountStockableMax: 0
-  prefab: {fileID: 4484003225892084542, guid: 86f0b2fba55158847be4b3fbadc00bfd, type: 3}
-  iconImage: {fileID: 0}
+  amountStockableMax: 1
+  prefab: {fileID: 5073535221756712873, guid: 694ec2511759dfe4a84db6d637f3146a, type: 3}
+  iconImage: {fileID: 21300000, guid: a26cc3f8ee92ee64d9610b485e95c554, type: 3}

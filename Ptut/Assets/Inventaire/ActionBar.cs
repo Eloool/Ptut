@@ -48,7 +48,7 @@ public class ActionBar : InventoryBase
         {
             if (ListeObjets[i].item != null)
             {
-                Objects3d[i]=Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[ListeObjets[i].item.id].Objet3d);
+                Objects3d[i]=Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[ListeObjets[i].item.ItemData.id].Objet3d);
 
                 Objects3d[i].SetActive(i==SlotActuel);
             }

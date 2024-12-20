@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: Skin
+  m_Name: Torche
   m_EditorClassIdentifier: 
-  TypedelItem: 0
-  id: 2
-  ItemName: Skin
+  TypeOfItem: 8
+  id: 4
+  ItemName: Torche
   ItemDescription: 
-  amountStockableMax: 0
-  prefab: {fileID: 4484003225892084542, guid: 86f0b2fba55158847be4b3fbadc00bfd, type: 3}
-  iconImage: {fileID: 0}
+  amountStockableMax: 20
+  prefab: {fileID: 4484003225892084542, guid: 55b4cdb7170b7d349b94b00c0b9292f9, type: 3}
+  iconImage: {fileID: 21300000, guid: f314da99c80deca4e9b78db507f52fb3, type: 3}

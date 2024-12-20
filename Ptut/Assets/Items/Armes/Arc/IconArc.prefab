@@ -101,12 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d4c0021bdbb2c48b3fe6bafde243f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypedelItem: 4
-  id: 3
-  ItemName: Arc
-  description: C'est un arc
+  ItemData: {fileID: 11400000, guid: cfe1a909401d2ac48aa9ee8b8ca62c43, type: 2}
   amount: 0
-  amountStockableMax: 1
-  iconImage: {fileID: 21300000, guid: bde63e982b1219f46978a9c2d905ee7b, type: 3}
+  candragitem: 0
   parent: {fileID: 0}
   myText: {fileID: 0}
