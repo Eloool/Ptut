@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Health")]
     public float maxHealth;
-    private float currHealth;
+    public float currHealth;
     public float healthLossPerSecond;
     public Image healthBarFill;
 
@@ -28,8 +28,8 @@ public class PlayerStats : MonoBehaviour
     [Header("Armor Settings")]
     public float armorResistance; // 0 <= armorResistance <= 100
     private float damageMultiplicator;
-    
-    
+
+    public bool Launch = false;
 
     void Start()
     {
@@ -63,7 +63,7 @@ public class PlayerStats : MonoBehaviour
     void UpdateHungerThirstBarsFill()
     {
         // decrease every second
-        currHunger -= DifficultyManager.InstanceDM.GetHungerLossPerSecond() * Time.deltaTime;
+        currHunger -= hungerLossPerSecond * Time.deltaTime; 
         currThirst -= thirstLossPerSecond * Time.deltaTime;
 
         // hunger and thirst can't be negative

@@ -44,11 +44,11 @@ public class Recipe : MonoBehaviour
         {
             GameObject requiredItem = recipe.requiredItems[i].prefab; // Récupère le prefab GameObject pour cet item requis
 
-            if (!ListeItems.instance.HasItem(requiredItem))
+            /*if (!ListeItems.instance.HasItem(requiredItem))
             {
                 Debug.Log("Pas de " + requiredItem.name);
                 canCraft = false;
-            }
+            }*/
 
             GameObject requiredItemGO = Instantiate(elementRequiredPrefab, elementsRequiredPrefab);
             requiredItemGO.transform.GetChild(0).GetComponent<Image>().sprite = recipe.requiredItems[i].visual;
