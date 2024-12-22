@@ -85,7 +85,10 @@ public class GameLoader : MonoBehaviour
 
     public void ShowCustomMode()
     {
-        canvaDifficulty.SetActive(false);
+        foreach (Button button in difficultyButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
         canvaCustom.SetActive(true);
         Time.timeScale = 1f;
     }
