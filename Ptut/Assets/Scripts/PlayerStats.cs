@@ -15,13 +15,13 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Hunger")]
     public float maxHunger;
-    private float currHunger;
+    public float currHunger;
     public float hungerLossPerSecond;
     public Image hungerBarFill;
 
     [Header("Thirst")]
     public float maxThirst;
-    private float currThirst;
+    public float currThirst;
     public float thirstLossPerSecond;
     public Image thirstBarFill;
 
