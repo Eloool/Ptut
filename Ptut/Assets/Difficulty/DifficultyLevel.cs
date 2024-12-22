@@ -10,10 +10,13 @@ public class DifficultyLevel : ScriptableObject
 
     [SerializeField] private Difficulty _gameDifficulty;
 
-    private float HungerDecrease;
-    private float thirstDecrease;
 
     private float Health;
+
+    private float Damage;
+
+    private float HungerDecrease;
+    private float thirstDecrease;
 
     private void setHealth()
     {
@@ -52,5 +55,18 @@ public class DifficultyLevel : ScriptableObject
     {
         setThirstDecrease();
         return thirstDecrease;
+    }
+
+    private void setDamage()
+    {
+        if (_gameDifficulty == Difficulty.Easy) Damage = 85.0f;
+        else if (_gameDifficulty == Difficulty.Normal) Damage = 100.0f;
+        else Damage =115.0f;
+    }
+
+    public float getDamage()
+    {
+        setDamage();
+        return Damage;
     }
 }

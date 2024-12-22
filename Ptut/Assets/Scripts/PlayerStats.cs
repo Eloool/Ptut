@@ -28,6 +28,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Armor Settings")]
     public float armorResistance; // 0 <= armorResistance <= 100
     private float damageMultiplicator;
+    public float damageIndice;
 
     public bool Launch = false;
 
@@ -37,7 +38,7 @@ public class PlayerStats : MonoBehaviour
         currHunger = maxHunger;
         currThirst = maxThirst;
 
-        damageMultiplicator = (100 - 0.75f * armorResistance) / 100;
+        damageMultiplicator = (damageIndice - 0.75f * armorResistance) / 100;
     }
 
 

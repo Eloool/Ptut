@@ -16,8 +16,15 @@ public class GameLoader : MonoBehaviour
     public Button[] difficultyButtons; 
 
     // Champs pour entrer les valeurs custom
-    [SerializeField] private InputField customHealthInput;
-    [SerializeField] private InputField customFoodInput;
+    [SerializeField] private InputField customPlayerMaxHealth;
+    [SerializeField] private InputField customPlayerMaxFood;
+    [SerializeField] private InputField customPlayerMaxThirst;
+
+    //[SerializeField] private InputField customPlayerRegenHealth;
+    [SerializeField] private InputField customPlayerDecreaseFood;
+    [SerializeField] private InputField customPlayerDecreaseThirst;
+
+    [SerializeField] private InputField customPlayerDamageReceive;
     void Start()
     {
         Time.timeScale = 0f;
@@ -30,6 +37,8 @@ public class GameLoader : MonoBehaviour
 
         player.maxHealth = modeEasy.getHealth();
         player.currHealth = modeEasy.getHealth();
+
+        player.damageIndice = modeEasy.getDamage();
 
         player.hungerLossPerSecond = modeEasy.getHungerDecrease();
         player.thirstLossPerSecond = modeEasy.getThirstDecrease();
@@ -44,6 +53,8 @@ public class GameLoader : MonoBehaviour
         player.maxHealth = modeNormal.getHealth();
         player.currHealth = modeNormal.getHealth();
 
+        player.damageIndice = modeNormal.getDamage();
+
         player.hungerLossPerSecond = modeNormal.getHungerDecrease();
         player.thirstLossPerSecond = modeNormal.getThirstDecrease();
 
@@ -57,6 +68,8 @@ public class GameLoader : MonoBehaviour
         player.maxHealth = modeHard.getHealth();
         player.currHealth = modeHard.getHealth();
 
+        player.damageIndice = modeHard.getDamage();
+
         player.hungerLossPerSecond = modeHard.getHungerDecrease();
         player.thirstLossPerSecond = modeHard.getThirstDecrease();
 
@@ -68,13 +81,31 @@ public class GameLoader : MonoBehaviour
     public void LoadModeCustom()
     {
         // Récupère les valeurs des champs InputField
-        float customHealth = float.Parse(customHealthInput.text);
-        float customFood = float.Parse(customFoodInput.text);
+        float customMaxHealth = float.Parse(customPlayerMaxHealth.text);
+        float customMaxFood = float.Parse(customPlayerMaxFood.text);
+        float customMaxThirst = float.Parse(customPlayerMaxThirst.text);
 
-        player.maxHealth = customHealth;
-        player.currHealth = customHealth;
+        //float customRegenHealth = float.Parse(customPlayerRegenHealth.text);
+        float customDecreaseFood = float.Parse(customPlayerDecreaseFood.text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
+        float customDecreaseThirst = float.Parse(customPlayerDecreaseThirst.text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
 
-        player.hungerLossPerSecond = customFood;
+        float customDamageReceive = float.Parse(customPlayerDamageReceive.text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
+        
+
+        player.maxHealth = customMaxHealth;
+        player.currHealth = customMaxHealth;
+
+        player.maxHunger = customMaxFood;
+        player.currHunger = customMaxFood;
+
+        player.maxThirst = customMaxThirst;
+        player.currThirst = customMaxThirst;
+
+        //player.healthLossPerSecond = customRegenHealth;
+        player.hungerLossPerSecond = customDecreaseFood;
+        player.thirstLossPerSecond = customDecreaseThirst;
+
+        player.damageIndice = customDamageReceive;
 
         canvaCustom.SetActive(false);
         canvaStats.SetActive(true);
@@ -90,6 +121,17 @@ public class GameLoader : MonoBehaviour
             button.gameObject.SetActive(false);
         }
         canvaCustom.SetActive(true);
+        Time.timeScale = 1f;
+    }
+
+    public void HideCustomMode()
+    {
+        foreach (Button button in difficultyButtons)
+        {
+            button.gameObject.SetActive(true);
+        }
+        canvaCustom.SetActive(false);
+        canvaDifficulty.SetActive(false);
         Time.timeScale = 1f;
     }
 
