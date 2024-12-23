@@ -13,20 +13,10 @@ public class GameLoader : MonoBehaviour
     [SerializeField]
     private GameObject canvaDifficulty, canvaCustom, canvaStats;
 
-    public Button[] difficultyButtons; 
+    public Button[] difficultyButtons;
 
-    // Champs pour entrer les valeurs custom
-    [SerializeField] private InputField customPlayerMaxHealth;
-    [SerializeField] private InputField customPlayerMaxFood;
-    [SerializeField] private InputField customPlayerMaxThirst;
-    [SerializeField] private InputField customPlayerMaxStamina;
+    [SerializeField] private CustomInputManager customInputManager;
 
-    //[SerializeField] private InputField customPlayerRegenHealth;
-    [SerializeField] private InputField customPlayerDecreaseFood;
-    [SerializeField] private InputField customPlayerDecreaseThirst;
-    [SerializeField] private InputField customPlayerDecreaseStamina;
-
-    [SerializeField] private InputField customPlayerDamageReceive;
     void Start()
     {
         Time.timeScale = 0f;
@@ -82,43 +72,32 @@ public class GameLoader : MonoBehaviour
 
     public void LoadModeCustom()
     {
-        // Récupère les valeurs des champs InputField
-        float customMaxHealth = float.Parse(customPlayerMaxHealth.text);
-        float customMaxFood = float.Parse(customPlayerMaxFood.text);
-        float customMaxThirst = float.Parse(customPlayerMaxThirst.text);
-        float customMaxStamina = float.Parse(customPlayerMaxStamina.text);
+        customInputManager.ValidateInputs();
 
-        //float customRegenHealth = float.Parse(customPlayerRegenHealth.text);
-        float customDecreaseFood = float.Parse(customPlayerDecreaseFood.text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
-        float customDecreaseThirst = float.Parse(customPlayerDecreaseThirst.text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
-        float customDecreaseStamina = float.Parse(customPlayerDecreaseStamina.text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
+        player.maxHealth = customInputManager.GetInputValue("MaxHealth");
+        player.currHealth = player.maxHealth;
 
-        float customDamageReceive = float.Parse(customPlayerDamageReceive.text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
+        player.maxHunger = customInputManager.GetInputValue("MaxHunger");
+        player.currHunger = player.maxHunger;
 
-        player.maxHealth = customMaxHealth;
-        player.currHealth = customMaxHealth;
+        player.maxThirst = customInputManager.GetInputValue("MaxThirst");
+        player.currThirst = player.maxThirst;
 
-        player.maxHunger = customMaxFood;
-        player.currHunger = customMaxFood;
+        player.maxStamina = customInputManager.GetInputValue("MaxStamina");
+        player.currStamina = player.maxStamina;
 
-        player.maxThirst = customMaxThirst;
-        player.currThirst = customMaxThirst;
+        player.healthLossPerSecond = customInputManager.GetInputValue("HealthLoss");
+        player.hungerLossPerSecond = customInputManager.GetInputValue("HungerLoss");
+        player.thirstLossPerSecond = customInputManager.GetInputValue("ThirstLoss");
+        player.staminaLossPerSecond = customInputManager.GetInputValue("StaminaLoss");
 
-        player.maxStamina = customMaxStamina;
-        player.currStamina = customMaxStamina;
 
-        //player.healthLossPerSecond = customRegenHealth;
-        player.hungerLossPerSecond = customDecreaseFood;
-        player.thirstLossPerSecond = customDecreaseThirst;
-        player.staminaLossPerSecond = customDecreaseStamina;
-
-        player.damageIndice = customDamageReceive;
+        player.damageIndice = customInputManager.GetInputValue("DamageIndice");
 
         canvaCustom.SetActive(false);
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
 
-        player.Launch = true;
         Time.timeScale = 1f; // Réactive le jeu
     }
 
@@ -183,4 +162,5 @@ public class GameLoader : MonoBehaviour
             }
         }
     }
+
 }

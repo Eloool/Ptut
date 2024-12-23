@@ -37,8 +37,6 @@ public class PlayerStats : MonoBehaviour
     private float damageMultiplicator;
     public float damageIndice;
 
-    public bool Launch = false;
-
     void Start()
     {
         currHealth = maxHealth;
@@ -56,7 +54,7 @@ public class PlayerStats : MonoBehaviour
         UpdateStaminaBarFill();
         if (currHealth <= 0) { Die(); }
 
-        if(Input.GetKeyDown(KeyCode.M))
+        if(Input.GetKeyDown(KeyCode.X))
         {
             TakeDamage(10, false, true);
             Debug.Log("damage");

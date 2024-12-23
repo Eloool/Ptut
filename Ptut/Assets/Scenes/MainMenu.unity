@@ -283,8 +283,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1305145215}
   m_HandleRect: {fileID: 1305145214}
   m_Direction: 2
-  m_Value: 1.0000081
-  m_Size: 0.9505494
+  m_Value: 1.0000025
+  m_Size: 0.85643566
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -367,7 +367,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 100971003}
   - component: {fileID: 100971004}
   m_Layer: 5
-  m_Name: FaimJoueur
+  m_Name: MaxHunger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2683,7 +2683,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241760257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
@@ -3464,7 +3464,7 @@ GameObject:
   - component: {fileID: 317045304}
   - component: {fileID: 317045305}
   m_Layer: 5
-  m_Name: DecreaseFood
+  m_Name: HungerLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4298,7 +4298,7 @@ GameObject:
   - component: {fileID: 415767002}
   - component: {fileID: 415767003}
   m_Layer: 5
-  m_Name: "Sant\xE9Joueur"
+  m_Name: MaxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4815,7 +4815,7 @@ GameObject:
   - component: {fileID: 474036838}
   - component: {fileID: 474036837}
   m_Layer: 5
-  m_Name: DecreaseStamina
+  m_Name: StaminaLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5540,7 +5540,7 @@ GameObject:
   - component: {fileID: 534899853}
   - component: {fileID: 534899854}
   m_Layer: 5
-  m_Name: DecreaseThirst
+  m_Name: ThirstLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7018,9 +7018,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1634672733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740158749
@@ -7056,9 +7056,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'bb
-
-'
+  m_Text: Perte de la vie du joueur lors de manque de nourriture
 --- !u!222 &740158750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7080,7 +7078,7 @@ GameObject:
   - component: {fileID: 741939817}
   - component: {fileID: 741939816}
   m_Layer: 5
-  m_Name: DecreaseFood
+  m_Name: HungerLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7465,7 +7463,7 @@ GameObject:
   - component: {fileID: 833076820}
   - component: {fileID: 833076819}
   m_Layer: 5
-  m_Name: "MaxSant\xE9"
+  m_Name: MaxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9261,7 +9259,6 @@ GameObject:
   - component: {fileID: 1046585860}
   - component: {fileID: 1046585859}
   - component: {fileID: 1046585861}
-  - component: {fileID: 1046585862}
   - component: {fileID: 1046585863}
   m_Layer: 0
   m_Name: GameObjectForScript
@@ -9307,18 +9304,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19b51eb0746ae72448d9dc21276f0117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1046585862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046585858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea475a0ff64fb984794fbd40cf41a261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1046585863
@@ -11412,7 +11397,7 @@ GameObject:
   - component: {fileID: 1239897937}
   - component: {fileID: 1239897936}
   m_Layer: 5
-  m_Name: MaxEndurance
+  m_Name: MaxStamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11738,7 +11723,7 @@ GameObject:
   - component: {fileID: 1259259603}
   - component: {fileID: 1259259602}
   m_Layer: 5
-  m_Name: DamageReceive
+  m_Name: DamageIndice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11883,6 +11868,7 @@ GameObject:
   - component: {fileID: 1267691366}
   - component: {fileID: 1267691365}
   - component: {fileID: 1267691364}
+  - component: {fileID: 1267691368}
   m_Layer: 5
   m_Name: CanvasCustom
   m_TagString: Untagged
@@ -11975,6 +11961,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1267691368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267691362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8ca579f8de65f42bb19acd7a7815b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputFields:
+  - {fileID: 833076819}
+  - {fileID: 1928591096}
+  - {fileID: 1954472681}
+  - {fileID: 1239897936}
+  - {fileID: 1709703527}
+  - {fileID: 741939816}
+  - {fileID: 1672328607}
+  - {fileID: 474036837}
+  - {fileID: 1259259602}
 --- !u!1 &1269031997
 GameObject:
   m_ObjectHideFlags: 0
@@ -13558,7 +13566,7 @@ GameObject:
   - component: {fileID: 1476602877}
   - component: {fileID: 1476602878}
   m_Layer: 5
-  m_Name: StaminaJoueur
+  m_Name: MaxStamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14732,12 +14740,12 @@ GameObject:
   - component: {fileID: 1634672733}
   - component: {fileID: 1634672734}
   m_Layer: 5
-  m_Name: "RegenSant\xE9"
+  m_Name: HealthLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1634672733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14754,9 +14762,9 @@ RectTransform:
   - {fileID: 1709703530}
   m_Father: {fileID: 1400466760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 395, y: -360}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 770, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634672734
@@ -15137,7 +15145,7 @@ GameObject:
   - component: {fileID: 1672328608}
   - component: {fileID: 1672328607}
   m_Layer: 5
-  m_Name: DecreaseThirst
+  m_Name: ThirstLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15389,7 +15397,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Entrer valeur...
+  m_Text: 'Entrer valeur...(Ex : 0.1)
 
 '
 --- !u!222 &1700762044
@@ -15432,7 +15440,7 @@ GameObject:
   - component: {fileID: 1709703528}
   - component: {fileID: 1709703527}
   m_Layer: 5
-  m_Name: FoodInput
+  m_Name: HealthLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15560,9 +15568,9 @@ RectTransform:
   - {fileID: 52210096}
   m_Father: {fileID: 1634672733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 550, y: -30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1709718147
@@ -15832,7 +15840,7 @@ GameObject:
   - component: {fileID: 1733555475}
   - component: {fileID: 1733555476}
   m_Layer: 5
-  m_Name: DecreaseStamina
+  m_Name: StaminaLoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15973,7 +15981,7 @@ GameObject:
   - component: {fileID: 1743029100}
   - component: {fileID: 1743029101}
   m_Layer: 5
-  m_Name: DamageReceive
+  m_Name: DamageIndice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16586,19 +16594,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35687fe3979ae14488b45a1ade5dcf37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   currHealth: 0
   healthLossPerSecond: 1
   healthBarFill: {fileID: 1195002386}
-  maxHunger: 10
+  maxHunger: 100
   currHunger: 0
   hungerLossPerSecond: 0
   hungerBarFill: {fileID: 908178413}
-  maxThirst: 10
+  maxThirst: 100
   currThirst: 0
   thirstLossPerSecond: 0
   thirstBarFill: {fileID: 158531758}
-  maxStamina: 10
+  maxStamina: 100
   currStamina: 0
   staminaLossPerSecond: 0
   staminaBar: {fileID: 204780206}
@@ -16712,19 +16720,13 @@ MonoBehaviour:
   canvaDifficulty: {fileID: 355590589}
   canvaCustom: {fileID: 1267691362}
   canvaStats: {fileID: 521710768}
+  hungerBar: {fileID: 667329507}
   difficultyButtons:
   - {fileID: 1972303294}
   - {fileID: 1969516336}
   - {fileID: 124575366}
   - {fileID: 1538704711}
-  customPlayerMaxHealth: {fileID: 833076819}
-  customPlayerMaxFood: {fileID: 1928591096}
-  customPlayerMaxThirst: {fileID: 1954472681}
-  customPlayerMaxStamina: {fileID: 1239897936}
-  customPlayerDecreaseFood: {fileID: 741939816}
-  customPlayerDecreaseThirst: {fileID: 1672328607}
-  customPlayerDecreaseStamina: {fileID: 474036837}
-  customPlayerDamageReceive: {fileID: 1259259602}
+  customInputManager: {fileID: 1267691368}
 --- !u!1 &1882789852
 GameObject:
   m_ObjectHideFlags: 0
@@ -17552,7 +17554,7 @@ GameObject:
   - component: {fileID: 1928591097}
   - component: {fileID: 1928591096}
   m_Layer: 5
-  m_Name: MaxFaim
+  m_Name: MaxHunger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17881,7 +17883,7 @@ GameObject:
   - component: {fileID: 1947865798}
   - component: {fileID: 1947865799}
   m_Layer: 5
-  m_Name: SoifJoueur
+  m_Name: MaxThirst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17947,7 +17949,7 @@ GameObject:
   - component: {fileID: 1954472682}
   - component: {fileID: 1954472681}
   m_Layer: 5
-  m_Name: MaxSoif
+  m_Name: MaxThirst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
