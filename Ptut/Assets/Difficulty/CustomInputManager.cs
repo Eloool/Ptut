@@ -17,11 +17,11 @@ public class CustomInputManager : MonoBehaviour
         defaultValues["MaxHealth"] = 100f;
         defaultValues["MaxHunger"] = 100f;
         defaultValues["MaxThirst"] = 100f;
-        defaultValues["MaxStamina"] = 100f;
-        defaultValues["HealthLoss"] = 0.15f;
-        defaultValues["HungerLoss"] = 0.15f;
-        defaultValues["ThirstLoss"] = 0.15f;
-        defaultValues["StaminaLoss"] = 0.15f;
+        defaultValues["MaxStamina"] = 10f;
+        defaultValues["HealthLoss"] = 0.2f;
+        defaultValues["HungerLoss"] = 0.2f;
+        defaultValues["ThirstLoss"] = 0.2f;
+        defaultValues["StaminaLoss"] = 0.2f;
         defaultValues["DamageIndice"] = 100f;
 
         // Initialiser les valeurs par défaut dans inputValues

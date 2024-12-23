@@ -15,8 +15,10 @@ public class DifficultyLevel : ScriptableObject
 
     private float Damage;
 
-    private float HungerDecrease;
+    private float healthDecrease;
+    private float hungerDecrease;
     private float thirstDecrease;
+    private float staminaDecrease;
 
     private void setHealth()
     {
@@ -31,17 +33,30 @@ public class DifficultyLevel : ScriptableObject
         return Health;
     }
 
+    private void setHealthDecrease()
+    {
+        if (_gameDifficulty == Difficulty.Easy) healthDecrease = 0.1f;
+        else if (_gameDifficulty == Difficulty.Normal) healthDecrease = 0.2f;
+        else healthDecrease = 0.3f;
+    }
+
+    public float getHealthDecrease()
+    {
+        setHealthDecrease();
+        return healthDecrease;
+    }
+
     private void setHungerDecrease()
     {
-        if (_gameDifficulty == Difficulty.Easy) HungerDecrease = 0.1f;
-        else if (_gameDifficulty == Difficulty.Normal) HungerDecrease = 0.2f;
-        else HungerDecrease = 0.3f;
+        if (_gameDifficulty == Difficulty.Easy) hungerDecrease = 0.1f;
+        else if (_gameDifficulty == Difficulty.Normal) hungerDecrease = 0.2f;
+        else hungerDecrease = 0.3f;
     }
 
     public float getHungerDecrease()
     {
         setHungerDecrease();
-        return HungerDecrease;
+        return hungerDecrease;
     }
 
     private void setThirstDecrease()
@@ -55,6 +70,19 @@ public class DifficultyLevel : ScriptableObject
     {
         setThirstDecrease();
         return thirstDecrease;
+    }
+
+    private void setStaminaDecrease()
+    {
+        if (_gameDifficulty == Difficulty.Easy) staminaDecrease = 0.1f;
+        else if (_gameDifficulty == Difficulty.Normal) staminaDecrease = 0.2f;
+        else staminaDecrease = 0.3f;
+    }
+
+    public float getStaminaDecrease()
+    {
+        setStaminaDecrease();
+        return staminaDecrease;
     }
 
     private void setDamage()

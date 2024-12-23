@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class GameLoader : MonoBehaviour
 {
-    public DifficultyLevel modeEasy, modeNormal, modeHard, modeCustom;
+    public DifficultyLevel modeEasy, modeNormal, modeHard;
 
     public PlayerStats player;
 
     [SerializeField]
-    private GameObject canvaDifficulty, canvaCustom, canvaStats;
+    private GameObject canvaDifficulty, canvaCustom, canvaStats, canvasInfoCustom;
 
     public Button[] difficultyButtons;
 
@@ -32,8 +32,10 @@ public class GameLoader : MonoBehaviour
 
         player.damageIndice = modeEasy.getDamage();
 
+        player.healthLossPerSecond = modeEasy.getHealthDecrease();
         player.hungerLossPerSecond = modeEasy.getHungerDecrease();
         player.thirstLossPerSecond = modeEasy.getThirstDecrease();
+        player.staminaLossPerSecond = modeEasy.getStaminaDecrease();
 
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
@@ -47,8 +49,10 @@ public class GameLoader : MonoBehaviour
 
         player.damageIndice = modeNormal.getDamage();
 
+        player.healthLossPerSecond = modeNormal.getHealthDecrease();
         player.hungerLossPerSecond = modeNormal.getHungerDecrease();
         player.thirstLossPerSecond = modeNormal.getThirstDecrease();
+        player.staminaLossPerSecond = modeNormal.getStaminaDecrease();
 
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
@@ -62,8 +66,10 @@ public class GameLoader : MonoBehaviour
 
         player.damageIndice = modeHard.getDamage();
 
+        player.healthLossPerSecond = modeHard.getHealthDecrease();
         player.hungerLossPerSecond = modeHard.getHungerDecrease();
         player.thirstLossPerSecond = modeHard.getThirstDecrease();
+        player.staminaLossPerSecond = modeHard.getStaminaDecrease();
 
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
@@ -161,6 +167,20 @@ public class GameLoader : MonoBehaviour
                 button.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void ShowInfoCustom()
+    {
+        canvasInfoCustom.SetActive(true);
+        canvaCustom.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void HideInfoCustom()
+    {
+        canvasInfoCustom.SetActive(false);
+        canvaCustom.SetActive(true);
+        Time.timeScale = 1f;
     }
 
 }
