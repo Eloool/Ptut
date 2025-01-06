@@ -154,7 +154,7 @@ MonoBehaviour:
   wanderingWaitTimeMax: 5
   wanderingDistanceMin: 4
   wanderingDistanceMax: 8
-  isEnemy: 0
+  isEnemy: 1
   fleeDistance: 10
 --- !u!195 &10015260
 NavMeshAgent:
@@ -1852,7 +1852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1990440032
 MonoBehaviour:
   m_ObjectHideFlags: 0
