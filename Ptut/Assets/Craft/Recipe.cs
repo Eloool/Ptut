@@ -44,7 +44,7 @@ public class Recipe : MonoBehaviour
         {
             int requiredItem = recipe.requiredItems[i].id; // Récupère le prefab GameObject pour cet item requis
 
-            if (!ListeItems.instance.HasItem(requiredItem))
+            if (!Inventory.instance.HasItem(requiredItem))
             {
                 Debug.Log("Pas de " + recipe.requiredItems[i].id);
                 canCraft = false;
@@ -70,7 +70,7 @@ public class Recipe : MonoBehaviour
 
     public void CraftItem()
     {
-        if (ListeItems.instance == null)
+        if (Inventory.instance == null)
         {
             Debug.LogError("ListeItems.instance est null.");
             return;
@@ -86,6 +86,6 @@ public class Recipe : MonoBehaviour
         // Instanciation de l'objet à partir du prefab
         GameObject instance = Instantiate(prefab);
         instance.GetComponent<Item>().amount = RecipeAmount;
-        ListeItems.instance.AddtoInventory(instance); 
+        Inventory.instance.AddtoInventory(instance); 
     }
 }

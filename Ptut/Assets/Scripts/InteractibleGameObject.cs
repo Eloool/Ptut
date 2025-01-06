@@ -9,7 +9,7 @@ public class InteractibleGameObject : MonoBehaviour,InteractibleObject
 
     public bool Interact()
     {
-        ListeItems.instance.AddtoInventorybyItem3d(this.gameObject);
+        Inventory.instance.AddtoInventorybyItem3d(this.gameObject);
         Destroy(gameObject);
         return true;
     }

@@ -5,23 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
-public class ListeItems : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
-    [System.Serializable]
-    public class iconand3d
-    {
-        public GameObject Icon;
-        public GameObject Objet3d;
-    }
-    public Inventaire inventaire;
+    public InventoryMenu inventaire;
     public ActionBar ActionBar;
-    public List<iconand3d> listeallItems;
     public Sprite Background;
     public GameObject CanvasPickup;
 
-    public static ListeItems instance;
+    public static Inventory instance;
 
-    private void Awake()
+    private void Start()
     {
         if (instance == null)
         {
@@ -32,33 +25,17 @@ public class ListeItems : MonoBehaviour
         {
             Debug.LogWarning("Une autre instance de ListeItems a �t� trouv�e et d�truite.");
         }
-        listeallItems.Sort(delegate (iconand3d x, iconand3d y)
-        {
-            return x.Icon.GetComponent<Item>().ItemData.id.CompareTo(y.Icon.GetComponent<Item>().ItemData.id);
-        });
+        
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
-        int countingid = 0;
-        for (int i = 0; i < listeallItems.Count; countingid++)
-        {
-            if (listeallItems[i].Icon.GetComponent<Item>().ItemData.id != countingid)
-            {
-                Debug.LogError("Pas d'items avec l'id" + countingid);
-            }
-            else
-            {
-                i++;
-            }
-        }
-        GameObject gameObject = Instantiate(listeallItems[4].Icon);
+        
+        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[4].Icon);
         gameObject.GetComponent<Item>().amount = 36;
         AddtoInventory(gameObject);
         ActionBar.Reload3DObjects();
-    }
-    private void Start()
-    {
         ToogleInventory();
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
@@ -86,7 +63,7 @@ public class ListeItems : MonoBehaviour
         {
             while (!wasaddedfully)
             {
-                GameObject ObjectDroped = Instantiate(listeallItems[item.GetComponent<Item>().ItemData.id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
+                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
                 GameObject canvas = new();
                 GameObject CanvasForPickup = Instantiate(CanvasPickup);
                 ObjectDroped.layer = 7;
@@ -133,7 +110,7 @@ public class ListeItems : MonoBehaviour
 
     public bool HasItem(int id)
     {
-        if (id  < 0 || id >listeallItems.Count)
+        if (id  < 0 || id > ListAllItems.instance.listeallItems.Count)
         {
             Debug.LogError("L'indice pass� en param�tre est inferieur à 0 ou superieur à la longeur du tableau.");
             return false;

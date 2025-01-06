@@ -48,7 +48,7 @@ public class ActionBar : InventoryBase
         {
             if (ListeObjets[i].item != null)
             {
-                Objects3d[i]=Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[ListeObjets[i].item.ItemData.id].Objet3d);
+                Objects3d[i]=Instantiate(transform.parent.GetComponent<Inventory>().listeallItems[ListeObjets[i].item.ItemData.id].Objet3d);
 
                 Objects3d[i].SetActive(i==SlotActuel);
             }
@@ -65,7 +65,7 @@ public class ActionBar : InventoryBase
         ListeObjets = GetComponentsInChildren<InventoryItem>().ToList();
         foreach (InventoryItem item in ListeObjets)
         {
-            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().Background;
+            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<Inventory>().Background;
         }
         Objects3d = new GameObject[ListeObjets.Count]; 
     }
