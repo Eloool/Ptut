@@ -29,8 +29,8 @@ public class PlayerStats : MonoBehaviour
     public float maxStamina;
     public float currStamina;
     public float staminaLossPerSecond;
-    public Image staminaBar;
-    public Image staminaBarFill;
+    /*public Image staminaBar;
+    public Image staminaBarFill;*/
 
     [Header("Armor Settings")]
     public float armorResistance; // 0 <= armorResistance <= 100
@@ -51,7 +51,7 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         UpdateHungerThirstBarsFill();
-        UpdateStaminaBarFill();
+        //UpdateStaminaBarFill();
         if (currHealth <= 0) { Die(); }
 
         if(Input.GetKeyDown(KeyCode.X))
@@ -90,7 +90,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void UpdateStaminaBarFill()
+    /*void UpdateStaminaBarFill()
     {
         // stamina decrease
         if (Input.GetKey(KeyCode.LeftShift) &&
@@ -120,7 +120,7 @@ public class PlayerStats : MonoBehaviour
 
         // bar filling
         staminaBarFill.fillAmount = currStamina / maxStamina;
-    }
+    }*/
 
     //
     IEnumerator LowStamina()
