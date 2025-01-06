@@ -43,10 +43,4 @@ public class ListAllItems : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

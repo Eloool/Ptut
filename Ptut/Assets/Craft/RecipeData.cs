@@ -5,7 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Recipe", menuName = "Recipes/New Recipe")]
 public class RecipeData : ScriptableObject
 {
-    public ItemData craftableItem;
-    public ItemData[] requiredItems;
-    public int amount;
+    public ItemDataAndAmount craftableItem; 
+    public ItemDataAndAmount[] requiredItems; 
+}
+
+[System.Serializable]
+public class ItemDataAndAmount
+{
+    public ItemData requiredItem;
+    public int amount; 
 }

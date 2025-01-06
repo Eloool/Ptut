@@ -16,6 +16,6 @@ MonoBehaviour:
   id: 0
   ItemName: Knife
   ItemDescription: 
-  amountStockableMax: 0
+  amountStockableMax: 1
   prefab: {fileID: 4484003225892084542, guid: cddc7fe5f1ff7e545aea22c58c6f8b89, type: 3}
   iconImage: {fileID: 21300000, guid: 85a44330983a8094ba2527f50e202010, type: 3}

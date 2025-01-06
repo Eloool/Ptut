@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
         if (instance == null)
         {
             instance = this; // Initialisation si instance n'existe pas
-            Debug.Log("ListeItems.instance a �t� initialis�.");
+            Debug.Log("Inventory.instance a �t� initialis�.");
         }
         else
         {
@@ -32,6 +32,9 @@ public class Inventory : MonoBehaviour
         GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[4].Icon);
         gameObject.GetComponent<Item>().amount = 36;
         AddtoInventory(gameObject);
+        GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].Icon);
+        gameObject2.GetComponent<Item>().amount = 5;
+        AddtoInventory(gameObject2);
         ActionBar.Reload3DObjects();
         ToogleInventory();
     }
@@ -58,6 +61,10 @@ public class Inventory : MonoBehaviour
         if (!wasaddedfully)
         {
             wasaddedfully = inventaire.AddIconIventaire(item);
+        }
+        else
+        {
+            ActionBar.Reload3DObjects();
         }
         if (!wasaddedfully)
         {
@@ -108,43 +115,52 @@ public class Inventory : MonoBehaviour
         AddtoInventory(icon);
     }
 
-    public bool HasItem(int id)
+    public bool HasItem(ItemDataAndAmount item)
     {
-        if (id  < 0 || id > ListAllItems.instance.listeallItems.Count)
+        if (item.requiredItem.id  < 0 || item.requiredItem.id > ListAllItems.instance.listeallItems.Count)
         {
             Debug.LogError("L'indice pass� en param�tre est inferieur à 0 ou superieur à la longeur du tableau.");
             return false;
         }
+        int countItem = 0;
         foreach (var invItem in inventaire.ListeObjets) 
         {
-            if (invItem.item != null && invItem.item.ItemData.id == id)
+            if (invItem.item != null && invItem.item.ItemData.id == item.requiredItem.id)
             {
-                return true;
+                countItem += invItem.item.amount;
+                if (countItem >= item.amount)
+                {
+                    return true;
+                }
             }
         }
 
         foreach (var actionBarItem in ActionBar.ListeObjets)
         {
-            if (actionBarItem.item != null && actionBarItem.item.ItemData.id == id)
+            if (actionBarItem.item != null && actionBarItem.item.ItemData.id == item.requiredItem.id)
             {
-                return true;
+                countItem += actionBarItem.item.amount;
+                if (countItem >= item.amount)
+                {
+                    return true;
+                }
             }
         }
 
         return false;
     }
-    public void DeleteItems(int[] ids, int[] amounts)
+    public void DeleteItems(ItemDataAndAmount[] ids)
     {
-        if (ids.Length != amounts.Length)
-        {
-            Debug.LogWarning("Les ids et les montants n'ont pas la même longueur de tableau");
-            return;
-        }
+        //if (ids.Length != amounts.Length)
+        //{
+        //    Debug.LogWarning("Les ids et les montants n'ont pas la même longueur de tableau");
+        //    return;
+        //}
         for (int i = 0; i < ids.Length; i++)
         {
-            if (!ActionBar.DeleteItem(ids[i], amounts[i]))
+            if (!ActionBar.DeleteItem(ids[i].requiredItem.id, ids[i].amount))
             {
-                inventaire.DeleteItem(ids[i], amounts[i]);
+                inventaire.DeleteItem(ids[i].requiredItem.id, ids[i].amount);
             }
         }
     }

@@ -19,10 +19,10 @@ public abstract class InventoryBase : MonoBehaviour
     }
     public void AddIconIventaire(int id, int amount)
     {
-        if (id < transform.parent.GetComponent<Inventory>().listeallItems.Count() && id >= 0)
+        if (id < ListAllItems.instance.listeallItems.Count() && id >= 0)
         {
-            int numbericons = 1 + amount / transform.parent.GetComponent<Inventory>().listeallItems[id].Icon.GetComponent<Item>().ItemData.amountStockableMax;
-            if (transform.parent.GetComponent<Inventory>().listeallItems[id].Icon.GetComponent<Item>().ItemData.amountStockableMax == 1)
+            int numbericons = 1 + amount / ListAllItems.instance.listeallItems[id].Icon.GetComponent<Item>().ItemData.amountStockableMax;
+            if (ListAllItems.instance.listeallItems[id].Icon.GetComponent<Item>().ItemData.amountStockableMax == 1)
             {
                 --numbericons;
             }
@@ -30,7 +30,7 @@ public abstract class InventoryBase : MonoBehaviour
             while (numberdone < numbericons)
             {
                 bool asadded = false;
-                GameObject icon = Instantiate(transform.parent.GetComponent<Inventory>().listeallItems[id].Icon);
+                GameObject icon = Instantiate(ListAllItems.instance.listeallItems[id].Icon);
                 if (numberdone == numbericons - 1)
                 {
                     icon.GetComponent<Item>().amount = amount;
@@ -48,7 +48,7 @@ public abstract class InventoryBase : MonoBehaviour
                         ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
                         ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                         icon.GetComponent<Item>().parent = ListeObjets[i].gameObject;
-                        ListeObjets[i].item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<Inventory>().listeallItems[id].Icon.GetComponent<Item>().ItemData.iconImage;
+                        ListeObjets[i].item.gameObject.GetComponent<Image>().sprite = ListAllItems.instance.listeallItems[id].Icon.GetComponent<Item>().ItemData.iconImage;
                         icon.GetComponent<Item>().CreateTextAmount();
                         asadded = true;
 
@@ -69,7 +69,7 @@ public abstract class InventoryBase : MonoBehaviour
                 }
                 if (!asadded)
                 {
-                    GameObject ObjectDroped = Instantiate(transform.parent.GetComponent<Inventory>().listeallItems[id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
+                    GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
                     ObjectDroped.AddComponent<MeshCollider>();
                     ObjectDroped.GetComponent<MeshCollider>().convex = true;
                     ObjectDroped.AddComponent<Rigidbody>();
@@ -126,12 +126,11 @@ public abstract class InventoryBase : MonoBehaviour
             }
             else
             {
-                if (ListeObjets[i].item.GetComponent<Item>().ItemData.id == item.GetComponent<Item>().ItemData.id &&
-                    item.GetComponent<Item>().ItemData.amountStockableMax >= ListeObjets[i].item.GetComponent<Item>().amount + item.GetComponent<Item>().amount)
+                if (ListeObjets[i].item.GetComponent<Item>().ItemData.id == item.GetComponent<Item>().ItemData.id)
+                    //item.GetComponent<Item>().ItemData.amountStockableMax >= ListeObjets[i].item.GetComponent<Item>().amount + item.GetComponent<Item>().amount)
                 {
                     ListeObjets[i].AddtwoItem(ListeObjets[i].item, item.GetComponent<Item>());
                     ListeObjets[i].item.UpdateTextAmount();
-
                 }
             }
         }
@@ -167,20 +166,22 @@ public abstract class InventoryBase : MonoBehaviour
             {
                 if (item.item.ItemData.id == id && item.item.amount == amount)
                 {
-                    Destroy(item.item);
+                    Destroy(item.item.gameObject);
                     item.item = null;
                     return true;
                 }
                 else if (item.item.ItemData.id == id && item.item.amount < amount)
                 {
-                    Destroy(item.item);
-                    item.item = null;
                     amount -= item.item.amount;
+                    Destroy(item.item.gameObject);
+                    item.item = null;
+                    
 
                 }
                 else if (item.item.ItemData.id == id && item.item.amount > amount)
                 {
                     item.item.amount -= amount;
+                    item.item.UpdateTextAmount();
                     return true;
                 }
             }
