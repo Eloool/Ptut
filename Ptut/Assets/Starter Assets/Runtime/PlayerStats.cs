@@ -57,6 +57,12 @@ public class PlayerStats : MonoBehaviour
         UpdateStaminaBarFill();
 
         if (currHealth <= 0) { Die(); }
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            TakeDamage(10, false, true);
+            Debug.Log("damage");
+        }
     }
 
 

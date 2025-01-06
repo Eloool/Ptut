@@ -115,6 +115,8 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+        public static ThirdPersonController instance;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -135,7 +137,10 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
-
+            if(instance == null)
+            {
+                instance = this;
+            }
         }
 
         private void Start()
