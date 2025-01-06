@@ -19,7 +19,7 @@ public class ActionBar : InventoryBase
             {
                 Objects3d[SlotActuel].SetActive(false);
             }
-            SlotActuel += (int)Input.mouseScrollDelta.y;
+            SlotActuel -= (int)Input.mouseScrollDelta.y;
             if (SlotActuel > ListeObjets.Count - 1)
             {
                 SlotActuel = ListeObjets.Count - 1;
