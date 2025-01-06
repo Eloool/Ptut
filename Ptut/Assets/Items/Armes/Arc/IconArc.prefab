@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemData: {fileID: 11400000, guid: 7164dcd5daf918d4593ea922bdd36931, type: 2}
   amount: 0
-  candragitem: 0
+  candragitem: 1
   parent: {fileID: 0}
   myText: {fileID: 0}
+  _entityStats: []

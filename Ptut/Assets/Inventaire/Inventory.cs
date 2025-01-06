@@ -54,6 +54,16 @@ public class Inventory : MonoBehaviour
     {
         inventaire.gameObject.SetActive(!inventaire.gameObject.activeInHierarchy);
         ActionBar.ToogleCanDragitem();
+        if (inventaire.gameObject.activeInHierarchy)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
     public void AddtoInventory(GameObject item)
     {

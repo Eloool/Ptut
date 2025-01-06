@@ -11,17 +11,44 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
 {
     public ItemData ItemData;
     public int amount;
-    public bool candragitem =false;
+    public bool candragitem =true;
     private RectTransform rectTransform;
     private Canvas canvas;
     private GameObject textObject;
     public GameObject parent;
     public TMP_Text myText;
 
+    [SerializeReference]
+    private List<StatScriptableObject> _entityStats = new List<StatScriptableObject>();
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(110, 110);
+    }
+
+    public void AddStat(StatScriptableObject stat)
+    {
+        _entityStats.Add(stat);
+    }
+
+    public T GetItemStat<T>() where T : StatScriptableObject
+    {
+        foreach (var stat in _entityStats)
+        {
+            if (stat is T cast)
+            {
+                return cast;
+            }
+        }
+
+        return null;
+    }
+
+    public bool TryGetItemStat<T>(out T stat) where T : StatScriptableObject
+    {
+        stat = GetItemStat<T>();
+        return stat != null;
     }
 
     public void UpdateTextAmount()
