@@ -9,23 +9,37 @@ public class NoiseSource : MonoBehaviour
     private GameObject activeNoiseIcon; // Instance de l'icône
     public AudioSource audioSource; // Source audio associée au bruit
 
+    private Transform playerTransform; // Référence au joueur
+
     private void Start()
     {
         // Configure automatiquement le SphereCollider
         SphereCollider collider = GetComponent<SphereCollider>();
-        collider.isTrigger = true;
-        collider.radius = noiseRadius;
+        if (collider != null)
+        {
+            collider.isTrigger = true;
+            collider.radius = noiseRadius;
+        }
+
+        // Trouve le joueur
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            playerTransform = player.transform;
+        }
+        else
+        {
+            Debug.LogError("Aucun objet avec le tag 'Player' trouvé !");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Vérifie si l'objet entrant est un joueur ou un listener
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Joueur détecté !");
             EmitNoise();
 
-            // Si l'audio source existe, démarre le son
+            // Démarre le son si disponible
             if (audioSource != null && !audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -35,7 +49,6 @@ public class NoiseSource : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // Arrête le son et détruit l'icône lorsque le joueur sort du radius
         if (other.CompareTag("Player"))
         {
             ClearNoiseIcon();
@@ -49,26 +62,27 @@ public class NoiseSource : MonoBehaviour
 
     public void EmitNoise()
     {
-        GameObject canvas = GameObject.Find("Canvas"); // Remplace "StatsCanvas" par le nom exact de ton Canvas.
-        // Affiche l'icône si elle n'existe pas encore
+        GameObject canvas = GameObject.Find("Canvas");
+        if (canvas == null)
+        {
+            Debug.LogError("Canvas introuvable !");
+            return;
+        }
+
         if (activeNoiseIcon == null && noiseIconPrefab != null)
         {
-            if (canvas != null)
-            {
-                activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
-                Debug.Log("Icône ajoutée au Canvas");
+            // Crée l'icône et l'attache au Canvas
+            activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
 
-                // Ajuste la position relative à l'élément Canvas
-                RectTransform rectTransform = activeNoiseIcon.GetComponent<RectTransform>();
-                if (rectTransform != null)
-                {
-                    // Position dans le Canvas (par exemple, centré)
-                    rectTransform.anchoredPosition = Vector2.zero;
-                }
+            // Configure le NoiseIndicator pour suivre le joueur et la source
+            NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
+            if (indicator != null)
+            {
+                indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la caméra ici
             }
             else
             {
-                Debug.LogError("Canvas introuvable !");
+                Debug.LogError("Le prefab d'icône n'a pas de script NoiseIndicator !");
             }
         }
     }
