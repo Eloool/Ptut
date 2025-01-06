@@ -99,6 +99,6 @@ public class NoiseSource : MonoBehaviour
     /*private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, noiseRadius);
+        Gizmos.DrawWireSphere(transform.position, noiseRadius * 2f);
     }*/
 }
