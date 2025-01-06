@@ -428,6 +428,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58502656}
   m_CullTransparentMesh: 1
+--- !u!1 &65547506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65547507}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &65547507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65547506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 490.29788, y: 269.05792, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &71130912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,9 +2498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableRecipes:
-  - {fileID: 11400000, guid: 829c36a2440a24940b52dd389272316e, type: 2}
-  - {fileID: 11400000, guid: fb55f38b11f83b7469f04f9c68fd7718, type: 2}
-  - {fileID: 11400000, guid: 3543c4e7a19d34947be9c32b9bb0579f, type: 2}
+  - {fileID: 11400000, guid: 1fa145c2cffb2a143bdec5e052e0b803, type: 2}
+  - {fileID: 11400000, guid: 4a3d0326f788c8543a6940fe867e4fee, type: 2}
   recipeUiPrefab: {fileID: 8706152485398437461, guid: 8ae3a495a58ad2641aa19219b46e8970, type: 3}
   recipesParent: {fileID: 1143015722}
   craftingTable: {fileID: 308543321}
@@ -11650,3 +11680,4 @@ SceneRoots:
   - {fileID: 1887989203}
   - {fileID: 423323469}
   - {fileID: 1413069670}
+  - {fileID: 65547507}
