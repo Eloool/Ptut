@@ -6,21 +6,32 @@ using UnityEngine.InputSystem;
 
 public class GestionnairePeripherique : MonoBehaviour
 {
-    private PeripheriqueEntree PeripheriqueEntree;
+    [SerializeField]
+    private Vector2 deplacement; 
+
+    private PeripheriqueEntree peripheriqueEntree;
 
     private void Awake()
     {
-        PeripheriqueEntree = new PeripheriqueEntree();
+        peripheriqueEntree = new PeripheriqueEntree();
+
+        peripheriqueEntree.Player.Move.performed += LireDep1acement;
+        peripheriqueEntree.Player.Move.canceled += LireDep1acement;
+    }
+
+    private void LireDep1acement(InputAction.CallbackContext context)
+    {
+        deplacement = context.ReadValue<Vector2>();
     }
 
     private void OnEnable()
     {
-        PeripheriqueEntree.Player.enabled();
+        peripheriqueEntree.Enable();
     }
 
     private void OnDisable()
     {
-        PeripheriqueEntree.Player.Disable();
+        peripheriqueEntree.Player.Disable();
     }
 
     // Start is called before the first frame update
