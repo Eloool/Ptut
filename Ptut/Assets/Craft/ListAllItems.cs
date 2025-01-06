@@ -25,10 +25,18 @@ public class ListAllItems : MonoBehaviour
         {
             Debug.LogWarning("Une autre instance de ListeItems a �t� trouv�e et d�truite.");
         }
+        foreach (iconand3d item in listeallItems)
+        {
+            if(item.Icon.GetComponent<Item>().ItemData == null)
+            {
+                Debug.LogWarning("Pas d'ItemData pour " + item.Icon.GetComponent<Item>());
+            }
+        }
         listeallItems.Sort(delegate (iconand3d x, iconand3d y)
         {
             return x.Icon.GetComponent<Item>().ItemData.id.CompareTo(y.Icon.GetComponent<Item>().ItemData.id);
         });
+
 
         int countingid = 0;
         for (int i = 0; i < listeallItems.Count; countingid++)
