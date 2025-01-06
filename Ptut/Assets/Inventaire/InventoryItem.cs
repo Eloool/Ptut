@@ -11,7 +11,7 @@ public class InventoryItem : MonoBehaviour,IDropHandler
 {
     public Item item;
     public RectTransform Position;
-    public bool candragItem=true;
+    public bool candragItem=false;
     private RectTransform RectParent;
 
     private void Start()
@@ -35,9 +35,9 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     {
         int numberofiteminexcess = 0;
         item1.amount += item2.amount;
-        if (item1.amount > item1.amountStockableMax)
+        if (item1.amount > item1.ItemData.amountStockableMax)
         {
-            numberofiteminexcess = item1.amount - item1.amountStockableMax;
+            numberofiteminexcess = item1.amount - item1.ItemData.amountStockableMax;
             item1.amount -= numberofiteminexcess;
             item1.UpdateTextAmount();
         }
@@ -83,7 +83,7 @@ public class InventoryItem : MonoBehaviour,IDropHandler
         else
         {
 
-            if (item.id == eventData.pointerDrag.GetComponent<Item>().id)
+            if (item.ItemData.id == eventData.pointerDrag.GetComponent<Item>().ItemData.id)
             {
                 AddtwoItem(item, eventData.pointerDrag.GetComponent<Item>());
             }

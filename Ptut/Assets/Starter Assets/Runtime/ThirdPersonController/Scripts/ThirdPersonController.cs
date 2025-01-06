@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -14,6 +15,10 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        private PlayerStats stats;
+        private float stamina;
+        private bool enoughSta;
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -110,6 +115,8 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+        public static ThirdPersonController instance;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -130,10 +137,17 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+            if(instance == null)
+            {
+                instance = this;
+            }
         }
 
         private void Start()
         {
+            stats = GetComponent<PlayerStats>();
+            enoughSta = true;
+
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -154,6 +168,10 @@ namespace StarterAssets
 
         private void Update()
         {
+            stamina = stats.currStamina;
+            if (stamina > 0) { enoughSta = true; }
+            else { enoughSta = false; }
+
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
@@ -214,7 +232,7 @@ namespace StarterAssets
         private void Move()
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            float targetSpeed = (_input.sprint && enoughSta) ? SprintSpeed : MoveSpeed;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

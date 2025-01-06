@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ActionBar : InventoryBase
 {
     public GameObject Cadre;
-    public bool canscroll= false;
+    public bool canscroll= true;
     private int SlotActuel = 0;
     private GameObject[] Objects3d;
 
@@ -48,7 +48,7 @@ public class ActionBar : InventoryBase
         {
             if (ListeObjets[i].item != null)
             {
-                Objects3d[i]=Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[ListeObjets[i].item.id].Objet3d);
+                Objects3d[i]=Instantiate(ListAllItems.instance.listeallItems[ListeObjets[i].item.ItemData.id].Objet3d);
 
                 Objects3d[i].SetActive(i==SlotActuel);
             }
@@ -65,7 +65,7 @@ public class ActionBar : InventoryBase
         ListeObjets = GetComponentsInChildren<InventoryItem>().ToList();
         foreach (InventoryItem item in ListeObjets)
         {
-            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().Background;
+            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<Inventory>().Background;
         }
         Objects3d = new GameObject[ListeObjets.Count]; 
     }
