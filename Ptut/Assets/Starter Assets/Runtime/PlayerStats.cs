@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,10 +30,12 @@ public class PlayerStats : MonoBehaviour
     public float staminaLossPerSecond;
     public Image staminaBar;
     public Image staminaBarFill;
+    public bool enableSprint;
 
     [Header("Armor Settings")]
     public float armorResistance; // 0 <= armorResistance <= 100
     private float damageMultiplicator;
+    private float difficultyMultiplicator;
     
 
     void Start()
@@ -44,7 +45,9 @@ public class PlayerStats : MonoBehaviour
         currThirst = maxThirst;
         currStamina = maxStamina;
 
-        damageMultiplicator = (100 - 0.75f * armorResistance) / 100;
+        enableSprint = true;
+
+        damageMultiplicator = ((100 - 0.75f * armorResistance) / 100) * difficultyMultiplicator;
     }
 
 
@@ -100,7 +103,7 @@ public class PlayerStats : MonoBehaviour
             staminaBar.gameObject.SetActive(true);
             currStamina -= staminaLossPerSecond * Time.deltaTime;
         }
-        else // stamina increase
+        else if (enableSprint) // stamina increase
         {
             currStamina += staminaLossPerSecond * Time.deltaTime;
         }
@@ -108,7 +111,7 @@ public class PlayerStats : MonoBehaviour
         // stamina can't be negative or over maxStamina
         if (currStamina < 0) {
             currStamina = 0;
-            // TODO disable sprint
+            enableSprint = false;
             StartCoroutine(LowStamina());
         }
 
@@ -121,11 +124,11 @@ public class PlayerStats : MonoBehaviour
         staminaBarFill.fillAmount = currStamina / maxStamina;
     }
 
-    //
+    //  
     IEnumerator LowStamina()
     {
         yield return new WaitForSeconds(3);
-        // TODO enable sprint
+        enableSprint = true;
     }
 
     public void TakeDamage(float damage, bool overTime = false, bool trueDamage = false)
