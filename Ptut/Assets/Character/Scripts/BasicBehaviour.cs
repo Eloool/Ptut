@@ -7,6 +7,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 public class BasicBehaviour : MonoBehaviour
 {
 	PlayerStats playerStats;
+	public float stamina;
 
 	public Transform playerCamera;                        // Reference to the camera that focus the player.
 	public float turnSmoothing = 0.06f;                   // Speed of turn when moving to match camera facing.
@@ -47,7 +48,13 @@ public class BasicBehaviour : MonoBehaviour
 	// Get current default behaviour.
 	public int GetDefaultBehaviour {  get { return defaultBehaviour; } }
 
-	void Awake ()
+
+    void Start()
+    {
+        playerStats = GetComponent<PlayerStats>();
+    }
+
+    void Awake ()
 	{
 		// Set up the references.
 		behaviours = new List<GenericBehaviour> ();
@@ -73,12 +80,14 @@ public class BasicBehaviour : MonoBehaviour
 		anim.SetFloat(hFloat, h, 0.1f, Time.deltaTime);
 		anim.SetFloat(vFloat, v, 0.1f, Time.deltaTime);
 
+		// updates stamina
+        stamina = playerStats.currStamina;
 
-		// Toggle sprint by input.
-		sprint = Input.GetButton (sprintButton);
+        // Toggle sprint by input.
+        sprint = Input.GetButton (sprintButton);
 
         // Set the correct camera FOV for sprint mode.
-        if (IsSprinting() /*&& (playerStats.currStamina > 0)*/)
+        if (IsSprinting() && (stamina > 0))
 		{
 			changedFOV = true;
 			camScript.SetFOV(sprintFOV);
