@@ -19,7 +19,7 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
     public TMP_Text myText;
 
     [SerializeReference]
-    private List<StatScriptableObject> _entityStats = new List<StatScriptableObject>();
+    public List<StatScriptableObject> _itemStats = new List<StatScriptableObject>();
 
     private void Awake()
     {
@@ -29,12 +29,12 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
 
     public void AddStat(StatScriptableObject stat)
     {
-        _entityStats.Add(stat);
+        _itemStats.Add(stat);
     }
 
     public T GetItemStat<T>() where T : StatScriptableObject
     {
-        foreach (var stat in _entityStats)
+        foreach (var stat in _itemStats)
         {
             if (stat is T cast)
             {

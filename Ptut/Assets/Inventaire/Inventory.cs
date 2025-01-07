@@ -18,8 +18,7 @@ public class Inventory : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this; // Initialisation si instance n'existe pas
-            Debug.Log("Inventory.instance a �t� initialis�.");
+            instance = this; 
         }
         else
         {
@@ -29,15 +28,12 @@ public class Inventory : MonoBehaviour
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
         
-        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[4].Icon);
-        gameObject.GetComponent<Item>().amount = 10;
+        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[3].Icon);
+        gameObject.GetComponent<Item>().amount = 3;
         AddtoInventory(gameObject);
         GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].Icon);
         gameObject2.GetComponent<Item>().amount = 3;
         AddtoInventory(gameObject2);
-        GameObject gameObject1 = Instantiate(ListAllItems.instance.listeallItems[1].Icon);
-        gameObject1.GetComponent<Item>().amount = 3;
-        AddtoInventory(gameObject1);
         ActionBar.Reload3DObjects();
         ToogleInventory();
     }

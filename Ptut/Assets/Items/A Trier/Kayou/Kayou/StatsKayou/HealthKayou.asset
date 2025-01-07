@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14f400606d139341a39e285326c99b9, type: 3}
-  m_Name: ArmorSkin
+  m_Script: {fileID: 11500000, guid: 88e34a4200400b94faa709cd1467462e, type: 3}
+  m_Name: HealthKayou
   m_EditorClassIdentifier: 
-  statName: ArmorSkin
-  defense: 15
+  statName: HeallthKayou
+  health: 50

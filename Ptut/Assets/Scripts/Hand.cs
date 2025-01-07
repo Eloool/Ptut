@@ -16,6 +16,7 @@ public class Hand : MonoBehaviour
         {
             instance = this;
         }
+        
     }
 
     private void Update()
@@ -24,6 +25,17 @@ public class Hand : MonoBehaviour
         {
             ObjectInHand.transform.position = PointHand.transform.position;
             ObjectInHand.transform.rotation = PointHand.transform.rotation * Quaternion.Euler(-90, -30, 180) * Quaternion.Euler(QuaternionObject.x *180,QuaternionObject.y * 180,QuaternionObject.z * 180);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (ObjectInHand != null)
+            {
+                GetComponent<InteractionHand>().BreakObjects(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
+            }
+            else
+            {
+                GetComponent<InteractionHand>().BreakObjects(null);
+            }
         }
     }
 
@@ -35,7 +47,6 @@ public class Hand : MonoBehaviour
         }
         if (obj != null)
         {
-            Debug.Log(obj.transform.rotation);
             QuaternionObject = obj.transform.rotation;
             ObjectInHand = obj;
         }
@@ -43,14 +54,6 @@ public class Hand : MonoBehaviour
         {
             QuaternionObject = Quaternion.identity;
             ObjectInHand = null;
-        }
-    }
-
-    public void Interact()
-    {
-        if (ObjectInHand != null)
-        {
-
         }
     }
 }
