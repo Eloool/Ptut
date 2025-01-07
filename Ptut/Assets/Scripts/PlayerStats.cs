@@ -98,7 +98,7 @@ public class PlayerStats : MonoBehaviour
     {
         // stamina decrease
         if (Input.GetKey(KeyCode.LeftShift) &&
-            (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)))
+            (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) // à changer
         {
             staminaBar.gameObject.SetActive(true);
             currStamina -= staminaLossPerSecond * Time.deltaTime;
