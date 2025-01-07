@@ -6,7 +6,8 @@ public class InteractionHand : MonoBehaviour
 {
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 1.0f;
-    [SerializeField] private LayerMask _interactibleMask;
+    [SerializeField] private LayerMask _breakableMask;
+    [SerializeField] private LayerMask _ennemiMask;
 
     private Collider[] _colliders = new Collider[60];
     [SerializeField] private int _numFound;
@@ -15,7 +16,7 @@ public class InteractionHand : MonoBehaviour
 
     private void Update()
     {
-        _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactibleMask);
+        _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _breakableMask);
 
         // Gérer les nouveaux objets dans la sphère
         for (int i = 0; i < _numFound; i++)
