@@ -5,45 +5,50 @@ using UnityEngine;
 public class NoiseIndicator : MonoBehaviour
 {
     private Transform playerTransform; // Référence au joueur
-    private Transform noiseSourceTransform; // Référence à la source de bruit
-    private Transform arrowTransform; // Référence à l'objet flèche
+    private Transform noiseSourceTransform; // Référence à la source du bruit
+    private Camera mainCamera; // Référence à la caméra
+    public RectTransform iconRect; // RectTransform de l'icône
+    public RectTransform circleRect; // RectTransform du cercle (parent de l'icône)
+    private void Update()
+    {
+        if (playerTransform == null || noiseSourceTransform == null || mainCamera == null || iconRect == null || circleRect == null)
+            return;
 
-    public Camera uiCamera; // Caméra utilisée pour afficher le Canvas
+        // 1. Calcul de la direction entre le joueur et la source du bruit
+        Vector3 noiseDirection = (noiseSourceTransform.position - playerTransform.position).normalized;
 
+        // 2. Conversion de la direction dans l'espace de la caméra
+        Vector3 cameraRelativeDirection = mainCamera.transform.InverseTransformDirection(noiseDirection);
+
+        // 3. Calcul de l'angle en degrés dans l'espace caméra
+        float angle = Mathf.Atan2(cameraRelativeDirection.y, cameraRelativeDirection.x) * Mathf.Rad2Deg;
+
+        // 4. Normalisation de l'angle entre 0 et 360 degrés
+        if (angle < 0)
+            angle += 360;
+
+        // 5. Positionner l'icône sur le cercle (en utilisant l'angle)
+        float radius = circleRect.sizeDelta.x / 2f; // Rayon du cercle en pixels
+        Vector2 clampedPosition = new Vector2(
+            Mathf.Cos(angle * Mathf.Deg2Rad),
+            Mathf.Sin(angle * Mathf.Deg2Rad)
+        ) * radius;
+
+        iconRect.anchoredPosition = clampedPosition; // Place l'icône sur le cercle
+
+        // 6. Faire tourner l'icône pour pointer vers le bruit
+        iconRect.rotation = Quaternion.Euler(0, 0, -angle); // Rotation de l'icône pour qu'elle pointe correctement
+    }
+
+    // Méthode d'initialisation
     public void Initialize(Transform player, Transform noiseSource, Camera camera)
     {
         playerTransform = player;
         noiseSourceTransform = noiseSource;
-        uiCamera = camera;
+        mainCamera = camera;
 
-        // Trouve la flèche dans l'icône
-        arrowTransform = transform.Find("Arrow");
-        if (arrowTransform == null)
-        {
-            Debug.LogError("Flèche introuvable dans le NoiseIndicator !");
-        }
-    }
-
-    private void Update()
-    {
-        if (arrowTransform != null && playerTransform != null && noiseSourceTransform != null && uiCamera != null)
-        {
-            // Position du bruit et du joueur dans le monde
-            Vector3 playerPosition = playerTransform.position;
-            Vector3 noisePosition = noiseSourceTransform.position;
-
-            // Calcule la direction bruit → joueur dans le plan horizontal (X, Z)
-            Vector3 worldDirection = (noisePosition - playerPosition).normalized;
-            worldDirection.y = 0; // Ignore la composante Y (verticale)
-
-            // Transforme la direction en coordonnées locales à la caméra
-            Vector3 localDirection = uiCamera.transform.InverseTransformDirection(worldDirection);
-
-            // Calcule l'angle en 2D (Z-axis pour les rotations Canvas)
-            float angle = Mathf.Atan2(localDirection.z, localDirection.x) * Mathf.Rad2Deg;
-
-            // Applique l'angle à la flèche
-            arrowTransform.localRotation = Quaternion.Euler(0, 0, -angle); // Note : signe inversé pour correspondre à l'UI
-        }
+        // Trouver les RectTransform si nécessaire
+        if (iconRect == null)
+            iconRect = GetComponent<RectTransform>();
     }
 }
