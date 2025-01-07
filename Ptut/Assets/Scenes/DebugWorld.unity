@@ -817,11 +817,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d91044bddee1594cb64cddcbb5e76b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stamina: 0
   playerCamera: {fileID: 1035568998}
   turnSmoothing: 0.06
   sprintFOV: 100
   sprintButton: Sprint
-  playerStats: {fileID: 0}
 --- !u!114 &305401273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,14 +834,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04cfe015b44cfc4fb97244a8ce150c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 305401279}
+  stamina: 0
   walkSpeed: 0.15
-  runSpeed: 1
-  sprintSpeed: 2
+  runSpeed: 0.5
+  sprintSpeed: 1
   speedDampTime: 0.1
   jumpButton: Jump
   jumpHeight: 1.5
   jumpIntertialForce: 10
+  speed: 0
+  speedSeeker: 0
 --- !u!114 &305401274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,7 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247335de9c2ba3d49bbbada1d0562339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
   aimButton: Aim
   shoulderButton: Aim Shoulder
   crosshair: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
@@ -873,7 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b86dbbaaa422b64d8a77740b0e66a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
   flyButton: Fly
   flySpeed: 4
   sprintFactor: 2
