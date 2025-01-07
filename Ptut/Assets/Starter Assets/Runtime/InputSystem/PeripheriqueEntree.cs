@@ -62,6 +62,33 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Invintory"",
+                    ""type"": ""Button"",
+                    ""id"": ""f618af72-2682-4ace-81d8-aa2b6b85c755"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClickLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""2e35d00b-8a88-48c2-a0af-4751adb66a02"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClickRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ea55c32-fbd7-4a67-9320-0040ca55772b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -240,6 +267,72 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5353b9d2-4679-4667-a7c7-6ba11b9627ad"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Invintory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4572c87b-a7be-4b46-9163-8e955b00f000"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Invintory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0dc4461-d05b-4428-bd0a-6e0663c5daf2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""549a2de3-9e5f-4a53-957a-de37572e9f15"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2907212-1c2e-4da8-8cb3-eba26d5bff6d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdcb5509-b1f2-4db4-9254-c2ce8437eabf"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -300,6 +393,9 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Invintory = m_Player.FindAction("Invintory", throwIfNotFound: true);
+        m_Player_ClickLeft = m_Player.FindAction("ClickLeft", throwIfNotFound: true);
+        m_Player_ClickRight = m_Player.FindAction("ClickRight", throwIfNotFound: true);
     }
 
     ~@PeripheriqueEntree()
@@ -370,6 +466,9 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Invintory;
+    private readonly InputAction m_Player_ClickLeft;
+    private readonly InputAction m_Player_ClickRight;
     public struct PlayerActions
     {
         private @PeripheriqueEntree m_Wrapper;
@@ -378,6 +477,9 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @Invintory => m_Wrapper.m_Player_Invintory;
+        public InputAction @ClickLeft => m_Wrapper.m_Player_ClickLeft;
+        public InputAction @ClickRight => m_Wrapper.m_Player_ClickRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -399,6 +501,15 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @Invintory.started += instance.OnInvintory;
+            @Invintory.performed += instance.OnInvintory;
+            @Invintory.canceled += instance.OnInvintory;
+            @ClickLeft.started += instance.OnClickLeft;
+            @ClickLeft.performed += instance.OnClickLeft;
+            @ClickLeft.canceled += instance.OnClickLeft;
+            @ClickRight.started += instance.OnClickRight;
+            @ClickRight.performed += instance.OnClickRight;
+            @ClickRight.canceled += instance.OnClickRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -415,6 +526,15 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @Invintory.started -= instance.OnInvintory;
+            @Invintory.performed -= instance.OnInvintory;
+            @Invintory.canceled -= instance.OnInvintory;
+            @ClickLeft.started -= instance.OnClickLeft;
+            @ClickLeft.performed -= instance.OnClickLeft;
+            @ClickLeft.canceled -= instance.OnClickLeft;
+            @ClickRight.started -= instance.OnClickRight;
+            @ClickRight.performed -= instance.OnClickRight;
+            @ClickRight.canceled -= instance.OnClickRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -474,5 +594,8 @@ public partial class @PeripheriqueEntree: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnInvintory(InputAction.CallbackContext context);
+        void OnClickLeft(InputAction.CallbackContext context);
+        void OnClickRight(InputAction.CallbackContext context);
     }
 }
