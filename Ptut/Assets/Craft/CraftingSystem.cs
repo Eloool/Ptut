@@ -1,4 +1,3 @@
-using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -66,7 +65,7 @@ public class CraftingSystem : MonoBehaviour
     public void ToggleCraftTable()
     {
         craftingTable.SetActive(!craftingTable.activeSelf);
-        ThirdPersonController.instance.enabled = !ThirdPersonController.instance.enabled;
+        //ThirdPersonController.instance.enabled = !ThirdPersonController.instance.enabled;
         if (craftingTable.activeSelf)
         {
             Cursor.visible = true;
