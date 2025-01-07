@@ -37,7 +37,7 @@ public class NoiseIndicator : MonoBehaviour
         iconRect.anchoredPosition = clampedPosition; // Place l'icône sur le cercle
 
         // 6. Faire tourner l'icône pour pointer vers le bruit
-        iconRect.rotation = Quaternion.Euler(0, 0, -angle); // Rotation de l'icône pour qu'elle pointe correctement
+        iconRect.rotation = Quaternion.Euler(0, 0, -angle-90); // Rotation de l'icône pour qu'elle pointe correctement
     }
 
     // Méthode d'initialisation
