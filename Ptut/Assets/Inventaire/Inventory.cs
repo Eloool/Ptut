@@ -18,8 +18,7 @@ public class Inventory : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this; // Initialisation si instance n'existe pas
-            Debug.Log("Inventory.instance a �t� initialis�.");
+            instance = this; 
         }
         else
         {
@@ -29,11 +28,11 @@ public class Inventory : MonoBehaviour
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
         
-        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[4].Icon);
-        gameObject.GetComponent<Item>().amount = 36;
+        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[3].Icon);
+        gameObject.GetComponent<Item>().amount = 3;
         AddtoInventory(gameObject);
         GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].Icon);
-        gameObject2.GetComponent<Item>().amount = 20;
+        gameObject2.GetComponent<Item>().amount = 3;
         AddtoInventory(gameObject2);
         ActionBar.Reload3DObjects();
         ToogleInventory();
@@ -54,6 +53,16 @@ public class Inventory : MonoBehaviour
     {
         inventaire.gameObject.SetActive(!inventaire.gameObject.activeInHierarchy);
         ActionBar.ToogleCanDragitem();
+        if (inventaire.gameObject.activeInHierarchy)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
     public void AddtoInventory(GameObject item)
     {
