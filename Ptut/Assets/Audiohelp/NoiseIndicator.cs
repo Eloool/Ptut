@@ -11,6 +11,7 @@ public class NoiseIndicator : MonoBehaviour
     public RectTransform circleRect; // RectTransform du cercle (parent de l'icône)
     private void Update()
     {
+        Debug.Log("test");
         if (playerTransform == null || noiseSourceTransform == null || mainCamera == null || iconRect == null || circleRect == null)
             return;
 
