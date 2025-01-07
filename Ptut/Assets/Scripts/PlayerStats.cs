@@ -47,6 +47,7 @@ public class PlayerStats : MonoBehaviour
 
         enableSprint = true;
 
+        difficultyMultiplicator = 1;
         damageMultiplicator = ((100 - 0.75f * armorResistance) / 100) * difficultyMultiplicator;
     }
 
