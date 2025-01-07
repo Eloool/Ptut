@@ -30,11 +30,14 @@ public class Inventory : MonoBehaviour
         ActionBar.StartInventaire();
         
         GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[4].Icon);
-        gameObject.GetComponent<Item>().amount = 36;
+        gameObject.GetComponent<Item>().amount = 10;
         AddtoInventory(gameObject);
         GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].Icon);
-        gameObject2.GetComponent<Item>().amount = 20;
+        gameObject2.GetComponent<Item>().amount = 3;
         AddtoInventory(gameObject2);
+        GameObject gameObject1 = Instantiate(ListAllItems.instance.listeallItems[1].Icon);
+        gameObject1.GetComponent<Item>().amount = 3;
+        AddtoInventory(gameObject1);
         ActionBar.Reload3DObjects();
         ToogleInventory();
     }
