@@ -19,5 +19,18 @@ public class InventoryMenu : InventoryBase
         }
         ListeArmure.RemoveRange(0, ListeObjets.Count);
     }
+
+    public void ReloadArmor()
+    {
+        PlayerStats.instance.armorResistance = 0;
+        foreach (InventoryItem item in ListeArmure)
+        {
+            if (item.item != null)
+            {
+                PlayerStats.instance.armorResistance += item.item.GetItemStat<ArmorStat>().defense;
+            }
+        }
+        
+    }
 }
 

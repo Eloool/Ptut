@@ -37,7 +37,15 @@ public class PlayerStats : MonoBehaviour
     private float damageMultiplicator;
     private float difficultyMultiplicator;
     
+    public static PlayerStats instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         currHealth = maxHealth;
