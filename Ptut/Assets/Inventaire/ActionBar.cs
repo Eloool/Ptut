@@ -49,7 +49,7 @@ public class ActionBar : InventoryBase
         {
             if (ListeObjets[i].item != null)
             {
-                Objects3d[i]=Instantiate(ListAllItems.instance.listeallItems[ListeObjets[i].item.ItemData.id].Objet3d);
+                Objects3d[i]=Instantiate(ListAllItems.instance.listeallItems[ListeObjets[i].item.ItemData.id].prefab3D);
                 Objects3d[i].GetComponent<Item3d>().IconItem = ListeObjets[i].item.gameObject;
                 Objects3d[i].SetActive(i==SlotActuel);
             }

@@ -22,6 +22,7 @@ public class ItemData : ScriptableObject
     public string ItemName;
     public string ItemDescription;
     public int amountStockableMax;
-    public GameObject prefab;
+    public GameObject prefabIcon;
+    public GameObject prefab3D;
     public Sprite iconImage;
 }
