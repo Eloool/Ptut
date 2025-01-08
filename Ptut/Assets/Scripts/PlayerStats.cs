@@ -8,19 +8,19 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Health")]
     public float maxHealth;
-    private float currHealth;
+    public float currHealth;
     public float healthLossPerSecond;
     public Image healthBarFill;
 
     [Header("Hunger")]
     public float maxHunger;
-    private float currHunger;
+    public float currHunger;
     public float hungerLossPerSecond;
     public Image hungerBarFill;
 
     [Header("Thirst")]
     public float maxThirst;
-    private float currThirst;
+    public float currThirst;
     public float thirstLossPerSecond;
     public Image thirstBarFill;
 
@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Armor Settings")]
     public float armorResistance; // 0 <= armorResistance <= 100
-    private float damageMultiplicator;
+    public float damageMultiplicator;
     private float difficultyMultiplicator;
     
     public static PlayerStats instance;
