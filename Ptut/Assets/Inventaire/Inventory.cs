@@ -28,10 +28,10 @@ public class Inventory : MonoBehaviour
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
         
-        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[3].Icon);
+        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[3].prefabIcon);
         gameObject.GetComponent<Item>().amount = 3;
         AddtoInventory(gameObject);
-        GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].Icon);
+        GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].prefabIcon);
         gameObject2.GetComponent<Item>().amount = 3;
         AddtoInventory(gameObject2);
         ActionBar.Reload3DObjects();
@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour
         {
             while (!wasaddedfully)
             {
-                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].Objet3d, new Vector3(0, 10, 0), Quaternion.identity);
+                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].prefab3D, new Vector3(0, 10, 0), Quaternion.identity);
                 GameObject canvas = new();
                 GameObject CanvasForPickup = Instantiate(CanvasPickup);
                 ObjectDroped.layer = 7;

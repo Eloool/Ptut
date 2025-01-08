@@ -17,5 +17,6 @@ MonoBehaviour:
   ItemName: 
   ItemDescription: 
   amountStockableMax: 1
-  prefab: {fileID: 5073535221756712873, guid: ab7255ddade762c469cbabc51d01ea07, type: 3}
+  prefabIcon: {fileID: 5073535221756712873, guid: ab7255ddade762c469cbabc51d01ea07, type: 3}
+  prefab3D: {fileID: 4529890794473933311, guid: eb8d865b81004a341b279a15f2d3bbc3, type: 3}
   iconImage: {fileID: 21300000, guid: 63d858d04629ed74da79223b85309f19, type: 3}

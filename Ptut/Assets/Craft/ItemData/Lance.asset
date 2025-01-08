@@ -17,5 +17,6 @@ MonoBehaviour:
   ItemName: Lance
   ItemDescription: 
   amountStockableMax: 1
-  prefab: {fileID: 5073535221756712873, guid: 694ec2511759dfe4a84db6d637f3146a, type: 3}
+  prefabIcon: {fileID: 5073535221756712873, guid: 694ec2511759dfe4a84db6d637f3146a, type: 3}
+  prefab3D: {fileID: 3524945178087176323, guid: 17c2301c8e2c2304a95b9bef0b55c6d0, type: 3}
   iconImage: {fileID: 21300000, guid: a26cc3f8ee92ee64d9610b485e95c554, type: 3}
