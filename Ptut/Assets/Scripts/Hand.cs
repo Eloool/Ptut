@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hand : MonoBehaviour
+public class Hand : Stats
 {
     public GameObject ObjectInHand;
     private Quaternion QuaternionObject;
     public GameObject PointHand;
-
+    
     public static Hand instance;
+
 
     private void Awake()
     {

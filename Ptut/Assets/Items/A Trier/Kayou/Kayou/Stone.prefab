@@ -92,8 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1175521d02d9c4a85b4dad14515784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectStats:
+  StatsScripts:
   - {fileID: 11400000, guid: 08a848286f830cb4ea708527e69d8993, type: 2}
+  health: 0
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: 6f777754b6a4bc44aa8c801dacf6a5d6, type: 2}
     amountEach10Percentage: 4

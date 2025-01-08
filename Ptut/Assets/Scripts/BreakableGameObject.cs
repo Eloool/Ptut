@@ -3,23 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableGameObject : MonoBehaviour
-{
-    [SerializeReference]
-    private List<StatScriptableObject> _ObjectStats = new List<StatScriptableObject>();
-
+public class BreakableGameObject : InteractableBase
+{ 
     [SerializeField]
     private List<ItemDataAmountProbability> _probabilityDrop = new List<ItemDataAmountProbability>();
-
-
-    private int health;
 
     private float PercentHealthLost = 0.0f;
 
     private void Awake()
     {
         gameObject.layer = 8;
-        health = GetObjectStat<HealthStat>().health;
         for (int i = 0; i < _probabilityDrop.Count; i++)
         {
             if (_probabilityDrop[i].amountEach10Percentage * 10 > _probabilityDrop[i].amountTotal)
@@ -29,23 +22,23 @@ public class BreakableGameObject : MonoBehaviour
         }
     }
 
-    public void GotHit(Item item)
+    override public void GotHit(Item item)
     {
         HitObjectStat stat;
-        if (item == null || !item.TryGetItemStat<HitObjectStat>(out stat))
+        if (item == null || !item.TryGetStat<HitObjectStat>(out stat))
         {
             int HealthLost = 1;
             health -= HealthLost;
-            PercentHealthLost += (float)HealthLost / (float)GetObjectStat<HealthStat>().health;
+            PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
         }
         else
         {
             int HealthLost = stat.hitObjectPower;
             health -= HealthLost;
-            PercentHealthLost += (float)HealthLost / (float)GetObjectStat<HealthStat>().health;
+            PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
         }
 
-        if (health > 0)
+        if (health > 0 && PercentHealthLost>=0.1f)
         {
             foreach (ItemDataAmountProbability probability in _probabilityDrop)
             {
@@ -69,27 +62,6 @@ public class BreakableGameObject : MonoBehaviour
             }
             Destroy(gameObject);
         }
-
-    }
-
-
-    public T GetObjectStat<T>() where T : StatScriptableObject
-    {
-        foreach (var stat in _ObjectStats)
-        {
-            if (stat is T cast)
-            {
-                return cast;
-            }
-        }
-
-        return null;
-    }
-
-    public bool TryGetObjectStat<T>(out T stat) where T : StatScriptableObject
-    {
-        stat = GetObjectStat<T>();
-        return stat != null;
     }
 }
 

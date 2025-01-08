@@ -27,7 +27,7 @@ public class InventoryMenu : InventoryBase
         {
             if (item.item != null)
             {
-                PlayerStats.instance.armorResistance += item.item.GetItemStat<ArmorStat>().defense;
+                PlayerStats.instance.armorResistance += item.item.GetStat<ArmorStat>().defense;
             }
         }
         

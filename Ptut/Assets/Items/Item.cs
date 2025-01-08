@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class Item : Stats, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     public ItemData ItemData;
     public int amount;
@@ -18,37 +18,10 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
     public GameObject parent;
     public TMP_Text myText;
 
-    [SerializeReference]
-    public List<StatScriptableObject> _itemStats = new List<StatScriptableObject>();
-
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(110, 110);
-    }
-
-    public void AddStat(StatScriptableObject stat)
-    {
-        _itemStats.Add(stat);
-    }
-
-    public T GetItemStat<T>() where T : StatScriptableObject
-    {
-        foreach (var stat in _itemStats)
-        {
-            if (stat is T cast)
-            {
-                return cast;
-            }
-        }
-
-        return null;
-    }
-
-    public bool TryGetItemStat<T>(out T stat) where T : StatScriptableObject
-    {
-        stat = GetItemStat<T>();
-        return stat != null;
     }
 
     public void UpdateTextAmount()
