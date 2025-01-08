@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void goHome()
     {
+        Debug.Log("Ca passe par la !");
         SceneManager.LoadSceneAsync(0);
     }
     public void QuitGame()

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,19 +8,19 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Health")]
     public float maxHealth;
-    public float currHealth;
+    private float currHealth;
     public float healthLossPerSecond;
     public Image healthBarFill;
 
     [Header("Hunger")]
     public float maxHunger;
-    public float currHunger;
+    private float currHunger;
     public float hungerLossPerSecond;
     public Image hungerBarFill;
 
     [Header("Thirst")]
     public float maxThirst;
-    public float currThirst;
+    private float currThirst;
     public float thirstLossPerSecond;
     public Image thirstBarFill;
 
@@ -29,14 +28,24 @@ public class PlayerStats : MonoBehaviour
     public float maxStamina;
     public float currStamina;
     public float staminaLossPerSecond;
-    /*public Image staminaBar;
-    public Image staminaBarFill;*/
+    public Image staminaBar;
+    public Image staminaBarFill;
+    public bool enableSprint;
 
     [Header("Armor Settings")]
     public float armorResistance; // 0 <= armorResistance <= 100
     private float damageMultiplicator;
-    public float damageIndice;
+    private float difficultyMultiplicator;
+    
+    public static PlayerStats instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         currHealth = maxHealth;
@@ -44,17 +53,21 @@ public class PlayerStats : MonoBehaviour
         currThirst = maxThirst;
         currStamina = maxStamina;
 
-        damageMultiplicator = (damageIndice - 0.75f * armorResistance) / 100;
+        enableSprint = true;
+
+        difficultyMultiplicator = 1;
+        damageMultiplicator = ((100 - 0.75f * armorResistance) / 100) * difficultyMultiplicator;
     }
 
 
     void Update()
     {
         UpdateHungerThirstBarsFill();
-        //UpdateStaminaBarFill();
+        UpdateStaminaBarFill();
+
         if (currHealth <= 0) { Die(); }
 
-        if(Input.GetKeyDown(KeyCode.X))
+        if(Input.GetKeyDown(KeyCode.M))
         {
             TakeDamage(10, false, true);
             Debug.Log("damage");
@@ -70,7 +83,7 @@ public class PlayerStats : MonoBehaviour
     void UpdateHungerThirstBarsFill()
     {
         // decrease every second
-        currHunger -= hungerLossPerSecond * Time.deltaTime; 
+        currHunger -= hungerLossPerSecond * Time.deltaTime;
         currThirst -= thirstLossPerSecond * Time.deltaTime;
 
         // hunger and thirst can't be negative
@@ -90,43 +103,41 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    /*void UpdateStaminaBarFill()
+    void UpdateStaminaBarFill()
     {
         // stamina decrease
         if (Input.GetKey(KeyCode.LeftShift) &&
-            (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)))
+            (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) // à changer
         {
             staminaBar.gameObject.SetActive(true);
             currStamina -= staminaLossPerSecond * Time.deltaTime;
         }
-        else // stamina increase
+        else if (enableSprint) // stamina increase
         {
             currStamina += staminaLossPerSecond * Time.deltaTime;
         }
 
         // stamina can't be negative or over maxStamina
-        if (currStamina < 0)
-        {
+        if (currStamina < 0) {
             currStamina = 0;
-            // TODO disable sprint
+            enableSprint = false;
             StartCoroutine(LowStamina());
         }
 
-        if (currStamina > maxStamina)
-        {
+        if (currStamina > maxStamina) {
             currStamina = maxStamina;
             staminaBar.gameObject.SetActive(false);
         }
 
         // bar filling
         staminaBarFill.fillAmount = currStamina / maxStamina;
-    }*/
+    }
 
-    //
+    //  
     IEnumerator LowStamina()
     {
         yield return new WaitForSeconds(3);
-        // TODO enable sprint
+        enableSprint = true;
     }
 
     public void TakeDamage(float damage, bool overTime = false, bool trueDamage = false)

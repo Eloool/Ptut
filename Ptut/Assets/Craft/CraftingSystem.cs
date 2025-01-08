@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CraftingSystem : MonoBehaviour
 {
@@ -16,6 +17,16 @@ public class CraftingSystem : MonoBehaviour
     [SerializeField]
     private GameObject craftingTable; 
 
+    public static CraftingSystem instance;
+
+
+    private void Awake()
+    {
+        if (instance==null)
+        {
+            instance = this;
+        } 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +36,21 @@ public class CraftingSystem : MonoBehaviour
 
     void Update()
     {
-        UpdateDisplayedRecipes();
-
         if (Input.GetKeyDown(KeyCode.C))
         {
-            ToggleCraftTable(); 
+            ToggleCraftTable();
+            UpdateDisplayedRecipes();
         }
     }
 
-    private void UpdateDisplayedRecipes()
+    public void UpdateDisplayedRecipes()
     {
+        EventSystem.current.SetSelectedGameObject(null);
 
-        foreach(Transform child in recipesParent)
+        foreach (Transform child in recipesParent)
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false); 
+            Destroy(child.gameObject, 0.1f);   
         }
 
         for (int i = 0; i < availableRecipes.Length; i++)
@@ -48,9 +60,22 @@ public class CraftingSystem : MonoBehaviour
         }
     }
 
+
+
     public void ToggleCraftTable()
     {
         craftingTable.SetActive(!craftingTable.activeSelf);
+        //ThirdPersonController.instance.enabled = !ThirdPersonController.instance.enabled;
+        if (craftingTable.activeSelf)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,30 +34,34 @@ public class Recipe : MonoBehaviour
     {
         currentRecipe = recipe;
         //Item = currentRecipe.craftableItem.prefab;
+        
 
-        craftableItemImage.sprite = recipe.craftableItem.visual;
+        craftableItemImage.sprite = recipe.craftableItem.requiredItem.iconImage;
+        Debug.Log(currentRecipe);
+        CreateTextAmount(craftableItemImage.transform.parent.gameObject, recipe.craftableItem.amount);
 
-        RecipeAmount = recipe.amount;
+        RecipeAmount = recipe.craftableItem.amount;
 
         bool canCraft = true; 
 
         for (int i = 0; i < recipe.requiredItems.Length; i++)
         {
-            GameObject requiredItem = recipe.requiredItems[i].prefab; // Récupère le prefab GameObject pour cet item requis
+            ItemDataAndAmount requiredItem = recipe.requiredItems[i]; // Rï¿½cupï¿½re le prefab GameObject pour cet item requis
 
-            /*if (!ListeItems.instance.HasItem(requiredItem))
+            if (!Inventory.instance.HasItem(requiredItem))
             {
-                Debug.Log("Pas de " + requiredItem.name);
+                Debug.Log("Pas de " + recipe.requiredItems[i].requiredItem.id);
                 canCraft = false;
-            }*/
-
+            }
             GameObject requiredItemGO = Instantiate(elementRequiredPrefab, elementsRequiredPrefab);
-            requiredItemGO.transform.GetChild(0).GetComponent<Image>().sprite = recipe.requiredItems[i].visual;
+            requiredItemGO.transform.GetChild(0).GetComponent<Image>().sprite = currentRecipe.requiredItems[i].requiredItem.iconImage;
+            CreateTextAmount(requiredItemGO, recipe.requiredItems[i].amount);
+            
         }
 
         craftButton.image.sprite = canCraft ? canBuildIcon : cantBuildIcon;
         craftButton.enabled = canCraft;
-        Debug.Log("Etat de canCraft = " + canCraft);
+        //Debug.Log("Etat de canCraft = " + canCraft +" Recette : "+recipe);
 
         ResizeElementsRequiredParent();
     }
@@ -66,26 +71,46 @@ public class Recipe : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         elementsRequiredPrefab.GetComponent<ContentSizeFitter>().enabled = false;
         elementsRequiredPrefab.GetComponent<ContentSizeFitter>().enabled = true;
+        Canvas.ForceUpdateCanvases();
     }
 
     public void CraftItem()
     {
-        if (ListeItems.instance == null)
+        if (Inventory.instance == null)
         {
             Debug.LogError("ListeItems.instance est null.");
             return;
         }
 
-        GameObject prefab = currentRecipe.craftableItem.prefab;
+        GameObject prefab = currentRecipe.craftableItem.requiredItem.prefab;
         if (prefab == null)
         {
             Debug.LogError("Prefab du craftableItem est null.");
             return;
         }
 
-        // Instanciation de l'objet à partir du prefab
+        // Instanciation de l'objet ï¿½ partir du prefab
         GameObject instance = Instantiate(prefab);
         instance.GetComponent<Item>().amount = RecipeAmount;
-        ListeItems.instance.AddtoInventory(instance); 
+
+        Inventory.instance.DeleteItems(currentRecipe.requiredItems);
+        Inventory.instance.AddtoInventory(instance);
+
+        CraftingSystem.instance.UpdateDisplayedRecipes();
+    }
+    public void CreateTextAmount(GameObject sprite , int amount)
+    {
+        Canvas canvas = GetComponentInParent<Canvas>();
+        GameObject textObject = new("Nombre Item");
+        textObject.transform.SetParent(sprite.transform.GetChild(0));
+
+        // le texte
+        TextMeshProUGUI myText = textObject.AddComponent<TextMeshProUGUI>();
+        myText.text = amount.ToString();
+        myText.rectTransform.localScale = new Vector3(0.7f,0.7f,0.7f);
+        myText.rectTransform.sizeDelta = new Vector2(50, 20);
+        myText.rectTransform.localPosition = new Vector3(-25, (float)(-myText.rectTransform.sizeDelta.x / 2), 0);
     }
 }
+
+
