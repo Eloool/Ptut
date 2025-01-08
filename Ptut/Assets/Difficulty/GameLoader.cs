@@ -30,7 +30,7 @@ public class GameLoader : MonoBehaviour
         player.maxHealth = modeEasy.getHealth();
         player.currHealth = modeEasy.getHealth();
 
-        player.damageIndice = modeEasy.getDamage();
+        player.damageMultiplicator = modeEasy.getDamage();
 
         player.healthLossPerSecond = modeEasy.getHealthDecrease();
         player.hungerLossPerSecond = modeEasy.getHungerDecrease();
@@ -47,7 +47,7 @@ public class GameLoader : MonoBehaviour
         player.maxHealth = modeNormal.getHealth();
         player.currHealth = modeNormal.getHealth();
 
-        player.damageIndice = modeNormal.getDamage();
+        player.damageMultiplicator = modeNormal.getDamage();
 
         player.healthLossPerSecond = modeNormal.getHealthDecrease();
         player.hungerLossPerSecond = modeNormal.getHungerDecrease();
@@ -64,7 +64,7 @@ public class GameLoader : MonoBehaviour
         player.maxHealth = modeHard.getHealth();
         player.currHealth = modeHard.getHealth();
 
-        player.damageIndice = modeHard.getDamage();
+        player.damageMultiplicator = modeHard.getDamage();
 
         player.healthLossPerSecond = modeHard.getHealthDecrease();
         player.hungerLossPerSecond = modeHard.getHungerDecrease();
@@ -98,7 +98,7 @@ public class GameLoader : MonoBehaviour
         player.staminaLossPerSecond = customInputManager.GetInputValue("StaminaLoss");
 
 
-        player.damageIndice = customInputManager.GetInputValue("DamageIndice");
+        player.damageMultiplicator = customInputManager.GetInputValue("DamageIndice");
 
         canvaCustom.SetActive(false);
         canvaDifficulty.SetActive(false);
