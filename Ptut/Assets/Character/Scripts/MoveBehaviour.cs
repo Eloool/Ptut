@@ -194,3 +194,4 @@ public class MoveBehaviour : GenericBehaviour
 		GetComponent<CapsuleCollider>().material.staticFriction = 0.6f;
 	}
 }
+
