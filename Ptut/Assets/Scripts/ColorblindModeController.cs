@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ColorblindModeController : MonoBehaviour
 {
@@ -11,22 +12,27 @@ public class ColorblindModeController : MonoBehaviour
 
     void Start()
     {
-        currentMaterial = tritanopiaMaterial;
+        currentMaterial = normalMaterial;
     }
 
-    public void SetProtanopia()
+    public void SetMode(int mode)
     {
-        currentMaterial = protanopiaMaterial;
-    }
-
-    public void SetDeuteranopia()
-    {
-        currentMaterial = deuteranopiaMaterial;
-    }
-
-    public void SetTritanopia()
-    {
-        currentMaterial = tritanopiaMaterial;
+        // 0 = Normal, 1 = Protanopia, 2 = Deuteranopia, 3 = Tritanopia
+        switch (mode)
+        {
+            case 1:
+                currentMaterial = protanopiaMaterial;
+                break;
+            case 2:
+                currentMaterial = deuteranopiaMaterial;
+                break;
+            case 3:
+                currentMaterial = tritanopiaMaterial;
+                break;
+            default:
+                currentMaterial = normalMaterial;
+                break;
+        }
     }
 
     void OnRenderImage(RenderTexture source, RenderTexture destination)

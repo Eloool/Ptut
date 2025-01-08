@@ -4,16 +4,17 @@
 public class MoveBehaviour : GenericBehaviour
 {
 	PlayerStats playerStats;
+	public float stamina;
 
 	public float walkSpeed = 0.15f;                 // Default walk speed.
-	public float runSpeed = 1.0f;                   // Default run speed.
-	public float sprintSpeed = 2.0f;                // Default sprint speed.
+	public float runSpeed = 0.5f;                   // Default run speed.
+	public float sprintSpeed = 1f;                // Default sprint speed.
 	public float speedDampTime = 0.1f;              // Default damp time to change the animations based on current speed.
 	public string jumpButton = "Jump";              // Default jump button.
 	public float jumpHeight = 1.5f;                 // Default jump height.
 	public float jumpIntertialForce = 10f;          // Default horizontal inertial force when jumping.
 
-	private float speed, speedSeeker;               // Moving speed.
+	public float speed, speedSeeker;               // Moving speed.
 	private int jumpBool;                           // Animator variable related to jumping.
 	private int groundedBool;                       // Animator variable related to whether or not the player is on ground.
 	private bool jump;                              // Boolean to determine whether or not the player started a jump.
@@ -22,6 +23,8 @@ public class MoveBehaviour : GenericBehaviour
 	// Start is always called after any Awake functions.
 	void Start()
 	{
+		playerStats = GetComponent<PlayerStats>();
+
 		// Set up the references.
 		jumpBool = Animator.StringToHash("Jump");
 		groundedBool = Animator.StringToHash("Grounded");
@@ -41,6 +44,8 @@ public class MoveBehaviour : GenericBehaviour
 		{
 			jump = true;
 		}
+
+		stamina = playerStats.currStamina;
 	}
 
 	// LocalFixedUpdate overrides the virtual function of the base class.
@@ -122,7 +127,7 @@ public class MoveBehaviour : GenericBehaviour
 		speedSeeker += Input.GetAxis("Mouse ScrollWheel");
 		speedSeeker = Mathf.Clamp(speedSeeker, walkSpeed, runSpeed);
 		speed *= speedSeeker;
-		if (behaviourManager.IsSprinting() /*&& (playerStats.currStamina > 0)*/)
+		if (behaviourManager.IsSprinting() && (stamina > 0))
 		{
 			speed = sprintSpeed;
 		}
