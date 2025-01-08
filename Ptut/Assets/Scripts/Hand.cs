@@ -31,11 +31,13 @@ public class Hand : Stats
         {
             if (ObjectInHand != null)
             {
-                GetComponent<InteractionHand>().BreakObjects(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
+                GetComponent<BreakObjectsHand>().BreakObjects(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
+                GetComponent<InteractionKillEnnemi>().HitEnnemis(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
             }
             else
             {
-                GetComponent<InteractionHand>().BreakObjects(null);
+                GetComponent<BreakObjectsHand>().BreakObjects(null);
+                GetComponent<InteractionKillEnnemi>().HitEnnemis(null);
             }
         }
     }
