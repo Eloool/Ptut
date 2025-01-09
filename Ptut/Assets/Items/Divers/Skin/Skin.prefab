@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1855813294449568807}
   - component: {fileID: 643294258398579906}
   m_Layer: 0
-  m_Name: Peau3d
+  m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,4 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90e60f6de559824ebcb3b828fda8819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IconItem: {fileID: 0}
+  IconItem: {fileID: 4484003225892084542, guid: 86f0b2fba55158847be4b3fbadc00bfd, type: 3}
