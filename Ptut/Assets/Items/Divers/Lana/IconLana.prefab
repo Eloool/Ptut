@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1356320767772348726}
   - component: {fileID: 8535430615869539097}
   m_Layer: 5
-  m_Name: IconLog
+  m_Name: IconLana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatsScripts: []
-  ItemData: {fileID: 11400000, guid: 821530dea7a15334fade8b014d030ea1, type: 2}
+  ItemData: {fileID: 11400000, guid: cde0b1ad79fe08243954b0e9d4ddac56, type: 2}
   amount: 0
   candragitem: 1
   parent: {fileID: 0}

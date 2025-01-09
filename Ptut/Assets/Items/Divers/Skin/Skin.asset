@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 2
   ItemName: Skin
   ItemDescription: 
-  amountStockableMax: 3
+  amountStockableMax: 10
   prefabIcon: {fileID: 4484003225892084542, guid: 86f0b2fba55158847be4b3fbadc00bfd, type: 3}
   prefab3D: {fileID: 3277824801262417257, guid: 3e4ecba93fdee9643bb7452d68be73af, type: 3}
   iconImage: {fileID: 21300000, guid: c61209bf0bfce624a9e418cec33b243a, type: 3}

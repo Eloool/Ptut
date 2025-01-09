@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: Bowl
+  m_Name: LightPurpleSoup
   m_EditorClassIdentifier: 
   TypeOfItem: 8
-  id: 19
-  ItemName: Branchage
+  id: 22
+  ItemName: LightPurpleSoup
   ItemDescription: 
-  amountStockableMax: 20
-  prefabIcon: {fileID: 5073535221756712873, guid: ce826e507a49fa147985b24d7bd2784f, type: 3}
-  prefab3D: {fileID: 554818325102313274, guid: efde0dfe08698b3418a548f6e6d78803, type: 3}
-  iconImage: {fileID: 21300000, guid: b149edc4668a5ba44818e6c8bab634e6, type: 3}
+  amountStockableMax: 2
+  prefabIcon: {fileID: 5073535221756712873, guid: de15d8df203e1b14985514eba1d5ad7f, type: 3}
+  prefab3D: {fileID: 7735556712324780458, guid: 1c6047e8c765a1242be6c25296390409, type: 3}
+  iconImage: {fileID: 21300000, guid: d69f2784ae92eb34dadb2a3c9cea73db, type: 3}

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: Rope
+  m_Name: Bowl
   m_EditorClassIdentifier: 
   TypeOfItem: 8
-  id: 40
-  ItemName: Rope
+  id: 4
+  ItemName: Branchage
   ItemDescription: 
-  amountStockableMax: 20
-  prefabIcon: {fileID: 5073535221756712873, guid: f68f0824aaef24c429c86b4fe1ae3e14, type: 3}
-  prefab3D: {fileID: 7922938872611265262, guid: d5b14b36a0c95d645b7217675c9192cc, type: 3}
-  iconImage: {fileID: 21300000, guid: f9f4098a9cae3f340b3a6390c487102d, type: 3}
+  amountStockableMax: 4
+  prefabIcon: {fileID: 5073535221756712873, guid: ce826e507a49fa147985b24d7bd2784f, type: 3}
+  prefab3D: {fileID: 554818325102313274, guid: efde0dfe08698b3418a548f6e6d78803, type: 3}
+  iconImage: {fileID: 21300000, guid: b149edc4668a5ba44818e6c8bab634e6, type: 3}

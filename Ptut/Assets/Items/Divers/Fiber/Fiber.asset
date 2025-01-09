@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 7
   ItemName: Stone
   ItemDescription: 
-  amountStockableMax: 20
+  amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: 8e7369a1fc540e54f91b85e6b7002ee9, type: 3}
   prefab3D: {fileID: 1836986018840976902, guid: 082e33f5359a6f640a1331206746558c, type: 3}
   iconImage: {fileID: 21300000, guid: 75116498a1955f3479817dcce7e0ba16, type: 3}

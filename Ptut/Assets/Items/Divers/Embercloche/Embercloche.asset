@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 15
   ItemName: Embercloche
   ItemDescription: 
-  amountStockableMax: 20
+  amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: 5599b72f6656c1e42915fe80be56b3f7, type: 3}
   prefab3D: {fileID: 5871114645968539225, guid: 83ba8a177b765ab4692532dd64966ceb, type: 3}
   iconImage: {fileID: 21300000, guid: e0edd55c267efff4a9a12ef1f0b34fb5, type: 3}

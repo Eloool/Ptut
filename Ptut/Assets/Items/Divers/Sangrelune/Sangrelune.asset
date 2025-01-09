@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 18
   ItemName: Sangrelune
   ItemDescription: 
-  amountStockableMax: 20
+  amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: 3313dd73a4302944cb4c237612ed95a4, type: 3}
   prefab3D: {fileID: 1967661960215743808, guid: 7d1d42b35ee26be4faf11c9ae528558c, type: 3}
   iconImage: {fileID: 21300000, guid: dcea3d1df4bf6d54da416329dee6cce7, type: 3}

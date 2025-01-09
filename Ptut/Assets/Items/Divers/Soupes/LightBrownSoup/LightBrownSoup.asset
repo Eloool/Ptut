@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: Lance
+  m_Name: LightBrownSoup
   m_EditorClassIdentifier: 
-  TypeOfItem: 4
-  id: 3
-  ItemName: Lance
+  TypeOfItem: 8
+  id: 21
+  ItemName: LightBrownSoup
   ItemDescription: 
-  amountStockableMax: 1
-  prefabIcon: {fileID: 5073535221756712873, guid: 694ec2511759dfe4a84db6d637f3146a, type: 3}
-  prefab3D: {fileID: 3524945178087176323, guid: 17c2301c8e2c2304a95b9bef0b55c6d0, type: 3}
-  iconImage: {fileID: 21300000, guid: a26cc3f8ee92ee64d9610b485e95c554, type: 3}
+  amountStockableMax: 2
+  prefabIcon: {fileID: 5073535221756712873, guid: 771d02f36ef3cc74496ec9241593e6fd, type: 3}
+  prefab3D: {fileID: 1152197569832863644, guid: 932403a108355ae45a3fa0626d7d86ae, type: 3}
+  iconImage: {fileID: 21300000, guid: 72e894927377b1741a99c15649744372, type: 3}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RawIron
   m_EditorClassIdentifier: 
   TypeOfItem: 8
-  id: 41
+  id: 5
   ItemName: RawIron
   ItemDescription: 
-  amountStockableMax: 20
+  amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: 532b1aff5312eca4484ccecc486c470e, type: 3}
   prefab3D: {fileID: 8232025118775294417, guid: b9c6a0dd96c50b64bae123bb67145568, type: 3}
   iconImage: {fileID: 21300000, guid: f01f5b4d86620ec438409d8775b0b37a, type: 3}

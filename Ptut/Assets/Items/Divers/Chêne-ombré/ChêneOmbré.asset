@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: "IconCh\xEAneOmbr\xE9"
+  m_Name: "Ch\xEAneOmbr\xE9"
   m_EditorClassIdentifier: 
   TypeOfItem: 8
   id: 16
-  ItemName: "IconCh\xEAneOmbr\xE9"
+  ItemName: "Ch\xEAneOmbr\xE9"
   ItemDescription: 
-  amountStockableMax: 20
+  amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: 42b25bc1c5444fe49bf324cbb0f3bbf3, type: 3}
   prefab3D: {fileID: 2812748665525524058, guid: e252520722dfbef41ae8c27e3e3905f6, type: 3}
   iconImage: {fileID: 21300000, guid: a2792cdaa650b24488f493f6892a559c, type: 3}
