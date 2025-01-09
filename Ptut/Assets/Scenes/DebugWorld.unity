@@ -5424,10 +5424,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop:
-  - Item: {fileID: 11400000, guid: 7164dcd5daf918d4593ea922bdd36931, type: 2}
+  - Item: {fileID: 11400000, guid: 1a5dd80a6af16e540bda94b982d6df03, type: 2}
     amountMax: 2
     amountMin: 0
-  - Item: {fileID: 11400000, guid: 6f777754b6a4bc44aa8c801dacf6a5d6, type: 2}
+  - Item: {fileID: 11400000, guid: cde0b1ad79fe08243954b0e9d4ddac56, type: 2}
     amountMax: 6
     amountMin: 2
 --- !u!64 &712208029
