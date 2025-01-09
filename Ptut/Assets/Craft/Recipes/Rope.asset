@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b202c465cfe8e4f871ee2097c645d2, type: 3}
-  m_Name: Lana
+  m_Name: Rope
   m_EditorClassIdentifier: 
   craftableItem:
-    requiredItem: {fileID: 11400000, guid: cde0b1ad79fe08243954b0e9d4ddac56, type: 2}
+    requiredItem: {fileID: 11400000, guid: c4c6318a9c42cc84e8152bdf406c4dc5, type: 2}
     amount: 1
   requiredItems:
-  - requiredItem: {fileID: 11400000, guid: 494879e0630b1c449a88134bd8138fdb, type: 2}
+  - requiredItem: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
+    amount: 1
+  - requiredItem: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
     amount: 1
