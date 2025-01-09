@@ -3272,6 +3272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableRecipes:
+  - {fileID: 11400000, guid: 49c4d2b9c9011704fa041a4e11d32c85, type: 2}
+  - {fileID: 11400000, guid: c995eb47145373f4fa6a240d168de3d8, type: 2}
+  - {fileID: 11400000, guid: bf6f59335c0a6b24a81a9cadc806fd80, type: 2}
   - {fileID: 11400000, guid: 18ac03df40323aa43a51aa19300fd5d9, type: 2}
   - {fileID: 11400000, guid: 29fd9f0b14b54954c821c526eeb08235, type: 2}
   - {fileID: 11400000, guid: 0369a1d85b603d04a96decb04e57f867, type: 2}
@@ -8481,6 +8484,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b119edc8688e8244f9662de013540375, type: 2}
   - {fileID: 11400000, guid: 6a33adf4a1a9c68489a6e4b6f07562df, type: 2}
   - {fileID: 11400000, guid: f9bb62c9a3cf6cc4da73d7812ebb8341, type: 2}
+  - {fileID: 11400000, guid: b4f3abbce0fdf6946a4cc33837239ef6, type: 2}
+  - {fileID: 11400000, guid: 8ddd6def62275af4ab66962dc968a7b1, type: 2}
+  - {fileID: 11400000, guid: 873b860f1880c2c409ec490d972dc79e, type: 2}
 --- !u!4 &1413069670
 Transform:
   m_ObjectHideFlags: 0
