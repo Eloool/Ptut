@@ -41,6 +41,10 @@ public class CraftingSystem : MonoBehaviour
             ToggleCraftTable();
             UpdateDisplayedRecipes();
         }
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            craftingTable.SetActive(false);
+        }
     }
 
     public void UpdateDisplayedRecipes()
