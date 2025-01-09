@@ -10,8 +10,8 @@ public class AimBehaviourBasic : GenericBehaviour
 	public Vector3 aimPivotOffset = new Vector3(0.5f, 1.2f,  0f);         // Offset to repoint the camera when aiming.
 	public Vector3 aimCamOffset   = new Vector3(0f, 0.4f, -0.7f);         // Offset to relocate the camera when aiming.
 
-	private int aimBool;                                                  // Animator variable related to aiming.
-	private bool aim;                                                     // Boolean to determine whether or not the player is aiming.
+	public int aimBool;                                                  // Animator variable related to aiming.
+	public bool aim;                                                     // Boolean to determine whether or not the player is aiming.
 
 	// Start is always called after any Awake functions.
 	void Start ()
@@ -59,7 +59,14 @@ public class AimBehaviourBasic : GenericBehaviour
 		else
 		{
 			aim = true;
-			int signal = 1;
+   //         behaviourManager.GetAnim.SetBool("Shoot", aim);
+			//if (Input.GetKeyDown(KeyCode.Mouse0))
+			//{
+			//	Debug.Log("Good");
+			//}
+
+
+            int signal = 1;
 			aimCamOffset.x = Mathf.Abs(aimCamOffset.x) * signal;
 			aimPivotOffset.x = Mathf.Abs(aimPivotOffset.x) * signal;
 			yield return new WaitForSeconds(0.1f);
@@ -73,7 +80,9 @@ public class AimBehaviourBasic : GenericBehaviour
 	private IEnumerator ToggleAimOff()
 	{
 		aim = false;
-		yield return new WaitForSeconds(0.3f);
+        //behaviourManager.GetAnim.SetBool("Shoot", aim);
+
+        yield return new WaitForSeconds(0.3f);
 		behaviourManager.GetCamScript.ResetTargetOffsets();
 		behaviourManager.GetCamScript.ResetMaxVerticalAngle();
 		yield return new WaitForSeconds(0.05f);
