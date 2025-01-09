@@ -157,7 +157,7 @@ public class EnemyAI : MonoBehaviour
 
         animator.SetTrigger("Attack");
 
-        //playerStats.TakeDamage(damageDealt);//Ne pas oublier de mettre les stats dans le serialized playerStats
+        playerStats.TakeDamage(damageDealt);//Ne pas oublier de mettre les stats dans le serialized playerStats
 
         yield return new WaitForSeconds(attackDelay);
 

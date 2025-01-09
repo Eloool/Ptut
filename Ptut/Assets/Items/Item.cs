@@ -9,21 +9,8 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
-    public enum TypeItem
-    {
-        Casque,
-        Torse,
-        Pantalon,
-        Bottes,
-        Autre
-    }
-    public TypeItem TypedelItem;
-    public int id;
-    public string ItemName;
-    public string description;
+    public ItemData ItemData;
     public int amount;
-    public int amountStockableMax;
-    public Sprite iconImage;
     public bool candragitem =true;
     private RectTransform rectTransform;
     private Canvas canvas;
@@ -31,10 +18,37 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
     public GameObject parent;
     public TMP_Text myText;
 
+    [SerializeReference]
+    public List<StatScriptableObject> _itemStats = new List<StatScriptableObject>();
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(110, 110);
+    }
+
+    public void AddStat(StatScriptableObject stat)
+    {
+        _itemStats.Add(stat);
+    }
+
+    public T GetItemStat<T>() where T : StatScriptableObject
+    {
+        foreach (var stat in _itemStats)
+        {
+            if (stat is T cast)
+            {
+                return cast;
+            }
+        }
+
+        return null;
+    }
+
+    public bool TryGetItemStat<T>(out T stat) where T : StatScriptableObject
+    {
+        stat = GetItemStat<T>();
+        return stat != null;
     }
 
     public void UpdateTextAmount()
@@ -91,21 +105,12 @@ public class Item : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHand
             canvas = GetComponentInParent<Canvas>();
             textObject = new("Nombre Item");
             textObject.transform.SetParent(this.transform);
+            
             // le texte
             myText = textObject.AddComponent<TextMeshProUGUI>();
             myText.text = amount.ToString();
             myText.rectTransform.localScale = new Vector3(1, 1, 1);
-            myText.rectTransform.sizeDelta = new Vector2(20,20);
-            myText.rectTransform.localPosition = new Vector3(-45, (float)(-myText.rectTransform.sizeDelta.x / 2), 0);
-       
-    }
-    public void CopyItem(Item copy) 
-    {
-        TypedelItem = copy.TypedelItem;
-        id = copy.id;
-        ItemName = copy.ItemName;
-        description = copy.description;
-        iconImage = copy.iconImage;
-        amountStockableMax = copy.amountStockableMax;
+            myText.rectTransform.sizeDelta = new Vector2(60,20);
+            myText.rectTransform.localPosition = new Vector3(-30, (float)(-myText.rectTransform.sizeDelta.x / 2), 0);
     }
 }

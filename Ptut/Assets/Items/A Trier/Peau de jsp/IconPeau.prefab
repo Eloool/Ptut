@@ -101,12 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d4c0021bdbb2c48b3fe6bafde243f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypedelItem: 0
-  id: 4
-  ItemName: Peau
-  description: C'est une peau
+  ItemData: {fileID: 11400000, guid: 1a5dd80a6af16e540bda94b982d6df03, type: 2}
   amount: 0
-  amountStockableMax: 1
-  iconImage: {fileID: 21300000, guid: c61209bf0bfce624a9e418cec33b243a, type: 3}
+  candragitem: 1
   parent: {fileID: 0}
   myText: {fileID: 0}
+  _itemStats:
+  - {fileID: 11400000, guid: cc20592b41431404b917ca183acb2001, type: 2}

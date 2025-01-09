@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ActionBar : InventoryBase
 {
     public GameObject Cadre;
-    public bool canscroll= false;
+    public bool canscroll= true;
     private int SlotActuel = 0;
     private GameObject[] Objects3d;
 
@@ -19,7 +19,7 @@ public class ActionBar : InventoryBase
             {
                 Objects3d[SlotActuel].SetActive(false);
             }
-            SlotActuel += (int)Input.mouseScrollDelta.y;
+            SlotActuel -= (int)Input.mouseScrollDelta.y;
             if (SlotActuel > ListeObjets.Count - 1)
             {
                 SlotActuel = ListeObjets.Count - 1;
@@ -34,6 +34,7 @@ public class ActionBar : InventoryBase
             {
                 Objects3d[SlotActuel].SetActive(true);
             }
+            Hand.instance.ChangeObject(Objects3d[SlotActuel]);
         }
     }
 
@@ -48,11 +49,12 @@ public class ActionBar : InventoryBase
         {
             if (ListeObjets[i].item != null)
             {
-                Objects3d[i]=Instantiate(transform.parent.GetComponent<ListeItems>().listeallItems[ListeObjets[i].item.id].Objet3d);
-
+                Objects3d[i]=Instantiate(ListAllItems.instance.listeallItems[ListeObjets[i].item.ItemData.id].Objet3d);
+                Objects3d[i].GetComponent<Item3d>().IconItem = ListeObjets[i].item.gameObject;
                 Objects3d[i].SetActive(i==SlotActuel);
             }
         }
+        Hand.instance.ChangeObject(Objects3d[SlotActuel]);
     }
     public override void ToogleCanDragitem()
     {
@@ -61,11 +63,10 @@ public class ActionBar : InventoryBase
     }
     public override void StartInventaire()
     {
-        
         ListeObjets = GetComponentsInChildren<InventoryItem>().ToList();
         foreach (InventoryItem item in ListeObjets)
         {
-            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<ListeItems>().Background;
+            item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<Inventory>().Background;
         }
         Objects3d = new GameObject[ListeObjets.Count]; 
     }

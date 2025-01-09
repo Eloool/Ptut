@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void goHome()
     {
+        Debug.Log("Ca passe par la !");
         SceneManager.LoadSceneAsync(0);
     }
     public void QuitGame()
