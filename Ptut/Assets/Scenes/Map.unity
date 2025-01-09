@@ -1199,6 +1199,126 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].name
+      value: TropicalPlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].seed
+      value: 2121
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].name
+      value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].seed
+      value: 2419
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].distance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].distance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].probability
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].probability
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].scaleRange.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].scaleRange.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].slopeRange.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].scaleRange.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].scaleRange.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].slopeRange.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].heightRange.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].instanceCount
+      value: 9331
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].heightRange.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].instanceCount
+      value: 9992
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].curvatureRange.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].curvatureRange.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].prefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].prefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].prefabs.Array.data[0].index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].prefabs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 563f11522fa9a404bb1a88171b75148b, type: 3}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].prefabs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 67c88e753dda0ae4e97a44b4a4184d88, type: 3}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[0].prefabs.Array.data[0].probability
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 508858268495499880, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: treeTypes.Array.data[1].prefabs.Array.data[0].probability
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2314350420499095311, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1242,6 +1362,10 @@ PrefabInstance:
     - target: {fileID: 8419028165089539986, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
       propertyPath: m_Name
       value: MapTerrainTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419028165089539986, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8471548076100417831, guid: 49d7b70ab93ddd742b7c9a9b690ccf61, type: 3}
       propertyPath: layerSettings.Array.data[0].modifierStack.Array.data[0]
