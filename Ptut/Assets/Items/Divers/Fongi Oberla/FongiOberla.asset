@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
+  m_Name: FongiOberla
+  m_EditorClassIdentifier: 
+  TypeOfItem: 8
+  id: 12
+  ItemName: Fongi Oberla
+  ItemDescription: 
+  amountStockableMax: 20
+  prefabIcon: {fileID: 5073535221756712873, guid: 158dbf523d9beff42b6acc83b911b009, type: 3}
+  prefab3D: {fileID: 26155450562588384, guid: 37205c220595d9847ab427e2131ca0fe, type: 3}
+  iconImage: {fileID: 21300000, guid: 4dad1eb316f1b4e4ebadf5179f1c4c27, type: 3}
