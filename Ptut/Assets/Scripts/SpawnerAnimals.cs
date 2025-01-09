@@ -5,10 +5,12 @@ using UnityEngine.InputSystem;
 
 public class SpawnerAnimals : MonoBehaviour
 {
+    [Header("Animals")]
     public GameObject Bear;
     public GameObject Goat;
+    public GameObject Sheep;
 
-
+    [Header("Map")]
     public int MaxHighOfMap = 0;
     private int MinXMap;
     private int MinZMap;
@@ -24,6 +26,7 @@ public class SpawnerAnimals : MonoBehaviour
     {
         BearSpawner();
         GoatSpawner();
+        SheepSpawner();
     }
 
     void BearSpawner()
@@ -69,6 +72,29 @@ public class SpawnerAnimals : MonoBehaviour
                     int spawnZ = Random.Range(MinZMap, MaxZMap);
                     Vector3 spawnPos = new Vector3(spawnX, MaxHighOfMap, spawnZ);
                     Instantiate(Goat, spawnPos, Quaternion.identity);
+                }
+            }
+        }
+    }
+
+    void SheepSpawner()
+    {
+        TailleChunk = TailleMap / nbChunkInLine;
+        for (int i = 0; i < nbChunkInLine; i++)
+        {
+            MinXMap = i * TailleChunk;
+            MaxXMap = i * TailleChunk + TailleChunk;
+            for (int j = 0; j < nbChunkInLine; j++)
+            {
+                float rand = Random.value;
+                if (rand < 10f / 64f)//en moyenne 10 chevre seront générés parmis les 64 chunks (8 par ligne et 8 par colonne)
+                {
+                    MinZMap = j * TailleChunk;
+                    MaxZMap = j * TailleChunk + TailleChunk;
+                    int spawnX = Random.Range(MinXMap, MaxXMap);
+                    int spawnZ = Random.Range(MinZMap, MaxZMap);
+                    Vector3 spawnPos = new Vector3(spawnX, MaxHighOfMap, spawnZ);
+                    Instantiate(Sheep, spawnPos, Quaternion.identity);
                 }
             }
         }
