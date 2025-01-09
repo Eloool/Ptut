@@ -2494,12 +2494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e5e778b4874bf4f87360bc007ab397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionPoint: {fileID: 1671525955}
-  _interactionPointRadius: 1
-  _interactableMask:
-    serializedVersion: 2
-    m_Bits: 256
-  _interactableList: []
 --- !u!114 &305401285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4430,6 +4424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bear: {fileID: 258570273}
+  Goat: {fileID: 712208022}
   MaxHighOfMap: 0
   Plane: {fileID: 1964882548}
 --- !u!4 &662267409
