@@ -3262,7 +3262,6 @@ MonoBehaviour:
   recipeUiPrefab: {fileID: 8706152485398437461, guid: 8ae3a495a58ad2641aa19219b46e8970, type: 3}
   recipesParent: {fileID: 1143015722}
   craftingTable: {fileID: 308543321}
-  keysController: {fileID: 0}
 --- !u!114 &415598010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3390,9 +3389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c0ed286036f3947910fe1cfeed6d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryCanvas: {fileID: 567204744}
-  craftingCanvas: {fileID: 308543321}
-  menuCanvas: {fileID: 2109536814}
 --- !u!1 &423323465
 GameObject:
   m_ObjectHideFlags: 0
@@ -7877,7 +7873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2109536814}
-  keysController: {fileID: 0}
 --- !u!114 &1270448728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8094,7 +8089,6 @@ MonoBehaviour:
   ActionBar: {fileID: 1096600675}
   Background: {fileID: 21300000, guid: b6c17b12935db754e9f27652d1e9c038, type: 3}
   CanvasPickup: {fileID: 686615278219037372, guid: ca2a18f2b5d229d469e57cb53e32346c, type: 3}
-  keysController: {fileID: 0}
 --- !u!114 &1328744474
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: Bowl
+  m_Name: Flask
   m_EditorClassIdentifier: 
   TypeOfItem: 8
-  id: 19
-  ItemName: Branchage
+  id: 26
+  ItemName: Flask
   ItemDescription: 
-  amountStockableMax: 20
-  prefabIcon: {fileID: 5073535221756712873, guid: ce826e507a49fa147985b24d7bd2784f, type: 3}
-  prefab3D: {fileID: 554818325102313274, guid: efde0dfe08698b3418a548f6e6d78803, type: 3}
-  iconImage: {fileID: 21300000, guid: b149edc4668a5ba44818e6c8bab634e6, type: 3}
+  amountStockableMax: 1
+  prefabIcon: {fileID: 5073535221756712873, guid: b7851138c6c2827489f25b2c0c25b06d, type: 3}
+  prefab3D: {fileID: 6432675827437568666, guid: 7292088ac735e1240b10539486c02b9e, type: 3}
+  iconImage: {fileID: 21300000, guid: a153e79a117b4044387ec59fcee998f8, type: 3}
