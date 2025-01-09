@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
-  m_Name: SpearIron
+  m_Name: ObsidianShards
   m_EditorClassIdentifier: 
-  TypeOfItem: 4
-  id: 29
-  ItemName: 
+  TypeOfItem: 8
+  id: 9
+  ItemName: Obsidian
   ItemDescription: 
-  amountStockableMax: 1
-  prefabIcon: {fileID: 5073535221756712873, guid: ab7255ddade762c469cbabc51d01ea07, type: 3}
-  prefab3D: {fileID: 4529890794473933311, guid: eb8d865b81004a341b279a15f2d3bbc3, type: 3}
-  iconImage: {fileID: 21300000, guid: 63d858d04629ed74da79223b85309f19, type: 3}
+  amountStockableMax: 20
+  prefabIcon: {fileID: 5073535221756712873, guid: 28f87b166416da645a2cbadb0209dab3, type: 3}
+  prefab3D: {fileID: 6891244885018083812, guid: 819cd44a77732d04dbdc82214e42e315, type: 3}
+  iconImage: {fileID: 21300000, guid: 37964bbfb7e771e4d9e3df53a7baa4ef, type: 3}
