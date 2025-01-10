@@ -28,7 +28,8 @@ public class MainMenu : MonoBehaviour
     }
     public void QuitGame()
     {
-        Application.Quit();
+        //Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
 
     public void Start()

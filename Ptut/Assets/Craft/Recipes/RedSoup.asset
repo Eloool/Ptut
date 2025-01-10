@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b202c465cfe8e4f871ee2097c645d2, type: 3}
+  m_Name: RedSoup
+  m_EditorClassIdentifier: 
+  craftableItem:
+    requiredItem: {fileID: 11400000, guid: 712ac37219a0a3641b36c1bd37021634, type: 2}
+    amount: 1
+  requiredItems:
+  - requiredItem: {fileID: 11400000, guid: 36630655773904a4e93d9490b2580eb2, type: 2}
+    amount: 1
+  - requiredItem: {fileID: 11400000, guid: 59b24c2a64846ca4fb8239efe71d1330, type: 2}
+    amount: 1
+  - requiredItem: {fileID: 11400000, guid: 80a9a6ce94e751e4ca9ae916ca7b93e1, type: 2}
+    amount: 1

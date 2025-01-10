@@ -8,7 +8,6 @@ public class InteractableBase : Stats
 
     private void Start()
     {
-        Debug.Log("pute");
         health = GetStat<HealthStat>().health;
     }
 

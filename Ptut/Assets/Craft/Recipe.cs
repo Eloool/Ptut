@@ -82,7 +82,7 @@ public class Recipe : MonoBehaviour
             return;
         }
 
-        GameObject prefab = currentRecipe.craftableItem.requiredItem.prefab;
+        GameObject prefab = currentRecipe.craftableItem.requiredItem.prefabIcon;
         if (prefab == null)
         {
             Debug.LogError("Prefab du craftableItem est null.");

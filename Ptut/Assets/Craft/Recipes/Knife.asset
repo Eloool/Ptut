@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b202c465cfe8e4f871ee2097c645d2, type: 3}
+  m_Name: Knife
+  m_EditorClassIdentifier: 
+  craftableItem:
+    requiredItem: {fileID: 11400000, guid: 7625b39742b660b4187e7a0e8c8292f8, type: 2}
+    amount: 1
+  requiredItems:
+  - requiredItem: {fileID: 11400000, guid: 821530dea7a15334fade8b014d030ea1, type: 2}
+    amount: 1
+  - requiredItem: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
+    amount: 1
+  - requiredItem: {fileID: 11400000, guid: 494879e0630b1c449a88134bd8138fdb, type: 2}
+    amount: 1
