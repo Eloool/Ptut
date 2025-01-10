@@ -121,25 +121,27 @@ public class AimBehaviourBasic : GenericBehaviour
 	IEnumerator Shoot()
     {
         behaviourManager.GetAnim.SetBool("Shoot", true);
+        yield return new WaitForSeconds(0.05f);
+        behaviourManager.GetAnim.SetBool("Shoot", false);
+
+
+		yield return new WaitForSeconds(1);
 
         // Raycast parameters.
         Ray ray = new Ray(behaviourManager.playerCamera.transform.position, behaviourManager.playerCamera.transform.forward);
         RaycastHit hit;
         float maxRange = 50f; // Maximum range of the shooting.
 
-		// Perform raycast.
+        // Perform raycast.
         if (Physics.Raycast(ray, out hit, maxRange))
         {
             var enemy = hit.collider.GetComponent<EnnemiInteractable>();
             if (enemy != null)
             {
-				Debug.Log("Enemy shot");
-				Destroy(enemy.gameObject);
+                Debug.Log("Enemy shot");
+                Destroy(enemy.gameObject);
             }
         }
-
-        yield return new WaitForSeconds(0.05f);
-        behaviourManager.GetAnim.SetBool("Shoot", false);
     }
 
 
