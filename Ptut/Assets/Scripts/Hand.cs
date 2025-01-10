@@ -10,6 +10,13 @@ public class Hand : Stats
     
     public static Hand instance;
 
+    public PlayerMovement player;
+    public BasicBehaviour behaviourManager;
+
+    private void Start()
+    {
+        behaviourManager = GetComponent<BasicBehaviour>();
+    }
 
     private void Awake()
     {
@@ -29,6 +36,7 @@ public class Hand : Stats
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            behaviourManager.GetAnim.SetBool("Hit", true);
             if (ObjectInHand != null)
             {
                 GetComponent<BreakObjectsHand>().BreakObjects(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
@@ -40,6 +48,7 @@ public class Hand : Stats
                 GetComponent<InteractionKillEnnemi>().HitEnnemis(null);
             }
         }
+        behaviourManager.GetAnim.SetBool("Hit", false);
     }
 
     public void ChangeObject(GameObject obj)
