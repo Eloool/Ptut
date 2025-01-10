@@ -5,8 +5,17 @@ using static UnityEditor.Progress;
 
 public class EnnemiInteractable : InteractableBase
 {
-    public List<ItemDataAmountMinMaxDrop> dataAmountMinMaxDrop = new List<ItemDataAmountMinMaxDrop>(); 
-
+    public List<ItemDataAmountMinMaxDrop> dataAmountMinMaxDrop = new List<ItemDataAmountMinMaxDrop>();
+    public Animator animator;
+    private bool isDead
+    {
+        get
+        {
+            return health <= 0;
+        }
+    }
+    private float TimeAnimDeath = 4f;
+    private bool canAttack = true;
     private void Awake()
     {
         gameObject.layer = 10;
@@ -14,29 +23,39 @@ public class EnnemiInteractable : InteractableBase
 
     public override void GotHit(Item item)
     {
-        WeaponStat damage;
-        if (item != null && item.TryGetStat<WeaponStat>(out damage))
+        if (canAttack)
         {
-            health-= damage.attackPower;
-        }
-        else
-        {
-            health -= 1;
-        }
-        if (health <= 0)
-        {
-            foreach (var item1 in dataAmountMinMaxDrop)
+            WeaponStat damage;
+            if (item != null && item.TryGetStat<WeaponStat>(out damage))
             {
-                int DroppedAmmount = Random.Range(item1.amountMin, item1.amountMax+1);
-                if (DroppedAmmount > 0)
-                {
-                    GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[item1.Item.id].prefabIcon);
-                    itemDropped.GetComponent<Item>().amount = DroppedAmmount;
-                    Inventory.instance.AddtoInventory(itemDropped);
-                }
+                health -= damage.attackPower;
             }
-            Destroy(gameObject);
+            else
+            {
+                health -= 1;
+            }
+            if (isDead)
+            {
+                foreach (var item1 in dataAmountMinMaxDrop)
+                {
+                    int DroppedAmmount = Random.Range(item1.amountMin, item1.amountMax + 1);
+                    if (DroppedAmmount > 0)
+                    {
+                        GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[item1.Item.id].prefabIcon);
+                        itemDropped.GetComponent<Item>().amount = DroppedAmmount;
+                        Inventory.instance.AddtoInventory(itemDropped);
+                    }
+                }
+                StartCoroutine(death());
+            }
         }
+    }
+    IEnumerator death()
+    {
+        canAttack = false;
+        animator.SetTrigger("isDead");
+        yield return new WaitForSeconds(TimeAnimDeath);
+        Destroy(gameObject);
     }
 }
 

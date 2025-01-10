@@ -2555,6 +2555,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 305401287}
+    - targetCorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 305401289}
   m_SourcePrefab: {fileID: 100100000, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
 --- !u!4 &305401270 stripped
 Transform:
@@ -2719,6 +2722,7 @@ MonoBehaviour:
   enableSprint: 0
   armorResistance: 0
   damageMultiplicator: 0
+  isDying: 0
 --- !u!114 &305401281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,6 +2738,8 @@ MonoBehaviour:
   StatsScripts: []
   ObjectInHand: {fileID: 0}
   PointHand: {fileID: 1008510346}
+  player: {fileID: 0}
+  behaviourManager: {fileID: 0}
 --- !u!114 &305401282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2795,6 +2801,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62bad28d97368948b62527ff77d9777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &305401289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305401271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f5ba23fa3653642ba8d2ab359ad301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionPoint: {fileID: 1671525955}
+  _interactionPointRadius: 1
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _interactableList: []
 --- !u!1 &308543321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,6 +3112,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &323857977
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4101,6 +4126,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &423410240
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4782,6 +4808,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &513022459
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5335,7 +5362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bear: {fileID: 258570273}
-  Goat: {fileID: 712208022}
+  Goat: {fileID: 1418143862}
   MaxHighOfMap: 0
   Plane: {fileID: 1964882548}
 --- !u!4 &662267409
@@ -6294,6 +6321,7 @@ MonoBehaviour:
   - Item: {fileID: 11400000, guid: cde0b1ad79fe08243954b0e9d4ddac56, type: 2}
     amountMax: 6
     amountMin: 2
+  animator: {fileID: 0}
 --- !u!64 &712208029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9451,6 +9479,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 1418143864}
 --- !u!65 &1418143871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12129,6 +12158,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &2007302099
 NavMeshAgent:
   m_ObjectHideFlags: 0
