@@ -56,7 +56,6 @@ public class EnnemiInteractable : InteractableBase
         animator.SetTrigger("isDead");
         yield return new WaitForSeconds(TimeAnimDeath);
         Destroy(gameObject);
-
     }
 }
 

@@ -72,6 +72,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (isEnemy)
         {
+            
             HandleEnemyBehavior();
         }
         else
@@ -84,7 +85,7 @@ public class EnemyAI : MonoBehaviour
 
     private void HandleEnemyBehavior()
     {
-        if (Vector3.Distance(player.position, transform.position) < detectionRadius)
+        if (Vector3.Distance(player.position, transform.position) < detectionRadius && playerStats.isDying == false)
         {
             agent.speed = chaseSpeed;
 
@@ -161,12 +162,12 @@ public class EnemyAI : MonoBehaviour
         isAttacking = true;
         agent.isStopped = true;
 
-        animator.SetTrigger("Attack");
+        
 
         playerStats.TakeDamage(damageDealt);//Ne pas oublier de mettre les stats dans le serialized playerStats
         //Debug.Log("joueur touché");
         yield return new WaitForSeconds(attackDelay);
-
+        animator.SetTrigger("Attack");
         if (agent.enabled)
         {
             agent.isStopped = false;
