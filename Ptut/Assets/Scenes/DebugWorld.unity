@@ -2719,6 +2719,7 @@ MonoBehaviour:
   enableSprint: 0
   armorResistance: 0
   damageMultiplicator: 0
+  isDying: 0
 --- !u!114 &305401281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,6 +2735,8 @@ MonoBehaviour:
   StatsScripts: []
   ObjectInHand: {fileID: 0}
   PointHand: {fileID: 1008510346}
+  player: {fileID: 0}
+  behaviourManager: {fileID: 0}
 --- !u!114 &305401282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11669,7 +11672,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c4cafee158a70c2418e86e56f3f2d1ac, type: 2}
+  - {fileID: 5450715667678676923, guid: 5788df6e5392ada4dacae76011d4391d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
