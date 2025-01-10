@@ -2555,6 +2555,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 305401287}
+    - targetCorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 305401289}
   m_SourcePrefab: {fileID: 100100000, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
 --- !u!4 &305401270 stripped
 Transform:
@@ -2719,6 +2722,7 @@ MonoBehaviour:
   enableSprint: 0
   armorResistance: 0
   damageMultiplicator: 0
+  isDying: 0
 --- !u!114 &305401281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2795,7 +2799,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62bad28d97368948b62527ff77d9777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimScript: {fileID: 0}
+--- !u!114 &305401289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305401271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4961ed6b4a15053439eef0803545c376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvaGameOver: {fileID: 1492978172}
 --- !u!1 &308543321
 GameObject:
   m_ObjectHideFlags: 0

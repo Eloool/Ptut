@@ -168,7 +168,7 @@ public class PlayerStats : MonoBehaviour
         Animator animator = GetComponent<Animator>();
         animator.SetTrigger("isDying");
         yield return new WaitForSeconds(3f);
-        UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
+        //UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
 
 }
