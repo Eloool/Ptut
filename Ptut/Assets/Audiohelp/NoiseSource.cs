@@ -62,7 +62,7 @@ public class NoiseSource : MonoBehaviour
 
     public void EmitNoise()
     {
-        GameObject canvas = GameObject.Find("AllCanvas");
+        GameObject canvas = GameObject.Find("InventoryCanvas");
         if (canvas == null)
         {
             Debug.LogError("Canvas introuvable !");
