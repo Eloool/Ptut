@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public void Difficulty()
+    {
+
+    }
     public void PlayGame()
     {
         Time.timeScale = 1.0f;
