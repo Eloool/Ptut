@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1356320767772348726}
   - component: {fileID: 8535430615869539097}
   m_Layer: 5
-  m_Name: IconApple
+  m_Name: IconRawMeat3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatsScripts: []
-  ItemData: {fileID: 11400000, guid: 15ac8d54f812d2e48ae894120ea6a869, type: 2}
+  ItemData: {fileID: 11400000, guid: f32d16c939bb3ea45b3f8cd1fb6f7df2, type: 2}
   amount: 0
   candragitem: 1
   parent: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1547394223912095865}
   - component: {fileID: 869091566610195117}
   - component: {fileID: 515641180855136809}
+  - component: {fileID: 6952344239920631263}
   m_Layer: 0
   m_Name: RawMeat5
   m_TagString: Untagged
@@ -84,3 +85,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6952344239920631263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520829073665996125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90e60f6de559824ebcb3b828fda8819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IconItem: {fileID: 5073535221756712873, guid: d93c61b93284af34f8d6e14bbaea7e52, type: 3}
