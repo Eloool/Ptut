@@ -36,8 +36,11 @@ public class PlayerStats : MonoBehaviour
     public float armorResistance; // 0 <= armorResistance <= 100
     public float damageMultiplicator;
     private float difficultyMultiplicator;
-    
+
     public static PlayerStats instance;
+
+    public bool isDying = false; // Flag to check if the player is already dying
+
 
     private void Awake()
     {
@@ -65,14 +68,18 @@ public class PlayerStats : MonoBehaviour
         UpdateHungerThirstBarsFill();
         UpdateStaminaBarFill();
 
-        if (currHealth <= 0) { Die(); }
+        if (currHealth <= 0 && !isDying)
+        {
+            StartCoroutine(Die());
+        }
 
-        if(Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             TakeDamage(10, false, true);
             Debug.Log("damage");
         }
     }
+
 
 
     void UpdateHealthBarFill()
@@ -118,13 +125,15 @@ public class PlayerStats : MonoBehaviour
         }
 
         // stamina can't be negative or over maxStamina
-        if (currStamina < 0) {
+        if (currStamina < 0)
+        {
             currStamina = 0;
             enableSprint = false;
             StartCoroutine(LowStamina());
         }
 
-        if (currStamina > maxStamina) {
+        if (currStamina > maxStamina)
+        {
             currStamina = maxStamina;
             staminaBar.gameObject.SetActive(false);
         }
@@ -142,17 +151,24 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float damage, bool overTime = false, bool trueDamage = false)
     {
+
         if (!trueDamage) { damage *= damageMultiplicator; }
         if (overTime) { currHealth -= damage * Time.deltaTime; }
         else { currHealth -= damage; }
 
         UpdateHealthBarFill();
+
     }
 
-    public void Die() // game over
+    IEnumerator Die() // game over
     {
-        // TODO
+        if (isDying) yield break; // Exit the coroutine if already dying
+        isDying = true; // Set the flag to true
 
-        UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
+        Animator animator = GetComponent<Animator>();
+        animator.SetTrigger("isDying");
+        yield return new WaitForSeconds(3f);
+        //UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
+
 }
