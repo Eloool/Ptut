@@ -85,7 +85,9 @@ public class EnemyAI : MonoBehaviour
 
     private void HandleEnemyBehavior()
     {
-        if (Vector3.Distance(player.position, transform.position) < detectionRadius && playerStats.isDying == false)
+        
+
+        if (Vector3.Distance(player.position, transform.position) < detectionRadius)
         {
             agent.speed = chaseSpeed;
 
@@ -110,8 +112,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
     private void HandleFearfulBehavior()
     {
+        
         if (Vector3.Distance(player.position, transform.position) < detectionRadius)
         {
             agent.speed = chaseSpeed;
@@ -159,15 +163,16 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator AttackPlayer()
     {
+        if (playerStats.isDying) yield break; // Exit coroutine if the player is dying
+
         isAttacking = true;
         agent.isStopped = true;
 
-
-
-        playerStats.TakeDamage(damageDealt);//Ne pas oublier de mettre les stats dans le serialized playerStats
-        //Debug.Log("joueur touché");
-        yield return new WaitForSeconds(attackDelay);
+        playerStats.TakeDamage(damageDealt); // Deal damage to the player
         animator.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(attackDelay);
+
         if (agent.enabled)
         {
             agent.isStopped = false;
@@ -175,6 +180,7 @@ public class EnemyAI : MonoBehaviour
 
         isAttacking = false;
     }
+
 
     private void OnDrawGizmos()//affiche dans la scène les différents les rayons d'actions de l'IA
     {
