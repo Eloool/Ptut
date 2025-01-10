@@ -3126,6 +3126,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &323857977
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4139,6 +4140,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &423410240
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4820,6 +4822,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &513022459
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6332,6 +6335,7 @@ MonoBehaviour:
   - Item: {fileID: 11400000, guid: cde0b1ad79fe08243954b0e9d4ddac56, type: 2}
     amountMax: 6
     amountMin: 2
+  animator: {fileID: 0}
 --- !u!64 &712208029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9701,6 +9705,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 1418143864}
 --- !u!65 &1418143871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12615,6 +12620,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
   dataAmountMinMaxDrop: []
+  animator: {fileID: 0}
 --- !u!195 &2007302099
 NavMeshAgent:
   m_ObjectHideFlags: 0
