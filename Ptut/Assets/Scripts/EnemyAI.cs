@@ -63,13 +63,28 @@ public class EnemyAI : MonoBehaviour
 
 
 
-    void Start()
+    public void StopMoving()
     {
+        if (agent.enabled)
+        {
+            agent.isStopped = true; // Arrête le déplacement
+            agent.ResetPath();      // Efface le chemin actuel de l'agent
+        }
 
+        animator.SetFloat("Speed", 0f); // Met à jour l'animation pour indiquer un arrêt
+        isAttacking = false;           // Assure que l'ennemi n'est pas en train d'attaquer
+        hasDestination = false;        // Réinitialise l'état de destination
     }
+
     // Update is called once per frame
     void Update()
     {
+        EnnemiInteractable ene = GetComponent<EnnemiInteractable>();
+        if (ene.health <= 0f)
+        {
+            StopMoving();
+            return;
+        }
         if (isEnemy)
         {
 
