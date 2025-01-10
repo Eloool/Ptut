@@ -7,6 +7,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject difficulty;
+    public GameObject mainMenu;
+
+    public void ShowDifficulty()
+    {
+        difficulty.SetActive(true);
+        mainMenu.SetActive(false);
+    }
     public void PlayGame()
     {
         Time.timeScale = 1.0f;
