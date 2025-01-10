@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 // AimBehaviour inherits from GenericBehaviour. This class corresponds to aim and strafe behaviour.
 public class AimBehaviourBasic : GenericBehaviour
@@ -74,7 +75,7 @@ public class AimBehaviourBasic : GenericBehaviour
 			// This state overrides the active one.
 			behaviourManager.OverrideWithBehaviour(this);
 		}
-	}
+    }
 
 	// Co-rountine to end aiming mode with delay.
 	private IEnumerator ToggleAimOff()
@@ -108,10 +109,42 @@ public class AimBehaviourBasic : GenericBehaviour
 	{
 		// Deal with the player orientation when aiming.
 		Rotating();
+
+		if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(Shoot());
+		}
 	}
 
-	// Rotate the player to match correct orientation, according to camera.
-	void Rotating()
+	// Shooting method
+	// NOT FINISHED
+	IEnumerator Shoot()
+    {
+        behaviourManager.GetAnim.SetBool("Shoot", true);
+
+        // Raycast parameters.
+        Ray ray = new Ray(behaviourManager.playerCamera.transform.position, behaviourManager.playerCamera.transform.forward);
+        RaycastHit hit;
+        float maxRange = 50f; // Maximum range of the shooting.
+
+		// Perform raycast.
+        if (Physics.Raycast(ray, out hit, maxRange))
+        {
+            var enemy = hit.collider.GetComponent<EnnemiInteractable>();
+            if (enemy != null)
+            {
+				Debug.Log("Enemy shot");
+				Destroy(enemy.gameObject);
+            }
+        }
+
+        yield return new WaitForSeconds(0.05f);
+        behaviourManager.GetAnim.SetBool("Shoot", false);
+    }
+
+
+    // Rotate the player to match correct orientation, according to camera.
+    void Rotating()
 	{
 		Vector3 forward = behaviourManager.playerCamera.TransformDirection(Vector3.forward);
 		// Player is moving on ground, Y component of camera facing is not relevant.
