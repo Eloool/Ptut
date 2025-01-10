@@ -7,11 +7,20 @@ using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
+    [System.Serializable]
+    public class StarterItem
+    {
+        public ItemData item;
+        public int amount;
+    }
     public InventoryMenu inventaire;
     public ActionBar ActionBar;
     public Sprite Background;
     public GameObject CanvasPickup;
+    public GameObject DropSpots;
+    public List<StarterItem> ItemsStarter;
 
+    public Transform DropPoint;
     public static Inventory instance;
 
     private void Start()
@@ -27,15 +36,18 @@ public class Inventory : MonoBehaviour
         
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
-        
-        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[3].prefabIcon);
-        gameObject.GetComponent<Item>().amount = 3;
-        AddtoInventory(gameObject);
-        GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].prefabIcon);
-        gameObject2.GetComponent<Item>().amount = 3;
-        AddtoInventory(gameObject2);
+        inventaire.ToogleCanDragitem();
+
+        foreach (StarterItem item in ItemsStarter)
+        {
+            if (item.amount > 0 && item.item!=null)
+            {
+                GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[item.item.id].prefabIcon);
+                gameObject.GetComponent<Item>().amount = item.amount;
+                AddtoInventory(gameObject);
+            }
+        }
         ActionBar.Reload3DObjects();
-        ToogleInventory();
     }
 
     private void Update()
@@ -46,13 +58,20 @@ public class Inventory : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            ToogleInventory();
+            ToogleInventory(true);
         }
     }
-    public void ToogleInventory()
+    public void ToogleInventory(bool showArmor)
     {
         inventaire.gameObject.SetActive(!inventaire.gameObject.activeInHierarchy);
+        inventaire.ShowArmor(showArmor);
+        if (showArmor)
+        {
+            DropSpots.SetActive(inventaire.gameObject.activeInHierarchy);
+        }
         ActionBar.ToogleCanDragitem();
+        inventaire.ToogleCanDragitem();
+
         if (inventaire.gameObject.activeInHierarchy)
         {
             Cursor.visible = true;
@@ -79,7 +98,7 @@ public class Inventory : MonoBehaviour
         {
             while (!wasaddedfully)
             {
-                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].prefab3D, new Vector3(0, 10, 0), Quaternion.identity);
+                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].prefab3D, DropPoint.position, Quaternion.identity);
                 GameObject canvas = new();
                 GameObject CanvasForPickup = Instantiate(CanvasPickup);
                 ObjectDroped.layer = 7;
@@ -109,9 +128,9 @@ public class Inventory : MonoBehaviour
                 }
                 ObjectDroped.GetComponent<Item3d>().IconItem.transform.SetParent(canvas.transform);
                 ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Image>().sprite = ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Item>().ItemData.iconImage;
-                ObjectDroped.AddComponent<MeshCollider>();
-                ObjectDroped.GetComponent<MeshCollider>().convex = true;
+                ObjectDroped.AddComponent<BoxCollider>();
                 ObjectDroped.AddComponent<Rigidbody>();
+                ObjectDroped.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
                 canvas.SetActive(false);
             }
         }
@@ -160,11 +179,6 @@ public class Inventory : MonoBehaviour
     }
     public void DeleteItems(ItemDataAndAmount[] ids)
     {
-        //if (ids.Length != amounts.Length)
-        //{
-        //    Debug.LogWarning("Les ids et les montants n'ont pas la même longueur de tableau");
-        //    return;
-        //}
         for (int i = 0; i < ids.Length; i++)
         {
             if (!ActionBar.DeleteItem(ids[i].requiredItem.id, ids[i].amount))
