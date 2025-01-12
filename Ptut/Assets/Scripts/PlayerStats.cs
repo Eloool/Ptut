@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -112,9 +113,12 @@ public class PlayerStats : MonoBehaviour
 
     void UpdateStaminaBarFill()
     {
+        // to store inputs
+        KeyCode[] inputsTab = new[] { KeyCode.Z, KeyCode.Q, KeyCode.S, KeyCode.D,
+                                        KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow };
+
         // stamina decrease
-        if (Input.GetKey(KeyCode.LeftShift) &&
-            (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) // à changer
+        if (Input.GetKey(KeyCode.LeftShift) && inputsTab.Any(Input.GetKey))
         {
             staminaBar.gameObject.SetActive(true);
             currStamina -= staminaLossPerSecond * Time.deltaTime;
