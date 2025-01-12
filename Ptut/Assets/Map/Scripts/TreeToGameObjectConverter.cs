@@ -14,7 +14,7 @@ public class TreeToGameObjectConverter : MonoBehaviour
 
     public TerrainElement[] terrainElements; // Liste des prefabs pour chaque prototype du terrain
 
-    [ContextMenu("Convert Terrain Elements")] // Option pour convertir les éléments
+    [ContextMenu("Convert Terrain Elements")]
     public void ConvertTerrainElementsToGameObjects()
     {
         Terrain terrain = Terrain.activeTerrain;
@@ -26,28 +26,21 @@ public class TreeToGameObjectConverter : MonoBehaviour
 
         TerrainData terrainData = terrain.terrainData;
 
-        // Récupère tous les arbres/éléments peints sur le terrain
         TreeInstance[] terrainTrees = terrainData.treeInstances;
 
         if (terrainElements.Length == 0)
         {
-            Debug.LogError("Aucun prefab assigné dans la liste des éléments !");
+            Debug.LogError("Aucun prefab assigné !");
             return;
         }
 
         foreach (TreeInstance tree in terrainTrees)
         {
-            // Position dans le monde
+            // Calculer la position dans le monde
             Vector3 worldPosition = Vector3.Scale(tree.position, terrainData.size) + terrain.transform.position;
 
-            // Rotation
-            Quaternion worldRotation = Quaternion.Euler(0f, 0f, 0f);
-
-            // Échelle
-            Vector3 worldScale = (tree.widthScale + 100) * Vector3.one;
-
-            // Détermine le prefab correspondant au prototype
-            int prototypeIndex = tree.prototypeIndex; // Prototype utilisé pour cet arbre/élément
+            // Obtenir le prefab correspondant
+            int prototypeIndex = tree.prototypeIndex;
             if (prototypeIndex < 0 || prototypeIndex >= terrainElements.Length)
             {
                 Debug.LogWarning($"Aucun prefab assigné pour le prototype {prototypeIndex}.");
@@ -61,13 +54,25 @@ public class TreeToGameObjectConverter : MonoBehaviour
                 continue;
             }
 
-            // Instancier le GameObject
-            GameObject newElement = Instantiate(prefab, worldPosition, worldRotation, this.transform);
+            // Instancier l'objet principal
+            GameObject newElement = Instantiate(prefab, worldPosition, Quaternion.identity, this.transform);
             newElement.name = $"{terrainElements[prototypeIndex].name}_{Random.Range(0, 10000)}";
-            newElement.transform.localScale = worldScale;
+
+            // Localiser l'enfant contenant le renderer (LOD)
+            Transform lodChild = newElement.transform.Find(prefab.name + "LOD"); // Exemple : "RockIronLOD"
+            if (lodChild != null)
+            {
+                // Appliquer la rotation et l'échelle sur l'enfant (LOD)
+                lodChild.rotation = Quaternion.Euler(-90f, tree.rotation * Mathf.Rad2Deg, 0f);
+                lodChild.localScale = tree.widthScale * Vector3.one;
+            }
+            else
+            {
+                Debug.LogWarning($"Le prefab {prefab.name} n'a pas d'enfant avec le suffixe 'LOD'.");
+            }
         }
 
-        // Supprime les éléments peints du terrain
+        // Supprimer les arbres du terrain
         terrainData.treeInstances = new TreeInstance[0];
 
         Debug.Log("Conversion terminée : " + terrainTrees.Length + " éléments remplacés.");

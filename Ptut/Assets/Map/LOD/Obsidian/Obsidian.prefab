@@ -102,7 +102,7 @@ LODGroup:
   m_GameObject: {fileID: 2122794534400971439}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0.00015102327, y: -0.00027377345, z: 0.00021303841}
-  m_Size: 0.05
+  m_Size: 0.15
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   health: 0
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: f47362310fd625445afb60ac72b36e92, type: 2}
-    amountEach10Percentage: 2
+    amountEach10Percentage: 1
     amountTotal: 3
 --- !u!1001 &4220165345781233755
 PrefabInstance:
