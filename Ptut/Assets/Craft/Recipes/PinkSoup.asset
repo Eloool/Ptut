@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b202c465cfe8e4f871ee2097c645d2, type: 3}
+  m_Name: PinkSoup
+  m_EditorClassIdentifier: 
+  craftableItem:
+    requiredItem: {fileID: 11400000, guid: 01e9883dfa9f9ef43ad5373a3615f45e, type: 2}
+    amount: 1
+  requiredItems:
+  - requiredItem: {fileID: 11400000, guid: 071d80d07008e8f46a7d82c6da2bfd99, type: 2}
+    amount: 1
+  - requiredItem: {fileID: 11400000, guid: c704fe86eca9d204caab065f4a3d0b37, type: 2}
+    amount: 1
+  - requiredItem: {fileID: 11400000, guid: 80a9a6ce94e751e4ca9ae916ca7b93e1, type: 2}
+    amount: 1

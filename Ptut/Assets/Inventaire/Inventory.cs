@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour
     public Transform DropPoint;
     public static Inventory instance;
 
+
     private void Start()
     {
         if (instance == null)
@@ -59,6 +60,10 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             ToogleInventory(true);
+        }
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            inventaire.gameObject.SetActive(false);
         }
     }
     public void ToogleInventory(bool showArmor)

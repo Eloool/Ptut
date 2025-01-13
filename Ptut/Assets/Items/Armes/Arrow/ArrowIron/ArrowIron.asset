@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
+  m_Name: ArrowIron
+  m_EditorClassIdentifier: 
+  TypeOfItem: 8
+  id: 33
+  ItemName: ArrowIron
+  ItemDescription: 
+  amountStockableMax: 6
+  prefabIcon: {fileID: 4484003225892084542, guid: 2b953e2dec374bd43b630cb2404e83ad, type: 3}
+  prefab3D: {fileID: 3187069598307464538, guid: 584956d4b9ec7494194886eb19c7b1f6, type: 3}
+  iconImage: {fileID: 21300000, guid: 9b9107775bfe64b48a1b040e10f2e649, type: 3}

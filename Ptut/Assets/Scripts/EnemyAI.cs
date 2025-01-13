@@ -61,15 +61,33 @@ public class EnemyAI : MonoBehaviour
     private bool hasDestination;
     private bool isAttacking;
 
-    void Start()
+
+
+    public void StopMoving()
     {
-        
+        if (agent.enabled)
+        {
+            agent.isStopped = true; // Arrête le déplacement
+            agent.ResetPath();      // Efface le chemin actuel de l'agent
+        }
+
+        animator.SetFloat("Speed", 0f); // Met à jour l'animation pour indiquer un arrêt
+        isAttacking = false;           // Assure que l'ennemi n'est pas en train d'attaquer
+        hasDestination = false;        // Réinitialise l'état de destination
     }
+
     // Update is called once per frame
     void Update()
     {
+        EnnemiInteractable ene = GetComponent<EnnemiInteractable>();
+        if (ene.health <= 0f)
+        {
+            StopMoving();
+            return;
+        }
         if (isEnemy)
         {
+
             HandleEnemyBehavior();
         }
         else
@@ -82,6 +100,8 @@ public class EnemyAI : MonoBehaviour
 
     private void HandleEnemyBehavior()
     {
+        
+
         if (Vector3.Distance(player.position, transform.position) < detectionRadius)
         {
             agent.speed = chaseSpeed;
@@ -107,8 +127,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
     private void HandleFearfulBehavior()
     {
+        
         if (Vector3.Distance(player.position, transform.position) < detectionRadius)
         {
             agent.speed = chaseSpeed;
@@ -156,13 +178,14 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator AttackPlayer()
     {
+        if (playerStats.isDying) yield break; // Exit coroutine if the player is dying
+
         isAttacking = true;
         agent.isStopped = true;
 
+        playerStats.TakeDamage(damageDealt); // Deal damage to the player
         animator.SetTrigger("Attack");
 
-        playerStats.TakeDamage(damageDealt);//Ne pas oublier de mettre les stats dans le serialized playerStats
-        Debug.Log("joueur touché");
         yield return new WaitForSeconds(attackDelay);
 
         if (agent.enabled)
@@ -172,6 +195,7 @@ public class EnemyAI : MonoBehaviour
 
         isAttacking = false;
     }
+
 
     private void OnDrawGizmos()//affiche dans la scène les différents les rayons d'actions de l'IA
     {

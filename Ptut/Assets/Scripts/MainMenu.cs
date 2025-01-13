@@ -7,6 +7,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject difficulty;
+    public GameObject mainMenu;
+
+    public void ShowDifficulty()
+    {
+        difficulty.SetActive(true);
+        mainMenu.SetActive(false);
+    }
     public void PlayGame()
     {
         Time.timeScale = 1.0f;
@@ -20,7 +28,8 @@ public class MainMenu : MonoBehaviour
     }
     public void QuitGame()
     {
-        Application.Quit();
+        //Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
 
     public void Start()

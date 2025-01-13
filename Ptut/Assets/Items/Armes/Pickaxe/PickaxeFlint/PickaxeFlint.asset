@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
+  m_Name: PickaxeFlint
+  m_EditorClassIdentifier: 
+  TypeOfItem: 5
+  id: 37
+  ItemName: PickaxeFlint
+  ItemDescription: 
+  amountStockableMax: 1
+  prefabIcon: {fileID: 4484003225892084542, guid: efe61ebe6220b1a4ca94b3e4b8b35ef5, type: 3}
+  prefab3D: {fileID: 8587513396820142576, guid: 098387464dbb46649a9e6a7cefba9f7d, type: 3}
+  iconImage: {fileID: 21300000, guid: 2efebf0265b3eda4fbf1b8869cccdab2, type: 3}
