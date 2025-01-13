@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasOven : MonoBehaviour
+public class CanvasOven : ToogleCanvas
 {
     public GameObject oven;
     public List<CookingData> cookingData;
@@ -27,29 +27,33 @@ public class CanvasOven : MonoBehaviour
     }
     public void ToggleOven(Oven newOven)
     {
-        lastOven = newOven;
-        lastOven.isOpen = true;
-        oven.SetActive(true);
-        Inventory.instance.ToogleInventory(false);
-        Item[] ListOven = lastOven.GetComponentsInChildren<Item>();
-        for (int i = 0; i < ListOven.Length; i++)
+        CanvasController.instance.ShowCanvas(this);
+        if (!oven.activeInHierarchy)
         {
-            switch (ListOven[i].slot)
+            lastOven = newOven;
+            lastOven.isOpen = true;
+            oven.SetActive(true);
+            Inventory.instance.ToogleInventory(false, true);
+            Item[] ListOven = lastOven.GetComponentsInChildren<Item>();
+            for (int i = 0; i < ListOven.Length; i++)
             {
-                case 0:
-                    lastOven.Combustible =ListOven[i];
-                    ListInventoryItem[ListOven[i].slot].SetItem(lastOven.Combustible.gameObject);
-                    break;
-                case 1:
-                    lastOven.Bruler = ListOven[i];
-                    ListInventoryItem[ListOven[i].slot].SetItem(lastOven.Bruler.gameObject);
-                    break;
-                case 2:
-                    lastOven.Sortie = ListOven[i];
-                    ListInventoryItem[ListOven[i].slot].SetItem(lastOven.Sortie.gameObject);
-                    break;
-                default:
-                    break;
+                switch (ListOven[i].slot)
+                {
+                    case 0:
+                        lastOven.Combustible = ListOven[i];
+                        ListInventoryItem[ListOven[i].slot].SetItem(lastOven.Combustible.gameObject);
+                        break;
+                    case 1:
+                        lastOven.Bruler = ListOven[i];
+                        ListInventoryItem[ListOven[i].slot].SetItem(lastOven.Bruler.gameObject);
+                        break;
+                    case 2:
+                        lastOven.Sortie = ListOven[i];
+                        ListInventoryItem[ListOven[i].slot].SetItem(lastOven.Sortie.gameObject);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         
@@ -57,18 +61,21 @@ public class CanvasOven : MonoBehaviour
 
     public void CloseOven()
     {
-        for (int i = 0; i < ListInventoryItem.Length; i++)
+        if (oven.activeInHierarchy)
         {
-            GameObject gameObject = ListInventoryItem[i].DetachItem();
-            if (gameObject != null)
+            for (int i = 0; i < ListInventoryItem.Length; i++)
             {
-                gameObject.GetComponent<Item>().slot = (int)ListInventoryItem[i].typeSlot;
-                gameObject.transform.SetParent(lastOven.transform);
+                GameObject gameObject = ListInventoryItem[i].DetachItem();
+                if (gameObject != null)
+                {
+                    gameObject.GetComponent<Item>().slot = (int)ListInventoryItem[i].typeSlot;
+                    gameObject.transform.SetParent(lastOven.transform);
+                }
             }
+            oven.SetActive(false);
+            lastOven.isOpen = false;
+            Inventory.instance.ToogleInventory(false, false);
         }
-        oven.SetActive(false);
-        lastOven.isOpen = false;
-        Inventory.instance.ToogleInventory(false);
     }
 
     public CookingData GetCookingData(ItemData itemData)
@@ -81,6 +88,14 @@ public class CanvasOven : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public override void SetActiveCanvas(bool active)
+    {
+        if (!active)
+        {
+            CloseOven();
+        }
     }
 
 }

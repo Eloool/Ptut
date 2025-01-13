@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
-public class Inventory : MonoBehaviour
+public class Inventory : ToogleCanvas
 {
     [System.Serializable]
     public class StarterItem
@@ -49,46 +49,35 @@ public class Inventory : MonoBehaviour
             }
         }
         ActionBar.Reload3DObjects();
-        inventaire.ToogleCanDragitem();
-        ActionBar.ToogleCanDragitem();
+        inventaire.ToogleCanDragitem(false);
+        ActionBar.ToogleCanDragitem(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            GetComponentInChildren<ActionBar>().Reload3DObjects();
-        }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            ToogleInventory(true);
-        }
-        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
-        {
-            inventaire.gameObject.SetActive(false);
+            if (!inventaire.gameObject.activeInHierarchy)
+            {
+                CanvasController.instance.ShowCanvas(this);
+            }
+            else
+            {
+                GetComponentInChildren<ActionBar>().Reload3DObjects();
+                CanvasController.instance.HideAllCanvases();
+            }
         }
     }
-    public void ToogleInventory(bool showArmor)
+    public void ToogleInventory(bool showArmor , bool active)
     {
-        inventaire.gameObject.SetActive(!inventaire.gameObject.activeInHierarchy);
+        inventaire.gameObject.SetActive(active);
         inventaire.ShowArmor(showArmor);
         if (showArmor)
         {
             DropSpots.SetActive(inventaire.gameObject.activeInHierarchy);
         }
-        ActionBar.ToogleCanDragitem();
-        inventaire.ToogleCanDragitem();
-
-        if (inventaire.gameObject.activeInHierarchy)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        ActionBar.ToogleCanDragitem(active);
+        inventaire.ToogleCanDragitem(active);
     }
     public void AddtoInventory(GameObject item)
     {
@@ -192,6 +181,17 @@ public class Inventory : MonoBehaviour
             {
                 inventaire.DeleteItem(ids[i].requiredItem.id, ids[i].amount);
             }
+        }
+    }
+    public override void SetActiveCanvas(bool active)
+    {
+        if (active)
+        {
+            ToogleInventory(true, active);
+        }
+        else
+        {
+            ToogleInventory(false , active);
         }
     }
 }

@@ -57,10 +57,10 @@ public class ActionBar : InventoryBase
         }
         Hand.instance.ChangeObject(Objects3d[SlotActuel]);
     }
-    public override void ToogleCanDragitem()
+    public override void ToogleCanDragitem(bool active)
     {
-        base.ToogleCanDragitem();
-        canscroll = !canscroll;
+        base.ToogleCanDragitem(active);
+        canscroll =active;
     }
     public override void StartInventaire()
     {

@@ -147,14 +147,15 @@ public abstract class InventoryBase : MonoBehaviour
         }
         return true;
     }
-    virtual public void ToogleCanDragitem()
+    virtual public void ToogleCanDragitem(bool active)
     {
         foreach (var item in ListeObjets)
         {
-            item.candragItem = !item.candragItem;
+            item.candragItem = active;
             if (item.item != null)
             {
-                item.item.candragitem = !item.item.candragitem;
+                item.item.candragitem = active;
+ 
             }
         }
     }
