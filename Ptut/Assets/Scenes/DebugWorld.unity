@@ -12148,6 +12148,8 @@ MonoBehaviour:
   terrainElements:
   - prefab: {fileID: 7705496226487088969, guid: d00490156270cb045a495a68d51951e4, type: 3}
     name: 
+  - prefab: {fileID: 2437006094033304415, guid: 7e5a85815015d2c42849e1ad61a94f8e, type: 3}
+    name: 
 --- !u!4 &1942215830
 Transform:
   m_ObjectHideFlags: 0

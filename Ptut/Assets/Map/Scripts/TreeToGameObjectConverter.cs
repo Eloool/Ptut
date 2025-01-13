@@ -63,7 +63,7 @@ public class TreeToGameObjectConverter : MonoBehaviour
             if (lodChild != null)
             {
                 // Appliquer la rotation et l'échelle sur l'enfant (LOD)
-                lodChild.rotation = Quaternion.Euler(-90f, tree.rotation * Mathf.Rad2Deg, 0f);
+                lodChild.rotation = Quaternion.Euler(0f, tree.rotation * Mathf.Rad2Deg, 0f);
                 lodChild.localScale = tree.widthScale * Vector3.one;
             }
             else
