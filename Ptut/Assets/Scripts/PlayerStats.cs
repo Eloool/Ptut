@@ -74,19 +74,19 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Die());
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            TakeDamage(10, false, true);
-            Debug.Log("damage");
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    TakeDamage(10, false, true);
+        //    Debug.Log("damage");
+        //}
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Heal(30);
-        }
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    Heal(30);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.V)) { Thirst(30); }
-        if (Input.GetKeyDown(KeyCode.B)) { Hunger(30); }
+        //if (Input.GetKeyDown(KeyCode.V)) { Thirst(30); }
+        //if (Input.GetKeyDown(KeyCode.B)) { Hunger(30); }
     }
 
 
