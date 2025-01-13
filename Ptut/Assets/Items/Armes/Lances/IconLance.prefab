@@ -106,6 +106,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc91d4c262292524eb44c7b91466f707, type: 2}
   ItemData: {fileID: 11400000, guid: f0f03dcc30608c84e8f6fc329b6120d0, type: 2}
   amount: 0
-  candragitem: 1
+  candragitem: 0
   parent: {fileID: 0}
   myText: {fileID: 0}

@@ -35,9 +35,7 @@ public class Recipe : MonoBehaviour
         currentRecipe = recipe;
         //Item = currentRecipe.craftableItem.prefab;
         
-
         craftableItemImage.sprite = recipe.craftableItem.requiredItem.iconImage;
-        Debug.Log(currentRecipe);
         CreateTextAmount(craftableItemImage.transform.parent.gameObject, recipe.craftableItem.amount);
 
         RecipeAmount = recipe.craftableItem.amount;
