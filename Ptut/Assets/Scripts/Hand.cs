@@ -68,11 +68,20 @@ public class Hand : Stats
         {
             QuaternionObject = obj.transform.rotation;
             ObjectInHand = obj;
+            if(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>().ItemData.TypeOfItem == ItemData.TypeItem.Food)
+            {
+                GetComponent<EatingFood>().SetFood(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
+            }
+            else
+            {
+                GetComponent<EatingFood>().SetFood(null);
+            }
         }
         else
         {
             QuaternionObject = Quaternion.identity;
             ObjectInHand = null;
+            GetComponent<EatingFood>().SetFood(null);
         }
     }
 }

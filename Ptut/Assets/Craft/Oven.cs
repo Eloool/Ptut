@@ -36,7 +36,6 @@ public class Oven : InteractibleGameObject
 
     public void StartCooking()
     {
-        //Debug.Log(Bruler);
         bool canBeginCooking = false;
         if (Bruler != null && FuelRemaining>=0)
         {
