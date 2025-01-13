@@ -15,6 +15,8 @@ public class ItemData : ScriptableObject
         Pioche,
         Hache,
         Arc,
+        Arrow,
+        Food,
         Autre
     }
     public TypeItem TypeOfItem;

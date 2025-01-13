@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ActionBar : InventoryBase
 {
     public GameObject Cadre;
-    private bool canscroll= false;
+    private bool canscroll =true;
     private int SlotActuel = 0;
     private GameObject[] Objects3d;
 
@@ -60,7 +60,7 @@ public class ActionBar : InventoryBase
     public override void ToogleCanDragitem(bool active)
     {
         base.ToogleCanDragitem(active);
-        canscroll =active;
+        canscroll = !active;
     }
     public override void StartInventaire()
     {
