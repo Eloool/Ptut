@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CraftingSystem : MonoBehaviour
-{
+public class CraftingSystem : ToogleCanvas
+{ 
     [SerializeField]
     private RecipeData[] availableRecipes;
 
@@ -38,12 +38,14 @@ public class CraftingSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            ToggleCraftTable();
-            UpdateDisplayedRecipes();
-        }
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
-        {
-            craftingTable.SetActive(false);
+            if (!craftingTable.activeInHierarchy)
+            {
+                CanvasController.instance.ShowCanvas(this);
+            }
+            else
+            {
+                CanvasController.instance.HideAllCanvases();
+            }
         }
     }
 
@@ -66,19 +68,21 @@ public class CraftingSystem : MonoBehaviour
 
 
 
-    public void ToggleCraftTable()
+    public void ToggleCraftTable(bool active)
     {
-        craftingTable.SetActive(!craftingTable.activeSelf);
-        //ThirdPersonController.instance.enabled = !ThirdPersonController.instance.enabled;
-        if (craftingTable.activeSelf)
+        craftingTable.SetActive(active);
+    }
+
+    public override void SetActiveCanvas(bool active)
+    {
+        if (active)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            ToggleCraftTable(true);
+            UpdateDisplayedRecipes();
         }
         else
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            ToggleCraftTable(false);
         }
     }
 

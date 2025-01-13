@@ -33,9 +33,52 @@ public class InventoryMenu : InventoryBase
         }
         
     }
+
+    private bool isChangingState = false;
+
     public void ShowArmor(bool show)
     {
-        ListeArmure[0].gameObject.transform.parent.gameObject.SetActive(show);
+        if (isChangingState)
+        {
+            Debug.LogWarning("ShowArmor est déjà en cours d'exécution.");
+            return;
+        }
+
+        isChangingState = true;
+
+        try
+        {
+            Debug.Log($"ShowArmor called with show = {show}");
+
+            if (ListeArmure == null || ListeArmure.Count == 0)
+            {
+                Debug.LogWarning("ListeArmure est vide ou non initialisée.");
+                return;
+            }
+
+            GameObject parentObject = ListeArmure[0].gameObject.transform.parent?.gameObject;
+            if (parentObject == null)
+            {
+                Debug.LogWarning("Le parent de l'armure n'existe pas.");
+                return;
+            }
+
+            if (parentObject.activeSelf != show)
+            {
+                Debug.Log($"Changing parentObject active state to: {show}");
+                parentObject.SetActive(show);
+            }
+            else
+            {
+                Debug.LogWarning("Le parent est déjà dans l'état demandé.");
+            }
+        }
+        finally
+        {
+            isChangingState = false;
+        }
     }
+
+
 }
 

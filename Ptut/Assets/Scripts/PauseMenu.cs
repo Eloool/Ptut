@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : ToogleCanvas
 {
     public static bool GameIsPaused = false;
 
@@ -17,29 +17,26 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (!GameIsPaused)
             {
-                Resume();
+                CanvasController.instance.ShowCanvas(this);
             }
             else
             {
-                Pause();
+                CanvasController.instance.HideAllCanvases();
             }
         }
     }
     public void Resume()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        if(Time.timeScale != 1f)
+            Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
     void Pause() 
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -53,5 +50,17 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public override void SetActiveCanvas(bool active)
+    {
+        GameIsPaused = !active;
+        if (GameIsPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
     }
 }
