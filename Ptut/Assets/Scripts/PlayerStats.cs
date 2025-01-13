@@ -74,11 +74,19 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Die());
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            TakeDamage(10, false, true);
-            Debug.Log("damage");
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    TakeDamage(10, false, true);
+        //    Debug.Log("damage");
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    Heal(30);
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.V)) { Thirst(30); }
+        //if (Input.GetKeyDown(KeyCode.B)) { Hunger(30); }
     }
 
 
@@ -162,6 +170,33 @@ public class PlayerStats : MonoBehaviour
 
         UpdateHealthBarFill();
 
+    }
+
+    public void Heal(float heal)
+    {
+        if (currHealth + heal > maxHealth)
+            currHealth = maxHealth;
+        else currHealth += heal;
+
+        UpdateHealthBarFill();
+    }
+
+    public void Thirst(float thirst)
+    {
+        if (currThirst + thirst > maxThirst)
+            currThirst = maxThirst;
+        else currThirst += thirst;
+
+        UpdateHungerThirstBarsFill();
+    }
+
+    public void Hunger(float hunger)
+    {
+        if (currHunger + hunger > maxHunger)
+            currHunger = maxHunger;
+        else currHunger += hunger;
+
+        UpdateHungerThirstBarsFill();
     }
 
     IEnumerator Die() // game over
