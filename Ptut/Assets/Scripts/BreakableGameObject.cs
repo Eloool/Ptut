@@ -37,6 +37,7 @@ public class BreakableGameObject : InteractableBase
             health -= HealthLost;
             PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
         }
+        Debug.Log(health);
 
         if (health > 0 && PercentHealthLost>=0.1f)
         {
@@ -52,7 +53,7 @@ public class BreakableGameObject : InteractableBase
                 Inventory.instance.AddtoInventory(itemDropped);
             }
         }
-        else
+        if(health <=0)
         {
             foreach (ItemDataAmountProbability probability in _probabilityDrop)
             {

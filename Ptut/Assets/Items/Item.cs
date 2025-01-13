@@ -64,8 +64,11 @@ public class Item : Stats, IDragHandler, IEndDragHandler, IBeginDragHandler
             rectTransform.anchoredPosition3D = Vector3.zero;
             rectTransform.localScale = Vector3.one;
             transform.parent.GetComponent<InventoryItem>().item = this;
-            if(!CanvasOven.instance.lastOven.iscooking)
-                CanvasOven.instance.lastOven.StopCooking(false);
+            if (CanvasOven.instance.lastOven)
+            {
+                if (!CanvasOven.instance.lastOven.iscooking)
+                    CanvasOven.instance.lastOven.StopCooking(false);
+            }
             GetComponent<Image>().raycastTarget = true;
             parent = transform.parent.gameObject;
         }

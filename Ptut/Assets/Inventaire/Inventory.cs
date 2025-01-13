@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
         
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
-        inventaire.ToogleCanDragitem();
+        
 
         foreach (StarterItem item in ItemsStarter)
         {
@@ -49,6 +49,8 @@ public class Inventory : MonoBehaviour
             }
         }
         ActionBar.Reload3DObjects();
+        inventaire.ToogleCanDragitem();
+        ActionBar.ToogleCanDragitem();
     }
 
     private void Update()
