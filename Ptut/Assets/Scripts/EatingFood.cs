@@ -71,7 +71,16 @@ public class EatingFood : MonoBehaviour
 
     private void EatFood()
     {
-        //Ajout fonction PlayerStats
+        FoodStat foodStat;
+        ThirstStat thirstStat;
+        if(food.TryGetStat<FoodStat> (out foodStat))
+        {
+            PlayerStats.instance.Hunger(foodStat.foodStat);
+        }
+        if(food.TryGetStat<ThirstStat>(out thirstStat))
+        {
+            PlayerStats.instance.Thirst(thirstStat.thristStat);
+        }
         food.MinusOne();
         Inventory.instance.ActionBar.Reload3DObjects();
     }
