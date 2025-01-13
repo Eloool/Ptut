@@ -37,7 +37,6 @@ public class BreakableGameObject : InteractableBase
             health -= HealthLost;
             PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
         }
-        Debug.Log(health);
 
         if (health > 0 && PercentHealthLost>=0.1f)
         {
