@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 7035954481125682675}
   - component: {fileID: 6938908226155000892}
   - component: {fileID: 3762414966041933840}
-  - component: {fileID: -6448831455814200967}
+  - component: {fileID: 8981611136104001729}
+  - component: {fileID: 223346835540966894}
+  - component: {fileID: 7725351192443458071}
   m_Layer: 0
   m_Name: Fougere
   m_TagString: Untagged
@@ -31,8 +33,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6947391946961862637}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &6938908226155000892
@@ -52,7 +53,7 @@ LODGroup:
   - screenRelativeHeight: 0.121775754
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 8079797438015980674}
+    - renderer: {fileID: 8981611136104001729}
   m_Enabled: 1
 --- !u!136 &3762414966041933840
 CapsuleCollider:
@@ -73,77 +74,17 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.003
-  m_Height: 0.008337757
+  m_Radius: 0.1
+  m_Height: 0.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.003956133, z: 0}
---- !u!114 &-6448831455814200967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7705496226487088969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc1175521d02d9c4a85b4dad14515784, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StatsScripts:
-  - {fileID: 11400000, guid: 85e743791258d0c4fbccc4896e739669, type: 2}
-  health: 0
-  _probabilityDrop:
-  - Item: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
-    amountEach10Percentage: 1
-    amountTotal: 2
---- !u!1 &7719671714688427351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6947391946961862637}
-  - component: {fileID: 6324676481047670856}
-  - component: {fileID: 8079797438015980674}
-  m_Layer: 0
-  m_Name: FougereLOD
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6947391946961862637
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7719671714688427351}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7035954481125682675}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6324676481047670856
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7719671714688427351}
-  m_Mesh: {fileID: -6151712962983573105, guid: 7b5a098d913a3c74692a2a9963dbd3ba, type: 3}
---- !u!23 &8079797438015980674
+  m_Center: {x: 0, y: 0.23, z: 0}
+--- !u!23 &8981611136104001729
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7719671714688427351}
+  m_GameObject: {fileID: 7705496226487088969}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -179,3 +120,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &223346835540966894
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705496226487088969}
+  m_Mesh: {fileID: -6151712962983573105, guid: 7b5a098d913a3c74692a2a9963dbd3ba, type: 3}
+--- !u!114 &7725351192443458071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705496226487088969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1175521d02d9c4a85b4dad14515784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatsScripts:
+  - {fileID: 11400000, guid: 85e743791258d0c4fbccc4896e739669, type: 2}
+  health: 0
+  _probabilityDrop:
+  - Item: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
+    amountEach10Percentage: 0
+    amountTotal: 3

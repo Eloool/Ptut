@@ -55,26 +55,16 @@ public class TreeToGameObjectConverter : MonoBehaviour
             }
 
             // Instancier l'objet principal
-            GameObject newElement = Instantiate(prefab, worldPosition, Quaternion.identity, this.transform);
+            GameObject newElement = Instantiate(prefab, worldPosition, Quaternion.Euler(0f, tree.rotation * Mathf.Rad2Deg, 0f), this.transform);
             newElement.name = $"{terrainElements[prototypeIndex].name}_{Random.Range(0, 10000)}";
 
-            // Localiser l'enfant contenant le renderer (LOD)
-            Transform lodChild = newElement.transform.Find(prefab.name + "LOD"); // Exemple : "RockIronLOD"
-            if (lodChild != null)
-            {
-                // Appliquer la rotation et l'échelle sur l'enfant (LOD)
-                lodChild.rotation = Quaternion.Euler(0f, tree.rotation * Mathf.Rad2Deg, 0f);
-                lodChild.localScale = tree.widthScale * Vector3.one;
-            }
-            else
-            {
-                Debug.LogWarning($"Le prefab {prefab.name} n'a pas d'enfant avec le suffixe 'LOD'.");
-            }
+            // Appliquer l'échelle
+            newElement.transform.localScale = tree.widthScale * Vector3.one;
         }
 
         // Supprimer les arbres du terrain
         terrainData.treeInstances = new TreeInstance[0];
 
-        Debug.Log("Conversion terminée : " + terrainTrees.Length + " éléments remplacés.");
+        Debug.Log("Conversion terminée : " + terrainTrees.Length + " arbres remplacés.");
     }
 }
