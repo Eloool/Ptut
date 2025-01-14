@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ActionBar : InventoryBase
 {
     public GameObject Cadre;
-    public bool canscroll= true;
+    private bool canscroll =true;
     private int SlotActuel = 0;
     private GameObject[] Objects3d;
 
@@ -29,6 +29,7 @@ public class ActionBar : InventoryBase
                 SlotActuel = 0;
             }
             Cadre.transform.SetParent(ListeObjets[SlotActuel].transform);
+            Cadre.transform.SetAsFirstSibling();
             Cadre.transform.localPosition = new Vector3(0, 0, 0);
             if (ListeObjets[SlotActuel].item != null)
             {
@@ -56,10 +57,10 @@ public class ActionBar : InventoryBase
         }
         Hand.instance.ChangeObject(Objects3d[SlotActuel]);
     }
-    public override void ToogleCanDragitem()
+    public override void ToogleCanDragitem(bool active)
     {
-        base.ToogleCanDragitem();
-        canscroll = !canscroll;
+        base.ToogleCanDragitem(active);
+        canscroll = !active;
     }
     public override void StartInventaire()
     {

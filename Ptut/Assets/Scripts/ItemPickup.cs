@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : InteractibleGameObject
 {
-    public new bool Interact()
+    public override bool Interact()
     {
         Inventory.instance.AddtoInventorybyItem3d(this.gameObject);
         Destroy(gameObject);

@@ -7,11 +7,10 @@ public class InteractibleGameObject : MonoBehaviour,InteractibleObject
     public string _prompt;
     public string InteractionPrompt => _prompt;
 
-    public bool Interact()
+    virtual public bool Interact()
     {
-        Inventory.instance.AddtoInventorybyItem3d(this.gameObject);
-        Destroy(gameObject);
-        return true;
+        return false;
     }
+
 
 }

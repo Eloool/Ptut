@@ -11,8 +11,9 @@ public class InventoryItem : MonoBehaviour,IDropHandler
 {
     public Item item;
     public RectTransform Position;
-    public bool candragItem=false;
+    public bool candragItem=true;
     private RectTransform RectParent;
+    private bool canSwap = true;
 
     private void Start()
     {
@@ -26,10 +27,46 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     }
     virtual public void OnDrop(PointerEventData eventData)
     {
+        canSwap = true;
+        
         if (candragItem)
         {
-            DropItem(eventData);
+            if (CanvasOven.instance.oven.activeInHierarchy)
+            {
+                if (!CanvasOven.instance.lastOven.iscooking && eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<OvenInventoryItem>() != null)
+                {
+                    if (eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<OvenInventoryItem>().typeSlot == OvenInventoryItem.TypeOvenSlot.Sortie && gameObject.GetComponent<OvenInventoryItem>() != null)
+                    {
+                        canSwap = false;
+                    }
+                    else if (eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<OvenInventoryItem>().typeSlot == OvenInventoryItem.TypeOvenSlot.Sortie && item != null)
+                    {
+                        canSwap = false;
+                    }
+                }
+            }
+            if (canSwap)
+            {
+                if (eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<OvenInventoryItem>() != null)
+                {
+                    if (eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<OvenInventoryItem>().typeSlot == OvenInventoryItem.TypeOvenSlot.Sortie && item == null)
+                    {
+                        CanvasOven.instance.lastOven.SetSortie(null);
+                    }
+                    else if (eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<OvenInventoryItem>().typeSlot == OvenInventoryItem.TypeOvenSlot.Combustible)
+                    {
+                        CanvasOven.instance.lastOven.SetCombustible(item);
+                    }
+                    else if (eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<OvenInventoryItem>().typeSlot == OvenInventoryItem.TypeOvenSlot.Cooking)
+                    {
+                        CanvasOven.instance.lastOven.SetBruler(item);
+                    }
+                }
+                DropItem(eventData.pointerDrag.GetComponent<Item>());
+            }
+            
         }
+        canSwap = true;
     }
     public void AddtwoItem(Item item1, Item item2)
     {
@@ -65,32 +102,78 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     }
     public void SwapTwoItem(Item item1, Item item2)
     {
-        Transform parent = item2.transform.parent;
-        item2.transform.SetParent(item1.transform.parent);
-        item1.transform.SetParent(parent);
-        item1.parent = parent.gameObject;
-        parent.gameObject.GetComponent<InventoryItem>().item = item1;
-        item1.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+        bool canswap = true;
+        OvenInventoryItem itemC, itemC2;
+        if (item1.parent.TryGetComponent<OvenInventoryItem>(out itemC))
+        {
+            if(itemC.typeSlot == OvenInventoryItem.TypeOvenSlot.Sortie)
+            {
+                canswap = false;
+            }
+        }
+        if (item2.parent.TryGetComponent<OvenInventoryItem>(out itemC2))
+        {
+            if (itemC2.typeSlot == OvenInventoryItem.TypeOvenSlot.Sortie)
+            {
+                canswap = false;
+            }
+        }
+        //Debug.Log(itemC);
+        //Debug.Log(itemC2);
+        if(canswap)
+        {
+            //if (itemC != null)
+            //{
+
+            //}
+            Transform parent = item2.transform.parent;
+            item2.transform.SetParent(item1.transform.parent);
+            item1.transform.SetParent(parent);
+            item1.parent = parent.gameObject;
+            parent.gameObject.GetComponent<InventoryItem>().item = item1;
+            item1.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+        }
     }
-    public void DropItem(PointerEventData eventData)
+    virtual public void DropItem(Item ItemDropped)
     {
+
         if (item == null)
         {
-            eventData.pointerDrag.gameObject.transform.SetParent(Position);
-            AddItemtoSlot(eventData.pointerDrag.GetComponent<Item>());
+            ItemDropped.gameObject.transform.SetParent(Position);
+            AddItemtoSlot(ItemDropped);
             item.parent = gameObject;
         }
         else
         {
-
-            if (item.ItemData.id == eventData.pointerDrag.GetComponent<Item>().ItemData.id)
+            if (item.ItemData.id != ItemDropped.ItemData.id && canSwap)
             {
-                AddtwoItem(item, eventData.pointerDrag.GetComponent<Item>());
+                SwapTwoItem(item, ItemDropped);
+                if (GetComponent<OvenInventoryItem>() != null && !CanvasOven.instance.lastOven.iscooking)
+                {
+                    CanvasOven.instance.lastOven.StopCooking(false);
+                }
             }
             else
             {
-                SwapTwoItem(item, eventData.pointerDrag.GetComponent<Item>());
+                AddtwoItem(item, ItemDropped);
+                item.UpdateTextAmount();
+                if(GetComponent<OvenInventoryItem>() != null && !CanvasOven.instance.lastOven.iscooking)
+                {
+                    CanvasOven.instance.lastOven.StopCooking(false);
+                }
             }
+        }        
+    }
+    public GameObject DetachItem()
+    {
+        if (item != null)
+        {
+            item.parent = null;
+            GameObject gameObject = item.gameObject;
+            item = null;
+            gameObject.transform.SetParent(null);
+            return gameObject;
         }
+        return null;
     }
 }

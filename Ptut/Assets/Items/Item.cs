@@ -11,12 +11,13 @@ public class Item : Stats, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     public ItemData ItemData;
     public int amount;
-    public bool candragitem =true;
+    public bool candragitem =false;
     private RectTransform rectTransform;
     private Canvas canvas;
     private GameObject textObject;
     public GameObject parent;
     public TMP_Text myText;
+    public int slot = -1;
 
     private void Awake()
     {
@@ -46,7 +47,6 @@ public class Item : Stats, IDragHandler, IEndDragHandler, IBeginDragHandler
                 UpdateTextAmount();
             }
             transform.SetAsLastSibling();
-
         }
     }
     public void OnDrag(PointerEventData eventData)
@@ -61,21 +61,22 @@ public class Item : Stats, IDragHandler, IEndDragHandler, IBeginDragHandler
     {
         if (candragitem)
         {
-            if (transform.parent != parent)
+            rectTransform.anchoredPosition3D = Vector3.zero;
+            rectTransform.localScale = Vector3.one;
+            transform.parent.GetComponent<InventoryItem>().item = this;
+            if (CanvasOven.instance.lastOven)
             {
-                rectTransform.anchoredPosition3D = Vector3.zero;
-                rectTransform.localScale = Vector3.one;
-                transform.parent.GetComponent<InventoryItem>().item = this;
-                GetComponent<Image>().raycastTarget = true;
-                parent = transform.parent.gameObject;
+                if (!CanvasOven.instance.lastOven.iscooking)
+                    CanvasOven.instance.lastOven.StopCooking(false);
             }
+            GetComponent<Image>().raycastTarget = true;
+            parent = transform.parent.gameObject;
         }
-
     }
     #endregion
     public void CreateTextAmount()
     {
-            canvas = GetComponentInParent<Canvas>();
+            canvas = Inventory.instance.GetComponent<Canvas>();
             textObject = new("Nombre Item");
             textObject.transform.SetParent(this.transform);
             
@@ -85,5 +86,19 @@ public class Item : Stats, IDragHandler, IEndDragHandler, IBeginDragHandler
             myText.rectTransform.localScale = new Vector3(1, 1, 1);
             myText.rectTransform.sizeDelta = new Vector2(60,20);
             myText.rectTransform.localPosition = new Vector3(-30, (float)(-myText.rectTransform.sizeDelta.x / 2), 0);
+    }
+
+    public void MinusOne()
+    {
+        amount--;
+        if( amount == 0)
+        {
+            parent.GetComponent<InventoryItem>().item = null;
+            Destroy(gameObject);
+        }
+        else
+        {
+            UpdateTextAmount();
+        }
     }
 }

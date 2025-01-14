@@ -52,7 +52,7 @@ public class BreakableGameObject : InteractableBase
                 Inventory.instance.AddtoInventory(itemDropped);
             }
         }
-        else
+        if(health <=0)
         {
             foreach (ItemDataAmountProbability probability in _probabilityDrop)
             {

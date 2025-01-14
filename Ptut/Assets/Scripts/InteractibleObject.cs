@@ -5,6 +5,8 @@ using UnityEngine;
 public interface InteractibleObject { 
 
     public string InteractionPrompt { get; }
-    public bool Interact();
+    virtual public bool Interact() {
+        return false;
+    }
 
 }

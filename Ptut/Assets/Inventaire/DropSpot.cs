@@ -8,7 +8,7 @@ public class DropSpot : MonoBehaviour ,IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         GameObject itemdrag = eventData.pointerDrag.GetComponent<Item>().gameObject;
-        GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[itemdrag.GetComponent<Item>().ItemData.id].prefab3D, new Vector3(0, 10, 0), Quaternion.identity);
+        GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[itemdrag.GetComponent<Item>().ItemData.id].prefab3D, Inventory.instance.DropPoint.transform.position, Quaternion.identity);
         ObjectDroped.GetComponent<Item3d>().IconItem = itemdrag;
         itemdrag.GetComponent<Item>().parent.GetComponent<InventoryItem>().item = null;
         itemdrag.GetComponent<Item>().parent = null;
@@ -18,9 +18,9 @@ public class DropSpot : MonoBehaviour ,IDropHandler
         };
         canvas.transform.parent = ObjectDroped.transform;
         canvas.AddComponent<Canvas>();
-        ObjectDroped.AddComponent<MeshCollider>();
-        ObjectDroped.GetComponent<MeshCollider>().convex = true;
+        ObjectDroped.AddComponent<BoxCollider>();
         ObjectDroped.AddComponent<Rigidbody>();
+        ObjectDroped.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
         itemdrag.transform.SetParent(canvas.transform);
         canvas.SetActive(false);
     }

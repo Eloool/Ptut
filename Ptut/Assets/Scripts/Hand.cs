@@ -36,7 +36,8 @@ public class Hand : Stats
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            behaviourManager.GetAnim.SetBool("Hit", true);
+            StartCoroutine(HitAnimation());
+
             if (ObjectInHand != null)
             {
                 GetComponent<BreakObjectsHand>().BreakObjects(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
@@ -48,6 +49,12 @@ public class Hand : Stats
                 GetComponent<InteractionKillEnnemi>().HitEnnemis(null);
             }
         }
+    }
+    
+    private IEnumerator HitAnimation()
+    {
+        behaviourManager.GetAnim.SetBool("Hit", true);
+        yield return new WaitForSeconds(0.1f);
         behaviourManager.GetAnim.SetBool("Hit", false);
     }
 
@@ -61,11 +68,20 @@ public class Hand : Stats
         {
             QuaternionObject = obj.transform.rotation;
             ObjectInHand = obj;
+            if(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>().ItemData.TypeOfItem == ItemData.TypeItem.Food)
+            {
+                GetComponent<EatingFood>().SetFood(ObjectInHand.GetComponent<Item3d>().IconItem.GetComponent<Item>());
+            }
+            else
+            {
+                GetComponent<EatingFood>().SetFood(null);
+            }
         }
         else
         {
             QuaternionObject = Quaternion.identity;
             ObjectInHand = null;
+            GetComponent<EatingFood>().SetFood(null);
         }
     }
 }

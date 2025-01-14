@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,11 +74,19 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Die());
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            TakeDamage(10, false, true);
-            Debug.Log("damage");
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    TakeDamage(10, false, true);
+        //    Debug.Log("damage");
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    Heal(30);
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.V)) { Thirst(30); }
+        //if (Input.GetKeyDown(KeyCode.B)) { Hunger(30); }
     }
 
 
@@ -112,9 +121,12 @@ public class PlayerStats : MonoBehaviour
 
     void UpdateStaminaBarFill()
     {
+        // to store inputs
+        KeyCode[] inputsTab = new[] { KeyCode.Z, KeyCode.Q, KeyCode.S, KeyCode.D,
+                                        KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow };
+
         // stamina decrease
-        if (Input.GetKey(KeyCode.LeftShift) &&
-            (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) // à changer
+        if (Input.GetKey(KeyCode.LeftShift) && inputsTab.Any(Input.GetKey))
         {
             staminaBar.gameObject.SetActive(true);
             currStamina -= staminaLossPerSecond * Time.deltaTime;
@@ -158,6 +170,33 @@ public class PlayerStats : MonoBehaviour
 
         UpdateHealthBarFill();
 
+    }
+
+    public void Heal(float heal)
+    {
+        if (currHealth + heal > maxHealth)
+            currHealth = maxHealth;
+        else currHealth += heal;
+
+        UpdateHealthBarFill();
+    }
+
+    public void Thirst(float thirst)
+    {
+        if (currThirst + thirst > maxThirst)
+            currThirst = maxThirst;
+        else currThirst += thirst;
+
+        UpdateHungerThirstBarsFill();
+    }
+
+    public void Hunger(float hunger)
+    {
+        if (currHunger + hunger > maxHunger)
+            currHunger = maxHunger;
+        else currHunger += hunger;
+
+        UpdateHungerThirstBarsFill();
     }
 
     IEnumerator Die() // game over
