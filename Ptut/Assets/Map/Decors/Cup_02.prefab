@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1457605259797345723}
   - component: {fileID: 1872330538669751586}
   - component: {fileID: 3772133523900071849}
+  - component: {fileID: 9102285295339396683}
+  - component: {fileID: 7032096041269179870}
   m_Layer: 0
   m_Name: Cup_02
   m_TagString: Untagged
@@ -83,3 +85,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &9102285295339396683
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696835546638558170}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.117488176
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3772133523900071849}
+  m_Enabled: 1
+--- !u!64 &7032096041269179870
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696835546638558170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5643134890517162430, guid: 4bc695292ba139c45904397e3ea818fd, type: 3}

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6961329511676827328}
   - component: {fileID: 7012580341785132987}
   - component: {fileID: 1925568971346247047}
+  - component: {fileID: -6615879415889529931}
+  - component: {fileID: -2268254746372142058}
   m_Layer: 0
   m_Name: Wineglass_01
   m_TagString: Untagged
@@ -83,3 +85,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-6615879415889529931
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011254806707118083}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9029981216086002284, guid: 4bc695292ba139c45904397e3ea818fd, type: 3}
+--- !u!205 &-2268254746372142058
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011254806707118083}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 5
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.122734256
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1925568971346247047}
+  m_Enabled: 1
