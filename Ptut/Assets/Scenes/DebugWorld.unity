@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: aaef824b6be74c8429d656adba2ae67b, type: 2}
 --- !u!1 &59960856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5209,7 +5209,6 @@ GameObject:
   m_Component:
   - component: {fileID: 662267409}
   - component: {fileID: 662267408}
-  - component: {fileID: 662267410}
   m_Layer: 0
   m_Name: SpawnerMobEmpty
   m_TagString: Untagged
@@ -5248,18 +5247,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &662267410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662267407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c45f71df6ccb934598b57c59321ae13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &671767808
 GameObject:
   m_ObjectHideFlags: 0
@@ -7412,7 +7399,6 @@ GameObject:
   - component: {fileID: 1035568996}
   - component: {fileID: 1035568995}
   - component: {fileID: 1035568994}
-  - component: {fileID: 1035568999}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7560,18 +7546,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 305401270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1035568999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1035568993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5c599bbd4914241964373e178a8a56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1049888210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12756,11 +12730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 89779b718abf52248b603e89a913ca50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.99
+      value: 13.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 89779b718abf52248b603e89a913ca50, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1035.2
+      value: 1035.42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 89779b718abf52248b603e89a913ca50, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12793,6 +12767,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 89779b718abf52248b603e89a913ca50, type: 3}
       propertyPath: m_Name
       value: Cave
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89779b718abf52248b603e89a913ca50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
