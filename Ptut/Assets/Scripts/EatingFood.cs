@@ -22,12 +22,17 @@ public class EatingFood : MonoBehaviour
     {
         if (food != null && healthFood > 0)
         {
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse1))
             {
                 LoseHealth();
             }
 
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                ResetHealth();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 ResetHealth();
             }

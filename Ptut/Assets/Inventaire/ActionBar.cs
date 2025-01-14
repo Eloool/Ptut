@@ -60,7 +60,7 @@ public class ActionBar : InventoryBase
     public override void ToogleCanDragitem(bool active)
     {
         base.ToogleCanDragitem(active);
-        canscroll = !active;
+        SetCanScroll(!active);
     }
     public override void StartInventaire()
     {
@@ -70,5 +70,9 @@ public class ActionBar : InventoryBase
             item.gameObject.GetComponent<Image>().sprite = transform.parent.GetComponent<Inventory>().Background;
         }
         Objects3d = new GameObject[ListeObjets.Count]; 
+    }
+    public void SetCanScroll(bool canscroll)
+    {
+        this.canscroll = canscroll;
     }
 }

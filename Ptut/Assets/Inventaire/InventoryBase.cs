@@ -189,5 +189,20 @@ public abstract class InventoryBase : MonoBehaviour
         }
         return false;
     }
+
+    public Item GetFirstItemWithType(ItemData.TypeItem typeItem)
+    {
+        foreach (var item in ListeObjets)
+        {
+            if (item.item != null)
+            {
+                if (item.item.ItemData.TypeOfItem == typeItem)
+                {
+                    return item.item;
+                }
+            }
+        }
+        return null;
+    }
 }
 

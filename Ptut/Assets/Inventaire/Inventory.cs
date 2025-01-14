@@ -194,4 +194,14 @@ public class Inventory : ToogleCanvas
             ToogleInventory(false , active);
         }
     }
+
+    public Item GetFirstItemWithType(ItemData.TypeItem item)
+    {
+        Item itemOut = ActionBar.GetFirstItemWithType(item);
+        if (itemOut == null)
+        {
+            itemOut = inventaire.GetFirstItemWithType(item);
+        }
+        return itemOut;
+    }
 }
