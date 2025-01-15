@@ -58,7 +58,7 @@ public class EatingFood : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Ne peut pas être bu ou manger alors que son type et de food");
+                Debug.LogError("Ne peut pas être bu ou mangé alors que son type est de food");
                 this.food = null;
             }
         }
