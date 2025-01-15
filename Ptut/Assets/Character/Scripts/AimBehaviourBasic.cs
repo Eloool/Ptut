@@ -121,13 +121,23 @@ public class AimBehaviourBasic : GenericBehaviour
 	// NOT FINISHED
 	IEnumerator Shoot()
     {
+        if (arrow == null)
+        {
+			SetCanShoot(true);
+			if (!canShoot)
+			{
+				yield break;
+			}
+        }
         behaviourManager.GetAnim.SetBool("Shoot", true);
+		canShoot = false;
+		Inventory.instance.ActionBar.SetCanScroll(false);
         yield return new WaitForSeconds(0.05f);
         behaviourManager.GetAnim.SetBool("Shoot", false);
 
+		yield return new WaitForSeconds(0.8f);
 
-		yield return new WaitForSeconds(1);
-
+		
         // Raycast parameters.
         Ray ray = new Ray(behaviourManager.playerCamera.transform.position, behaviourManager.playerCamera.transform.forward);
         RaycastHit hit;
@@ -145,6 +155,8 @@ public class AimBehaviourBasic : GenericBehaviour
         }
 		arrow.MinusOne();
 		SetCanShoot(true);
+        Inventory.instance.ActionBar.SetCanScroll(true);
+		canShoot = true;
     }
 
 
