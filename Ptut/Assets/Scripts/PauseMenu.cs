@@ -11,6 +11,9 @@ public class PauseMenu : ToogleCanvas
 
     public GameObject pauseMenuUI;
 
+    // Références aux scripts ou composants contrôlant la caméra et les mouvements du joueur
+    public MonoBehaviour cameraController;
+    public MonoBehaviour playerController;
 
     // Update is called once per frame
     void Update()
@@ -27,19 +30,44 @@ public class PauseMenu : ToogleCanvas
             }
         }
     }
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        if(Time.timeScale != 1f)
+        if (Time.timeScale != 1f)
             Time.timeScale = 1f;
         GameIsPaused = false;
+
+        // Réactiver le mouvement de la caméra
+        if (cameraController != null)
+        {
+            cameraController.enabled = true;
+        }
+
+        // Réactiver le mouvement du joueur
+        if (playerController != null)
+        {
+            playerController.enabled = true;
+        }
     }
 
-    void Pause() 
+    void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        // Désactiver le mouvement de la caméra
+        if (cameraController != null)
+        {
+            cameraController.enabled = false;
+        }
+
+        // Désactiver le mouvement du joueur
+        if (playerController != null)
+        {
+            playerController.enabled = false;
+        }
     }
 
     public void LoadMenu()
@@ -51,6 +79,7 @@ public class PauseMenu : ToogleCanvas
     {
         Application.Quit();
     }
+
     public override void SetActiveCanvas(bool active)
     {
         GameIsPaused = !active;
