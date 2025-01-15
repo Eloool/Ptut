@@ -14,6 +14,10 @@ public class AimBehaviourBasic : GenericBehaviour
 	public int aimBool;                                                  // Animator variable related to aiming.
 	public bool aim;                                                     // Boolean to determine whether or not the player is aiming.
 
+	private bool canShoot;
+
+	private Item arrow;
+
 	// Start is always called after any Awake functions.
 	void Start ()
 	{
@@ -60,12 +64,8 @@ public class AimBehaviourBasic : GenericBehaviour
 		else
 		{
 			aim = true;
+			GetComponent<Hand>().SetCanHit(false);
    //         behaviourManager.GetAnim.SetBool("Shoot", aim);
-			//if (Input.GetKeyDown(KeyCode.Mouse0))
-			//{
-			//	Debug.Log("Good");
-			//}
-
 
             int signal = 1;
 			aimCamOffset.x = Mathf.Abs(aimCamOffset.x) * signal;
@@ -88,7 +88,8 @@ public class AimBehaviourBasic : GenericBehaviour
 		behaviourManager.GetCamScript.ResetMaxVerticalAngle();
 		yield return new WaitForSeconds(0.05f);
 		behaviourManager.RevokeOverridingBehaviour(this);
-	}
+        GetComponent<Hand>().SetCanHit(true);
+    }
 
 	// LocalFixedUpdate overrides the virtual function of the base class.
 	public override void LocalFixedUpdate()
@@ -110,7 +111,7 @@ public class AimBehaviourBasic : GenericBehaviour
 		// Deal with the player orientation when aiming.
 		Rotating();
 
-		if (Input.GetKeyDown(KeyCode.Mouse0))
+		if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
             StartCoroutine(Shoot());
 		}
@@ -120,13 +121,23 @@ public class AimBehaviourBasic : GenericBehaviour
 	// NOT FINISHED
 	IEnumerator Shoot()
     {
+        if (arrow == null)
+        {
+			SetCanShoot(true);
+			if (!canShoot)
+			{
+				yield break;
+			}
+        }
         behaviourManager.GetAnim.SetBool("Shoot", true);
+		canShoot = false;
+		Inventory.instance.ActionBar.SetCanScroll(false);
         yield return new WaitForSeconds(0.05f);
         behaviourManager.GetAnim.SetBool("Shoot", false);
 
+		yield return new WaitForSeconds(0.8f);
 
-		yield return new WaitForSeconds(1);
-
+		
         // Raycast parameters.
         Ray ray = new Ray(behaviourManager.playerCamera.transform.position, behaviourManager.playerCamera.transform.forward);
         RaycastHit hit;
@@ -139,9 +150,13 @@ public class AimBehaviourBasic : GenericBehaviour
             if (enemy != null)
             {
                 Debug.Log("Enemy shot");
-                Destroy(enemy.gameObject);
+				enemy.GotHit(arrow);
             }
         }
+		arrow.MinusOne();
+		SetCanShoot(true);
+        Inventory.instance.ActionBar.SetCanScroll(true);
+		canShoot = true;
     }
 
 
@@ -174,6 +189,26 @@ public class AimBehaviourBasic : GenericBehaviour
 				GUI.DrawTexture(new Rect(Screen.width / 2 - (crosshair.width * 0.5f),
 										 Screen.height / 2 - (crosshair.height * 0.5f),
 										 crosshair.width, crosshair.height), crosshair);
+		}
+	}
+
+	public void SetCanShoot(bool canShoot)
+	{
+		this.canShoot = canShoot;
+		if (this.canShoot)
+		{
+			arrow = Inventory.instance.GetFirstItemWithType(ItemData.TypeItem.Arrow);
+			if(arrow == null)
+			{
+				this.canShoot = false;
+			}
+			else
+			{
+				if(arrow.GetStat<WeaponStat>() == null)
+				{
+					this.canShoot = false;
+				}
+			}
 		}
 	}
 }

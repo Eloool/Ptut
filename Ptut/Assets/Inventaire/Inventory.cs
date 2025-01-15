@@ -19,6 +19,7 @@ public class Inventory : ToogleCanvas
     public GameObject CanvasPickup;
     public GameObject DropSpots;
     public List<StarterItem> ItemsStarter;
+    public CanvasAddingInventory addingInventory;
 
     public Transform DropPoint;
     public static Inventory instance;
@@ -32,7 +33,7 @@ public class Inventory : ToogleCanvas
         }
         else
         {
-            Debug.LogWarning("Une autre instance de ListeItems a �t� trouv�e et d�truite.");
+            Debug.LogWarning("Une autre instance de ListeItems a été trouv�e et d�truite.");
         }
         
         inventaire.StartInventaire();
@@ -130,6 +131,10 @@ public class Inventory : ToogleCanvas
                 canvas.SetActive(false);
             }
         }
+        else
+        {
+            addingInventory.AddCanvasItem(item.GetComponent<Item>());
+        }
     }
     public void AddtoInventorybyItem3d(GameObject item3d)
     {
@@ -193,5 +198,15 @@ public class Inventory : ToogleCanvas
         {
             ToogleInventory(false , active);
         }
+    }
+
+    public Item GetFirstItemWithType(ItemData.TypeItem item)
+    {
+        Item itemOut = ActionBar.GetFirstItemWithType(item);
+        if (itemOut == null)
+        {
+            itemOut = inventaire.GetFirstItemWithType(item);
+        }
+        return itemOut;
     }
 }
