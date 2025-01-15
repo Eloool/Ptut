@@ -2575,6 +2575,24 @@ MonoBehaviour:
     distance: 5
     scaleRange: {x: 0.8, y: 1.2}
     sinkAmount: 0.225
+  - enabled: 1
+    name: PP_Tree_02
+    seed: 9400
+    probability: 100
+    collisionCheck: 0
+    rejectUnderwater: 0
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks: []
+    instanceCount: 24888
+    prefabs:
+    - index: 2
+      probability: 100
+      prefab: {fileID: 4032642331417584291, guid: 2063bfd4998e2284ea578afea8d1090b, type: 3}
+    distance: 5
+    scaleRange: {x: 0.8, y: 1.2}
+    sinkAmount: 0
   grassPrefabs: []
   terrainSettings:
     drawTreesAndFoliage: 1
@@ -8334,6 +8352,18 @@ PrefabInstance:
     - target: {fileID: 4612928390890918377, guid: a31bbd2824540914da3f8d5a83de31dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179679788034715886, guid: a31bbd2824540914da3f8d5a83de31dc, type: 3}
+      propertyPath: treeTypes.Array.data[2].name
+      value: PP_Tree_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179679788034715886, guid: a31bbd2824540914da3f8d5a83de31dc, type: 3}
+      propertyPath: treeTypes.Array.data[2].probability
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179679788034715886, guid: a31bbd2824540914da3f8d5a83de31dc, type: 3}
+      propertyPath: treeTypes.Array.data[2].instanceCount
+      value: 24888
       objectReference: {fileID: 0}
     - target: {fileID: 8394595313438449357, guid: a31bbd2824540914da3f8d5a83de31dc, type: 3}
       propertyPath: layerSettings.Array.data[0].modifierStack.Array.data[0]
