@@ -27,9 +27,9 @@ public class CanvasOven : ToogleCanvas
     }
     public void ToggleOven(Oven newOven)
     {
-        CanvasController.instance.ShowCanvas(this);
         if (!oven.activeInHierarchy)
         {
+            CanvasController.instance.ShowCanvas(this);
             lastOven = newOven;
             lastOven.isOpen = true;
             oven.SetActive(true);

@@ -151,7 +151,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 786589481}
+  - {fileID: 428264545}
   m_Father: {fileID: 1404882033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &59960856
@@ -4178,6 +4178,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ade6d3c874a39e4eafd5b112e2a5ca8, type: 3}
+--- !u!224 &428264545 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4828020563617582930, guid: 8ade6d3c874a39e4eafd5b112e2a5ca8, type: 3}
+  m_PrefabInstance: {fileID: 428264544}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &430751893
 GameObject:
   m_ObjectHideFlags: 0
@@ -7920,6 +7925,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListeObjets: []
   Cadre: {fileID: 1549705729}
+--- !u!114 &1108646981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1114500458865405280, guid: 8ade6d3c874a39e4eafd5b112e2a5ca8, type: 3}
+  m_PrefabInstance: {fileID: 428264544}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6797f9b84d21774ea636c94240628b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1122329940
 GameObject:
   m_ObjectHideFlags: 0
@@ -9343,7 +9359,7 @@ MonoBehaviour:
     amount: 4
   - item: {fileID: 11400000, guid: f6e1e497286d2684eb4f987f69aa05ba, type: 2}
     amount: 2
-  addingInventory: {fileID: 786589482}
+  addingInventory: {fileID: 1108646981}
   DropPoint: {fileID: 1671525955}
 --- !u!114 &1328744474
 MonoBehaviour:
