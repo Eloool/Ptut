@@ -1704,15 +1704,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 690.9
+      value: 638.5748
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 417
+      value: 372
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2824,6 +2824,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5376934520712222970, guid: 928d0e7b292a165459350b0d8619cb40, type: 3}
   m_PrefabInstance: {fileID: 309667384}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &314975096
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 893461985140177027, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_Name
+      value: "R\xEAvedor\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 594.887
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.0241117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 320.32492
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462020087523895866, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36d4b91feb20a114987baa325435a0dd, type: 3}
 --- !u!4 &317509600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1612271517897421682, guid: f1c132eb6f3e05144b86c0c54ee137a2, type: 3}
@@ -12744,6 +12801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1058761169}
+  cameraController: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!114 &1479657386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17024,6 +17083,8 @@ MonoBehaviour:
   - {fileID: 7729385}
   - {fileID: 1479657385}
   - {fileID: 1850203788}
+  Camera: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!4 &2056892221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5700633049069112694, guid: 45321ef277e2ced4d8e54829037ead38, type: 3}
@@ -18002,3 +18063,4 @@ SceneRoots:
   - {fileID: 705316026}
   - {fileID: 2050575628}
   - {fileID: 280152483}
+  - {fileID: 314975096}
