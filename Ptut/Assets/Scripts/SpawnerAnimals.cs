@@ -7,7 +7,9 @@ public class SpawnerAnimals : MonoBehaviour
 {
     public GameObject Bear;
     public GameObject Goat;
-
+    public GameObject Pig;
+    public GameObject Horse;
+    public GameObject Cow;
 
     public float MaxHighOfMap = 0;
     private float MinXMap;
@@ -18,35 +20,29 @@ public class SpawnerAnimals : MonoBehaviour
     private float TailleMap;
     private float TailleChunk;
 
-    
     public Terrain terrain; // Assurez-vous que cet objet est assigné dans l'inspecteur
-    // Start is called before the first frame update
+
     void Start()
     {
         // Récupérer la taille du terrain
         float terrainWidth = terrain.terrainData.size.x;
-
-        
-
         float terrainLength = terrain.terrainData.size.z;
 
-        // Afficher les tailles dans la console
         Debug.Log("Taille de la carte: " + terrainWidth + " x " + terrainLength);
 
-
-        TailleMap = terrainWidth;//Mets la TailleMap a la longueur (et largeur) du terrain.
-
+        TailleMap = terrainWidth; // Mets la TailleMap à la longueur (et largeur) du terrain.
 
         BearSpawner();
         GoatSpawner();
+        PigSpawner();
+        HorseSpawner();
+        SpiderSpawner();
     }
-
 
     float GetTerrainHeightAtPosition(Vector3 position)
     {
         if (terrain != null)
         {
-            // SampleHeight retourne la hauteur du terrain pour une position donnée
             return terrain.SampleHeight(position);
         }
         else
@@ -73,7 +69,6 @@ public class SpawnerAnimals : MonoBehaviour
                     float spawnX = Random.Range(MinXMap, MaxXMap);
                     float spawnZ = Random.Range(MinZMap, MaxZMap);
 
-                    // Calculer la hauteur du terrain à cette position
                     float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
                     Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
 
@@ -100,7 +95,6 @@ public class SpawnerAnimals : MonoBehaviour
                     float spawnX = Random.Range(MinXMap, MaxXMap);
                     float spawnZ = Random.Range(MinZMap, MaxZMap);
 
-                    // Calculer la hauteur du terrain à cette position
                     float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
                     Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
 
@@ -110,4 +104,81 @@ public class SpawnerAnimals : MonoBehaviour
         }
     }
 
+    void PigSpawner()
+    {
+        TailleChunk = TailleMap / nbChunkInLine;
+        for (int i = 0; i < nbChunkInLine; i++)
+        {
+            MinXMap = i * TailleChunk;
+            MaxXMap = i * TailleChunk + TailleChunk;
+            for (int j = 0; j < nbChunkInLine; j++)
+            {
+                float rand = Random.value;
+                if (rand < 8f / 64f) // En moyenne 8 cochons seront générés parmi les 64 chunks
+                {
+                    MinZMap = j * TailleChunk;
+                    MaxZMap = j * TailleChunk + TailleChunk;
+                    float spawnX = Random.Range(MinXMap, MaxXMap);
+                    float spawnZ = Random.Range(MinZMap, MaxZMap);
+
+                    float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
+                    Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
+
+                    Instantiate(Pig, spawnPos, Quaternion.identity);
+                }
+            }
+        }
+    }
+
+    void HorseSpawner()
+    {
+        TailleChunk = TailleMap / nbChunkInLine;
+        for (int i = 0; i < nbChunkInLine; i++)
+        {
+            MinXMap = i * TailleChunk;
+            MaxXMap = i * TailleChunk + TailleChunk;
+            for (int j = 0; j < nbChunkInLine; j++)
+            {
+                float rand = Random.value;
+                if (rand < 7f / 64f) // En moyenne 7 chevaux seront générés parmi les 64 chunks
+                {
+                    MinZMap = j * TailleChunk;
+                    MaxZMap = j * TailleChunk + TailleChunk;
+                    float spawnX = Random.Range(MinXMap, MaxXMap);
+                    float spawnZ = Random.Range(MinZMap, MaxZMap);
+
+                    float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
+                    Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
+
+                    Instantiate(Horse, spawnPos, Quaternion.identity);
+                }
+            }
+        }
+    }
+
+    void SpiderSpawner()
+    {
+        TailleChunk = TailleMap / nbChunkInLine;
+        for (int i = 0; i < nbChunkInLine; i++)
+        {
+            MinXMap = i * TailleChunk;
+            MaxXMap = i * TailleChunk + TailleChunk;
+            for (int j = 0; j < nbChunkInLine; j++)
+            {
+                float rand = Random.value;
+                if (rand < 6f / 64f) // En moyenne 6 araignées seront générées parmi les 64 chunks
+                {
+                    MinZMap = j * TailleChunk;
+                    MaxZMap = j * TailleChunk + TailleChunk;
+                    float spawnX = Random.Range(MinXMap, MaxXMap);
+                    float spawnZ = Random.Range(MinZMap, MaxZMap);
+
+                    float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
+                    Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
+
+                    Instantiate(Cow, spawnPos, Quaternion.identity);
+                }
+            }
+        }
+    }
 }
