@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6126177899049917743}
   - component: {fileID: 972759083987200305}
   - component: {fileID: 6057409609677542202}
+  - component: {fileID: 2925950934142011457}
+  - component: {fileID: 1448335066371094710}
   m_Layer: 0
   m_Name: sechoirSkin
   m_TagString: Untagged
@@ -87,3 +89,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &2925950934142011457
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130366615777134450}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 5
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.11922423
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6057409609677542202}
+  m_Enabled: 1
+--- !u!64 &1448335066371094710
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130366615777134450}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4579454407841743219, guid: 939aa38ba57615e40a8c38520835a5f1, type: 3}
