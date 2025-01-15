@@ -78,11 +78,13 @@ public class CraftingSystem : ToogleCanvas
         if (active)
         {
             ToggleCraftTable(true);
+            Inventory.instance.ActionBar.SetCanScroll(false);
             UpdateDisplayedRecipes();
         }
         else
         {
             ToggleCraftTable(false);
+            Inventory.instance.ActionBar.SetCanScroll(true);
         }
     }
 
