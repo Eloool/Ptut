@@ -82,6 +82,7 @@ public class Inventory : ToogleCanvas
     }
     public void AddtoInventory(GameObject item)
     {
+        int amount = item.GetComponent<Item>().amount;
         bool wasaddedfully = ActionBar.AddIconIventaire(item);
         if (!wasaddedfully)
         {
@@ -133,7 +134,7 @@ public class Inventory : ToogleCanvas
         }
         else
         {
-            addingInventory.AddCanvasItem(item.GetComponent<Item>());
+            addingInventory.AddCanvasItem(item.GetComponent<Item>(),amount);
         }
     }
     public void AddtoInventorybyItem3d(GameObject item3d)
