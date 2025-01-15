@@ -162,8 +162,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oven: {fileID: 1985997136}
   cookingData:
-  - {fileID: 11400000, guid: 0b0f0cd4b156a1e45842c19b9f90348c, type: 2}
   - {fileID: 11400000, guid: a7a7998c434fdbd4eb65c18760cc0e4e, type: 2}
+  - {fileID: 11400000, guid: d9848c3432235ba4d95b3374daf630bf, type: 2}
+  - {fileID: 11400000, guid: 3cee465083270d747bd5ff5c7a0c73d9, type: 2}
+  - {fileID: 11400000, guid: c419d6ee7554ab44e9ae7eb7020ab0e4, type: 2}
+  - {fileID: 11400000, guid: d763d6fae0e686f46a8f273ca30f77e1, type: 2}
+  - {fileID: 11400000, guid: 835d06b2d39d6fe4ba80b57b43dea774, type: 2}
   lastOven: {fileID: 0}
   ListInventoryItem:
   - {fileID: 215944027}
@@ -12744,6 +12748,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1058761169}
+  cameraController: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!114 &1479657386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17024,6 +17030,8 @@ MonoBehaviour:
   - {fileID: 7729385}
   - {fileID: 1479657385}
   - {fileID: 1850203788}
+  Camera: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!4 &2056892221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5700633049069112694, guid: 45321ef277e2ced4d8e54829037ead38, type: 3}

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a187a1c6e9eed24cbbb15d565d887c4, type: 3}
-  m_Name: KnifeCooking
+  m_Name: Meat1Cooking
   m_EditorClassIdentifier: 
   ItemGotbyCooking:
-    requiredItem: {fileID: 11400000, guid: 7625b39742b660b4187e7a0e8c8292f8, type: 2}
+    requiredItem: {fileID: 11400000, guid: 8500b4e21be8c3d48b370d5b22960d7a, type: 2}
     amount: 1
   ItemsNeededforCooking:
-    requiredItem: {fileID: 11400000, guid: 1a5dd80a6af16e540bda94b982d6df03, type: 2}
-    amount: 2
+    requiredItem: {fileID: 11400000, guid: fea517eac9985ac4384ffb12d2b1989c, type: 2}
+    amount: 1
