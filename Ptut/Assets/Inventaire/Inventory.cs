@@ -5,13 +5,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
-public class Inventory : MonoBehaviour
+public class Inventory : ToogleCanvas
 {
+    [System.Serializable]
+    public class StarterItem
+    {
+        public ItemData item;
+        public int amount;
+    }
     public InventoryMenu inventaire;
     public ActionBar ActionBar;
     public Sprite Background;
     public GameObject CanvasPickup;
+    public GameObject DropSpots;
+    public List<StarterItem> ItemsStarter;
+    public CanvasAddingInventory addingInventory;
 
+    public Transform DropPoint;
     public static Inventory instance;
 
 
@@ -23,51 +33,52 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Une autre instance de ListeItems a �t� trouv�e et d�truite.");
+            Debug.LogWarning("Une autre instance de ListeItems a été trouv�e et d�truite.");
         }
         
         inventaire.StartInventaire();
         ActionBar.StartInventaire();
         
-        GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[3].prefabIcon);
-        gameObject.GetComponent<Item>().amount = 3;
-        AddtoInventory(gameObject);
-        GameObject gameObject2 = Instantiate(ListAllItems.instance.listeallItems[2].prefabIcon);
-        gameObject2.GetComponent<Item>().amount = 3;
-        AddtoInventory(gameObject2);
+
+        foreach (StarterItem item in ItemsStarter)
+        {
+            if (item.amount > 0 && item.item!=null)
+            {
+                GameObject gameObject = Instantiate(ListAllItems.instance.listeallItems[item.item.id].prefabIcon);
+                gameObject.GetComponent<Item>().amount = item.amount;
+                AddtoInventory(gameObject);
+            }
+        }
         ActionBar.Reload3DObjects();
-        ToogleInventory();
+        inventaire.ToogleCanDragitem(false);
+        ActionBar.ToogleCanDragitem(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            GetComponentInChildren<ActionBar>().Reload3DObjects();
-        }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            ToogleInventory();
-        }
-        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
-        {
-            inventaire.gameObject.SetActive(false);
+            if (!inventaire.gameObject.activeInHierarchy)
+            {
+                CanvasController.instance.ShowCanvas(this);
+            }
+            else
+            {
+                GetComponentInChildren<ActionBar>().Reload3DObjects();
+                CanvasController.instance.HideAllCanvases();
+            }
         }
     }
-    public void ToogleInventory()
+    public void ToogleInventory(bool showArmor , bool active)
     {
-        inventaire.gameObject.SetActive(!inventaire.gameObject.activeInHierarchy);
-        ActionBar.ToogleCanDragitem();
-        if (inventaire.gameObject.activeInHierarchy)
+        inventaire.gameObject.SetActive(active);
+        inventaire.ShowArmor(showArmor);
+        if (showArmor)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            DropSpots.SetActive(inventaire.gameObject.activeInHierarchy);
         }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        ActionBar.ToogleCanDragitem(active);
+        inventaire.ToogleCanDragitem(active);
     }
     public void AddtoInventory(GameObject item)
     {
@@ -84,7 +95,7 @@ public class Inventory : MonoBehaviour
         {
             while (!wasaddedfully)
             {
-                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].prefab3D, new Vector3(0, 10, 0), Quaternion.identity);
+                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].prefab3D, DropPoint.position, Quaternion.identity);
                 GameObject canvas = new();
                 GameObject CanvasForPickup = Instantiate(CanvasPickup);
                 ObjectDroped.layer = 7;
@@ -114,11 +125,15 @@ public class Inventory : MonoBehaviour
                 }
                 ObjectDroped.GetComponent<Item3d>().IconItem.transform.SetParent(canvas.transform);
                 ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Image>().sprite = ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Item>().ItemData.iconImage;
-                ObjectDroped.AddComponent<MeshCollider>();
-                ObjectDroped.GetComponent<MeshCollider>().convex = true;
+                ObjectDroped.AddComponent<BoxCollider>();
                 ObjectDroped.AddComponent<Rigidbody>();
+                ObjectDroped.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
                 canvas.SetActive(false);
             }
+        }
+        else
+        {
+            addingInventory.AddCanvasItem(item.GetComponent<Item>());
         }
     }
     public void AddtoInventorybyItem3d(GameObject item3d)
@@ -165,11 +180,6 @@ public class Inventory : MonoBehaviour
     }
     public void DeleteItems(ItemDataAndAmount[] ids)
     {
-        //if (ids.Length != amounts.Length)
-        //{
-        //    Debug.LogWarning("Les ids et les montants n'ont pas la même longueur de tableau");
-        //    return;
-        //}
         for (int i = 0; i < ids.Length; i++)
         {
             if (!ActionBar.DeleteItem(ids[i].requiredItem.id, ids[i].amount))
@@ -177,5 +187,26 @@ public class Inventory : MonoBehaviour
                 inventaire.DeleteItem(ids[i].requiredItem.id, ids[i].amount);
             }
         }
+    }
+    public override void SetActiveCanvas(bool active)
+    {
+        if (active)
+        {
+            ToogleInventory(true, active);
+        }
+        else
+        {
+            ToogleInventory(false , active);
+        }
+    }
+
+    public Item GetFirstItemWithType(ItemData.TypeItem item)
+    {
+        Item itemOut = ActionBar.GetFirstItemWithType(item);
+        if (itemOut == null)
+        {
+            itemOut = inventaire.GetFirstItemWithType(item);
+        }
+        return itemOut;
     }
 }

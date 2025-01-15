@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
   m_Name: RawIron
   m_EditorClassIdentifier: 
-  TypeOfItem: 8
+  TypeOfItem: 10
   id: 5
   ItemName: RawIron
   ItemDescription: 

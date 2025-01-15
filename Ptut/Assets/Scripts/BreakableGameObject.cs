@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BreakableGameObject : InteractableBase
 { 
+    public ItemData.TypeItem TypeItem;
     [SerializeField]
     private List<ItemDataAmountProbability> _probabilityDrop = new List<ItemDataAmountProbability>();
 
@@ -15,7 +16,7 @@ public class BreakableGameObject : InteractableBase
         gameObject.layer = 8;
         for (int i = 0; i < _probabilityDrop.Count; i++)
         {
-            if (_probabilityDrop[i].amountEach10Percentage * 10 > _probabilityDrop[i].amountTotal)
+            if (_probabilityDrop[i].amountEach25Percentage * 10 > _probabilityDrop[i].amountTotal)
             {
                 Debug.LogError(gameObject + " a trop de amountEach10Percentage pour l'amountTotal à la place : " + i);
             }
@@ -25,7 +26,7 @@ public class BreakableGameObject : InteractableBase
     override public void GotHit(Item item)
     {
         HitObjectStat stat;
-        if (item == null || !item.TryGetStat<HitObjectStat>(out stat))
+        if (item == null || (!item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem != TypeItem))
         {
             int HealthLost = 1;
             health -= HealthLost;
@@ -38,21 +39,21 @@ public class BreakableGameObject : InteractableBase
             PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
         }
 
-        if (health > 0 && PercentHealthLost>=0.1f)
+        if (health > 0 && PercentHealthLost>=0.25f)
         {
             foreach (ItemDataAmountProbability probability in _probabilityDrop)
             {
                 GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
-                while (PercentHealthLost >= 0.1f)
+                while (PercentHealthLost >= 0.25f)
                 {
-                    itemDropped.GetComponent<Item>().amount += probability.amountEach10Percentage;
-                    PercentHealthLost -= 0.1f;
+                    itemDropped.GetComponent<Item>().amount += probability.amountEach25Percentage;
+                    PercentHealthLost -= 0.25f;
                 }
                 probability.amountTotal -= itemDropped.GetComponent<Item>().amount;
                 Inventory.instance.AddtoInventory(itemDropped);
             }
         }
-        else
+        if(health <=0)
         {
             foreach (ItemDataAmountProbability probability in _probabilityDrop)
             {
@@ -70,8 +71,8 @@ public class BreakableGameObject : InteractableBase
 public class ItemDataAmountProbability
 {
     public ItemData Item;
-    [Range(1, 10)]
-    public int amountEach10Percentage;
+    [Range(0, 10)]
+    public int amountEach25Percentage;
     [Range(1, 100)]
     public int amountTotal;
 }

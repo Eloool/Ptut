@@ -12,7 +12,7 @@ public class ArmureSlot : InventoryItem
     {
         if(eventData.pointerDrag.GetComponent<Item>().ItemData.TypeOfItem == ItemNeeded)
         {
-            DropItem(eventData);
+            DropItem(eventData.pointerDrag.GetComponent<Item>());
             Inventory.instance.inventaire.ReloadArmor();
         }
     }

@@ -101,8 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d4c0021bdbb2c48b3fe6bafde243f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StatsScripts: []
   ItemData: {fileID: 11400000, guid: 7625b39742b660b4187e7a0e8c8292f8, type: 2}
   amount: 0
-  candragitem: 1
+  candragitem: 0
   parent: {fileID: 0}
   myText: {fileID: 0}
