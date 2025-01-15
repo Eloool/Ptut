@@ -3,8 +3,13 @@ using UnityEngine;
 public class CanvasController : MonoBehaviour
 {
     public ToogleCanvas[] canvases;
-
     public static CanvasController instance;
+
+    public Camera Camera;
+
+    // Références aux scripts ou composants contrôlant la caméra et le mouvement du joueur
+    public MonoBehaviour cameraController;
+    
 
     private void Awake()
     {
@@ -22,6 +27,14 @@ public class CanvasController : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+
+        // Désactiver le mouvement de la caméra et du joueur
+        if (cameraController != null)
+        {
+            cameraController.enabled = false;
+        }
+        Time.timeScale = 0f;
+        
     }
 
     public void ShowCanvasByIndex(int index)
@@ -44,5 +57,13 @@ public class CanvasController : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        // Réactiver le mouvement de la caméra et du joueur
+        if (cameraController != null)
+        {
+            cameraController.enabled = true;
+        }
+        Time.timeScale = 1.0f;
+        
     }
 }
