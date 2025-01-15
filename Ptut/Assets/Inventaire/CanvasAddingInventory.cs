@@ -12,10 +12,10 @@ public class CanvasAddingInventory : MonoBehaviour
     [SerializeField]
     private GameObject canvasItemPrefab;
 
-   public void AddCanvasItem(Item item)
+   public void AddCanvasItem(Item item, int amount)
     {
         GameObject CanvasItem = Instantiate(canvasItemPrefab, CanvasParent);
-        CanvasItem.GetComponentInChildren<TMP_Text>().text = item.ItemData.ItemName + " * " + item.amount.ToString();
+        CanvasItem.GetComponentInChildren<TMP_Text>().text = item.ItemData.ItemName + " * " + amount.ToString();
         CanvasItem.GetComponentInChildren<Image>().sprite = item.ItemData.iconImage;
         StartCoroutine(DeleteItem(CanvasItem));
     } 
