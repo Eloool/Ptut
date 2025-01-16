@@ -4,7 +4,7 @@ using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GameOverMenu : MonoBehaviour
+public class GameOverMenu : ToogleCanvas
 {
     public GameObject GameOverCanva;
     public GameObject InventoryCanva;
@@ -14,10 +14,12 @@ public class GameOverMenu : MonoBehaviour
     private Color color;
     private bool alphaUp;
     private int total;
+    PlayerStats stats;
 
     // Start is called before the first frame update
     void Start()
     {
+        stats = GetComponent<PlayerStats>();
         alpha = 0.0f;
         color = background.color;
         alphaUp = true;
@@ -27,26 +29,9 @@ public class GameOverMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerStats stats = GetComponent<PlayerStats>();
         if (stats.isDying)
         {
-            StartCoroutine(activateCanva());
-
-            color.a = Mathf.Clamp01(alpha);
-            //background.tintColor = color;
-            background.color = color;
-
-            if (alpha < 0) alphaUp = true;
-            else if (alpha > 1)
-            {
-                alphaUp = false;
-                total++;
-            }
-
-            //if (alpha > 0) alphaDown = true;
-
-            if (alphaUp) alpha += Time.unscaledDeltaTime;
-            else if (!alphaUp && total < 3) alpha -= Time.unscaledDeltaTime;
+            CanvasController.instance.ShowCanvas(this);
         }
     }
 
@@ -64,5 +49,28 @@ public class GameOverMenu : MonoBehaviour
 
         // Réglage du Time.timeScale à 0
         Time.timeScale = 0;
+    }
+
+    public override void SetActiveCanvas(bool active)
+    {
+        if (active)
+        {
+            StartCoroutine(activateCanva());
+
+            color.a = Mathf.Clamp01(alpha);
+            background.color = color;
+
+            if (alpha < 0) alphaUp = true;
+            else if (alpha > 1)
+            {
+                alphaUp = false;
+                total++;
+            }
+
+            if (alphaUp) alpha += Time.unscaledDeltaTime;
+            else if (!alphaUp && total < 3) alpha -= Time.unscaledDeltaTime;
+
+            CanvasController.instance.gameObject.SetActive(false);
+        }
     }
 }
