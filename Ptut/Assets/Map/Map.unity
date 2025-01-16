@@ -2322,7 +2322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4961ed6b4a15053439eef0803545c376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvaGameOver: {fileID: 1699491174}
+  GameOverCanva: {fileID: 0}
+  InventoryCanva: {fileID: 0}
+  StatsCanva: {fileID: 0}
+  background: {fileID: 0}
+  alpha: 0
 --- !u!114 &280152489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8295,6 +8299,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5922c8efda906644bb2433eab5a39f0f, type: 3}
       propertyPath: m_Name
       value: Cave
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5922c8efda906644bb2433eab5a39f0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16437,6 +16445,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c86206b6120e233418d136e98d7f61a9, type: 3}
       propertyPath: m_Name
       value: Arch
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c86206b6120e233418d136e98d7f61a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
