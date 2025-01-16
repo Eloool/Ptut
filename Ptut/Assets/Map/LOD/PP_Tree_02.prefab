@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4376657132610222105
 Transform:
@@ -142,7 +142,8 @@ MonoBehaviour:
   StatsScripts:
   - {fileID: 11400000, guid: 59fcac115795d2c41ba284143d192d7e, type: 2}
   health: 0
+  TypeItem: 0
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: 821530dea7a15334fade8b014d030ea1, type: 2}
-    amountEach10Percentage: 0
+    amountEach25Percentage: 0
     amountTotal: 1
