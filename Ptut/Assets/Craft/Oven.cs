@@ -28,10 +28,7 @@ public class Oven : InteractibleGameObject
 
     private void Update()
     {
-        if (iscooking)
-        {
-            Cooking();
-        }
+        if (iscooking) Cooking();
     }
 
     public void StartCooking()
