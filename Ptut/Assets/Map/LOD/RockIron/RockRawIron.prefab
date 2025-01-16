@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockRawIron
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aff2946b11375a141a1c9590bab7763c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80,7 +84,7 @@ LODGroup:
   m_GameObject: {fileID: 7852382603377830125}
   serializedVersion: 2
   m_LocalReferencePoint: {x: -0.07678133, y: 0.20121458, z: 0.06609011}
-  m_Size: 4
+  m_Size: 10
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -105,9 +109,10 @@ MonoBehaviour:
   StatsScripts:
   - {fileID: 11400000, guid: d51a975c2b4b30c4d8da2ba5fb853d97, type: 2}
   health: 0
+  TypeItem: 5
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: 634bb6e7e6f0bed4eb8ed81c134a17d8, type: 2}
-    amountEach10Percentage: 0
+    amountEach25Percentage: 1
     amountTotal: 3
 --- !u!65 &2948843903377018096
 BoxCollider:

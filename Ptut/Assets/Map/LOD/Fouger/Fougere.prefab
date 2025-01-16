@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7035954481125682675
 Transform:
@@ -45,7 +45,7 @@ LODGroup:
   m_GameObject: {fileID: 7705496226487088969}
   serializedVersion: 2
   m_LocalReferencePoint: {x: -0.07919979, y: 0.24734217, z: -0.14362884}
-  m_Size: 4
+  m_Size: 10
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -143,7 +143,8 @@ MonoBehaviour:
   StatsScripts:
   - {fileID: 11400000, guid: 85e743791258d0c4fbccc4896e739669, type: 2}
   health: 0
+  TypeItem: 10
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
-    amountEach10Percentage: 0
-    amountTotal: 3
+    amountEach25Percentage: 1
+    amountTotal: 4
