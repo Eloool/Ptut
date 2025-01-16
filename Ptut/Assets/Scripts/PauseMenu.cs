@@ -37,18 +37,6 @@ public class PauseMenu : ToogleCanvas
         if (Time.timeScale != 1f)
             Time.timeScale = 1f;
         GameIsPaused = false;
-
-        // Réactiver le mouvement de la caméra
-        if (cameraController != null)
-        {
-            cameraController.enabled = true;
-        }
-
-        // Réactiver le mouvement du joueur
-        if (playerController != null)
-        {
-            playerController.enabled = true;
-        }
     }
 
     void Pause()
@@ -56,18 +44,6 @@ public class PauseMenu : ToogleCanvas
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-
-        // Désactiver le mouvement de la caméra
-        if (cameraController != null)
-        {
-            cameraController.enabled = false;
-        }
-
-        // Désactiver le mouvement du joueur
-        if (playerController != null)
-        {
-            playerController.enabled = false;
-        }
     }
 
     public void LoadMenu()
@@ -78,6 +54,7 @@ public class PauseMenu : ToogleCanvas
     public void QuitGame()
     {
         Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
 
     public override void SetActiveCanvas(bool active)
