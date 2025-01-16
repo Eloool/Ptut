@@ -19,7 +19,7 @@ public class CanvasOven : ToogleCanvas
         ListInventoryItem = oven.GetComponentsInChildren<OvenInventoryItem>();
         foreach (var item in cookingData)
         {
-            if(item.ItemGotbyCooking.amount> item.ItemGotbyCooking.requiredItem.amountStockableMax)
+            if (item.ItemGotbyCooking.amount> item.ItemGotbyCooking.requiredItem.amountStockableMax)
             {
                 Debug.LogError("Les items données par le fours pour : " + item + " sont supérieurs à la capacité max du stack de l'item");
             }
@@ -56,7 +56,6 @@ public class CanvasOven : ToogleCanvas
                 }
             }
         }
-        
     }
 
     public void CloseOven()
