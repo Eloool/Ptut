@@ -262,6 +262,12 @@ MonoBehaviour:
     amount: 1
   - item: {fileID: 11400000, guid: f55a9aac65e76e244ad0c9ea193817eb, type: 2}
     amount: 1
+  - item: {fileID: 11400000, guid: 433a45f18f2ea654eb2a41297fe6dd5f, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: a821ca175ff7c754eae9fd8768914246, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: a0ebb0c5cd2277d41ae77285b6b59d57, type: 2}
+    amount: 1
   addingInventory: {fileID: 1065734952}
   DropPoint: {fileID: 1954858499}
 --- !u!224 &7729390
@@ -2322,7 +2328,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4961ed6b4a15053439eef0803545c376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvaGameOver: {fileID: 1699491174}
+  GameOverCanva: {fileID: 0}
+  InventoryCanva: {fileID: 0}
+  StatsCanva: {fileID: 0}
+  background: {fileID: 0}
+  alpha: 0
 --- !u!114 &280152489
 MonoBehaviour:
   m_ObjectHideFlags: 0
