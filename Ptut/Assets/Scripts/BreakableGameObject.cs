@@ -16,7 +16,7 @@ public class BreakableGameObject : InteractableBase
         gameObject.layer = 8;
         for (int i = 0; i < _probabilityDrop.Count; i++)
         {
-            if (_probabilityDrop[i].amountEach25Percentage * 10 > _probabilityDrop[i].amountTotal)
+            if (_probabilityDrop[i].amountEach25Percentage * 4 > _probabilityDrop[i].amountTotal)
             {
                 Debug.LogError(gameObject + " a trop de amountEach10Percentage pour l'amountTotal à la place : " + i);
             }

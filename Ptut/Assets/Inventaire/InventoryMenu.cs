@@ -24,11 +24,13 @@ public class InventoryMenu : InventoryBase
     public void ReloadArmor()
     {
         PlayerStats.instance.armorResistance = 0;
+        ArmorBehaviour.instance.DeloadAllArmor();
         foreach (InventoryItem item in ListeArmure)
         {
             if (item.item != null)
             {
                 PlayerStats.instance.armorResistance += item.item.GetStat<ArmorStat>().defense;
+                ArmorBehaviour.instance.LoadArmor(item.item.ItemData.id);
             }
         }
         
