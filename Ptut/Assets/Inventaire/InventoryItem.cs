@@ -28,7 +28,11 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     virtual public void OnDrop(PointerEventData eventData)
     {
         canSwap = true;
-        
+        bool fromArmor = false;
+        if (eventData.pointerDrag.GetComponent<Item>().parent.GetComponent<ArmureSlot>() != null)
+        {
+            fromArmor = true;
+        }
         if (candragItem)
         {
             if (CanvasOven.instance.oven.activeInHierarchy)
@@ -64,8 +68,10 @@ public class InventoryItem : MonoBehaviour,IDropHandler
                 }
                 DropItem(eventData.pointerDrag.GetComponent<Item>());
             }
-            
+            if(fromArmor)
+                Inventory.instance.inventaire.ReloadArmor();
         }
+        
         canSwap = true;
     }
     public void AddtwoItem(Item item1, Item item2)
@@ -118,14 +124,8 @@ public class InventoryItem : MonoBehaviour,IDropHandler
                 canswap = false;
             }
         }
-        //Debug.Log(itemC);
-        //Debug.Log(itemC2);
         if(canswap)
         {
-            //if (itemC != null)
-            //{
-
-            //}
             Transform parent = item2.transform.parent;
             item2.transform.SetParent(item1.transform.parent);
             item1.transform.SetParent(parent);
@@ -176,4 +176,9 @@ public class InventoryItem : MonoBehaviour,IDropHandler
         }
         return null;
     }
+
+    public virtual void Event(PointerEventData eventData)
+    {
+        return;
+    } 
 }
