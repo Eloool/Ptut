@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: fce41819717b4574cb9a43f935283987, type: 2}
 --- !u!4 &4488595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9103032398461533869, guid: ff4b7c177f7676746a2af5e716f45b38, type: 3}
@@ -1708,7 +1708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.69
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2661,6 +2661,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296660707}
   m_CullTransparentMesh: 1
+--- !u!1 &296977416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296977418}
+  - component: {fileID: 296977417}
+  m_Layer: 0
+  m_Name: SpawnerMobEmpty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &296977417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296977416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba6aabf212d94b40885c4e3f540ad9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bear: {fileID: 6795635116373925962, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+  Goat: {fileID: 490107493233268899, guid: 81865e3757edc2643bc197ebb41e92e0, type: 3}
+  Pig: {fileID: 967970286972628504, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
+  Horse: {fileID: 299849116718224788, guid: 0b05e92e0c0693e4aa293141b74c78b0, type: 3}
+  Cow: {fileID: 8800519783726863573, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
+  MaxHighOfMap: 256
+  terrain: {fileID: 644486965}
+--- !u!4 &296977418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296977416}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1546295, y: 10.64632, z: 2.0323808}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &297921281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8014455833403578877, guid: bde13dead8f3c2947a6571d77e7f2313, type: 3}
@@ -19375,3 +19426,4 @@ SceneRoots:
   - {fileID: 280152483}
   - {fileID: 1152442334115135598}
   - {fileID: 6693214001120956563}
+  - {fileID: 296977418}
