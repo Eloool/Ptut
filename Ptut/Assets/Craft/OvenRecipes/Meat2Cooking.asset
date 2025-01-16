@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a187a1c6e9eed24cbbb15d565d887c4, type: 3}
+  m_Name: Meat2Cooking
+  m_EditorClassIdentifier: 
+  ItemGotbyCooking:
+    requiredItem: {fileID: 11400000, guid: bc70aa9668a97314fb648fafcd234488, type: 2}
+    amount: 1
+  ItemsNeededforCooking:
+    requiredItem: {fileID: 11400000, guid: 50d09d0c45ebc4242956b2c9251c57d8, type: 2}
+    amount: 1
