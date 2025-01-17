@@ -29,6 +29,7 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
 	// Get the camera horizontal angle.
 	public float GetH { get { return angleH; } }
 
+
 	void Awake()
 	{
 		// Reference to the camera transform.
@@ -52,6 +53,7 @@ public class ThirdPersonOrbitCamBasic : MonoBehaviour
 		if (camOffset.y > 0)
 			Debug.LogWarning("Vertical Cam Offset (Y) will be ignored during collisions!\n" +
 				"It is recommended to set all vertical offset in Pivot Offset.");
+
 	}
 
 	void Update()
