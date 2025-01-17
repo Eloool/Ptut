@@ -41,16 +41,19 @@ public class BreakableGameObject : InteractableBase
 
         if (health > 0 && PercentHealthLost>=0.25f)
         {
-            foreach (ItemDataAmountProbability probability in _probabilityDrop)
+            while (PercentHealthLost >= 0.25f)
             {
-                GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
-                while (PercentHealthLost >= 0.25f)
+                foreach (ItemDataAmountProbability probability in _probabilityDrop)
                 {
+                    GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
+
                     itemDropped.GetComponent<Item>().amount += probability.amountEach25Percentage;
-                    PercentHealthLost -= 0.25f;
+                    
+
+                    probability.amountTotal -= itemDropped.GetComponent<Item>().amount;
+                    Inventory.instance.AddtoInventory(itemDropped);
                 }
-                probability.amountTotal -= itemDropped.GetComponent<Item>().amount;
-                Inventory.instance.AddtoInventory(itemDropped);
+                PercentHealthLost -= 0.25f;
             }
         }
         if(health <=0)
