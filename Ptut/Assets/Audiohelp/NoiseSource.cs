@@ -11,20 +11,25 @@ public class NoiseSource : MonoBehaviour
     public AudioSource audioSource; // Source audio associée au bruit
 
     private Transform playerTransform; // Référence au joueur
-
     public bool modesourd;
-    
-
 
     private void Start()
     {
-        
         // Configure automatiquement le SphereCollider
         SphereCollider collider = GetComponent<SphereCollider>();
         if (collider != null)
         {
             collider.isTrigger = true;
             collider.radius = noiseRadius;
+        }
+
+        // Configure l'AudioSource pour boucler
+        if (audioSource != null)
+        {
+            audioSource.spatialBlend = 1f; // Son 3D
+            audioSource.maxDistance = noiseRadius; // Distance maximale pour l'atténuation
+            audioSource.rolloffMode = AudioRolloffMode.Linear; // Atténuation linéaire
+            audioSource.loop = true; // Active la boucle
         }
 
         // Trouve le joueur
@@ -41,17 +46,13 @@ public class NoiseSource : MonoBehaviour
         modesourd = GameManager.instance.inDeafMode;
     }
 
-    private void Update()
-    {
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             EmitNoise();
 
-            // Démarre le son si disponible
+            // Démarre ou continue le son si disponible
             if (audioSource != null && !audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -65,6 +66,7 @@ public class NoiseSource : MonoBehaviour
         {
             ClearNoiseIcon();
 
+            // Arrête le son lorsque le joueur quitte le radius
             if (audioSource != null && audioSource.isPlaying)
             {
                 audioSource.Stop();
@@ -83,24 +85,19 @@ public class NoiseSource : MonoBehaviour
 
         if (activeNoiseIcon == null && noiseIconPrefab != null && modesourd == true)
         {
-            //if (modesourd)
-            //{
-                // Crée l'icône et l'attache au Canvas
-                activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
-            
-            
+            // Crée l'icône et l'attache au Canvas
+            activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
 
-                // Configure le NoiseIndicator pour suivre le joueur et la source
-                NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
-                if (indicator != null)
-                {
-                    indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la caméra ici
-                }
-                else
-                {
-                    Debug.LogError("Le prefab d'icône n'a pas de script NoiseIndicator !");
-                }
-            //}
+            // Configure le NoiseIndicator pour suivre le joueur et la source
+            NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
+            if (indicator != null)
+            {
+                indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la caméra ici
+            }
+            else
+            {
+                Debug.LogError("Le prefab d'icône n'a pas de script NoiseIndicator !");
+            }
         }
     }
 
@@ -112,10 +109,4 @@ public class NoiseSource : MonoBehaviour
             activeNoiseIcon = null;
         }
     }
-
-    /*private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, noiseRadius * 2f);
-    }*/
 }
