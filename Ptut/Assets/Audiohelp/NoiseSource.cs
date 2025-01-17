@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEditor.SearchService;
 using UnityEngine;
 
 public class NoiseSource : MonoBehaviour
@@ -11,8 +12,13 @@ public class NoiseSource : MonoBehaviour
 
     private Transform playerTransform; // Référence au joueur
 
+    public bool modesourd;
+    
+
+
     private void Start()
     {
+        
         // Configure automatiquement le SphereCollider
         SphereCollider collider = GetComponent<SphereCollider>();
         if (collider != null)
@@ -31,6 +37,12 @@ public class NoiseSource : MonoBehaviour
         {
             Debug.LogError("Aucun objet avec le tag 'Player' trouvé !");
         }
+
+        modesourd = GameManager.instance.inDeafMode;
+    }
+
+    private void Update()
+    {
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,21 +81,26 @@ public class NoiseSource : MonoBehaviour
             return;
         }
 
-        if (activeNoiseIcon == null && noiseIconPrefab != null)
+        if (activeNoiseIcon == null && noiseIconPrefab != null && modesourd == true)
         {
-            // Crée l'icône et l'attache au Canvas
-            activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
+            //if (modesourd)
+            //{
+                // Crée l'icône et l'attache au Canvas
+                activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
+            
+            
 
-            // Configure le NoiseIndicator pour suivre le joueur et la source
-            NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
-            if (indicator != null)
-            {
-                indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la caméra ici
-            }
-            else
-            {
-                Debug.LogError("Le prefab d'icône n'a pas de script NoiseIndicator !");
-            }
+                // Configure le NoiseIndicator pour suivre le joueur et la source
+                NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
+                if (indicator != null)
+                {
+                    indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la caméra ici
+                }
+                else
+                {
+                    Debug.LogError("Le prefab d'icône n'a pas de script NoiseIndicator !");
+                }
+            //}
         }
     }
 

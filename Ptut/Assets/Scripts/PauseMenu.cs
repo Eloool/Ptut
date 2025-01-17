@@ -54,7 +54,7 @@ public class PauseMenu : ToogleCanvas
     public void QuitGame()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
+        //UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
 
     public override void SetActiveCanvas(bool active)
