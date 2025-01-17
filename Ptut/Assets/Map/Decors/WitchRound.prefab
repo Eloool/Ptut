@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WitchRound
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d4d4a5057fb729458d763c84943159c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82,7 +86,7 @@ LODGroup:
   m_GameObject: {fileID: 6172578249964860500}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 5
+  m_Size: 10
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
