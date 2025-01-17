@@ -1653,7 +1653,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.97865236, z: -0, w: -0.20552275}
   m_LocalPosition: {x: 3.6331177, y: -7.24, z: 27.75647}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1858037246453483575}
   - {fileID: 6067503557157873206}
@@ -1784,6 +1784,7 @@ MonoBehaviour:
   noiseRadius: 25
   noiseIconPrefab: {fileID: 2106698914391998634, guid: 6556fa35038fb0542a40a5ff97e1a251, type: 3}
   audioSource: {fileID: 6704257868983368025}
+  modesourd: 0
 --- !u!82 &6704257868983368025
 AudioSource:
   m_ObjectHideFlags: 0

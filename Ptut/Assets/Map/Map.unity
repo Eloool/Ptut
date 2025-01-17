@@ -1723,15 +1723,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 431.1
+      value: 625.7
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.3
+      value: 23.644812
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 635.5
+      value: 407.15
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10878,6 +10878,7 @@ Transform:
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 274814654612746569, guid: 052981365496d9f49ad89134401a9e45, type: 3}
   m_PrefabInstance: {fileID: 1132853464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1136577724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5814845182013857403, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
@@ -19504,6 +19505,4 @@ SceneRoots:
   - {fileID: 1931081699}
   - {fileID: 785967368}
   - {fileID: 1206919743}
-  - {fileID: 1152442334115135598}
-  - {fileID: 6693214001120956563}
   - {fileID: 296977418}
