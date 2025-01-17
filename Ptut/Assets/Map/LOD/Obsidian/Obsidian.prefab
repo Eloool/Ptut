@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obsidian
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89e38f2ad99a6ac4d9a8fc885a6c4006, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86,9 +90,10 @@ MonoBehaviour:
   StatsScripts:
   - {fileID: 11400000, guid: 72e2bd44580f0c84da110788b6253f59, type: 2}
   health: 0
+  TypeItem: 5
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: f47362310fd625445afb60ac72b36e92, type: 2}
-    amountEach10Percentage: 0
+    amountEach25Percentage: 1
     amountTotal: 3
 --- !u!205 &6466458701585045270
 LODGroup:
@@ -99,7 +104,7 @@ LODGroup:
   m_GameObject: {fileID: 2437006094033304415}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0.015102327, y: 0.021303862, z: 0.027377367}
-  m_Size: 4
+  m_Size: 10
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
