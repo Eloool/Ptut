@@ -6,16 +6,15 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public bool modeSourd;
-    public Button buttonOn;  // Bouton pour activer le mode sourd
-    public Button buttonOff; // Bouton pour désactiver le mode sourd
+    public bool inDeafMode;
+    public bool inFullscreen;
 
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        inDeafMode = false;
+        inFullscreen = true;
+        Screen.fullScreen = inFullscreen;
     }
 
     private void Awake()
@@ -28,43 +27,23 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ToggleDeafMode()
     {
-        
+        inDeafMode = !inDeafMode;
     }
 
-    private void UpdateButtonColors()
+    public void ToggleFullscreen()
     {
-        if (modeSourd)
+        inFullscreen = !inFullscreen;
+        if (inFullscreen)
         {
-            SetButtonColor(buttonOn, Color.green);  // Active en vert
-            SetButtonColor(buttonOff, Color.white); // Désactive en blanc
+            Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, FullScreenMode.FullScreenWindow);
         }
         else
         {
-            SetButtonColor(buttonOn, Color.white);  // Désactive en blanc
-            SetButtonColor(buttonOff, Color.red); // Active en vert
+            Screen.fullScreenMode = FullScreenMode.Windowed;
         }
-    }
 
-    private void SetButtonColor(Button button, Color color)
-    {
-        ColorBlock colors = button.colors;
-        colors.normalColor = color;
-        colors.highlightedColor = color; // Couleur au survol
-        colors.pressedColor = color;    // Couleur quand le bouton est pressé
-        colors.selectedColor = color;  // Couleur quand le bouton est sélectionné
-        button.colors = colors;
-    }
-    public void SetModeSourdOn()
-    {
-        modeSourd = true;
-        UpdateButtonColors();
-    }
-    public void SetModeSourdOff()
-    {
-        modeSourd = false;
-        UpdateButtonColors();
+        //Screen.fullScreen = inFullscreen;
     }
 }
