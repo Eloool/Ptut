@@ -13,6 +13,7 @@ public class GameOverMenu : ToogleCanvas
     private int total;
     PlayerStats stats;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +22,13 @@ public class GameOverMenu : ToogleCanvas
         color = background.color;
         alphaUp = true;
         total = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (stats.isDying)
         {
             CanvasController.instance.ShowCanvas(this);
