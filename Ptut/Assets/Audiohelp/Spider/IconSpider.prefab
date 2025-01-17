@@ -88,11 +88,7 @@ GameObject:
   - component: {fileID: 208483597214018725}
   - component: {fileID: 711642432735676756}
   m_Layer: 5
-<<<<<<<< HEAD:Ptut/Assets/Audiohelp/IconBear.prefab
-  m_Name: IconBear
-========
   m_Name: IconSpider
->>>>>>>> main:Ptut/Assets/Audiohelp/Spider/IconSpider.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,11 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<<< HEAD:Ptut/Assets/Audiohelp/IconBear.prefab
-  m_Sprite: {fileID: 21300000, guid: 6c6d00268675c244581501dd70df6b38, type: 3}
-========
   m_Sprite: {fileID: 21300000, guid: d698c77a2ba4abd428af3845dc160200, type: 3}
->>>>>>>> main:Ptut/Assets/Audiohelp/Spider/IconSpider.prefab
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
