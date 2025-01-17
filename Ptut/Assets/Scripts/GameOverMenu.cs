@@ -6,9 +6,6 @@ using UnityEngine.UIElements;
 
 public class GameOverMenu : ToogleCanvas
 {
-    public GameObject GameOverCanva;
-    public GameObject InventoryCanva;
-    public GameObject StatsCanva;
     public UnityEngine.UI.Image background;
     public float alpha;
     private Color color;
@@ -39,9 +36,6 @@ public class GameOverMenu : ToogleCanvas
     {
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
-        InventoryCanva.SetActive(false);
-        StatsCanva.SetActive(false);
-        GameOverCanva.SetActive(true);
         Time.timeScale = 0.2f;// met le time scale a 0.2 pour que le player die au ralenti
 
         // Attente de 5 secondes en temps réel
