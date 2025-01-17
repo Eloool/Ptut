@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 using UnityEngine;
 
 public class NoiseSource : MonoBehaviour
@@ -38,7 +38,7 @@ public class NoiseSource : MonoBehaviour
             Debug.LogError("Aucun objet avec le tag 'Player' trouvé !");
         }
 
-        modesourd = GameManager.instance.modeSourd;
+        modesourd = GameManager.instance.inDeafMode;
     }
 
     private void Update()

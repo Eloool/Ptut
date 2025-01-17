@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d203d384baeb74d46801adc452f596b2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DebugWorld.unity
     guid: 582c6d7f604159549985496a810f04a7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Starter Assets/Sample/ThirdPersonController/Playground2.unity
     guid: e9017d5f96b9f09489b4b37e1d6eb914
   m_configObjects: {}
