@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 7
   id: 30
-  ItemName: Bow
+  ItemName: Arc
   ItemDescription: 
   amountStockableMax: 1
   prefabIcon: {fileID: 4484003225892084542, guid: 628901175d72ab544a3c7b0c631c3c3f, type: 3}

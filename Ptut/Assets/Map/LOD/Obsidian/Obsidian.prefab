@@ -92,9 +92,12 @@ MonoBehaviour:
   health: 0
   TypeItem: 5
   _probabilityDrop:
+  - Item: {fileID: 11400000, guid: 29423c04e792f1d4a83165a36f507be4, type: 2}
+    amountEach25Percentage: 4
+    amountTotal: 20
   - Item: {fileID: 11400000, guid: f47362310fd625445afb60ac72b36e92, type: 2}
     amountEach25Percentage: 1
-    amountTotal: 3
+    amountTotal: 5
 --- !u!205 &6466458701585045270
 LODGroup:
   m_ObjectHideFlags: 0

@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatsScripts:
   - {fileID: 11400000, guid: b6c1560e73980d64d9621adb87bed44b, type: 2}
+  - {fileID: 11400000, guid: ae5c08cd753b683498551afc976e21af, type: 2}
   ItemData: {fileID: 11400000, guid: f04c2d24298f84f4f9cbbff560505f2c, type: 2}
   amount: 0
   candragitem: 1

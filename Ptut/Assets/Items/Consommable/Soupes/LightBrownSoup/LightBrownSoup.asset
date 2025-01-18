@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 21
-  ItemName: LightBrownSoup
+  ItemName: Soupe marron clair
   ItemDescription: 
-  amountStockableMax: 2
+  amountStockableMax: 3
   prefabIcon: {fileID: 5073535221756712873, guid: 771d02f36ef3cc74496ec9241593e6fd, type: 3}
   prefab3D: {fileID: 1152197569832863644, guid: 932403a108355ae45a3fa0626d7d86ae, type: 3}
   iconImage: {fileID: 21300000, guid: 72e894927377b1741a99c15649744372, type: 3}

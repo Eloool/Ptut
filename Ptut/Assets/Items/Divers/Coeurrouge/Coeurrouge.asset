@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 17
   ItemName: Coeurrouge
   ItemDescription: 
-  amountStockableMax: 10
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 7662eda423a0ec34991b5cce4aa76ec6, type: 3}
   prefab3D: {fileID: 9018514921748638778, guid: d8b575f183c16a84b8257fe779224e0b, type: 3}
   iconImage: {fileID: 21300000, guid: 78ebf14328d4c3d4980addf913896855, type: 3}
