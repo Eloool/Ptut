@@ -139,44 +139,18 @@ public class GameLoader : MonoBehaviour
 
     public void ShowDetails(Button selectedButton)
     {
-        HideOtherButtons(selectedButton);
-
-        Transform detailsPanelTransform = selectedButton.transform.Find("DetailsPanel");
-
-        GameObject detailsPanel = detailsPanelTransform.gameObject;
+        GameObject detailsPanel = selectedButton.transform.Find("DetailsPanel").gameObject;
 
         detailsPanel.SetActive(true);
-
-        canvaDifficulty.GetComponent<HorizontalLayoutGroup>().padding.top = -450;
     }
 
     public void HideDetails(Button selectedButton)
     {
-        // Réaffiche tous les boutons
-        foreach (Button button in difficultyButtons)
-        {
-            button.gameObject.SetActive(true);
-        }
-
-        Transform detailsPanelTransform = selectedButton.transform.Find("DetailsPanel");
-
-        GameObject detailsPanel = detailsPanelTransform.gameObject;
+        GameObject detailsPanel = selectedButton.transform.Find("DetailsPanel").gameObject;
+        GameObject button = selectedButton.transform.Find("Button").gameObject;
 
         detailsPanel.SetActive(false);
-
-        canvaDifficulty.GetComponent<HorizontalLayoutGroup>().padding.top = 0;
-    }
-
-    // Méthode pour masquer tous les boutons sauf celui sélectionné
-    private void HideOtherButtons(Button selectedButton)
-    {
-        foreach (Button button in difficultyButtons)
-        {
-            if (button != selectedButton) // Masquer les autres boutons
-            {
-                button.gameObject.SetActive(false);
-            }
-        }
+        button.SetActive(true);
     }
 
     public void ShowInfoCustom()
