@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: fce41819717b4574cb9a43f935283987, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8335e51c019256042934fb7e1f1a6491, type: 2}
 --- !u!4 &4488595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9103032398461533869, guid: ff4b7c177f7676746a2af5e716f45b38, type: 3}
@@ -365,11 +365,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -855,11 +855,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -1207,11 +1207,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -1352,11 +1352,11 @@ PrefabInstance:
     - target: {fileID: 2616717919095579420, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 2616717919095579420, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1545,11 +1545,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -1912,11 +1912,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -2421,11 +2421,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: noiseIconPrefab
       value: 
@@ -3060,11 +3060,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -5847,11 +5847,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -6917,11 +6917,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -7765,11 +7765,11 @@ PrefabInstance:
     - target: {fileID: 1418331199921097417, guid: 0b05e92e0c0693e4aa293141b74c78b0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 1418331199921097417, guid: 0b05e92e0c0693e4aa293141b74c78b0, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7989,11 +7989,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -8815,7 +8815,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0ec77e506658168428e174ef6ddb4abe, type: 2}
     - target: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_Layer
@@ -9565,20 +9565,20 @@ MonoBehaviour:
   maxHealth: 10000
   currHealth: 0
   healthLossPerSecond: 1
-  healthBarFill: {fileID: 0}
+  healthBarFill: {fileID: 2052227723}
   maxHunger: 100
   currHunger: 0
   hungerLossPerSecond: 2
-  hungerBarFill: {fileID: 0}
+  hungerBarFill: {fileID: 1026552889}
   maxThirst: 100
   currThirst: 0
   thirstLossPerSecond: 3
-  thirstBarFill: {fileID: 0}
-  maxStamina: 5000
+  thirstBarFill: {fileID: 406806963}
+  maxStamina: 20
   currStamina: 5
   staminaLossPerSecond: 1
-  staminaBar: {fileID: 0}
-  staminaBarFill: {fileID: 0}
+  staminaBar: {fileID: 781488061}
+  staminaBarFill: {fileID: 1434450969}
   enableSprint: 0
   armorResistance: 0
   damageMultiplicator: 0
@@ -9820,11 +9820,11 @@ PrefabInstance:
     - target: {fileID: 7675176319218579859, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 7675176319218579859, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7675176319218579859, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
       propertyPath: attackRadius
       value: 2.25
@@ -12506,11 +12506,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -13959,11 +13959,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -14115,11 +14115,11 @@ PrefabInstance:
     - target: {fileID: 8648490294533064882, guid: 14e92f202dd724b4cbccb815100fe0df, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 8648490294533064882, guid: 14e92f202dd724b4cbccb815100fe0df, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14193,11 +14193,11 @@ PrefabInstance:
     - target: {fileID: 7649241785902863139, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 7649241785902863139, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14437,11 +14437,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -15637,11 +15637,11 @@ PrefabInstance:
     - target: {fileID: 2699928154057393918, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 2699928154057393918, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 8172461782819278447, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
       propertyPath: m_LocalPosition.x
       value: 149.9
@@ -15956,11 +15956,11 @@ PrefabInstance:
     - target: {fileID: 4441963523056067076, guid: d0af9d2dd72980741b1a99c7f6664caf, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 4441963523056067076, guid: d0af9d2dd72980741b1a99c7f6664caf, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 6045851560309780023, guid: d0af9d2dd72980741b1a99c7f6664caf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -372
@@ -16125,11 +16125,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -16526,11 +16526,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -17698,11 +17698,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -17807,11 +17807,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
@@ -21551,8 +21551,8 @@ MonoBehaviour:
   - {fileID: 1479657385}
   - {fileID: 1850203788}
   - {fileID: 1699491179}
-  Camera: {fileID: 6581846400551796478}
-  cameraController: {fileID: 6581846400551796477}
+  Camera: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!4 &2056892221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5700633049069112694, guid: 45321ef277e2ced4d8e54829037ead38, type: 3}
@@ -21609,11 +21609,11 @@ PrefabInstance:
     - target: {fileID: 5415191460648552564, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5415191460648552564, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 5999599060224112778, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -21863,11 +21863,11 @@ PrefabInstance:
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931341}
     - target: {fileID: 5472436265299001904, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 839931349}
     - target: {fileID: 7637268103414282713, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
       propertyPath: audioSource
       value: 
