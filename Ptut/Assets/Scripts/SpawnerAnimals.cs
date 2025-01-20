@@ -31,12 +31,12 @@ public class SpawnerAnimals : MonoBehaviour
         TailleChunk = TailleMap / nbChunkInLine; // Calculer la taille d'un chunk
 
         // Appeler la fonction Spawner pour chaque type d'animal
-        SpawnEntities(Sheep, 9f / 64f); // Moutons
-        SpawnEntities(Bear, 9f / 64f); // Ours
-        SpawnEntities(Goat, 10f / 64f); // Chèvres
-        SpawnEntities(Pig, 8f / 64f); // Cochons
-        SpawnEntities(Horse, 7f / 64f); // Chevaux
-        SpawnEntities(Cow, 6f / 64f); // Vaches
+        SpawnEntities(Sheep, 14f / 64f); // Moutons, Nb entité moyens
+        SpawnEntities(Bear, 20f / 64f); // Ours, Nb entité moyens
+        SpawnEntities(Goat, 14f / 64f); // Chèvres, Nb entité moyens
+        SpawnEntities(Pig, 13f / 64f); // Cochons, Nb entité moyens
+        SpawnEntities(Horse, 15f / 64f); // Chevaux, Nb entité moyens
+        SpawnEntities(Cow, 14f / 64f); // Vaches, Nb entité moyens
     }
 
     float GetTerrainHeightAtPosition(Vector3 position)
