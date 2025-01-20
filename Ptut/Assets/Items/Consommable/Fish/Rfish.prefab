@@ -92,7 +92,7 @@ LODGroup:
   m_GameObject: {fileID: 7742965877566118228}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 0.04
+  m_Size: 0.12
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -140,9 +140,10 @@ MonoBehaviour:
   StatsScripts:
   - {fileID: 11400000, guid: 1ba2b2af3a39d754e979b6cc1e98df63, type: 2}
   health: 0
+  TypeItem: 0
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: a4f30adb8a9cd054bbfe85954c7f7171, type: 2}
-    amountEach10Percentage: 0
+    amountEach25Percentage: 0
     amountTotal: 3
 --- !u!23 &8103231376865835137 stripped
 MeshRenderer:
