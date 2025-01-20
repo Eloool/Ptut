@@ -268,6 +268,10 @@ MonoBehaviour:
     amount: 1
   - item: {fileID: 11400000, guid: a0ebb0c5cd2277d41ae77285b6b59d57, type: 2}
     amount: 1
+  - item: {fileID: 11400000, guid: fea517eac9985ac4384ffb12d2b1989c, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 821530dea7a15334fade8b014d030ea1, type: 2}
+    amount: 10
   addingInventory: {fileID: 1065734952}
   DropPoint: {fileID: 0}
 --- !u!224 &7729390
@@ -378,6 +382,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -868,6 +876,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1220,6 +1232,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1357,6 +1373,26 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 839931349}
+    - target: {fileID: 2868615924530535300, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868615924530535300, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: f32d16c939bb3ea45b3f8cd1fb6f7df2, type: 2}
+    - target: {fileID: 2868615924530535300, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[1].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 11ba941eb8e4c874e8c0193a72efef49, type: 2}
+    - target: {fileID: 2868615924530535300, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868615924530535300, guid: f4bbb292a91da064bb32a6c9725fa4c1, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[1].amountMax
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1558,6 +1594,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1925,6 +1965,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2430,6 +2474,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3073,6 +3121,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3209,7 +3261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7013c293cf0954fbb2544200053064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListeObjets: []
+  ListeObjets:
+  - {fileID: 0}
   Cadre: {fileID: 1195703868}
 --- !u!224 &326824336
 RectTransform:
@@ -5860,6 +5913,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6930,6 +6987,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7770,6 +7831,18 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 839931349}
+    - target: {fileID: 5625262950100625768, guid: 0b05e92e0c0693e4aa293141b74c78b0, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625262950100625768, guid: 0b05e92e0c0693e4aa293141b74c78b0, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c6c32804f0c58440bfc209c9ae6b108, type: 2}
+    - target: {fileID: 5625262950100625768, guid: 0b05e92e0c0693e4aa293141b74c78b0, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMax
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8002,6 +8075,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9816,6 +9893,22 @@ PrefabInstance:
     - target: {fileID: 4114267035487940154, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
       propertyPath: m_Name
       value: Spider_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255356378040566001, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255356378040566001, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: cc42f3d3917dd7b419014fc8fc0be541, type: 2}
+    - target: {fileID: 6255356378040566001, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255356378040566001, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7675176319218579859, guid: a3cd6104607144b4a938bd8e8d75a234, type: 3}
       propertyPath: player
@@ -12519,6 +12612,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13972,6 +14069,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14092,6 +14193,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4231192628884786806, guid: 14e92f202dd724b4cbccb815100fe0df, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1312635423}
+    - target: {fileID: 4231192628884786806, guid: 14e92f202dd724b4cbccb815100fe0df, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231192628884786806, guid: 14e92f202dd724b4cbccb815100fe0df, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c6c32804f0c58440bfc209c9ae6b108, type: 2}
+    - target: {fileID: 4231192628884786806, guid: 14e92f202dd724b4cbccb815100fe0df, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMax
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5708258106825441479, guid: 14e92f202dd724b4cbccb815100fe0df, type: 3}
       propertyPath: m_Name
       value: SK_Sheep_dark
@@ -14178,6 +14295,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5587689383458225914, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587689383458225914, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c6c32804f0c58440bfc209c9ae6b108, type: 2}
+    - target: {fileID: 5587689383458225914, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMax
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6518438551627208841, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
       propertyPath: modesourd
       value: 0
@@ -14206,6 +14335,11 @@ PrefabInstance:
 --- !u!4 &1312635422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3399279189658403437, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
+  m_PrefabInstance: {fileID: 1312635421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1312635423 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2241017928047794553, guid: 54f3a37db52c11c4d825a33388e12522, type: 3}
   m_PrefabInstance: {fileID: 1312635421}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1332593051 stripped
@@ -14450,6 +14584,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15634,6 +15772,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 198350510}
     m_Modifications:
+    - target: {fileID: 1695005950063852329, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695005950063852329, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: fea517eac9985ac4384ffb12d2b1989c, type: 2}
+    - target: {fileID: 1695005950063852329, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[1].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 50d09d0c45ebc4242956b2c9251c57d8, type: 2}
+    - target: {fileID: 1695005950063852329, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695005950063852329, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[1].amountMax
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2699928154057393918, guid: cf03a90ddb86478468536db5a00e8846, type: 3}
       propertyPath: player
       value: 
@@ -16138,6 +16296,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16539,6 +16701,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17711,6 +17877,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17820,6 +17990,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18448,9 +18622,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1479657385}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resume
+      - m_Target: {fileID: 2055579333}
+        m_TargetAssemblyTypeName: CanvasController, Assembly-CSharp
+        m_MethodName: HideAllCanvases
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21551,8 +21725,8 @@ MonoBehaviour:
   - {fileID: 1479657385}
   - {fileID: 1850203788}
   - {fileID: 1699491179}
-  Camera: {fileID: 0}
-  cameraController: {fileID: 0}
+  Camera: {fileID: 2061849231}
+  cameraController: {fileID: 2061849229}
 --- !u!4 &2056892221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5700633049069112694, guid: 45321ef277e2ced4d8e54829037ead38, type: 3}
@@ -21566,6 +21740,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 779773791}
     m_Modifications:
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a5dd80a6af16e540bda94b982d6df03, type: 2}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[1].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 50d09d0c45ebc4242956b2c9251c57d8, type: 2}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[2].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: fea517eac9985ac4384ffb12d2b1989c, type: 2}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[3].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: f32d16c939bb3ea45b3f8cd1fb6f7df2, type: 2}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[0].amountMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[1].amountMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[2].amountMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149741735029548504, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.data[3].amountMax
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4499848690229151603, guid: 061e42dbe2e9e7549a321fdacf33e01b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -61.16
@@ -21876,6 +22086,10 @@ PrefabInstance:
       propertyPath: noiseIconPrefab
       value: 
       objectReference: {fileID: 2106698914391998634, guid: 1340c1ce4decba94795a32b421a8d16e, type: 3}
+    - target: {fileID: 8738625378466193989, guid: 4ef3bd7f0968c1240b25015202776cdb, type: 3}
+      propertyPath: dataAmountMinMaxDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
