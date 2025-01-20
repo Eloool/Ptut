@@ -62,6 +62,11 @@ public class EnemyAI : MonoBehaviour
     private bool isAttacking;
 
 
+    private void Start()
+    {
+        playerStats = PlayerStats.instance;
+        player =  playerStats.gameObject.transform;
+    }
 
     public void StopMoving()
     {
