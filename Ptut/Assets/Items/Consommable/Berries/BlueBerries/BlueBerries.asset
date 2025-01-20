@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
   m_Name: BlueBerries
   m_EditorClassIdentifier: 
-  TypeOfItem: 10
+  TypeOfItem: 9
   id: 41
-  ItemName: BlueBerries
+  ItemName: Baies bleues
   ItemDescription: 
-  amountStockableMax: 20
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 2f32ece8590d139428344a133b94c115, type: 3}
   prefab3D: {fileID: 5843350656275674835, guid: 6fde5566f299ebd49b680ec6eea507d8, type: 3}
   iconImage: {fileID: 21300000, guid: 1aea710a47d3c084bbf4d89b1e4db722, type: 3}

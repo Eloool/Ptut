@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SpawnerAnimals : MonoBehaviour
 {
@@ -10,13 +9,9 @@ public class SpawnerAnimals : MonoBehaviour
     public GameObject Pig;
     public GameObject Horse;
     public GameObject Cow;
+    public GameObject Sheep;
 
-    public float MaxHighOfMap = 0;
-    private float MinXMap;
-    private float MinZMap;
-    private float MaxXMap;
-    private float MaxZMap;
-    private float nbChunkInLine = 8;
+    public float nbChunkInLine = 8; // Nombre de chunks sur une ligne
     private float TailleMap;
     private float TailleChunk;
 
@@ -25,18 +20,23 @@ public class SpawnerAnimals : MonoBehaviour
     void Start()
     {
         // Récupérer la taille du terrain
+        if (terrain == null)
+        {
+            Debug.LogError("Le terrain n'est pas assigné !");
+            return;
+        }
+
         float terrainWidth = terrain.terrainData.size.x;
-        float terrainLength = terrain.terrainData.size.z;
+        TailleMap = terrainWidth; // Mets la TailleMap à la longueur du terrain
+        TailleChunk = TailleMap / nbChunkInLine; // Calculer la taille d'un chunk
 
-        Debug.Log("Taille de la carte: " + terrainWidth + " x " + terrainLength);
-
-        TailleMap = terrainWidth; // Mets la TailleMap à la longueur (et largeur) du terrain.
-
-        BearSpawner();
-        GoatSpawner();
-        PigSpawner();
-        HorseSpawner();
-        SpiderSpawner();
+        // Appeler la fonction Spawner pour chaque type d'animal
+        SpawnEntities(Sheep, 14f / 64f); // Moutons, Nb entité moyens
+        SpawnEntities(Bear, 20f / 64f); // Ours, Nb entité moyens
+        SpawnEntities(Goat, 14f / 64f); // Chèvres, Nb entité moyens
+        SpawnEntities(Pig, 13f / 64f); // Cochons, Nb entité moyens
+        SpawnEntities(Horse, 15f / 64f); // Chevaux, Nb entité moyens
+        SpawnEntities(Cow, 14f / 64f); // Vaches, Nb entité moyens
     }
 
     float GetTerrainHeightAtPosition(Vector3 position)
@@ -52,131 +52,34 @@ public class SpawnerAnimals : MonoBehaviour
         }
     }
 
-    void BearSpawner()
+    void SpawnEntities(GameObject entityPrefab, float spawnProbability)
     {
-        TailleChunk = TailleMap / nbChunkInLine;
-        for (int i = 0; i < nbChunkInLine; i++)
+        if (entityPrefab == null)
         {
-            MinXMap = i * TailleChunk;
-            MaxXMap = i * TailleChunk + TailleChunk;
-            for (int j = 0; j < nbChunkInLine; j++)
-            {
-                float rand = Random.value;
-                if (rand < 9f / 64f) // En moyenne 9 ours seront générés parmi les 64 chunks
-                {
-                    MinZMap = j * TailleChunk;
-                    MaxZMap = j * TailleChunk + TailleChunk;
-                    float spawnX = Random.Range(MinXMap, MaxXMap);
-                    float spawnZ = Random.Range(MinZMap, MaxZMap);
-
-                    float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
-                    Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
-
-                    Instantiate(Bear, spawnPos, Quaternion.identity);
-                }
-            }
+            Debug.LogError("Prefab non assigné !");
+            return;
         }
-    }
 
-    void GoatSpawner()
-    {
-        TailleChunk = TailleMap / nbChunkInLine;
+        // Parcourir les chunks pour générer les entités
         for (int i = 0; i < nbChunkInLine; i++)
         {
-            MinXMap = i * TailleChunk;
-            MaxXMap = i * TailleChunk + TailleChunk;
+            float MinXMap = i * TailleChunk;
+            float MaxXMap = MinXMap + TailleChunk;
+
             for (int j = 0; j < nbChunkInLine; j++)
             {
+                float MinZMap = j * TailleChunk;
+                float MaxZMap = MinZMap + TailleChunk;
+
                 float rand = Random.value;
-                if (rand < 10f / 64f) // En moyenne 10 chèvres seront générées parmi les 64 chunks
+                if (rand < spawnProbability) // Vérifier la probabilité de spawn
                 {
-                    MinZMap = j * TailleChunk;
-                    MaxZMap = j * TailleChunk + TailleChunk;
                     float spawnX = Random.Range(MinXMap, MaxXMap);
                     float spawnZ = Random.Range(MinZMap, MaxZMap);
-
                     float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
                     Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
 
-                    Instantiate(Goat, spawnPos, Quaternion.identity);
-                }
-            }
-        }
-    }
-
-    void PigSpawner()
-    {
-        TailleChunk = TailleMap / nbChunkInLine;
-        for (int i = 0; i < nbChunkInLine; i++)
-        {
-            MinXMap = i * TailleChunk;
-            MaxXMap = i * TailleChunk + TailleChunk;
-            for (int j = 0; j < nbChunkInLine; j++)
-            {
-                float rand = Random.value;
-                if (rand < 8f / 64f) // En moyenne 8 cochons seront générés parmi les 64 chunks
-                {
-                    MinZMap = j * TailleChunk;
-                    MaxZMap = j * TailleChunk + TailleChunk;
-                    float spawnX = Random.Range(MinXMap, MaxXMap);
-                    float spawnZ = Random.Range(MinZMap, MaxZMap);
-
-                    float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
-                    Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
-
-                    Instantiate(Pig, spawnPos, Quaternion.identity);
-                }
-            }
-        }
-    }
-
-    void HorseSpawner()
-    {
-        TailleChunk = TailleMap / nbChunkInLine;
-        for (int i = 0; i < nbChunkInLine; i++)
-        {
-            MinXMap = i * TailleChunk;
-            MaxXMap = i * TailleChunk + TailleChunk;
-            for (int j = 0; j < nbChunkInLine; j++)
-            {
-                float rand = Random.value;
-                if (rand < 7f / 64f) // En moyenne 7 chevaux seront générés parmi les 64 chunks
-                {
-                    MinZMap = j * TailleChunk;
-                    MaxZMap = j * TailleChunk + TailleChunk;
-                    float spawnX = Random.Range(MinXMap, MaxXMap);
-                    float spawnZ = Random.Range(MinZMap, MaxZMap);
-
-                    float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
-                    Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
-
-                    Instantiate(Horse, spawnPos, Quaternion.identity);
-                }
-            }
-        }
-    }
-
-    void SpiderSpawner()
-    {
-        TailleChunk = TailleMap / nbChunkInLine;
-        for (int i = 0; i < nbChunkInLine; i++)
-        {
-            MinXMap = i * TailleChunk;
-            MaxXMap = i * TailleChunk + TailleChunk;
-            for (int j = 0; j < nbChunkInLine; j++)
-            {
-                float rand = Random.value;
-                if (rand < 6f / 64f) // En moyenne 6 araignées seront générées parmi les 64 chunks
-                {
-                    MinZMap = j * TailleChunk;
-                    MaxZMap = j * TailleChunk + TailleChunk;
-                    float spawnX = Random.Range(MinXMap, MaxXMap);
-                    float spawnZ = Random.Range(MinZMap, MaxZMap);
-
-                    float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
-                    Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
-
-                    Instantiate(Cow, spawnPos, Quaternion.identity);
+                    Instantiate(entityPrefab, spawnPos, Quaternion.identity);
                 }
             }
         }

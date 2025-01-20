@@ -118,13 +118,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatsScripts:
-  - {fileID: 11400000, guid: 4dc2d5ef84d10454ead1dceac077b884, type: 2}
+  - {fileID: 11400000, guid: d41e06f24cca0c74baed34ba8beafc86, type: 2}
   health: 0
   TypeItem: 5
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: 29423c04e792f1d4a83165a36f507be4, type: 2}
-    amountEach25Percentage: 1
-    amountTotal: 15
+    amountEach25Percentage: 4
+    amountTotal: 20
   - Item: {fileID: 11400000, guid: 494879e0630b1c449a88134bd8138fdb, type: 2}
     amountEach25Percentage: 1
     amountTotal: 5

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 23
-  ItemName: PinkSoup
+  ItemName: Soupe rose
   ItemDescription: 
-  amountStockableMax: 2
+  amountStockableMax: 3
   prefabIcon: {fileID: 5073535221756712873, guid: f212970a7656ee640b5a65a6f1082cba, type: 3}
   prefab3D: {fileID: 6135388307582943289, guid: 7c26987d02b3e294d8a63a7697d96a96, type: 3}
   iconImage: {fileID: 21300000, guid: be7c12eb9c4415e4984a638ba5dba9c5, type: 3}
