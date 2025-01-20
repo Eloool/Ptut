@@ -124,9 +124,9 @@ MonoBehaviour:
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: 29423c04e792f1d4a83165a36f507be4, type: 2}
     amountEach25Percentage: 1
-    amountTotal: 3
+    amountTotal: 5
   - Item: {fileID: 11400000, guid: 494879e0630b1c449a88134bd8138fdb, type: 2}
-    amountEach25Percentage: 1
+    amountEach25Percentage: 0
     amountTotal: 1
 --- !u!65 &3288592337128231692
 BoxCollider:

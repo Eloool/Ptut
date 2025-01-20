@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 40
-  ItemName: BlackBerries
+  ItemName: Baies noires
   ItemDescription: 
-  amountStockableMax: 20
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 2bd36992a5e85e7488c40bb3e2dd1bbc, type: 3}
   prefab3D: {fileID: 5097209512190275388, guid: d6d94290a5a5ed641a6bdaaae6b2ad4b, type: 3}
   iconImage: {fileID: 21300000, guid: 45d6a84cbc3917846acd5c93a0bf38af, type: 3}

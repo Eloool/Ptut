@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftableItem:
     requiredItem: {fileID: 11400000, guid: e2e1909049f1bad46a18e0573b9e89d2, type: 2}
-    amount: 1
+    amount: 5
   requiredItems:
   - requiredItem: {fileID: 11400000, guid: 32a4195a6a8603f43b9411f66f1b91a7, type: 2}
-    amount: 1
+    amount: 10
   - requiredItem: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
-    amount: 1
+    amount: 10
   - requiredItem: {fileID: 11400000, guid: f47362310fd625445afb60ac72b36e92, type: 2}
-    amount: 1
+    amount: 5

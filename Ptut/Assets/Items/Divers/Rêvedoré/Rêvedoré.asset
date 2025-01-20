@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 14
   ItemName: "R\xEAvedor\xE9"
   ItemDescription: 
-  amountStockableMax: 10
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: fb9868a92d20876429ccebbe0ae646ce, type: 3}
   prefab3D: {fileID: 441231217854561764, guid: 1aab0651f92f96c419443714283f97f1, type: 3}
   iconImage: {fileID: 21300000, guid: 7bbdff1b179da2f43a594213139e2576, type: 3}

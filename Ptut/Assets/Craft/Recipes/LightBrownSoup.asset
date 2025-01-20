@@ -17,8 +17,8 @@ MonoBehaviour:
     amount: 1
   requiredItems:
   - requiredItem: {fileID: 11400000, guid: 071d80d07008e8f46a7d82c6da2bfd99, type: 2}
-    amount: 1
+    amount: 3
   - requiredItem: {fileID: 11400000, guid: 36630655773904a4e93d9490b2580eb2, type: 2}
-    amount: 1
+    amount: 3
   - requiredItem: {fileID: 11400000, guid: 80a9a6ce94e751e4ca9ae916ca7b93e1, type: 2}
     amount: 1

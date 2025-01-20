@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 8
   id: 32
-  ItemName: ArrowObsidian
+  ItemName: "Fl\xE8che en obsidienne"
   ItemDescription: 
-  amountStockableMax: 6
+  amountStockableMax: 25
   prefabIcon: {fileID: 4484003225892084542, guid: 2f03c5ed6aa42414d87fc253cbf40951, type: 3}
   prefab3D: {fileID: 7714088355580001820, guid: c3ca9e0ed923f774db6d2e5fc4b3750f, type: 3}
   iconImage: {fileID: 21300000, guid: b3fdc0898c0add149ab165ecdd835668, type: 3}

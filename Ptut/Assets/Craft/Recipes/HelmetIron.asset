@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b202c465cfe8e4f871ee2097c645d2, type: 3}
+  m_Name: HelmetIron
+  m_EditorClassIdentifier: 
+  craftableItem:
+    requiredItem: {fileID: 11400000, guid: 1e633cfe29d08084ebb36a2bef3bf472, type: 2}
+    amount: 1
+  requiredItems:
+  - requiredItem: {fileID: 11400000, guid: 1a5dd80a6af16e540bda94b982d6df03, type: 2}
+    amount: 5
+  - requiredItem: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
+    amount: 2
+  - requiredItem: {fileID: 11400000, guid: 3529bbcd0d1ea0e4dafb16df5d3466bd, type: 2}
+    amount: 6
