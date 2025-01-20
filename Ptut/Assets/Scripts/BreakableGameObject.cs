@@ -26,19 +26,19 @@ public class BreakableGameObject : InteractableBase
     override public void GotHit(Item item)
     {
         HitObjectStat stat;
-        if (item == null || (!item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem != TypeItem))
-        {
-            int HealthLost = 1;
-            health -= HealthLost;
-            PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
-        }
-        else
+        if (item != null && !item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem == TypeItem)
         {
             int HealthLost = stat.hitObjectPower;
             health -= HealthLost;
             PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
         }
-
+        else
+        {
+            int HealthLost = 1;
+            health -= HealthLost;
+            PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
+        }
+        
         if (health > 0 && PercentHealthLost>=0.25f)
         {
             while (PercentHealthLost >= 0.25f)
@@ -46,10 +46,7 @@ public class BreakableGameObject : InteractableBase
                 foreach (ItemDataAmountProbability probability in _probabilityDrop)
                 {
                     GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
-
                     itemDropped.GetComponent<Item>().amount += probability.amountEach25Percentage;
-                    
-
                     probability.amountTotal -= itemDropped.GetComponent<Item>().amount;
                     Inventory.instance.AddtoInventory(itemDropped);
                 }
