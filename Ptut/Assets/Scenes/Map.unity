@@ -273,7 +273,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 821530dea7a15334fade8b014d030ea1, type: 2}
     amount: 10
   addingInventory: {fileID: 1065734952}
-  DropPoint: {fileID: 0}
+  DropPoint: {fileID: 819102551}
 --- !u!224 &7729390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2795,6 +2795,7 @@ MonoBehaviour:
   Horse: {fileID: 802672452}
   Cow: {fileID: 1549500170}
   Sheep: {fileID: 1203623642}
+  RockSword: {fileID: 3897858033537309050, guid: 74e48aa22fbed804fbd9bcd9583040a2, type: 3}
   nbChunkInLine: 8
   terrain: {fileID: 644486965}
 --- !u!4 &296977418
@@ -6900,9 +6901,9 @@ MonoBehaviour:
   timerDuration: 3600
   timerText: {fileID: 1467097366}
   endMessage: {fileID: 1699491174}
-  Camera: {fileID: 0}
-  cameraController: {fileID: 0}
-  PlayerController: {fileID: 0}
+  Camera: {fileID: 2061849231}
+  cameraController: {fileID: 2061849229}
+  PlayerController: {fileID: 839931351}
 --- !u!1001 &664886857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9379,10 +9380,10 @@ PrefabInstance:
       addedObject: {fileID: 839931353}
     - targetCorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 839931352}
+      addedObject: {fileID: 839931351}
     - targetCorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 839931351}
+      addedObject: {fileID: 839931352}
     - targetCorrespondingSourceObject: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       insertIndex: -1
       addedObject: {fileID: 839931350}
