@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 11
   ItemName: Branchage
   ItemDescription: 
-  amountStockableMax: 10
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 490edc00aa8145c488bdfcc5226cb82a, type: 3}
   prefab3D: {fileID: 3909679848756855441, guid: ae861a27ac21c9744ab2845628f08a61, type: 3}
   iconImage: {fileID: 21300000, guid: 3549b845515394447826e4dddb907d25, type: 3}

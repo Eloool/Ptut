@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 12
   ItemName: Fongi Oberla
   ItemDescription: 
-  amountStockableMax: 10
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 158dbf523d9beff42b6acc83b911b009, type: 3}
   prefab3D: {fileID: 26155450562588384, guid: 37205c220595d9847ab427e2131ca0fe, type: 3}
   iconImage: {fileID: 21300000, guid: 4dad1eb316f1b4e4ebadf5179f1c4c27, type: 3}

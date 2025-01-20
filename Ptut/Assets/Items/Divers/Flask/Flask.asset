@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 3
-  ItemName: Flask
+  ItemName: Gourde
   ItemDescription: 
   amountStockableMax: 1
   prefabIcon: {fileID: 5073535221756712873, guid: b7851138c6c2827489f25b2c0c25b06d, type: 3}

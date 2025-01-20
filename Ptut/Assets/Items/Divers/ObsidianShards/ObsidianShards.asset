@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 9
-  ItemName: Obsidian
+  ItemName: "\xC9clat d'obsidienne"
   ItemDescription: 
-  amountStockableMax: 10
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 28f87b166416da645a2cbadb0209dab3, type: 3}
   prefab3D: {fileID: 6891244885018083812, guid: 819cd44a77732d04dbdc82214e42e315, type: 3}
   iconImage: {fileID: 21300000, guid: 37964bbfb7e771e4d9e3df53a7baa4ef, type: 3}

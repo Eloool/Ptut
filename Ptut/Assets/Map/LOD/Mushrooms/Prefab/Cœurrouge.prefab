@@ -96,7 +96,7 @@ LODGroup:
   m_GameObject: {fileID: 8000479556916110157}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 10
+  m_Size: 5
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -124,8 +124,8 @@ MonoBehaviour:
   TypeItem: 10
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: 03e7e3c194ff53d4183d46d7f9fe6cc4, type: 2}
-    amountEach25Percentage: 1
-    amountTotal: 3
+    amountEach25Percentage: 0
+    amountTotal: 1
 --- !u!65 &8445116493993677606
 BoxCollider:
   m_ObjectHideFlags: 0
