@@ -18448,9 +18448,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2055579333}
-        m_TargetAssemblyTypeName: CanvasController, Assembly-CSharp
-        m_MethodName: HideAllCanvases
+      - m_Target: {fileID: 1479657385}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21551,9 +21551,8 @@ MonoBehaviour:
   - {fileID: 1479657385}
   - {fileID: 1850203788}
   - {fileID: 1699491179}
-  - {fileID: 0}
-  Camera: {fileID: 0}
-  cameraController: {fileID: 0}
+  Camera: {fileID: 6581846400551796478}
+  cameraController: {fileID: 6581846400551796477}
 --- !u!4 &2056892221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5700633049069112694, guid: 45321ef277e2ced4d8e54829037ead38, type: 3}
