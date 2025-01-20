@@ -91,7 +91,7 @@ public class Oven : InteractibleGameObject
 
     private void Cooking()
     {
-        currentTimeBetweenTicks += Time.deltaTime;
+        currentTimeBetweenTicks += Time.unscaledDeltaTime;
         while (currentTimeBetweenTicks > timeBetweenTick)
         {
             if (Combustible == null)
