@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 8
   id: 31
-  ItemName: ArrowFlint
+  ItemName: "Fl\xE8che en silex"
   ItemDescription: 
-  amountStockableMax: 6
+  amountStockableMax: 25
   prefabIcon: {fileID: 4484003225892084542, guid: 5926ce6712c443d42a54d9cedce54a49, type: 3}
   prefab3D: {fileID: 5979885499287527816, guid: 41b6d5c8d1aabd54386f05075867ff16, type: 3}
   iconImage: {fileID: 21300000, guid: 208d6410dac8d194fb69d3ff9d944ea8, type: 3}

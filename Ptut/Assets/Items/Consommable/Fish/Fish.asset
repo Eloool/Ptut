@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 50
-  ItemName: Fish
+  ItemName: Poisson
   ItemDescription: 
-  amountStockableMax: 3
+  amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: 369e9162aff5008438d8b2ee9b158ae8, type: 3}
   prefab3D: {fileID: 7742965877566118228, guid: 302a2f181424f1d48844407680688757, type: 3}
   iconImage: {fileID: 21300000, guid: a8ff073bb7a03e64daa2693f605c30cc, type: 3}

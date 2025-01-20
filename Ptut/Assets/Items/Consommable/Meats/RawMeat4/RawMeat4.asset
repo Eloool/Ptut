@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 45
-  ItemName: RawMeat4
+  ItemName: Viande crue
   ItemDescription: 
-  amountStockableMax: 3
+  amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: d94c1870462c667428c0361aff4d076d, type: 3}
   prefab3D: {fileID: 7505906564012228096, guid: cb3a71fe36176ca489b0984a8a17f832, type: 3}
   iconImage: {fileID: 21300000, guid: 3bea0c3e5bbd158478fc49d7c07e9c3c, type: 3}
