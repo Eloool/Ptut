@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c5666e5bb573c49bcc1bdd169b53b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerStats: {fileID: 0}
+  player: {fileID: 5009547793001008703, guid: 90a134a9c134b7a48986caa403f3bbc6, type: 3}
+  playerStats: {fileID: 7980908238047582309, guid: 90a134a9c134b7a48986caa403f3bbc6, type: 3}
   agent: {fileID: 3265388244476634755}
   animator: {fileID: 220797499242777798}
   detectionRadius: 15
@@ -313,6 +313,7 @@ MonoBehaviour:
   noiseRadius: 10
   noiseIconPrefab: {fileID: 2106698914391998634, guid: 8d5e48c7ef825a241b1a2f3da3a707ad, type: 3}
   audioSource: {fileID: 2574849786873379688}
+  modesourd: 0
 --- !u!82 &2574849786873379688
 AudioSource:
   m_ObjectHideFlags: 0
