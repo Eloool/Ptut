@@ -22,31 +22,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 841.62085
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.2267606
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 960.89526
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6130349
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7900559
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 104.381
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -82,6 +82,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6181062734932956323}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7866684213014614207}
   m_SourcePrefab: {fileID: 100100000, guid: 1918bfb804602254ea7517941c1f3292, type: 3}
 --- !u!23 &6975754705494985766 stripped
 MeshRenderer:
@@ -134,3 +137,21 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6975754705494985766}
   m_Enabled: 1
+--- !u!114 &7866684213014614207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921111352171720179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60b86190aa13f0459bc74c04f21c2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Forge
+  Combustible: {fileID: 0}
+  Bruler: {fileID: 0}
+  Sortie: {fileID: 0}
+  iscooking: 0
+  isOpen: 0
