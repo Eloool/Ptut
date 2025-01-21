@@ -74,11 +74,11 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Die());
         }
 
-        //if (Input.GetKeyDown(KeyCode.J))
-        //{
-        //    TakeDamage(10, false, true);
-        //    Debug.Log("damage");
-        //}
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            TakeDamage(10, false, true);
+            Debug.Log("damage");
+        }
 
         //if (Input.GetKeyDown(KeyCode.H))
         //{

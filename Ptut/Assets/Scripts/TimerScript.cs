@@ -16,7 +16,7 @@ public class TimerScript : MonoBehaviour
 
     void Start()
     {
-        //timerDuration = 10f; // 10 secondes pour tester
+        //timerDuration = 5f; // 10 secondes pour tester
         timer = timerDuration;
 
         if (endMessage != null)
