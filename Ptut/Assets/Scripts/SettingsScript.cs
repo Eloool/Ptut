@@ -22,8 +22,5 @@ public class SettingsScript : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
-    public void setQuality(int qualityindex)
-    {
-        QualitySettings.SetQualityLevel(qualityindex);
-    }
+
 }
