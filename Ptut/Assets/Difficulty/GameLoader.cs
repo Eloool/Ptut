@@ -25,6 +25,18 @@ public class GameLoader : MonoBehaviour
         canvaDifficulty.SetActive(false);
         canvaCustom.SetActive(false);
         canvaStats.SetActive(false);
+
+        if (player == null)
+        {
+            Debug.LogError("PlayerStats non assigné !");
+        }
+    }
+
+    void Awake()
+    {
+        modeEasy = Resources.Load<DifficultyLevel>("DifficultyEasy");
+        modeNormal = Resources.Load<DifficultyLevel>("DifficultyHard");
+        modeHard = Resources.Load<DifficultyLevel>("DifficultyMedium");
     }
     public void LoadModeEasy()
     {
@@ -42,7 +54,7 @@ public class GameLoader : MonoBehaviour
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
         Time.timeScale = 1f;//Set le time scale à 1 car on le met a 0 dans le Start
-
+        Debug.Log($"Time.timeScale = {Time.timeScale}");
         mainMenu.PlayGame();
     }
 

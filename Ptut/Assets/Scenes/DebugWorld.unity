@@ -6856,6 +6856,7 @@ MonoBehaviour:
   Horse: {fileID: 0}
   Cow: {fileID: 0}
   Sheep: {fileID: 0}
+  RockSword: {fileID: 0}
   nbChunkInLine: 8
   terrain: {fileID: 0}
 --- !u!4 &662267409
@@ -17409,6 +17410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7980908238047582309, guid: 90a134a9c134b7a48986caa403f3bbc6, type: 3}
+      propertyPath: maxHealth
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17992,6 +17997,7 @@ SceneRoots:
   - {fileID: 1129559935}
   - {fileID: 454903171}
   - {fileID: 1413069670}
+  - {fileID: 980653535}
   - {fileID: 2458413063286694810}
   - {fileID: 662267409}
   - {fileID: 110196562}
