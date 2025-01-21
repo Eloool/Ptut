@@ -203,10 +203,9 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator Die() // game over
     {
-        CanvasController.instance.ShowCanvas(canvaGO);
         if (isDying) yield break; // Exit the coroutine if already dying
         isDying = true; // Set the flag to true
-
+        CanvasController.instance.ShowCanvas(canvaGO);
         Animator animator = GetComponent<Animator>();
         animator.SetTrigger("isDying");
         yield return new WaitForSeconds(3f);
