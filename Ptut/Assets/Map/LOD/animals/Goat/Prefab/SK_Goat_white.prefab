@@ -3331,7 +3331,7 @@ Transform:
   m_GameObject: {fileID: 7375436610513393531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.733093, y: -7.6880054, z: 9.156494}
+  m_LocalPosition: {x: 349, y: -20.701, z: -238}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3372,8 +3372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c5666e5bb573c49bcc1bdd169b53b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5009547793001008703, guid: dd03479bd6384394c96ab1559edce787, type: 3}
-  playerStats: {fileID: 7980908238047582309, guid: dd03479bd6384394c96ab1559edce787, type: 3}
+  player: {fileID: 7812183468095683478, guid: 81b30d0f151a088408b2bc40d4229028, type: 3}
+  playerStats: {fileID: 5224317545249911892, guid: 81b30d0f151a088408b2bc40d4229028, type: 3}
   agent: {fileID: 3104329476414981884}
   animator: {fileID: 2241017928047794553}
   detectionRadius: 6
@@ -3426,7 +3426,10 @@ MonoBehaviour:
   StatsScripts:
   - {fileID: 11400000, guid: 399f4b641140a3149866468744e69e9c, type: 2}
   health: 0
-  dataAmountMinMaxDrop: []
+  dataAmountMinMaxDrop:
+  - Item: {fileID: 11400000, guid: 7c6c32804f0c58440bfc209c9ae6b108, type: 2}
+    amountMax: 5
+    amountMin: 0
   animator: {fileID: 2241017928047794553}
 --- !u!65 &4467463837553292629
 BoxCollider:
