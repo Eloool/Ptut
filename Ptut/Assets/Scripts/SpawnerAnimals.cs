@@ -11,6 +11,8 @@ public class SpawnerAnimals : MonoBehaviour
     public GameObject Cow;
     public GameObject Sheep;
 
+    public GameObject RockSword;
+
     public float nbChunkInLine = 8; // Nombre de chunks sur une ligne
     private float TailleMap;
     private float TailleChunk;
@@ -37,6 +39,9 @@ public class SpawnerAnimals : MonoBehaviour
         SpawnEntities(Pig, 13f / 64f); // Cochons, Nb entité moyens
         SpawnEntities(Horse, 15f / 64f); // Chevaux, Nb entité moyens
         SpawnEntities(Cow, 14f / 64f); // Vaches, Nb entité moyens
+
+        // Appeler la fonction pour spawner une seule RockSword
+        SpawnSingleEntity(RockSword);
     }
 
     float GetTerrainHeightAtPosition(Vector3 position)
@@ -83,5 +88,23 @@ public class SpawnerAnimals : MonoBehaviour
                 }
             }
         }
+    }
+
+    void SpawnSingleEntity(GameObject entityPrefab)
+    {
+        if (entityPrefab == null)
+        {
+            Debug.LogError("Prefab non assigné !");
+            return;
+        }
+
+        // Générer une position aléatoire sur le terrain
+        float spawnX = Random.Range(0, TailleMap);
+        float spawnZ = Random.Range(0, TailleMap);
+        float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
+        Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
+
+        // Instancier l'entité
+        Instantiate(entityPrefab, spawnPos, Quaternion.identity);
     }
 }
