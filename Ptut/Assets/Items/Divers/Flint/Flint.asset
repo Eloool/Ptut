@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 8
-  ItemName: Stone
+  ItemName: Silex
   ItemDescription: 
-  amountStockableMax: 10
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 5572fbfb3009d114cacbaafeeba948ac, type: 3}
   prefab3D: {fileID: 4885398589579971558, guid: 29a643ba1eefa404b8ff0acfee0e76ad, type: 3}
   iconImage: {fileID: 21300000, guid: f88aa655d97c1c4439577d503307bd12, type: 3}

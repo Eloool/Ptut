@@ -45,7 +45,7 @@ LODGroup:
   m_GameObject: {fileID: 7705496226487088969}
   serializedVersion: 2
   m_LocalReferencePoint: {x: -0.07919979, y: 0.24734217, z: -0.14362884}
-  m_Size: 20
+  m_Size: 10
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -146,8 +146,14 @@ MonoBehaviour:
   TypeItem: 10
   _probabilityDrop:
   - Item: {fileID: 11400000, guid: bf80185493bed0a43a800b999eba2bb2, type: 2}
-    amountEach25Percentage: 1
-    amountTotal: 4
+    amountEach25Percentage: 2
+    amountTotal: 10
   - Item: {fileID: 11400000, guid: 13dd5dd9b39eabe43b0f6feff30d0bfd, type: 2}
     amountEach25Percentage: 1
-    amountTotal: 4
+    amountTotal: 5
+  - Item: {fileID: 11400000, guid: c11cffbd30d60054c8d168ca796357f6, type: 2}
+    amountEach25Percentage: 1
+    amountTotal: 5
+  - Item: {fileID: 11400000, guid: f04c2d24298f84f4f9cbbff560505f2c, type: 2}
+    amountEach25Percentage: 1
+    amountTotal: 5

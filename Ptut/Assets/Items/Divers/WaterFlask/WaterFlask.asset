@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a5d57d5df33f040953ac33b943ca41, type: 3}
+  m_Name: WaterFlask
+  m_EditorClassIdentifier: 
+  TypeOfItem: 9
+  id: 63
+  ItemName: Gourde remplie
+  ItemDescription: 
+  amountStockableMax: 3
+  prefabIcon: {fileID: 5073535221756712873, guid: 33d9430bfc7ef784487831e37407c81c, type: 3}
+  prefab3D: {fileID: 426017411165772581, guid: c406a17c5070a0448b56d2c8c1c8ea57, type: 3}
+  iconImage: {fileID: 21300000, guid: 6f1ca80ef283dc14cbac4f606ffadcf6, type: 3}

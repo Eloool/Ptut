@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 10
-  ItemName: Stone
+  ItemName: Lingot de fer
   ItemDescription: 
-  amountStockableMax: 10
+  amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 62c314d1ebfb3d4479679ca8055737f8, type: 3}
   prefab3D: {fileID: 6198049120335771144, guid: 2b78781026a913a4e80a24f2a1aa2d13, type: 3}
   iconImage: {fileID: 21300000, guid: aa9f9b672a77c3b41945a35ff69735e4, type: 3}
