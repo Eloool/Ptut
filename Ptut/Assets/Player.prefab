@@ -2068,8 +2068,8 @@ GameObject:
   - component: {fileID: 7392192298117159449}
   - component: {fileID: 2784555210706961384}
   - component: {fileID: 3159679902044717393}
-  - component: {fileID: 6244079101055290467}
   - component: {fileID: 9218709835399934693}
+  - component: {fileID: 6244079101055290467}
   - component: {fileID: 5712231156705133095}
   - component: {fileID: 7980908238047582309}
   - component: {fileID: 7037623787212626596}
@@ -2178,26 +2178,6 @@ CapsuleCollider:
   m_Height: 1.9709153
   m_Direction: 1
   m_Center: {x: 0, y: 0.954252, z: 0}
---- !u!114 &6244079101055290467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204493297957568510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 247335de9c2ba3d49bbbada1d0562339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aimButton: Aim
-  shoulderButton: Aim Shoulder
-  crosshair: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
-  aimTurnSmoothing: 0.15
-  aimPivotOffset: {x: 0.5, y: 1.2, z: 0}
-  aimCamOffset: {x: 0, y: 0.5, z: -1}
-  aimBool: 0
-  aim: 0
 --- !u!114 &9218709835399934693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,6 +2200,26 @@ MonoBehaviour:
   jumpIntertialForce: 10
   speed: 0
   speedSeeker: 0
+--- !u!114 &6244079101055290467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204493297957568510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247335de9c2ba3d49bbbada1d0562339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimButton: Aim
+  shoulderButton: Aim Shoulder
+  crosshair: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
+  aimTurnSmoothing: 0.15
+  aimPivotOffset: {x: 0.5, y: 1.2, z: 0}
+  aimCamOffset: {x: 0, y: 0.5, z: -1}
+  aimBool: 0
+  aim: 0
 --- !u!114 &5712231156705133095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2354,9 +2354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4961ed6b4a15053439eef0803545c376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverCanva: {fileID: 0}
-  InventoryCanva: {fileID: 0}
-  StatsCanva: {fileID: 0}
   background: {fileID: 0}
   alpha: 0
 --- !u!114 &5796387645510997356

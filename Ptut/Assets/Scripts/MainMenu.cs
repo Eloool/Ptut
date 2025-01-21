@@ -10,6 +10,27 @@ public class MainMenu : MonoBehaviour
     public GameObject difficulty;
     public GameObject mainMenu;
 
+    public GameObject _LoadingScreen;
+    public Image LoadingFill;
+
+    public void LoadScene(int sceneId)
+    {
+        StartCoroutine(LoadSceneAsync(sceneId));
+    }
+
+    IEnumerator LoadSceneAsync(int SceneId)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneId);
+
+        _LoadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progressvalue = Mathf.Clamp01(operation.progress / 0.9f);
+            LoadingFill.fillAmount = progressvalue;
+            yield return null;
+        }
+    }
     public void ShowDifficulty()
     {
         difficulty.SetActive(true);
@@ -18,7 +39,8 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadSceneAsync(1);
+        //SceneManager.LoadSceneAsync(1);
+        LoadScene(1);
     }
 
     public void goHome()

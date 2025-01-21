@@ -26,31 +26,34 @@ public class BreakableGameObject : InteractableBase
     override public void GotHit(Item item)
     {
         HitObjectStat stat;
-        if (item == null || (!item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem != TypeItem))
-        {
-            int HealthLost = 1;
-            health -= HealthLost;
-            PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
-        }
-        else
+        if (item != null && !item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem == TypeItem)
         {
             int HealthLost = stat.hitObjectPower;
             health -= HealthLost;
             PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
         }
-
+        else
+        {
+            int HealthLost = 1;
+            health -= HealthLost;
+            PercentHealthLost += (float)HealthLost / (float)GetStat<HealthStat>().health;
+        }
+        
         if (health > 0 && PercentHealthLost>=0.25f)
         {
-            foreach (ItemDataAmountProbability probability in _probabilityDrop)
+            while (PercentHealthLost >= 0.25f)
             {
-                GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
-                while (PercentHealthLost >= 0.25f)
+                foreach (ItemDataAmountProbability probability in _probabilityDrop)
                 {
-                    itemDropped.GetComponent<Item>().amount += probability.amountEach25Percentage;
-                    PercentHealthLost -= 0.25f;
+                    if (probability.amountEach25Percentage > 4)
+                    {
+                        GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
+                        itemDropped.GetComponent<Item>().amount += probability.amountEach25Percentage;
+                        probability.amountTotal -= itemDropped.GetComponent<Item>().amount;
+                        Inventory.instance.AddtoInventory(itemDropped);
+                    }
                 }
-                probability.amountTotal -= itemDropped.GetComponent<Item>().amount;
-                Inventory.instance.AddtoInventory(itemDropped);
+                PercentHealthLost -= 0.25f;
             }
         }
         if(health <=0)
