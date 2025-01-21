@@ -3520,9 +3520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4961ed6b4a15053439eef0803545c376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverCanva: {fileID: 0}
-  InventoryCanva: {fileID: 0}
-  StatsCanva: {fileID: 0}
   background: {fileID: 0}
   alpha: 0
 --- !u!114 &305401292
@@ -4276,11 +4273,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e137d26f9f2988f439c1ed0b43062827, type: 3}
---- !u!4 &379634258 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e137d26f9f2988f439c1ed0b43062827, type: 3}
-  m_PrefabInstance: {fileID: 379634257}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &384475280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5490,11 +5482,6 @@ Transform:
   - {fileID: 1412748006}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &498198791 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e6d9a2518256cd4f98dd775d209990a, type: 3}
-  m_PrefabInstance: {fileID: 242116962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &499645049
 GameObject:
   m_ObjectHideFlags: 0
@@ -6583,6 +6570,7 @@ MonoBehaviour:
   Horse: {fileID: 0}
   Cow: {fileID: 0}
   Sheep: {fileID: 0}
+  RockSword: {fileID: 0}
   nbChunkInLine: 8
   terrain: {fileID: 0}
 --- !u!4 &662267409
@@ -15050,7 +15038,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2054541939}
-  - {fileID: 379634258}
+  - {fileID: 22660961}
   m_Father: {fileID: 495818284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920157985
@@ -16229,11 +16217,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1108615044004056878, guid: 0b05e92e0c0693e4aa293141b74c78b0, type: 3}
   m_PrefabInstance: {fileID: 7670354066859615301}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2071796934 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f39741d5bcf1b74e884d3a75847fe3a, type: 3}
-  m_PrefabInstance: {fileID: 469451401}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2075187160
 GameObject:
   m_ObjectHideFlags: 0
@@ -16981,6 +16964,10 @@ PrefabInstance:
     - target: {fileID: 7620931443876021725, guid: 90a134a9c134b7a48986caa403f3bbc6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980908238047582309, guid: 90a134a9c134b7a48986caa403f3bbc6, type: 3}
+      propertyPath: maxHealth
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
