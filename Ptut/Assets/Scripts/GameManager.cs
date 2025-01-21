@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,15 +10,8 @@ public class GameManager : MonoBehaviour
     public bool inDeafMode;
     public bool inFullscreen;
 
-    public TMP_Dropdown qualityDropdown;
-
-
-    private void Start()
-    {
-        inDeafMode = false;
-        inFullscreen = true;
-        Screen.fullScreen = inFullscreen;
-    }
+    public static int qualityIndex = 2;
+    public TMP_Text qualityText;
 
     private void Awake()
     {
@@ -28,6 +21,16 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+    }
+
+    private void Start()
+    {
+        inDeafMode = false;
+        inFullscreen = true;
+        Screen.fullScreen = inFullscreen;
+
+        SetQuality(qualityIndex);
     }
 
     public void ToggleDeafMode()
@@ -46,18 +49,25 @@ public class GameManager : MonoBehaviour
         {
             Screen.fullScreenMode = FullScreenMode.Windowed;
         }
-
-        //Screen.fullScreen = inFullscreen;
     }
 
-    public void setQuality(int qualityindex)
+    public void SetQuality(int qualityIndex)
     {
-        QualitySettings.SetQualityLevel(qualityindex);
-        Debug.Log($"Quality changed to: {QualitySettings.names[qualityindex]}");
+        QualitySettings.SetQualityLevel(qualityIndex);
+        Debug.Log($"Quality changed to: {QualitySettings.names[qualityIndex]}");
 
-        //if (qualityDropdown != null)
-        //{
-        //    qualityDropdown.value = qualityindex;
-        //}
+        QualitySettings.vSyncCount = 0;  // Disable V-Sync to allow unlimited FPS
+
+        GameManager.qualityIndex = qualityIndex;
+        //UpdateQualityText();
+        
     }
+
+    //private void UpdateQualityText()
+    //{
+    //    if (qualityText != null)
+    //    {
+    //        qualityText.text = $"{QualitySettings.names[qualityIndex]}"; // Update the text to show the quality name
+    //    }
+    //}
 }
