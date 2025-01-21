@@ -11,18 +11,14 @@ public class GameLoader : MonoBehaviour
     public PlayerStats player;
 
     [SerializeField]
-    private GameObject canvaDifficulty, canvaCustom, canvaStats, canvasInfoCustom, canvasMainMenu;
+    private GameObject canvaDifficulty, canvaCustom, canvaStats, canvasInfoCustom;
 
     public Button[] difficultyButtons;
 
     [SerializeField] private CustomInputManager customInputManager;
 
-    public MainMenu mainMenu;
-
     void Start()
     {
-        Time.timeScale = 0f;
-        canvaDifficulty.SetActive(false);
         canvaCustom.SetActive(false);
         canvaStats.SetActive(false);
 
@@ -54,8 +50,6 @@ public class GameLoader : MonoBehaviour
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
         Time.timeScale = 1f;//Set le time scale à 1 car on le met a 0 dans le Start
-        Debug.Log($"Time.timeScale = {Time.timeScale}");
-        mainMenu.PlayGame();
     }
 
     public void LoadModeNormal()
@@ -74,7 +68,6 @@ public class GameLoader : MonoBehaviour
         canvaStats.SetActive(true);
         Time.timeScale = 1f;
 
-        mainMenu.PlayGame();
     }
 
     public void LoadModeHard()
@@ -92,8 +85,6 @@ public class GameLoader : MonoBehaviour
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
         Time.timeScale = 1f;
-
-        mainMenu.PlayGame();
     }
 
     public void LoadModeCustom()
@@ -125,8 +116,6 @@ public class GameLoader : MonoBehaviour
         canvaStats.SetActive(true);
 
         Time.timeScale = 1f; // Réactive le jeu
-
-        mainMenu.PlayGame();
     }
 
     public void ShowCustomMode()
@@ -182,7 +171,6 @@ public class GameLoader : MonoBehaviour
     public void HideDifficulty()
     {
         canvaDifficulty.SetActive(false);
-        canvasMainMenu.SetActive(true);
         Time.timeScale = 1f;
     }
 

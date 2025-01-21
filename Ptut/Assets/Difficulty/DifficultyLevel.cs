@@ -74,9 +74,9 @@ public class DifficultyLevel : ScriptableObject
 
     private void setStaminaDecrease()
     {
-        if (_gameDifficulty == Difficulty.Easy) staminaDecrease = 0.1f;
-        else if (_gameDifficulty == Difficulty.Normal) staminaDecrease = 0.2f;
-        else staminaDecrease = 0.3f;
+        if (_gameDifficulty == Difficulty.Easy) staminaDecrease = 0.3f;
+        else if (_gameDifficulty == Difficulty.Normal) staminaDecrease = 0.65f;
+        else staminaDecrease = 1.0f;
     }
 
     public float getStaminaDecrease()
@@ -87,9 +87,9 @@ public class DifficultyLevel : ScriptableObject
 
     private void setDamage()
     {
-        if (_gameDifficulty == Difficulty.Easy) Damage = 85.0f;
-        else if (_gameDifficulty == Difficulty.Normal) Damage = 100.0f;
-        else Damage =115.0f;
+        if (_gameDifficulty == Difficulty.Easy) Damage = 0.85f;
+        else if (_gameDifficulty == Difficulty.Normal) Damage = 1.0f;
+        else Damage = 1.15f;
     }
 
     public float getDamage()
