@@ -13,12 +13,7 @@ public class GameManager : MonoBehaviour
     //public TMP_Dropdown qualityDropdown;
 
 
-    private void Start()
-    {
-        inDeafMode = false;
-        inFullscreen = true;
-        Screen.fullScreen = inFullscreen;
-    }
+    
     public static int qualityIndex = 2;
     public TMP_Text qualityText;
 
