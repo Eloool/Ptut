@@ -42,6 +42,8 @@ public class PlayerStats : MonoBehaviour
 
     public bool isDying = false; // Flag to check if the player is already dying
 
+    public ToogleCanvas canvaGO;
+
 
     private void Awake()
     {
@@ -201,6 +203,7 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator Die() // game over
     {
+        CanvasController.instance.ShowCanvas(canvaGO);
         if (isDying) yield break; // Exit the coroutine if already dying
         isDying = true; // Set the flag to true
 

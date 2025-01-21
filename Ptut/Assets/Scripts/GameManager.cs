@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public bool inDeafMode;
     public bool inFullscreen;
 
-    public TMP_Dropdown qualityDropdown;
+    //public TMP_Dropdown qualityDropdown;
 
 
     private void Start()
