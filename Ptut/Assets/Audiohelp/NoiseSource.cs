@@ -43,9 +43,13 @@ public class NoiseSource : MonoBehaviour
             Debug.LogError("Aucun objet avec le tag 'Player' trouvé !");
         }
 
-        modesourd = GameManager.instance.inDeafMode;
+        modesourd = GameManager.inDeafMode;
     }
 
+    private void Update()
+    {
+        modesourd = GameManager.inDeafMode;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
