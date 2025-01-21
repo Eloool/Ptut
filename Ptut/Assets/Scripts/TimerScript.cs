@@ -54,7 +54,7 @@ public class TimerScript : MonoBehaviour
 
     void TimeUp()
     {
-        Debug.Log("Le temps est écoulé !");
+        //Debug.Log("Le temps est écoulé !");
         if (endMessage != null)
         {
             endMessage.SetActive(true); // Affiche le message ou le panneau

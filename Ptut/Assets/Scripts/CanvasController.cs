@@ -33,7 +33,11 @@ public class CanvasController : MonoBehaviour
         {
             cameraController.enabled = false;
         }
-        Time.timeScale = 0f;
+        if (!(targetCanvas is GameOverMenu cast))
+        {
+            Time.timeScale = 0f;
+        }
+        
         
     }
 
