@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public bool inDeafMode;
     public bool inFullscreen;
+
+    public TMP_Dropdown qualityDropdown;
 
 
     private void Start()
@@ -45,5 +48,16 @@ public class GameManager : MonoBehaviour
         }
 
         //Screen.fullScreen = inFullscreen;
+    }
+
+    public void setQuality(int qualityindex)
+    {
+        QualitySettings.SetQualityLevel(qualityindex);
+        Debug.Log($"Quality changed to: {QualitySettings.names[qualityindex]}");
+
+        //if (qualityDropdown != null)
+        //{
+        //    qualityDropdown.value = qualityindex;
+        //}
     }
 }
