@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Schema;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,7 @@ public class GameOverMenu : ToogleCanvas
     private bool alphaUp;
     private int total;
     PlayerStats stats;
+    public GameObject gameMenu;
 
 
     // Start is called before the first frame update
@@ -25,24 +27,25 @@ public class GameOverMenu : ToogleCanvas
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
         
-        if (stats.isDying)
-        {
-            CanvasController.instance.ShowCanvas(this);
-        }
-    }
+    //    if (stats.isDying)
+    //    {
+    //        CanvasController.instance.ShowCanvas(canvaGO);
+    //    }
+    //}
 
     IEnumerator activateCanva()
     {
+        gameMenu.SetActive(true);
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0.2f;// met le time scale a 0.2 pour que le player die au ralenti
 
         // Attente de 5 secondes en temps réel
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(6);
 
         // Réglage du Time.timeScale à 0
         Time.timeScale = 0;
