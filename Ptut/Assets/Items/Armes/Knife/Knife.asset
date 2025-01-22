@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 4
   id: 26
-  ItemName: Couteau
+  ItemName: Knife
   ItemDescription: 
   amountStockableMax: 1
   prefabIcon: {fileID: 4484003225892084542, guid: cddc7fe5f1ff7e545aea22c58c6f8b89, type: 3}

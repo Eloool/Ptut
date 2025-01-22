@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 25
-  ItemName: Soupe rouge
+  ItemName: Red soup
   ItemDescription: 
   amountStockableMax: 3
   prefabIcon: {fileID: 5073535221756712873, guid: 6688df06fd60f544a90ab717b61c973c, type: 3}

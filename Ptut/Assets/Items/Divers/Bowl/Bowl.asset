@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 4
-  ItemName: Bol
+  ItemName: Bowl
   ItemDescription: 
   amountStockableMax: 3
   prefabIcon: {fileID: 5073535221756712873, guid: ce826e507a49fa147985b24d7bd2784f, type: 3}

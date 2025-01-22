@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 1
-  ItemName: Pierre
+  ItemName: Stone
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: c2a94bd7acf0785459987314a05e5945, type: 3}

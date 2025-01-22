@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 8
-  ItemName: Silex
+  ItemName: Flint
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 5572fbfb3009d114cacbaafeeba948ac, type: 3}

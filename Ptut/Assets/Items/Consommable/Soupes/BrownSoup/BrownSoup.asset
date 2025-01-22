@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 20
-  ItemName: Soupe brune
+  ItemName: Brown soup
   ItemDescription: 
   amountStockableMax: 3
   prefabIcon: {fileID: 5073535221756712873, guid: ac6c0bdccf1ef10459f6ad731ce29296, type: 3}
