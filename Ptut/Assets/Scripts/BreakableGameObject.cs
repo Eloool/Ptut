@@ -14,19 +14,19 @@ public class BreakableGameObject : InteractableBase
     private void Awake()
     {
         gameObject.layer = 8;
-        for (int i = 0; i < _probabilityDrop.Count; i++)
-        {
-            if (_probabilityDrop[i].amountEach25Percentage * 4 > _probabilityDrop[i].amountTotal)
-            {
-                Debug.LogError(gameObject + " a trop de amountEach10Percentage pour l'amountTotal à la place : " + i);
-            }
-        }
+        //for (int i = 0; i < _probabilityDrop.Count; i++)
+        //{
+        //    if (_probabilityDrop[i].amountEach25Percentage * 4 > _probabilityDrop[i].amountTotal)
+        //    {
+        //        Debug.LogError(gameObject + " a trop de amountEach10Percentage pour l'amountTotal à la place : " + i);
+        //    }
+        //}
     }
 
     override public void GotHit(Item item)
     {
         HitObjectStat stat;
-        if (item != null && !item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem == TypeItem)
+        if (item != null && item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem == TypeItem)
         {
             int HealthLost = stat.hitObjectPower;
             health -= HealthLost;
