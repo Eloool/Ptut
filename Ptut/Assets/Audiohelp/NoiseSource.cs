@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.SearchService;
 using UnityEngine;
 
 public class NoiseSource : MonoBehaviour
@@ -15,14 +14,6 @@ public class NoiseSource : MonoBehaviour
 
     private void Start()
     {
-        // Configure automatiquement le SphereCollider
-        SphereCollider collider = GetComponent<SphereCollider>();
-        if (collider != null)
-        {
-            collider.isTrigger = true;
-            collider.radius = noiseRadius;
-        }
-
         // Configure l'AudioSource pour boucler
         if (audioSource != null)
         {
@@ -46,9 +37,14 @@ public class NoiseSource : MonoBehaviour
         modesourd = GameManager.instance.inDeafMode;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("Player"))
+        if (playerTransform == null) return;
+
+        // Calculer la distance entre le joueur et la source de bruit
+        float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
+
+        if (distanceToPlayer <= noiseRadius)
         {
             EmitNoise();
 
@@ -58,11 +54,7 @@ public class NoiseSource : MonoBehaviour
                 audioSource.Play();
             }
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        else
         {
             ClearNoiseIcon();
 
