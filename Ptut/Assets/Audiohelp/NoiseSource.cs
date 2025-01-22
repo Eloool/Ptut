@@ -5,11 +5,11 @@ using UnityEngine;
 public class NoiseSource : MonoBehaviour
 {
     public float noiseRadius = 10f; // Rayon du bruit
-    public GameObject noiseIconPrefab; // Préfab pour l'icône visuelle
-    private GameObject activeNoiseIcon; // Instance de l'icône
-    public AudioSource audioSource; // Source audio associée au bruit
+    public GameObject noiseIconPrefab; // Prï¿½fab pour l'icï¿½ne visuelle
+    private GameObject activeNoiseIcon; // Instance de l'icï¿½ne
+    public AudioSource audioSource; // Source audio associï¿½e au bruit
 
-    private Transform playerTransform; // Référence au joueur
+    private Transform playerTransform; // Rï¿½fï¿½rence au joueur
     public bool modesourd;
 
     private void Start()
@@ -18,8 +18,8 @@ public class NoiseSource : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.spatialBlend = 1f; // Son 3D
-            audioSource.maxDistance = noiseRadius; // Distance maximale pour l'atténuation
-            audioSource.rolloffMode = AudioRolloffMode.Linear; // Atténuation linéaire
+            audioSource.maxDistance = noiseRadius; // Distance maximale pour l'attï¿½nuation
+            audioSource.rolloffMode = AudioRolloffMode.Linear; // Attï¿½nuation linï¿½aire
             audioSource.loop = true; // Active la boucle
         }
 
@@ -31,13 +31,17 @@ public class NoiseSource : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Aucun objet avec le tag 'Player' trouvé !");
+            Debug.LogError("Aucun objet avec le tag 'Player' trouvï¿½ !");
         }
 
-        modesourd = GameManager.instance.inDeafMode;
+        modesourd = GameManager.inDeafMode;
     }
 
     private void Update()
+    {
+        modesourd = GameManager.inDeafMode;
+    }
+    private void OnTriggerEnter(Collider other)
     {
         if (playerTransform == null) return;
 
@@ -48,7 +52,7 @@ public class NoiseSource : MonoBehaviour
         {
             EmitNoise();
 
-            // Démarre ou continue le son si disponible
+            // Dï¿½marre ou continue le son si disponible
             if (audioSource != null && !audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -58,7 +62,7 @@ public class NoiseSource : MonoBehaviour
         {
             ClearNoiseIcon();
 
-            // Arrête le son lorsque le joueur quitte le radius
+            // Arrï¿½te le son lorsque le joueur quitte le radius
             if (audioSource != null && audioSource.isPlaying)
             {
                 audioSource.Stop();
@@ -77,18 +81,18 @@ public class NoiseSource : MonoBehaviour
 
         if (activeNoiseIcon == null && noiseIconPrefab != null && modesourd == true)
         {
-            // Crée l'icône et l'attache au Canvas
+            // Crï¿½e l'icï¿½ne et l'attache au Canvas
             activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
 
             // Configure le NoiseIndicator pour suivre le joueur et la source
             NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
             if (indicator != null)
             {
-                indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la caméra ici
+                indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la camï¿½ra ici
             }
             else
             {
-                Debug.LogError("Le prefab d'icône n'a pas de script NoiseIndicator !");
+                Debug.LogError("Le prefab d'icï¿½ne n'a pas de script NoiseIndicator !");
             }
         }
     }

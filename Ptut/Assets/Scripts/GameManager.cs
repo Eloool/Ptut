@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public bool inDeafMode;
+    public static bool inDeafMode;
     public bool inFullscreen;
 
     //public TMP_Dropdown qualityDropdown;
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         Screen.fullScreen = inFullscreen;
 
         SetQuality(qualityIndex);
+
     }
 
     public void ToggleDeafMode()
