@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 11
-  ItemName: Branchage
+  ItemName: Branches
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 490edc00aa8145c488bdfcc5226cb82a, type: 3}

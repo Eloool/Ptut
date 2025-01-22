@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 9
-  ItemName: "\xC9clat d'obsidienne"
+  ItemName: Obsidian shards
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 28f87b166416da645a2cbadb0209dab3, type: 3}

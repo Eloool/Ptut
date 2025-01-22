@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 2
-  ItemName: Peau
+  ItemName: Skin
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 4484003225892084542, guid: 86f0b2fba55158847be4b3fbadc00bfd, type: 3}
