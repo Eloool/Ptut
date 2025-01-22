@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject difficulty;
-    public GameObject mainMenu;
-
     public GameObject _LoadingScreen;
     public Image LoadingFill;
 
@@ -30,11 +27,6 @@ public class MainMenu : MonoBehaviour
             LoadingFill.fillAmount = progressvalue;
             yield return null;
         }
-    }
-    public void ShowDifficulty()
-    {
-        difficulty.SetActive(true);
-        mainMenu.SetActive(false);
     }
     public void PlayGame()
     {
