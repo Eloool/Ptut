@@ -17,6 +17,9 @@ public class GameLoader : MonoBehaviour
 
     [SerializeField] private CustomInputManager customInputManager;
 
+    //public Canvas statsCanvas;
+    //public Canvas inventoryCanvas;
+
     void Start()
     {
         canvaCustom.SetActive(false);
@@ -26,6 +29,8 @@ public class GameLoader : MonoBehaviour
         {
             Debug.LogError("PlayerStats non assigné !");
         }
+
+        Time.timeScale = 0.0f;
     }
 
     void Awake()
@@ -49,7 +54,7 @@ public class GameLoader : MonoBehaviour
 
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
-        Time.timeScale = 1f;//Set le time scale à 1 car on le met a 0 dans le Start
+        Time.timeScale = 1f; //Set le time scale à 1 car on le met a 0 dans le Start
     }
 
     public void LoadModeNormal()
@@ -125,7 +130,8 @@ public class GameLoader : MonoBehaviour
             button.gameObject.SetActive(false);
         }
         canvaCustom.SetActive(true);
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
+        //Time.timeScale = 1f;
     }
 
     public void HideCustomMode()
