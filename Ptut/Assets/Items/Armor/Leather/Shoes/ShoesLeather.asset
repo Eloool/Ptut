@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 3
   id: 62
-  ItemName: Chaussures en cuir
+  ItemName: Leather boots
   ItemDescription: 
   amountStockableMax: 1
   prefabIcon: {fileID: 5073535221756712873, guid: 847372cb5feeb4340beaf7a8edc34171, type: 3}

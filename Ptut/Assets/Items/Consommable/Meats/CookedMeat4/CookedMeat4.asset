@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 54
-  ItemName: Viande cuite
+  ItemName: Cooked meat
   ItemDescription: 
   amountStockableMax: 10
   prefabIcon: {fileID: 5073535221756712873, guid: 3feabc0e36b60ba42888525151386f9f, type: 3}
