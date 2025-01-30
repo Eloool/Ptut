@@ -77,6 +77,10 @@ public class Inventory : ToogleCanvas
         {
             DropSpots.SetActive(inventaire.gameObject.activeInHierarchy);
         }
+        else
+        {
+            DropSpots.SetActive(false);
+        }
         ActionBar.ToogleCanDragitem(active);
         inventaire.ToogleCanDragitem(active);
     }
