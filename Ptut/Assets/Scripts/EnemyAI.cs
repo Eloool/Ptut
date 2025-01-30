@@ -58,8 +58,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float fleeDistance = 10f; // Distance to flee when afraid
 
-    private bool hasDestination;
-    private bool isAttacking;
+    private bool hasDestination;//if he has destination, he will go for it
+    private bool isAttacking;//when this boolean is tru that is wait the time of the attacking animation
 
 
     private void Start()
