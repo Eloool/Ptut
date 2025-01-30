@@ -19,12 +19,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else Destroy(gameObject);
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else Destroy(gameObject);
 
     }
 
@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Quality changed to: {QualitySettings.names[qualityIndex]}");
 
         QualitySettings.vSyncCount = 0;  // Disable V-Sync to allow unlimited FPS
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         GameManager.qualityIndex = qualityIndex;
         //UpdateQualityText();
