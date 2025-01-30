@@ -1634,7 +1634,6 @@ GameObject:
   - component: {fileID: 5532229326702686342}
   - component: {fileID: 6737164567241201273}
   - component: {fileID: 6704257868983368025}
-  - component: {fileID: -6395635554301195038}
   m_Layer: 0
   m_Name: Bear_4
   m_TagString: Untagged
@@ -1650,7 +1649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6795635116373925962}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.97865236, z: -0, w: -0.20552275}
+  m_LocalRotation: {x: -0, y: -0.9786528, z: 0, w: -0.2055208}
   m_LocalPosition: {x: -62.27, y: 7.89, z: 4.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -1714,8 +1713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c5666e5bb573c49bcc1bdd169b53b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7812183468095683478, guid: 81b30d0f151a088408b2bc40d4229028, type: 3}
-  playerStats: {fileID: 5224317545249911892, guid: 81b30d0f151a088408b2bc40d4229028, type: 3}
+  player: {fileID: 0}
+  playerStats: {fileID: 0}
   agent: {fileID: 5999599060224112778}
   animator: {fileID: 5578735290547125991}
   detectionRadius: 10
@@ -1893,27 +1892,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!135 &-6395635554301195038
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795635116373925962}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6797394123665688843
 GameObject:
   m_ObjectHideFlags: 0
