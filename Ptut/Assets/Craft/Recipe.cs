@@ -40,7 +40,7 @@ public class Recipe : MonoBehaviour
 
         RecipeAmount = recipe.craftableItem.amount;
 
-        bool canCraft = true; 
+        bool canCraft = true;
 
         for (int i = 0; i < recipe.requiredItems.Length; i++)
         {
@@ -87,6 +87,7 @@ public class Recipe : MonoBehaviour
             return;
         }
 
+        
         // Instanciation de l'objet � partir du prefab
         GameObject instance = Instantiate(prefab);
         instance.GetComponent<Item>().amount = RecipeAmount;
