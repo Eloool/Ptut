@@ -9,6 +9,8 @@ public class BreakableGameObject : InteractableBase
     [SerializeField]
     private List<ItemDataAmountProbability> _probabilityDrop = new List<ItemDataAmountProbability>();
 
+    private int currPercent =4;
+
     private float PercentHealthLost = 0.0f;
 
     private void Awake()
@@ -45,7 +47,7 @@ public class BreakableGameObject : InteractableBase
             {
                 foreach (ItemDataAmountProbability probability in _probabilityDrop)
                 {
-                    if (probability.amountEach25Percentage > 4)
+                    if (probability.amountEach25Percentage >= probability.amountTotal/currPercent)
                     {
                         GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
                         itemDropped.GetComponent<Item>().amount += probability.amountEach25Percentage;
@@ -53,6 +55,7 @@ public class BreakableGameObject : InteractableBase
                         Inventory.instance.AddtoInventory(itemDropped);
                     }
                 }
+                currPercent--;
                 PercentHealthLost -= 0.25f;
             }
         }

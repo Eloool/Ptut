@@ -126,11 +126,16 @@ public abstract class InventoryBase : MonoBehaviour
             }
             else
             {
-                if (ListeObjets[i].item.GetComponent<Item>().ItemData.id == item.GetComponent<Item>().ItemData.id)
+                if (ListeObjets[i].item.GetComponent<Item>().ItemData.id 
+                    == item.GetComponent<Item>().ItemData.id)
                     //item.GetComponent<Item>().ItemData.amountStockableMax >= ListeObjets[i].item.GetComponent<Item>().amount + item.GetComponent<Item>().amount)
                 {
                     ListeObjets[i].AddtwoItem(ListeObjets[i].item, item.GetComponent<Item>());
                     ListeObjets[i].item.UpdateTextAmount();
+                    if (item.GetComponent<Item>().amount == 0)
+                    {
+                        return true;
+                    }
                 }
             }
         }

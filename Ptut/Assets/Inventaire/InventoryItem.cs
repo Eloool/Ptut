@@ -86,7 +86,10 @@ public class InventoryItem : MonoBehaviour,IDropHandler
         }
         if (numberofiteminexcess == 0)
         {
+            item2.amount = 0;
             Destroy(item2.gameObject);
+            item2 = null;
+            return;
         }
         else
         {
@@ -99,6 +102,7 @@ public class InventoryItem : MonoBehaviour,IDropHandler
         if (item2.amount == 0)
         {
             Destroy(item2.gameObject);
+            item2 = null;
         }
         
     }
