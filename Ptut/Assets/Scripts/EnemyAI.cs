@@ -188,10 +188,13 @@ public class EnemyAI : MonoBehaviour
         isAttacking = true;
         agent.isStopped = true;
 
-        playerStats.TakeDamage(damageDealt); // Deal damage to the player
         animator.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(attackDelay / 2); // separated delay so the player takes damage in the middle of the animation/attackDelay
+
+        playerStats.TakeDamage(damageDealt); // Deal damage to the player
+
+        yield return new WaitForSeconds(attackDelay / 2);
 
         if (agent.enabled)
         {
