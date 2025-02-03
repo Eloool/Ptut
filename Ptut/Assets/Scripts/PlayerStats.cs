@@ -68,6 +68,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
+        UpdateHealthBarFill();
         UpdateHungerThirstBarsFill();
         UpdateStaminaBarFill();
 
@@ -95,6 +96,11 @@ public class PlayerStats : MonoBehaviour
 
     void UpdateHealthBarFill()
     {
+        if (currHunger >= 80 && currThirst >= 80)
+        {
+            currHealth += healthLossPerSecond * Time.deltaTime;
+        }
+
         healthBarFill.fillAmount = currHealth / maxHealth;
     }
 
@@ -156,7 +162,6 @@ public class PlayerStats : MonoBehaviour
         staminaBarFill.fillAmount = currStamina / maxStamina;
     }
 
-    //  
     IEnumerator LowStamina()
     {
         yield return new WaitForSeconds(3);
