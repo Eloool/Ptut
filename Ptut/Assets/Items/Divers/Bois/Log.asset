@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 6
-  ItemName: Bois
+  ItemName: Wood
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: e2e881047ae214140a17c40c3e799f9c, type: 3}

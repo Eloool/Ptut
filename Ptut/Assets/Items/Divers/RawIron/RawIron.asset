@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 5
-  ItemName: Minerai de fer
+  ItemName: Raw iron
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: 532b1aff5312eca4484ccecc486c470e, type: 3}

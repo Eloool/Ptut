@@ -22,7 +22,7 @@ public class CustomInputManager : MonoBehaviour
         defaultValues["HungerLoss"] = 0.2f;
         defaultValues["ThirstLoss"] = 0.2f;
         defaultValues["StaminaLoss"] = 0.2f;
-        defaultValues["DamageIndice"] = 100f;
+        defaultValues["DamageIndice"] = 1.0f;
 
         // Initialiser les valeurs par défaut dans inputValues
         foreach (var input in inputFields)

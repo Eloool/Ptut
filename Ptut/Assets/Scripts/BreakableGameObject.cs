@@ -9,24 +9,26 @@ public class BreakableGameObject : InteractableBase
     [SerializeField]
     private List<ItemDataAmountProbability> _probabilityDrop = new List<ItemDataAmountProbability>();
 
+    private int currPercent =4;
+
     private float PercentHealthLost = 0.0f;
 
     private void Awake()
     {
         gameObject.layer = 8;
-        for (int i = 0; i < _probabilityDrop.Count; i++)
-        {
-            if (_probabilityDrop[i].amountEach25Percentage * 4 > _probabilityDrop[i].amountTotal)
-            {
-                Debug.LogError(gameObject + " a trop de amountEach10Percentage pour l'amountTotal à la place : " + i);
-            }
-        }
+        //for (int i = 0; i < _probabilityDrop.Count; i++)
+        //{
+        //    if (_probabilityDrop[i].amountEach25Percentage * 4 > _probabilityDrop[i].amountTotal)
+        //    {
+        //        Debug.LogError(gameObject + " a trop de amountEach10Percentage pour l'amountTotal à la place : " + i);
+        //    }
+        //}
     }
 
     override public void GotHit(Item item)
     {
         HitObjectStat stat;
-        if (item != null && !item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem == TypeItem)
+        if (item != null && item.TryGetStat<HitObjectStat>(out stat) && item.ItemData.TypeOfItem == TypeItem)
         {
             int HealthLost = stat.hitObjectPower;
             health -= HealthLost;
@@ -45,7 +47,7 @@ public class BreakableGameObject : InteractableBase
             {
                 foreach (ItemDataAmountProbability probability in _probabilityDrop)
                 {
-                    if (probability.amountEach25Percentage > 4)
+                    if (probability.amountEach25Percentage >= probability.amountTotal/currPercent)
                     {
                         GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[probability.Item.id].prefabIcon);
                         itemDropped.GetComponent<Item>().amount += probability.amountEach25Percentage;
@@ -53,6 +55,7 @@ public class BreakableGameObject : InteractableBase
                         Inventory.instance.AddtoInventory(itemDropped);
                     }
                 }
+                currPercent--;
                 PercentHealthLost -= 0.25f;
             }
         }

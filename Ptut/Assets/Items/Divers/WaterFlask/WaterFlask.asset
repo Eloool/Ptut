@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 9
   id: 63
-  ItemName: Gourde remplie
+  ItemName: Water flask
   ItemDescription: 
   amountStockableMax: 3
   prefabIcon: {fileID: 5073535221756712873, guid: 33d9430bfc7ef784487831e37407c81c, type: 3}

@@ -16,7 +16,7 @@ MonoBehaviour:
     requiredItem: {fileID: 11400000, guid: b119edc8688e8244f9662de013540375, type: 2}
     amount: 1
   requiredItems:
-  - requiredItem: {fileID: 11400000, guid: 1a5dd80a6af16e540bda94b982d6df03, type: 2}
+  - requiredItem: {fileID: 11400000, guid: 32a4195a6a8603f43b9411f66f1b91a7, type: 2}
     amount: 10
   - requiredItem: {fileID: 11400000, guid: 821530dea7a15334fade8b014d030ea1, type: 2}
     amount: 4

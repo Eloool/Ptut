@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfItem: 10
   id: 19
-  ItemName: Corde
+  ItemName: Rope
   ItemDescription: 
   amountStockableMax: 40
   prefabIcon: {fileID: 5073535221756712873, guid: f68f0824aaef24c429c86b4fe1ae3e14, type: 3}

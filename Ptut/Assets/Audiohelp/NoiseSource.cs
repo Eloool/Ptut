@@ -1,34 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.SearchService;
 using UnityEngine;
 
 public class NoiseSource : MonoBehaviour
 {
     public float noiseRadius = 10f; // Rayon du bruit
-    public GameObject noiseIconPrefab; // Préfab pour l'icône visuelle
-    private GameObject activeNoiseIcon; // Instance de l'icône
-    public AudioSource audioSource; // Source audio associée au bruit
+    public GameObject noiseIconPrefab; // PrÃ©fab pour l'icÃ´ne visuelle
+    private GameObject activeNoiseIcon; // Instance de l'icÃ´ne
+    public AudioSource audioSource; // Source audio associÃ©e au bruit
 
-    private Transform playerTransform; // Référence au joueur
+    private Transform playerTransform; // RÃ©fÃ©rence au joueur
     public bool modesourd;
 
     private void Start()
     {
-        // Configure automatiquement le SphereCollider
-        SphereCollider collider = GetComponent<SphereCollider>();
-        if (collider != null)
-        {
-            collider.isTrigger = true;
-            collider.radius = noiseRadius;
-        }
-
         // Configure l'AudioSource pour boucler
         if (audioSource != null)
         {
             audioSource.spatialBlend = 1f; // Son 3D
-            audioSource.maxDistance = noiseRadius; // Distance maximale pour l'atténuation
-            audioSource.rolloffMode = AudioRolloffMode.Linear; // Atténuation linéaire
+            audioSource.maxDistance = noiseRadius; // Distance maximale pour l'attÃ©nuation
+            audioSource.rolloffMode = AudioRolloffMode.Linear; // AttÃ©nuation linÃ©aire
             audioSource.loop = true; // Active la boucle
         }
 
@@ -40,7 +31,7 @@ public class NoiseSource : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Aucun objet avec le tag 'Player' trouvé !");
+            Debug.LogError("Aucun objet avec le tag 'Player' trouvÃ© !");
         }
 
         modesourd = GameManager.inDeafMode;
@@ -49,28 +40,26 @@ public class NoiseSource : MonoBehaviour
     private void Update()
     {
         modesourd = GameManager.inDeafMode;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (playerTransform == null) return;
+
+        // Calculer la distance entre le joueur et la source de bruit
+        float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
+
+        if (distanceToPlayer <= noiseRadius)
         {
             EmitNoise();
 
-            // Démarre ou continue le son si disponible
+            // DÃ©marre ou continue le son si disponible
             if (audioSource != null && !audioSource.isPlaying)
             {
                 audioSource.Play();
             }
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        else
         {
             ClearNoiseIcon();
 
-            // Arrête le son lorsque le joueur quitte le radius
+            // ArrÃªte le son lorsque le joueur quitte le radius
             if (audioSource != null && audioSource.isPlaying)
             {
                 audioSource.Stop();
@@ -89,18 +78,18 @@ public class NoiseSource : MonoBehaviour
 
         if (activeNoiseIcon == null && noiseIconPrefab != null && modesourd == true)
         {
-            // Crée l'icône et l'attache au Canvas
+            // CrÃ©e l'icÃ´ne et l'attache au Canvas
             activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
 
             // Configure le NoiseIndicator pour suivre le joueur et la source
             NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
             if (indicator != null)
             {
-                indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la caméra ici
+                indicator.Initialize(playerTransform, transform, Camera.main); // Passe aussi la camÃ©ra ici
             }
             else
             {
-                Debug.LogError("Le prefab d'icône n'a pas de script NoiseIndicator !");
+                Debug.LogError("Le prefab d'icÃ´ne n'a pas de script NoiseIndicator !");
             }
         }
     }

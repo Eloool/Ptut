@@ -56,7 +56,7 @@ public class CraftingSystem : ToogleCanvas
         foreach (Transform child in recipesParent)
         {
             child.gameObject.SetActive(false); 
-            Destroy(child.gameObject, 0.1f);   
+            Destroy(child.gameObject);   
         }
 
         for (int i = 0; i < availableRecipes.Length; i++)

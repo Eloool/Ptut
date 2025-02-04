@@ -58,8 +58,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float fleeDistance = 10f; // Distance to flee when afraid
 
-    private bool hasDestination;
-    private bool isAttacking;
+    private bool hasDestination;//if he has destination, he will go for it
+    private bool isAttacking;//when this boolean is tru that is wait the time of the attacking animation
 
 
     private void Start()
@@ -188,10 +188,13 @@ public class EnemyAI : MonoBehaviour
         isAttacking = true;
         agent.isStopped = true;
 
-        playerStats.TakeDamage(damageDealt); // Deal damage to the player
         animator.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(attackDelay / 2); // separated delay so the player takes damage in the middle of the animation/attackDelay
+
+        playerStats.TakeDamage(damageDealt); // Deal damage to the player
+
+        yield return new WaitForSeconds(attackDelay / 2);
 
         if (agent.enabled)
         {
