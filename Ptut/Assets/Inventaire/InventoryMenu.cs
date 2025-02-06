@@ -50,7 +50,6 @@ public class InventoryMenu : InventoryBase
 
         try
         {
-            Debug.Log($"ShowArmor called with show = {show}");
 
             if (ListeArmure == null || ListeArmure.Count == 0)
             {
@@ -67,12 +66,7 @@ public class InventoryMenu : InventoryBase
 
             if (parentObject.activeSelf != show)
             {
-                Debug.Log($"Changing parentObject active state to: {show}");
                 parentObject.SetActive(show);
-            }
-            else
-            {
-                Debug.LogWarning("Le parent est déjà dans l'état demandé.");
             }
         }
         finally

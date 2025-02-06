@@ -73,6 +73,7 @@ public class ActionBar : InventoryBase
     }
     public void SetCanScroll(bool canscroll)
     {
+        Debug.Log(canscroll);
         this.canscroll = canscroll;
     }
 }

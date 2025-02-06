@@ -84,7 +84,6 @@ public class CraftingSystem : ToogleCanvas
         else
         {
             ToggleCraftTable(false);
-            Inventory.instance.ActionBar.SetCanScroll(true);
         }
     }
 
