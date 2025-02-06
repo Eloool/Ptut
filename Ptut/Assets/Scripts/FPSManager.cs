@@ -6,6 +6,8 @@ public class FPSManager : MonoBehaviour
     public Text fpsText;
     private float deltaTime = 0.0f;
     private float lastFPS = 0.0f;
+    private float updateInterval = 0.5f; // to update every 0.5 seconds
+    private float timeSinceLastUpdate = 0.0f;
 
     void Update()
     {
@@ -15,9 +17,14 @@ public class FPSManager : MonoBehaviour
             lastFPS = 1.0f / deltaTime;
         }
 
-        if (fpsText != null)
+        timeSinceLastUpdate += Time.unscaledDeltaTime;
+        if (timeSinceLastUpdate >= updateInterval)
         {
-            fpsText.text = string.Format("{0:0.} FPS", lastFPS);
+            if (fpsText != null)
+            {
+                fpsText.text = string.Format("{0:0.} FPS", lastFPS);
+            }
+            timeSinceLastUpdate = 0.0f;
         }
     }
 }
