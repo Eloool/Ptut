@@ -39,7 +39,7 @@ public class PauseMenu : ToogleCanvas
     void Pause()
     {
         pauseMenuUI.SetActive(true);
-        
+        Inventory.instance.ActionBar.SetCanScroll(false);
         GameIsPaused = true;
     }
 

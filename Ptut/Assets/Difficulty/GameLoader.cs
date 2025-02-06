@@ -31,6 +31,7 @@ public class GameLoader : MonoBehaviour
         }
 
         Time.timeScale = 0.0f;
+        Application.targetFrameRate = 60;
     }
 
     void Awake()
