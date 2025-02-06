@@ -88,6 +88,11 @@ public class CanvasOven : ToogleCanvas
         }
         return null;
     }
+    public bool TryGetCookingData(ItemData itemdata,out CookingData cookingdata) 
+    {
+        cookingdata = GetCookingData(itemdata);
+        return cookingdata != null;
+    }
 
     public override void SetActiveCanvas(bool active)
     {
