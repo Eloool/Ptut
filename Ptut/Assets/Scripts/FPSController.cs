@@ -11,7 +11,7 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
-        QualitySettings.vSyncCount = 0;  // Disable V-Sync to allow unlimited FPS
+        QualitySettings.vSyncCount = 0;
 
         FPSSlider.onValueChanged.AddListener(SetFPSCap);
         SetFPSCap(FPSSlider.value);
