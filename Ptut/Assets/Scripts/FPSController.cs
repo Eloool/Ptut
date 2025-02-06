@@ -22,7 +22,7 @@ public class FPSController : MonoBehaviour
         int targetFPS = Mathf.RoundToInt(newFPSCap);
         Application.targetFrameRate = targetFPS;
 
-        if (FPSText != null) // Update UI text if assigned
+        if (FPSText != null)
         {
             FPSText.text = $"{targetFPS}";
         }
