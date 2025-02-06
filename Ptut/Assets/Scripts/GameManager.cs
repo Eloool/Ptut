@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,21 +13,9 @@ public class GameManager : MonoBehaviour
 
     //public TMP_Dropdown qualityDropdown;
 
-
-    
     public static int qualityIndex = 2;
     public TMP_Text qualityText;
 
-    private void Awake()
-    {
-        //if (instance == null)
-        //{
-        //    instance = this;
-        //    DontDestroyOnLoad(gameObject);
-        //}
-        //else Destroy(gameObject);
-
-    }
 
     private void Start()
     {
@@ -61,7 +50,6 @@ public class GameManager : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
         Debug.Log($"Quality changed to: {QualitySettings.names[qualityIndex]}");
 
-        QualitySettings.vSyncCount = 0;  // Disable V-Sync to allow unlimited FPS
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
@@ -69,12 +57,4 @@ public class GameManager : MonoBehaviour
         //UpdateQualityText();
         
     }
-
-    //private void UpdateQualityText()
-    //{
-    //    if (qualityText != null)
-    //    {
-    //        qualityText.text = $"{QualitySettings.names[qualityIndex]}"; // Update the text to show the quality name
-    //    }
-    //}
 }
