@@ -45,7 +45,7 @@ public class PauseMenu : ToogleCanvas
 
     public void LoadMenu()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(0);
         Time.timeScale = 0f;
     }
 
