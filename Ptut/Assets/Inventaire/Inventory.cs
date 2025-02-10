@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-//using static UnityEditor.Progress;
+using static UnityEditor.Progress;
 
 public class Inventory : ToogleCanvas
 {
@@ -16,7 +16,6 @@ public class Inventory : ToogleCanvas
     public InventoryMenu inventaire;
     public ActionBar ActionBar;
     public Sprite Background;
-    public GameObject CanvasPickup;
     public GameObject DropSpots;
     public List<StarterItem> ItemsStarter;
     public CanvasAddingInventory addingInventory;
@@ -100,40 +99,7 @@ public class Inventory : ToogleCanvas
         {
             while (!wasaddedfully)
             {
-                GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[item.GetComponent<Item>().ItemData.id].prefab3D, DropPoint.position, Quaternion.identity);
-                GameObject canvas = new();
-                GameObject CanvasForPickup = Instantiate(CanvasPickup);
-                ObjectDroped.layer = 7;
-                ObjectDroped.AddComponent<ItemPickup>();
-                ObjectDroped.GetComponent<ItemPickup>()._prompt = "Ramasser";
-                ObjectDroped.AddComponent<InteractionPromptUI>();
-                ObjectDroped.GetComponent<InteractionPromptUI>()._uiPanel = CanvasForPickup;
-                ObjectDroped.GetComponent<InteractionPromptUI>()._promptText = CanvasForPickup.GetComponentInChildren<TextMeshProUGUI>();
-                CanvasForPickup.AddComponent<CanvasAboveObject>();
-                CanvasForPickup.transform.SetParent(ObjectDroped.transform);
-                CanvasForPickup.transform.position = new Vector3(0, 0.1f, 0);
-                canvas.name = "Canvasimage";
-                canvas.transform.SetParent(ObjectDroped.transform);
-                canvas.AddComponent<Canvas>();
-                if (item.GetComponent<Item>().amount <= item.GetComponent<Item>().ItemData.amountStockableMax)
-                {
-                    ObjectDroped.GetComponent<Item3d>().IconItem = item;
-                    //ObjectDroped.GetComponent<Item3d>().IconItem.SetActive(false);
-                    wasaddedfully=true;
-                }
-                else {
-                    GameObject ItemCopy = Instantiate(item);
-                    ItemCopy.GetComponent<Item>().amount = item.GetComponent<Item>().ItemData.amountStockableMax;
-                    item.GetComponent<Item>().amount -= item.GetComponent<Item>().ItemData.amountStockableMax;
-                    ObjectDroped.GetComponent<Item3d>().IconItem = ItemCopy;
-                    //ItemCopy.SetActive(false);
-                }
-                ObjectDroped.GetComponent<Item3d>().IconItem.transform.SetParent(canvas.transform);
-                ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Image>().sprite = ObjectDroped.GetComponent<Item3d>().IconItem.GetComponent<Item>().ItemData.iconImage;
-                ObjectDroped.AddComponent<BoxCollider>();
-                ObjectDroped.AddComponent<Rigidbody>();
-                ObjectDroped.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
-                canvas.SetActive(false);
+                wasaddedfully = ListAllItems.Create3DItem(item, DropPoint);
             }
         }
         else

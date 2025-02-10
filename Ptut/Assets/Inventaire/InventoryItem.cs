@@ -140,7 +140,6 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     }
     virtual public void DropItem(Item ItemDropped)
     {
-
         if (item == null)
         {
             ItemDropped.gameObject.transform.SetParent(Position);

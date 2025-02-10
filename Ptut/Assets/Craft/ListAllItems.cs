@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class ListAllItems : MonoBehaviour
 {
     public List<ItemData> listeallItems;
     public static ListAllItems instance;
+    public GameObject CanvasPickup;
 
     void Awake()
     {
@@ -43,5 +47,52 @@ public class ListAllItems : MonoBehaviour
                 i++;
             }
         }
+    }
+    public static GameObject CreateIcon(int id, int amount)
+    {
+        GameObject icon = Instantiate(instance.listeallItems[id].prefabIcon);
+        icon.GetComponent<Item>().amount = amount;
+        return icon;
+    }
+
+    public static bool Create3DItem(GameObject item, Transform drop)
+    {
+        bool wasaddedfully = false;
+        GameObject gameObject = Instantiate(instance.listeallItems[item.GetComponent<Item>().ItemData.id].prefab3D, drop.position, Quaternion.identity);
+        GameObject canvas = new();
+        GameObject CanvasForPickup = Instantiate(instance.CanvasPickup);
+        gameObject.layer = 7;
+        gameObject.AddComponent<ItemPickup>();
+        gameObject.GetComponent<ItemPickup>()._prompt = "Ramasser";
+        gameObject.AddComponent<InteractionPromptUI>();
+        gameObject.GetComponent<InteractionPromptUI>()._uiPanel = CanvasForPickup;
+        gameObject.GetComponent<InteractionPromptUI>()._promptText = CanvasForPickup.GetComponentInChildren<TextMeshProUGUI>();
+        CanvasForPickup.AddComponent<CanvasAboveObject>();
+        CanvasForPickup.transform.SetParent(gameObject.transform);
+        CanvasForPickup.transform.position = new Vector3(0, 0.1f, 0);
+        canvas.name = "Canvasimage";
+        canvas.transform.SetParent(gameObject.transform);
+        canvas.AddComponent<Canvas>();
+        if (item.GetComponent<Item>().amount <= item.GetComponent<Item>().ItemData.amountStockableMax)
+        {
+            gameObject.GetComponent<Item3d>().IconItem = item;
+            //ObjectDroped.GetComponent<Item3d>().IconItem.SetActive(false);
+            wasaddedfully = true;
+        }
+        else
+        {
+            GameObject ItemCopy = Instantiate(item);
+            ItemCopy.GetComponent<Item>().amount = item.GetComponent<Item>().ItemData.amountStockableMax;
+            item.GetComponent<Item>().amount -= item.GetComponent<Item>().ItemData.amountStockableMax;
+            gameObject.GetComponent<Item3d>().IconItem = ItemCopy;
+            //ItemCopy.SetActive(false);
+        }
+        gameObject.GetComponent<Item3d>().IconItem.transform.SetParent(canvas.transform);
+        gameObject.GetComponent<Item3d>().IconItem.GetComponent<Image>().sprite = gameObject.GetComponent<Item3d>().IconItem.GetComponent<Item>().ItemData.iconImage;
+        gameObject.AddComponent<BoxCollider>();
+        gameObject.AddComponent<Rigidbody>();
+        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+        canvas.SetActive(false);
+        return wasaddedfully;
     }
 }
