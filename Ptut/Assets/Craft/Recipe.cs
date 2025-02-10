@@ -41,22 +41,23 @@ public class Recipe : MonoBehaviour
         RecipeAmount = recipe.craftableItem.amount;
 
         bool canCraft = true;
-        Debug.Log(recipe.craftableItem.requiredItem);
+
         for (int i = 0; i < recipe.requiredItems.Length; i++)
         {
             ItemDataAndAmount requiredItem = recipe.requiredItems[i]; // R�cup�re le prefab GameObject pour cet item requis
 
             if (!Inventory.instance.HasItem(requiredItem))
             {
-                Debug.Log("Pas de " + recipe.requiredItems[i].requiredItem.id);
+                //Debug.Log("Pas de " + recipe.requiredItems[i].requiredItem.id);
                 canCraft = false;
+                break;
             }
             GameObject requiredItemGO = Instantiate(elementRequiredPrefab, elementsRequiredPrefab);
             requiredItemGO.transform.GetChild(0).GetComponent<Image>().sprite = currentRecipe.requiredItems[i].requiredItem.iconImage;
             CreateTextAmount(requiredItemGO, recipe.requiredItems[i].amount);
             
         }
-        Debug.Log(canCraft);
+
         craftButton.image.sprite = canCraft ? canBuildIcon : cantBuildIcon;
         craftButton.enabled = canCraft;
         //Debug.Log("Etat de canCraft = " + canCraft +" Recette : "+recipe);
@@ -96,7 +97,6 @@ public class Recipe : MonoBehaviour
         Inventory.instance.AddtoInventory(instance);
 
         CraftingSystem.instance.UpdateDisplayedRecipes();
-        Debug.Log("Hascraft");
     }
     public void CreateTextAmount(GameObject sprite , int amount)
     {

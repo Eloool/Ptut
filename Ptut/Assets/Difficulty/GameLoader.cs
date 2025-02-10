@@ -31,13 +31,14 @@ public class GameLoader : MonoBehaviour
         }
 
         Time.timeScale = 0.0f;
+        Application.targetFrameRate = 60;
     }
 
     void Awake()
     {
         modeEasy = Resources.Load<DifficultyLevel>("DifficultyEasy");
-        modeNormal = Resources.Load<DifficultyLevel>("DifficultyHard");
-        modeHard = Resources.Load<DifficultyLevel>("DifficultyMedium");
+        modeNormal = Resources.Load<DifficultyLevel>("DifficultyMedium");
+        modeHard = Resources.Load<DifficultyLevel>("DifficultyHard");
     }
     public void LoadModeEasy()
     {
@@ -55,6 +56,8 @@ public class GameLoader : MonoBehaviour
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
         Time.timeScale = 1f; //Set le time scale à 1 car on le met a 0 dans le Start
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void LoadModeNormal()
@@ -72,7 +75,8 @@ public class GameLoader : MonoBehaviour
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
         Time.timeScale = 1f;
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void LoadModeHard()
@@ -90,6 +94,8 @@ public class GameLoader : MonoBehaviour
         canvaDifficulty.SetActive(false);
         canvaStats.SetActive(true);
         Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void LoadModeCustom()
@@ -121,6 +127,8 @@ public class GameLoader : MonoBehaviour
         canvaStats.SetActive(true);
 
         Time.timeScale = 1f; // Réactive le jeu
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ShowCustomMode()
