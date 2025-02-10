@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-// MoveBehaviour inherits from GenericBehaviour. This class corresponds to basic walk and run behaviour, it is the default behaviour.
 public class MoveBehaviour : GenericBehaviour
 {
     PlayerStats playerStats;
@@ -20,6 +19,12 @@ public class MoveBehaviour : GenericBehaviour
     private bool jump;                              // Boolean to determine whether or not the player started a jump.
     private bool isColliding;                       // Boolean to determine if the player has collided with an obstacle.
 
+    // Sound variables
+    public AudioClip movementSound;                 // Sound to play when moving.
+    private AudioSource audioSource;                // Reference to the AudioSource component.
+    public float normalPitch = 1.0f;               // Normal pitch for walking/running.
+    public float sprintPitch = 1.25f;              // Increased pitch for sprinting.
+
     // Start is always called after any Awake functions.
     void Start()
     {
@@ -34,6 +39,15 @@ public class MoveBehaviour : GenericBehaviour
         behaviourManager.SubscribeBehaviour(this);
         behaviourManager.RegisterDefaultBehaviour(this.behaviourCode);
         speedSeeker = runSpeed;
+
+        // Get the AudioSource component or add one if it doesn't exist.
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = movementSound;
+        audioSource.loop = true; // Activer la lecture en boucle
     }
 
     // Update is used to set features regardless the active behaviour.
@@ -46,6 +60,30 @@ public class MoveBehaviour : GenericBehaviour
         }
 
         stamina = playerStats.currStamina;
+
+        // Play movement sound when moving (walking, running, or sprinting).
+        if ((behaviourManager.GetH != 0 || behaviourManager.GetV != 0) && behaviourManager.IsGrounded())
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
+            // Adjust pitch based on whether the player is sprinting.
+            if (behaviourManager.IsSprinting() && stamina > 0)
+            {
+                audioSource.pitch = sprintPitch; // Augmenter la pitch pour le sprint.
+            }
+            else
+            {
+                audioSource.pitch = normalPitch; // Pitch normale pour la marche/course.
+            }
+        }
+        // Stop the sound when the player stops moving.
+        else if ((behaviourManager.GetH == 0 && behaviourManager.GetV == 0) || !behaviourManager.IsGrounded())
+        {
+            audioSource.Stop();
+        }
     }
 
     // LocalFixedUpdate overrides the virtual function of the base class.
@@ -194,4 +232,3 @@ public class MoveBehaviour : GenericBehaviour
         GetComponent<CapsuleCollider>().material.staticFriction = 0.6f;
     }
 }
-
