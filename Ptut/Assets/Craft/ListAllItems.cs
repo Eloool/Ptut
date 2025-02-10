@@ -50,7 +50,7 @@ public class ListAllItems : MonoBehaviour
     }
     public static GameObject CreateIcon(int id, int amount)
     {
-        GameObject icon = Instantiate(instance.listeallItems[id].prefabIcon);
+        GameObject icon = Instantiate(instance.listeallItems[id].prefabIcon,new Vector3(0,0,0),Quaternion.identity);
         icon.GetComponent<Item>().amount = amount;
         return icon;
     }
