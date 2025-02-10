@@ -17,77 +17,6 @@ public abstract class InventoryBase : MonoBehaviour
         }
         ListeObjets.RemoveRange(ListeObjets.Count - 4, 4);
     }
-    public void AddIconIventaire(int id, int amount)
-    {
-        if (id < ListAllItems.instance.listeallItems.Count() && id >= 0)
-        {
-            int numbericons = 1 + amount / ListAllItems.instance.listeallItems[id].prefabIcon.GetComponent<Item>().ItemData.amountStockableMax;
-            if (ListAllItems.instance.listeallItems[id].prefabIcon.GetComponent<Item>().ItemData.amountStockableMax == 1)
-            {
-                --numbericons;
-            }
-            int numberdone = 0;
-            while (numberdone < numbericons)
-            {
-                bool asadded = false;
-                GameObject icon = Instantiate(ListAllItems.instance.listeallItems[id].prefabIcon);
-                if (numberdone == numbericons - 1)
-                {
-                    icon.GetComponent<Item>().amount = amount;
-                }
-                else
-                {
-                    icon.GetComponent<Item>().amount = icon.GetComponent<Item>().ItemData.amountStockableMax;
-                }
-                for (int i = 0; i < ListeObjets.Count; i++)
-                {
-                    if (ListeObjets[i].item == null)
-                    {
-                        ListeObjets[i].AddItemtoSlot(icon.GetComponent<Item>());
-                        icon.GetComponent<Item>().gameObject.transform.SetParent(ListeObjets[i].transform);
-                        ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-                        ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-                        icon.GetComponent<Item>().parent = ListeObjets[i].gameObject;
-                        ListeObjets[i].item.gameObject.GetComponent<Image>().sprite = ListAllItems.instance.listeallItems[id].prefabIcon.GetComponent<Item>().ItemData.iconImage;
-                        icon.GetComponent<Item>().CreateTextAmount();
-                        asadded = true;
-
-                        break;
-                    }
-                    else
-                    {
-                        if (ListeObjets[i].item.GetComponent<Item>().ItemData.id == icon.GetComponent<Item>().ItemData.id &&
-                            icon.GetComponent<Item>().ItemData.amountStockableMax >= ListeObjets[i].item.GetComponent<Item>().amount + amount)
-                        {
-                            ListeObjets[i].AddtwoItem(ListeObjets[i].item, icon.GetComponent<Item>());
-                            ListeObjets[i].item.UpdateTextAmount();
-                            asadded = true;
-                            break;
-
-                        }
-                    }
-                }
-                if (!asadded)
-                {
-                    GameObject ObjectDroped = Instantiate(ListAllItems.instance.listeallItems[id].prefab3D, new Vector3(0, 10, 0), Quaternion.identity);
-                    ObjectDroped.AddComponent<MeshCollider>();
-                    ObjectDroped.GetComponent<MeshCollider>().convex = true;
-                    ObjectDroped.AddComponent<Rigidbody>();
-                    Debug.Log("Non Ajouté");
-                    Destroy(icon);
-                }
-                else
-                {
-                    amount -= icon.GetComponent<Item>().ItemData.amountStockableMax;
-                }
-                numberdone++;
-            }
-        }
-        else
-        {
-            Debug.LogError("Mauvais id");
-        }
-    }
     public bool AddIconIventaire(GameObject item)
     {
         if (item.GetComponent<Item>().amount == 0)
@@ -98,13 +27,7 @@ public abstract class InventoryBase : MonoBehaviour
         {
             if (ListeObjets[i].item == null && item.GetComponent<Item>().amount <= item.GetComponent<Item>().ItemData.amountStockableMax && item.GetComponent<Item>().amount > 0)
             {
-                ListeObjets[i].AddItemtoSlot(item.GetComponent<Item>());
-                item.GetComponent<Item>().gameObject.transform.SetParent(ListeObjets[i].transform);
-                ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-                ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-                item.GetComponent<Item>().parent = ListeObjets[i].gameObject;
-                ListeObjets[i].item.gameObject.GetComponent<Image>().sprite = item.GetComponent<Item>().ItemData.iconImage;
-                item.GetComponent<Item>().CreateTextAmount();
+                ListeObjets[i].AddNewItemInSlot(item);
                 return true;
             }
             else if (ListeObjets[i].item == null && item.GetComponent<Item>().amount > item.GetComponent<Item>().ItemData.amountStockableMax)
@@ -116,13 +39,7 @@ public abstract class InventoryBase : MonoBehaviour
                 }
                 itemnew.GetComponent<Item>().amount = itemnew.GetComponent<Item>().ItemData.amountStockableMax;
                 item.GetComponent<Item>().amount -= item.GetComponent<Item>().ItemData.amountStockableMax;
-                ListeObjets[i].AddItemtoSlot(itemnew.GetComponent<Item>());
-                itemnew.GetComponent<Item>().gameObject.transform.SetParent(ListeObjets[i].transform);
-                ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-                ListeObjets[i].item.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-                itemnew.GetComponent<Item>().parent = ListeObjets[i].gameObject;
-                ListeObjets[i].item.gameObject.GetComponent<Image>().sprite = itemnew.GetComponent<Item>().ItemData.iconImage;
-                itemnew.GetComponent<Item>().CreateTextAmount();
+                ListeObjets[i].AddNewItemInSlot(itemnew);
             }
             else
             {

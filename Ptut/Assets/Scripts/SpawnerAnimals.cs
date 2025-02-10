@@ -19,9 +19,11 @@ public class SpawnerAnimals : MonoBehaviour
 
     public Terrain terrain; // Assurez-vous que cet objet est assigné dans l'inspecteur
 
+    public GameObject player; // Assigne le joueur dans l'inspecteur
+
     void Start()
     {
-        // Récupérer la taille du terrain
+        // Vérification que le terrain est bien assigné
         if (terrain == null)
         {
             Debug.LogError("Le terrain n'est pas assigné !");
@@ -29,20 +31,43 @@ public class SpawnerAnimals : MonoBehaviour
         }
 
         float terrainWidth = terrain.terrainData.size.x;
-        TailleMap = terrainWidth; // Mets la TailleMap à la longueur du terrain
-        TailleChunk = TailleMap / nbChunkInLine; // Calculer la taille d'un chunk
+        TailleMap = terrainWidth;
+        TailleChunk = TailleMap / nbChunkInLine;
 
-        // Appeler la fonction Spawner pour chaque type d'animal
-        SpawnEntities(Sheep, 25f / 64f); // Moutons, Nb entité moyens
-        SpawnEntities(Bear, 40f / 64f); // Ours, Nb entité moyens
-        SpawnEntities(Goat, 30f / 64f); // Chèvres, Nb entité moyens
-        SpawnEntities(Pig, 25f / 64f); // Cochons, Nb entité moyens
-        SpawnEntities(Horse, 23f / 64f); // Chevaux, Nb entité moyens
-        SpawnEntities(Cow, 29f / 64f); // Vaches, Nb entité moyens
+        // Déplacer le joueur à une position aléatoire
+        if (player != null)
+        {
+            MovePlayerToRandomPosition();
+        }
+        else
+        {
+            Debug.LogError("Aucun joueur assigné !");
+        }
 
-        // Appeler la fonction pour spawner une seule RockSword
+        // Spawner les entités
+        SpawnEntities(Sheep, 25f / 64f);
+        SpawnEntities(Bear, 40f / 64f);
+        SpawnEntities(Goat, 30f / 64f);
+        SpawnEntities(Pig, 25f / 64f);
+        SpawnEntities(Horse, 23f / 64f);
+        SpawnEntities(Cow, 29f / 64f);
+
+        // Spawner une seule RockSword
         SpawnSingleEntity(RockSword);
     }
+
+    void MovePlayerToRandomPosition()
+    {
+        float spawnX = Random.Range(0, TailleMap);
+        float spawnZ = Random.Range(0, TailleMap);
+        float spawnY = GetTerrainHeightAtPosition(new Vector3(spawnX, 0, spawnZ));
+
+        Vector3 randomPosition = new Vector3(spawnX, spawnY, spawnZ);
+        player.transform.position = randomPosition;
+
+        Debug.Log($"Joueur déplacé à {randomPosition}");
+    }
+
 
     float GetTerrainHeightAtPosition(Vector3 position)
     {

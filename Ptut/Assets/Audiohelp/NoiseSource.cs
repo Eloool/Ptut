@@ -102,4 +102,10 @@ public class NoiseSource : MonoBehaviour
             activeNoiseIcon = null;
         }
     }
+
+    private void OnDestroy()
+    {
+        ClearNoiseIcon();
+    }
+
 }
