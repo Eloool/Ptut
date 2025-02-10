@@ -34,55 +34,57 @@ public class Oven : InteractibleGameObject
     public void StartCooking()
     {
         bool canBeginCooking = false;
-        if (Bruler != null && FuelRemaining>=0)
+        if (Bruler != null && FuelRemaining >= 0)
         {
-            CookingData = CanvasOven.instance.GetCookingData(Bruler.ItemData);
-            if (Sortie == null )
+            if (CanvasOven.instance.TryGetCookingData(Bruler.ItemData, out CookingData))
             {
-                if (Bruler.amount >= CookingData.ItemsNeededforCooking.amount)
+                if (Sortie == null)
                 {
-                    canBeginCooking = true;
-                }
-            }
-            else
-            {
-                if (Sortie.ItemData == CookingData.ItemGotbyCooking.requiredItem &&
-                    CookingData.ItemGotbyCooking.amount + Sortie.amount <= Sortie.ItemData.amountStockableMax
-                    )
-                {
-                    canBeginCooking = true;
-                }
-            }
-            if (Bruler.amount <= 0)
-            {
-                canBeginCooking = false;
-                Bruler.parent.GetComponent<InventoryItem>().item = null;
-                Bruler.parent = null;
-                Destroy(Bruler.gameObject);
-                Bruler = null;
-            }
-            if(Combustible == null)
-            {
-                canBeginCooking = false;
-            }
-            else
-            {
-                fuel = Combustible.GetStat<FuelStat>();
-            }
-        }
-        if (canBeginCooking)
-        {
-            if (CookingData != null && fuel !=null)
-            {
-                if (CookingData.ItemsNeededforCooking.requiredItem == Bruler.ItemData)
-                {
-                    iscooking = true;
-                    HealthItem = HealthBruler;
-                    currentTimeBetweenTicks = 0.0f;
-                    if (FuelRemaining <= 0)
+                    if (Bruler.amount >= CookingData.ItemsNeededforCooking.amount)
                     {
-                        Combustible.MinusOne();
-                        FuelRemaining = fuel.maxFuel;
+                        canBeginCooking = true;
+                    }
+                }
+                else
+                {
+                    if (Sortie.ItemData == CookingData.ItemGotbyCooking.requiredItem &&
+                        CookingData.ItemGotbyCooking.amount + Sortie.amount <= Sortie.ItemData.amountStockableMax
+                        )
+                    {
+                        canBeginCooking = true;
+                    }
+                }
+                if (Bruler.amount <= 0)
+                {
+                    canBeginCooking = false;
+                    Bruler.parent.GetComponent<InventoryItem>().item = null;
+                    Bruler.parent = null;
+                    Destroy(Bruler.gameObject);
+                    Bruler = null;
+                }
+                if (Combustible == null)
+                {
+                    canBeginCooking = false;
+                }
+                else
+                {
+                    fuel = Combustible.GetStat<FuelStat>();
+                }
+            }
+            if (canBeginCooking)
+            {
+                if (CookingData != null && fuel != null)
+                {
+                    if (CookingData.ItemsNeededforCooking.requiredItem == Bruler.ItemData)
+                    {
+                        iscooking = true;
+                        HealthItem = HealthBruler;
+                        currentTimeBetweenTicks = 0.0f;
+                        if (FuelRemaining <= 0)
+                        {
+                            Combustible.MinusOne();
+                            FuelRemaining = fuel.maxFuel;
+                        }
                     }
                 }
             }

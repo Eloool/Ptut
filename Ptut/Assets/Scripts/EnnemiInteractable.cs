@@ -41,9 +41,7 @@ public class EnnemiInteractable : InteractableBase
                     int DroppedAmmount = Random.Range(item1.amountMin, item1.amountMax + 1);
                     if (DroppedAmmount > 0)
                     {
-                        GameObject itemDropped = Instantiate(ListAllItems.instance.listeallItems[item1.Item.id].prefabIcon);
-                        itemDropped.GetComponent<Item>().amount = DroppedAmmount;
-                        Inventory.instance.AddtoInventory(itemDropped);
+                        Inventory.instance.AddtoInventory(ListAllItems.CreateIcon(item1.Item.id,DroppedAmmount));
                     }
                 }
                 StartCoroutine(death());

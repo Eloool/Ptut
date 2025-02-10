@@ -140,7 +140,6 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     }
     virtual public void DropItem(Item ItemDropped)
     {
-
         if (item == null)
         {
             ItemDropped.gameObject.transform.SetParent(Position);
@@ -185,4 +184,16 @@ public class InventoryItem : MonoBehaviour,IDropHandler
     {
         return;
     } 
+
+    public void AddNewItemInSlot(GameObject item)
+    {
+        AddItemtoSlot(item.GetComponent<Item>());
+        item.GetComponent<Item>().gameObject.transform.SetParent(transform);
+        item.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+        item.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+        item.gameObject.GetComponent<RectTransform>().localRotation = Quaternion.identity;
+        item.GetComponent<Item>().parent = gameObject;
+        item.gameObject.GetComponent<Image>().sprite = item.GetComponent<Item>().ItemData.iconImage;
+        item.GetComponent<Item>().CreateTextAmount();
+    }
 }
