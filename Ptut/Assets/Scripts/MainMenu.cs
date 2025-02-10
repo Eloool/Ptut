@@ -10,29 +10,14 @@ public class MainMenu : MonoBehaviour
     public GameObject _LoadingScreen;
     public Image LoadingFill;
 
-    public void LoadScene(int sceneId)
+
+    public void Start()
     {
-        StartCoroutine(LoadSceneAsync(sceneId));
-    }
-
-    IEnumerator LoadSceneAsync(int SceneId)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneId);
-
-        _LoadingScreen.SetActive(true);
-
-        while (!operation.isDone)
-        {
-            float progressvalue = Mathf.Clamp01(operation.progress / 0.9f);
-            LoadingFill.fillAmount = progressvalue;
-            yield return null;
-        }
+        Time.timeScale = 0f;
     }
     public void PlayGame()
     {
-        Time.timeScale = 1.0f;
-        //SceneManager.LoadSceneAsync(1);
-        LoadScene(1);
+        Time.timeScale = 0.0f;
     }
 
     public void goHome()
@@ -46,8 +31,4 @@ public class MainMenu : MonoBehaviour
         //UnityEditor.EditorApplication.isPlaying = false; // quits the game (temporary code)
     }
 
-    public void Start()
-    {
-        Time.timeScale = 0f;
-    }
 }
