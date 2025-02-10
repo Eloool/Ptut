@@ -50,7 +50,7 @@ public class Recipe : MonoBehaviour
             {
                 //Debug.Log("Pas de " + recipe.requiredItems[i].requiredItem.id);
                 canCraft = false;
-                break;
+
             }
             GameObject requiredItemGO = Instantiate(elementRequiredPrefab, elementsRequiredPrefab);
             requiredItemGO.transform.GetChild(0).GetComponent<Image>().sprite = currentRecipe.requiredItems[i].requiredItem.iconImage;
