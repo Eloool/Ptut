@@ -11,6 +11,8 @@ public class SpawnerAnimals : MonoBehaviour
     public GameObject Cow;
     public GameObject Sheep;
 
+    public GameObject CanvasAffichageSound;
+
     public GameObject RockSword;
 
     public float nbChunkInLine = 8; // Nombre de chunks sur une ligne
@@ -110,6 +112,7 @@ public class SpawnerAnimals : MonoBehaviour
                     Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
 
                     Instantiate(entityPrefab, spawnPos, Quaternion.identity);
+                    entityPrefab.GetComponent<NoiseSource>().CanvasAffichage = CanvasAffichageSound;
                 }
             }
         }

@@ -110,6 +110,27 @@ public class Recipe : MonoBehaviour
         myText.rectTransform.sizeDelta = new Vector2(50, 20);
         myText.rectTransform.localPosition = new Vector3(-25, (float)(-myText.rectTransform.sizeDelta.x / 2), 0);
     }
+
+    public void CheckIfCanCraft()
+    {
+        bool canCraft = true;
+
+        for (int i = 0; i < currentRecipe.requiredItems.Length; i++)
+        {
+            ItemDataAndAmount requiredItem = currentRecipe.requiredItems[i]; // R�cup�re le prefab GameObject pour cet item requis
+
+            if (!Inventory.instance.HasItem(requiredItem))
+            {
+                //Debug.Log("Pas de " + currentRecipe.requiredItems[i].requiredItem.id);
+                canCraft = false;
+                break;
+            }
+        }
+
+        craftButton.image.sprite = canCraft ? canBuildIcon : cantBuildIcon;
+        craftButton.enabled = canCraft;
+        //Debug.Log("Etat de canCraft = " + canCraft +" Recette : "+currentRecipe);
+    }
 }
 
 

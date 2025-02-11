@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hand : Stats
+public class Hand : MonoBehaviour
 {
-    public GameObject ObjectInHand;
+    private GameObject ObjectInHand;
     private Quaternion QuaternionObject;
     public GameObject PointHand;
     
     public static Hand instance;
 
-    public PlayerMovement player;
-    public BasicBehaviour behaviourManager;
+    private PlayerMovement player;
+    private BasicBehaviour behaviourManager;
 
     private bool canHit = true;
 
     private void Start()
     {
+        player = GetComponent<PlayerMovement>();
         behaviourManager = GetComponent<BasicBehaviour>();
     }
 

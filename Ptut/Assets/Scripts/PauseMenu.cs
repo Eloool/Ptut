@@ -10,10 +10,8 @@ public class PauseMenu : ToogleCanvas
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject Settings;
 
-    
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -32,7 +30,7 @@ public class PauseMenu : ToogleCanvas
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        
+        Settings.SetActive(false);
         GameIsPaused = false;
     }
 

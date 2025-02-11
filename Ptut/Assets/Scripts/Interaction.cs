@@ -9,10 +9,10 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactibleMask;
-    [SerializeField] private List<InteractionPromptUI> _interactionPromptUIList = new List<InteractionPromptUI>();
+    private List<InteractionPromptUI> _interactionPromptUIList = new List<InteractionPromptUI>();
 
     private Collider[] _colliders = new Collider[60];
-    [SerializeField] private int _numFound;
+    private int _numFound;
 
     private List<InteractibleGameObject> _interactableList = new List<InteractibleGameObject>();
 
