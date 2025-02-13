@@ -94,7 +94,6 @@ public class CraftingSystem : ToogleCanvas
             Destroy(child.gameObject);
         }
 
-        float startTime = Time.realtimeSinceStartup;
         Inventory.instance.ReloadItems();
         for (int i = 0; i < availableRecipes.Length; i++)
         {
@@ -102,7 +101,5 @@ public class CraftingSystem : ToogleCanvas
             recipe.GetComponent<Recipe>().Configure(availableRecipes[i]);
             recipeUis.Add(recipe);
         }
-        float endTime = Time.realtimeSinceStartup;
-        Debug.Log($"UpdateDisplayedRecipes executed in {endTime - startTime} seconds");
     }
 }

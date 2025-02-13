@@ -11,6 +11,7 @@ public class PauseMenu : ToogleCanvas
 
     public GameObject pauseMenuUI;
     public GameObject Settings;
+    public GameObject Help;
 
     void Update()
     {
@@ -31,6 +32,7 @@ public class PauseMenu : ToogleCanvas
     {
         pauseMenuUI.SetActive(false);
         Settings.SetActive(false);
+        Help.SetActive(false);
         GameIsPaused = false;
     }
 
