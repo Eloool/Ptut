@@ -1747,8 +1747,8 @@ MonoBehaviour:
   health: 0
   dataAmountMinMaxDrop:
   - Item: {fileID: 11400000, guid: 1a5dd80a6af16e540bda94b982d6df03, type: 2}
-    amountMax: 2
-    amountMin: 0
+    amountMax: 3
+    amountMin: 1
   - Item: {fileID: 11400000, guid: 50d09d0c45ebc4242956b2c9251c57d8, type: 2}
     amountMax: 4
     amountMin: 0

@@ -14,7 +14,7 @@ public class Item : Stats, IDragHandler, IEndDragHandler, IBeginDragHandler
     public bool candragitem =false;
     private RectTransform rectTransform;
     private Canvas canvas;
-    private GameObject textObject;
+    public GameObject textObject;
     public GameObject parent;
     public TMP_Text myText;
     public int slot = -1;
