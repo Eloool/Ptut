@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +9,8 @@ public class CraftingSystem : ToogleCanvas
 { 
     [SerializeField]
     private RecipeData[] availableRecipes;
+
+    private List<GameObject> recipeUis =new List<GameObject>();
 
     [SerializeField]
     private GameObject recipeUiPrefab;
@@ -32,6 +36,7 @@ public class CraftingSystem : ToogleCanvas
     {
         craftingTable.SetActive(false);
         Debug.Log("recette disponible " + availableRecipes.Length);
+        StartCraftingCanvas();
     }
 
     void Update()
@@ -53,20 +58,12 @@ public class CraftingSystem : ToogleCanvas
     {
         EventSystem.current.SetSelectedGameObject(null);
 
-        foreach (Transform child in recipesParent)
+        Inventory.instance.ReloadItems();
+        foreach(GameObject recipe in recipeUis)
         {
-            child.gameObject.SetActive(false); 
-            Destroy(child.gameObject);   
-        }
-
-        for (int i = 0; i < availableRecipes.Length; i++)
-        {
-            GameObject recipe = Instantiate(recipeUiPrefab, recipesParent);
-            recipe.GetComponent<Recipe>().Configure(availableRecipes[i]);
+            recipe.GetComponent<Recipe>().CheckIfCanCraft();
         }
     }
-
-
 
     public void ToggleCraftTable(bool active)
     {
@@ -87,4 +84,22 @@ public class CraftingSystem : ToogleCanvas
         }
     }
 
+    private void StartCraftingCanvas()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+
+        foreach (Transform child in recipesParent)
+        {
+            child.gameObject.SetActive(false);
+            Destroy(child.gameObject);
+        }
+
+        Inventory.instance.ReloadItems();
+        for (int i = 0; i < availableRecipes.Length; i++)
+        {
+            GameObject recipe = Instantiate(recipeUiPrefab, recipesParent);
+            recipe.GetComponent<Recipe>().Configure(availableRecipes[i]);
+            recipeUis.Add(recipe);
+        }
+    }
 }

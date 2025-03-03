@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class Inventory : ToogleCanvas
     public Transform DropPoint;
     public static Inventory instance;
 
+    private List<Item> ItemsInInventory = new List<Item>();
 
     private void Start()
     {
@@ -121,31 +123,20 @@ public class Inventory : ToogleCanvas
             Debug.LogError("L'indice pass� en param�tre est inferieur à 0 ou superieur à la longeur du tableau.");
             return false;
         }
+
         int countItem = 0;
-        foreach (var invItem in inventaire.ListeObjets) 
+
+        foreach (var actionBarItem in ItemsInInventory)
         {
-            if (invItem.item != null && invItem.item.ItemData.id == item.requiredItem.id)
+            if ( actionBarItem.ItemData.id == item.requiredItem.id)
             {
-                countItem += invItem.item.amount;
+                countItem += actionBarItem.amount;
                 if (countItem >= item.amount)
                 {
                     return true;
                 }
             }
         }
-
-        foreach (var actionBarItem in ActionBar.ListeObjets)
-        {
-            if (actionBarItem.item != null && actionBarItem.item.ItemData.id == item.requiredItem.id)
-            {
-                countItem += actionBarItem.item.amount;
-                if (countItem >= item.amount)
-                {
-                    return true;
-                }
-            }
-        }
-
         return false;
     }
     public void DeleteItems(ItemDataAndAmount[] ids)
@@ -178,5 +169,24 @@ public class Inventory : ToogleCanvas
             itemOut = inventaire.GetFirstItemWithType(item);
         }
         return itemOut;
+    }
+
+    public void ReloadItems()
+    {
+        ItemsInInventory.Clear();
+        foreach (var invItem in ActionBar.ListeObjets)
+        {
+            if (invItem.item != null)
+            {
+                ItemsInInventory.Add(invItem.item);
+            }
+        }
+        foreach (var invItem in inventaire.ListeObjets)
+        {
+            if (invItem.item != null)
+            {
+                ItemsInInventory.Add(invItem.item);
+            }
+        }
     }
 }

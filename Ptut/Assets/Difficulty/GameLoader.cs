@@ -42,60 +42,62 @@ public class GameLoader : MonoBehaviour
     }
     public void LoadModeEasy()
     {
+        LoadMode(modeEasy);
+        //player.maxHealth = modeEasy.getHealth();
+        //player.currHealth = modeEasy.getHealth();
 
-        player.maxHealth = modeEasy.getHealth();
-        player.currHealth = modeEasy.getHealth();
+        //player.damageMultiplicator = modeEasy.getDamage();
 
-        player.damageMultiplicator = modeEasy.getDamage();
+        //player.healthLossPerSecond = modeEasy.getHealthDecrease();
+        //player.hungerLossPerSecond = modeEasy.getHungerDecrease();
+        //player.thirstLossPerSecond = modeEasy.getThirstDecrease();
+        //player.staminaLossPerSecond = modeEasy.getStaminaDecrease();
 
-        player.healthLossPerSecond = modeEasy.getHealthDecrease();
-        player.hungerLossPerSecond = modeEasy.getHungerDecrease();
-        player.thirstLossPerSecond = modeEasy.getThirstDecrease();
-        player.staminaLossPerSecond = modeEasy.getStaminaDecrease();
-
-        canvaDifficulty.SetActive(false);
-        canvaStats.SetActive(true);
-        Time.timeScale = 1f; //Set le time scale à 1 car on le met a 0 dans le Start
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //canvaDifficulty.SetActive(false);
+        //canvaStats.SetActive(true);
+        //Time.timeScale = 1f; //Set le time scale à 1 car on le met a 0 dans le Start
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void LoadModeNormal()
     {
-        player.maxHealth = modeNormal.getHealth();
-        player.currHealth = modeNormal.getHealth();
+        LoadMode(modeNormal);
+        //player.maxHealth = modeNormal.getHealth();
+        //player.currHealth = modeNormal.getHealth();
 
-        player.damageMultiplicator = modeNormal.getDamage();
+        //player.damageMultiplicator = modeNormal.getDamage();
 
-        player.healthLossPerSecond = modeNormal.getHealthDecrease();
-        player.hungerLossPerSecond = modeNormal.getHungerDecrease();
-        player.thirstLossPerSecond = modeNormal.getThirstDecrease();
-        player.staminaLossPerSecond = modeNormal.getStaminaDecrease();
+        //player.healthLossPerSecond = modeNormal.getHealthDecrease();
+        //player.hungerLossPerSecond = modeNormal.getHungerDecrease();
+        //player.thirstLossPerSecond = modeNormal.getThirstDecrease();
+        //player.staminaLossPerSecond = modeNormal.getStaminaDecrease();
 
-        canvaDifficulty.SetActive(false);
-        canvaStats.SetActive(true);
-        Time.timeScale = 1f;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //canvaDifficulty.SetActive(false);
+        //canvaStats.SetActive(true);
+        //Time.timeScale = 1f;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void LoadModeHard()
     {
-        player.maxHealth = modeHard.getHealth();
-        player.currHealth = modeHard.getHealth();
+        LoadMode(modeHard);
+        //player.maxHealth = modeHard.getHealth();
+        //player.currHealth = modeHard.getHealth();
 
-        player.damageMultiplicator = modeHard.getDamage();
+        //player.damageMultiplicator = modeHard.getDamage();
 
-        player.healthLossPerSecond = modeHard.getHealthDecrease();
-        player.hungerLossPerSecond = modeHard.getHungerDecrease();
-        player.thirstLossPerSecond = modeHard.getThirstDecrease();
-        player.staminaLossPerSecond = modeHard.getStaminaDecrease();
+        //player.healthLossPerSecond = modeHard.getHealthDecrease();
+        //player.hungerLossPerSecond = modeHard.getHungerDecrease();
+        //player.thirstLossPerSecond = modeHard.getThirstDecrease();
+        //player.staminaLossPerSecond = modeHard.getStaminaDecrease();
 
-        canvaDifficulty.SetActive(false);
-        canvaStats.SetActive(true);
-        Time.timeScale = 1f;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //canvaDifficulty.SetActive(false);
+        //canvaStats.SetActive(true);
+        //Time.timeScale = 1f;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void LoadModeCustom()
@@ -187,4 +189,19 @@ public class GameLoader : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    private void LoadMode(DifficultyLevel mode)
+    {
+        player.maxHealth = mode.getHealth();
+        player.currHealth = mode.getHealth();
+        player.damageMultiplicator = mode.getDamage();
+        player.healthLossPerSecond = mode.getHealthDecrease();
+        player.hungerLossPerSecond = mode.getHungerDecrease();
+        player.thirstLossPerSecond = mode.getThirstDecrease();
+        player.staminaLossPerSecond = mode.getStaminaDecrease();
+        canvaDifficulty.SetActive(false);
+        canvaStats.SetActive(true);
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }

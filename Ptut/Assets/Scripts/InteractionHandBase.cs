@@ -11,7 +11,7 @@ public class InteractionHandBase : MonoBehaviour
     private Collider[] _colliders = new Collider[60];
     private int _numFound;
 
-    public List<InteractableBase> _interactableList = new List<InteractableBase>();
+    protected List<InteractableBase> _interactableList = new List<InteractableBase>();
 
     private void Update()
     {

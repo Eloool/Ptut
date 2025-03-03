@@ -4263,7 +4263,6 @@ GameObject:
   - component: {fileID: 4759202153906523557}
   - component: {fileID: 4274990799625519393}
   - component: {fileID: 6897718610713924272}
-  - component: {fileID: 4992697329442302277}
   - component: {fileID: 6570148682296898413}
   - component: {fileID: 1184631625054978661}
   m_Layer: 9
@@ -4387,6 +4386,9 @@ MonoBehaviour:
   jumpIntertialForce: 10
   speed: 0
   speedSeeker: 0
+  movementSound: {fileID: 0}
+  normalPitch: 1
+  sprintPitch: 1.25
 --- !u!114 &7250167553956914240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4457,6 +4459,7 @@ MonoBehaviour:
   armorResistance: 0
   damageMultiplicator: 0
   isDying: 0
+  canvaGO: {fileID: 0}
 --- !u!114 &5550245168659635276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4529,20 +4532,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _interactableList: []
---- !u!114 &4992697329442302277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5973814404873994049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4961ed6b4a15053439eef0803545c376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 0}
-  alpha: 0
 --- !u!114 &6570148682296898413
 MonoBehaviour:
   m_ObjectHideFlags: 0

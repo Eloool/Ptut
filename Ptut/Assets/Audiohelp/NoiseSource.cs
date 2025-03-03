@@ -8,6 +8,7 @@ public class NoiseSource : MonoBehaviour
     public GameObject noiseIconPrefab; // Préfab pour l'icône visuelle
     private GameObject activeNoiseIcon; // Instance de l'icône
     public AudioSource audioSource; // Source audio associée au bruit
+    public GameObject CanvasAffichage;
 
     private Transform playerTransform; // Référence au joueur
     public bool modesourd;
@@ -69,17 +70,17 @@ public class NoiseSource : MonoBehaviour
 
     public void EmitNoise()
     {
-        GameObject canvas = GameObject.Find("InventoryCanvas");
-        if (canvas == null)
-        {
-            Debug.LogError("Canvas introuvable !");
-            return;
-        }
+        //GameObject canvas = GameObject.Find("InventoryCanvas");
+        //if (canvas == null)
+        //{
+        //    Debug.LogError("Canvas introuvable !");
+        //    return;
+        //}
 
         if (activeNoiseIcon == null && noiseIconPrefab != null && modesourd == true)
         {
             // Crée l'icône et l'attache au Canvas
-            activeNoiseIcon = Instantiate(noiseIconPrefab, canvas.transform);
+            activeNoiseIcon = Instantiate(noiseIconPrefab, CanvasAffichage.transform);
 
             // Configure le NoiseIndicator pour suivre le joueur et la source
             NoiseIndicator indicator = activeNoiseIcon.GetComponent<NoiseIndicator>();
