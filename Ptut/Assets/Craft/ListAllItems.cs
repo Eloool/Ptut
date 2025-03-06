@@ -62,7 +62,7 @@ public class ListAllItems : MonoBehaviour
         GameObject CanvasForPickup = Instantiate(instance.CanvasPickup);
         gameObject.layer = 7;
         gameObject.AddComponent<ItemPickup>();
-        gameObject.GetComponent<ItemPickup>()._prompt = "Ramasser";
+        gameObject.GetComponent<ItemPickup>()._prompt = "Pick up (E)";
         gameObject.AddComponent<InteractionPromptUI>();
         gameObject.GetComponent<InteractionPromptUI>()._uiPanel = CanvasForPickup;
         gameObject.GetComponent<InteractionPromptUI>()._promptText = CanvasForPickup.GetComponentInChildren<TextMeshProUGUI>();
