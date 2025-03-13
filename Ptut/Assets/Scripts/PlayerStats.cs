@@ -96,9 +96,9 @@ public class PlayerStats : MonoBehaviour
 
     void UpdateHealthBarFill()
     {
-        if (currHunger >= 80 && currThirst >= 80)
+        if (currHunger >= 80 && currThirst >= 80 && currHealth < maxHealth)
         {
-            currHealth += healthLossPerSecond * Time.deltaTime;
+            currHealth += 4 * healthLossPerSecond * Time.deltaTime;
         }
 
         healthBarFill.fillAmount = currHealth / maxHealth;
