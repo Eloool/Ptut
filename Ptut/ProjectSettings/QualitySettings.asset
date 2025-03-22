@@ -253,6 +253,6 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
-    Server: 0
-    Standalone: 0
-    WebGL: 0
+    Server: 2
+    Standalone: 4
+    WebGL: 2
