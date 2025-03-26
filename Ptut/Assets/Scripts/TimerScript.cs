@@ -3,7 +3,7 @@ using UnityEngine.UI; // Nécessaire si tu affiches du texte dans l'UI
 
 public class TimerScript : MonoBehaviour
 {
-    public float timerDuration = 60f * 60f; // 60 minutes en secondes
+    public float timerDuration = 30f * 60f; // 30 minutes en secondes
     private float timer;
     public Text timerText; // UI Text pour afficher le temps (optionnel)
     public GameObject endMessage; // Un objet ou panneau qui s'affichera à la fin
