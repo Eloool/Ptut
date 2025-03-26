@@ -61,8 +61,8 @@ public class MoveBehaviour : GenericBehaviour
 
         stamina = playerStats.currStamina;
 
-        // Play movement sound when moving (walking, running, or sprinting).
-        if ((behaviourManager.GetH != 0 || behaviourManager.GetV != 0) && behaviourManager.IsGrounded())
+        // Play movement sound when moving (walking, running, or sprinting) and time is not paused.
+        if (Time.timeScale > 0 && (behaviourManager.GetH != 0 || behaviourManager.GetV != 0) && behaviourManager.IsGrounded())
         {
             if (!audioSource.isPlaying)
             {
@@ -79,11 +79,12 @@ public class MoveBehaviour : GenericBehaviour
                 audioSource.pitch = normalPitch; // Pitch normale pour la marche/course.
             }
         }
-        // Stop the sound when the player stops moving.
-        else if ((behaviourManager.GetH == 0 && behaviourManager.GetV == 0) || !behaviourManager.IsGrounded())
+        // Stop the sound when the player stops moving or time is paused.
+        else if (Time.timeScale == 0 || (behaviourManager.GetH == 0 && behaviourManager.GetV == 0) || !behaviourManager.IsGrounded())
         {
             audioSource.Stop();
         }
+
     }
 
     // LocalFixedUpdate overrides the virtual function of the base class.

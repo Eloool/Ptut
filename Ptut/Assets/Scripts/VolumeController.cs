@@ -6,7 +6,7 @@ public class VolumeController : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
 
     public float savedVolume; // To store the volume before muting
-    public bool isMuted = false; // Flag to track mute state
+    private bool isMuted = true; // Flag to track mute state
 
     void Start()
     {
