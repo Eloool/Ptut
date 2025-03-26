@@ -22,6 +22,7 @@ public class NoiseSource : MonoBehaviour
             audioSource.maxDistance = noiseRadius; // Distance maximale pour l'atténuation
             audioSource.rolloffMode = AudioRolloffMode.Linear; // Atténuation linéaire
             audioSource.loop = true; // Active la boucle
+            audioSource.ignoreListenerPause = false; // Respecte le Time.timeScale
         }
 
         // Trouve le joueur
@@ -42,6 +43,21 @@ public class NoiseSource : MonoBehaviour
     {
         modesourd = GameManager.inDeafMode;
         if (playerTransform == null) return;
+
+        // Arrêter tous les sons si le jeu est en pause
+        if (Time.timeScale == 0)
+        {
+            AudioListener.pause = true; // Met en pause tous les sons
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Pause();
+            }
+            return;
+        }
+        else
+        {
+            AudioListener.pause = false; // Relance le son global
+        }
 
         // Calculer la distance entre le joueur et la source de bruit
         float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
@@ -67,6 +83,7 @@ public class NoiseSource : MonoBehaviour
             }
         }
     }
+
 
     public void EmitNoise()
     {
